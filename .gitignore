@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Flask
+instance/
+.webassets-cache
+
+# Database files (too large for GitHub)
+ATLAS.db
+*_backup*.db
+ATLAS_backup*.db
+
+# Data files (PDB files too numerous for GitHub)
+data/
+
+# Temporary files
+*.pickle
+temp_*.py
+hairpin.db
+
+# PDB files (generated at runtime)
+pdb_files/
+custom_pdb_files/
+
+# CSV results (generated at runtime)
+search_results.csv
+custom_search_results.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

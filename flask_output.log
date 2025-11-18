@@ -1,0 +1,129 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 572-125-016
+127.0.0.1 - - [06/Nov/2025 12:48:59] "GET / HTTP/1.1" 200 -
+ * Detected change in 'D:\\Project\\Atlas website to deploy\\test_fixes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 572-125-016
+127.0.0.1 - - [06/Nov/2025 12:49:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:49:26] "POST /search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:49:46] "POST /search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:50:02] "POST /search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:50:20] "POST /search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:50:35] "POST /search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:33] "GET /static/css/nicepage.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/index.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images/RNAbackgroundforweb2.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images/motif_type_vs_number.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images/motif_size_distribution_internal.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images/motif_size_distribution_hairpin.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images/motif_size_distribution_bulge.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images/motif_size_distribution_3-wayjunction.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/js/jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images//image8.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/js/nicepage.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images/image9.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images//image4.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:34] "GET /static/images//image7.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:35] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [06/Nov/2025 12:59:37] "GET /user-guide HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:37] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:37] "GET /static/css/index.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:43] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:43] "GET /static/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images/motif_type_vs_number.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images/motif_size_distribution_internal.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images/motif_size_distribution_hairpin.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images/motif_size_distribution_bulge.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images/motif_size_distribution_3-wayjunction.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/js/jquery.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/js/nicepage.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images//image8.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images/image9.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images//image4.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:44] "GET /static/images//image7.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:46] "GET /custom-motif-search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 12:59:46] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 12:59:46] "GET /static/css/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:00:40] "POST /process-custom-motif HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:00:40] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:00:40] "GET /static/css/results.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:00:44] "GET /custom-motif-search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:00:44] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:00:44] "GET /static/css/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:00:45] "POST /process-custom-motif HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:01:52] "POST /process-custom-motif HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:01:52] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:01:52] "GET /static/css/results.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:04:44] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images/motif_size_distribution_hairpin.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images/motif_type_vs_number.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images/motif_size_distribution_internal.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images/motif_size_distribution_bulge.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images/motif_size_distribution_3-wayjunction.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/js/jquery.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images/RNAbackgroundforweb2.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images//image8.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/js/nicepage.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images/image9.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images//image4.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:04:45] "GET /static/images//image7.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:05:08] "POST /search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:05:08] "GET /static/css/results.css HTTP/1.1" 304 -
+ * Detected change in 'D:\\Project\\Atlas website to deploy\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 572-125-016
+127.0.0.1 - - [06/Nov/2025 13:12:27] "POST /search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:12:27] "GET /static/css/results.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:12:50] "GET /custom-motif-search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:12:50] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:12:50] "GET /static/css/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:13:22] "POST /process-custom-motif HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:13:22] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 13:13:22] "GET /static/css/results.css HTTP/1.1" 304 -
+ * Detected change in 'D:\\Project\\Atlas website to deploy\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 572-125-016
+127.0.0.1 - - [06/Nov/2025 13:22:27] "POST /search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 13:22:28] "GET /static/css/results.css HTTP/1.1" 304 -
+ * Detected change in 'D:\\Project\\Atlas website to deploy\\app.py', reloading
+ * Restarting with stat
+127.0.0.1 - - [06/Nov/2025 15:11:33] "GET /custom-motif-search HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 15:11:33] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:11:33] "GET /static/css/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:19:20] "GET /user-guide HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 15:19:20] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:19:21] "GET /static/css/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:29:47] "GET /user-guide HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 15:29:47] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:29:48] "GET /static/css/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/index.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images/RNAbackgroundforweb2.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images/motif_type_vs_number.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images/motif_size_distribution_internal.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images/motif_size_distribution_bulge.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images/motif_size_distribution_hairpin.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images/motif_size_distribution_3-wayjunction.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/js/jquery.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/js/nicepage.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images//image8.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images/image9.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images//image4.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:04] "GET /static/images//image7.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:11] "GET /user-guide HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 15:36:11] "GET /static/css/nicepage.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Nov/2025 15:36:12] "GET /static/css/index.css HTTP/1.1" 304 -

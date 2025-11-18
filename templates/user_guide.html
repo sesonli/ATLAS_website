@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATLAS User Guide</title>
+  <link rel="stylesheet" href="/static/css/nicepage.css" />
+  <link rel="stylesheet" href="/static/css/index.css" />
+  <style>
+    body { background-color: #f5f7fa; font-family: 'Open Sans', sans-serif; margin-top: 60px; }
+    .home-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #478ac9;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .home-button:hover {
+      background-color: #3a7ab5;
+      color: white;
+      text-decoration: none;
+    }
+    .guide-container { max-width: 1100px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    h1 { color: #478ac9; font-size: 2.2rem; margin-bottom: 12px; border-bottom: 3px solid #478ac9; padding-bottom: 10px; }
+    h2 { color: #478ac9; font-size: 1.6rem; margin-top: 32px; margin-bottom: 12px; }
+    h3 { color: #2c3e50; font-size: 1.3rem; margin-top: 20px; margin-bottom: 8px; }
+    p { color: #333; line-height: 1.8; margin-bottom: 12px; }
+    ul { margin-left: 24px; margin-bottom: 16px; line-height: 1.8; }
+    li { margin-bottom: 8px; color: #444; }
+    .highlight-box { background-color: #e8f4f8; border-left: 4px solid #478ac9; padding: 16px; margin: 20px 0; border-radius: 4px; }
+    .motif-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0; }
+    .motif-type { background-color: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #dee2e6; }
+    .motif-type strong { color: #478ac9; }
+    .citation-box { background-color: #fff9e6; border: 1px solid #ffc107; padding: 20px; margin: 24px 0; border-radius: 6px; }
+    .back { margin-top: 32px; text-align: center; }
+    .btn { background-color: #478ac9; color: #fff; border: none; border-radius: 5px; padding: 12px 24px; cursor: pointer; font-size: 16px; }
+    .btn:hover { background-color: #3a7ab5; }
+    code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; color: #e74c3c; }
+  </style>
+</head>
+<body>
+  <a href="/" class="home-button">🏠 Home</a>
+  <div class="guide-container">
+    <h1>ATLAS User Guide</h1>
+    <p style="font-size: 1.1rem; color: #555;">
+      <strong>ATLAS</strong> (Advanced Template Library for Assembly and Structure) is a comprehensive 3D RNA motif library
+      that enables researchers to search for RNA structural motifs from the Protein Data Bank. Using graph-based algorithms,
+      ATLAS catalogs over 400,000 RNA motif structures with atomic-level 3D coordinates.
+    </p>
+
+    <h2>What is ATLAS?</h2>
+    <div class="highlight-box">
+      <p style="margin: 0;">
+        ATLAS features <strong>nucleotide-level graph representations</strong> of RNA structures incorporating both
+        <strong>Watson-Crick (WC)</strong> and <strong>non-Watson-Crick (non-WC) interactions</strong>.
+        The database includes five types of RNA motifs: hairpin loops, internal loops, bulges, multiway junctions (up to 8-way),
+        and pseudoknots. Each motif includes 3D atomic coordinates retrieved from PDB files and graph representations
+        with and without non-WC interactions.
+      </p>
+    </div>
+
+    <h2>Motif Types in ATLAS</h2>
+    <div class="motif-types">
+      <div class="motif-type">
+        <strong>Hairpin Loops</strong><br>
+        Single-stranded loop closed by a stem (29.8% of database)
+      </div>
+      <div class="motif-type">
+        <strong>Internal Loops</strong><br>
+        Unpaired regions on both strands between base pairs (50.1% of database)
+      </div>
+      <div class="motif-type">
+        <strong>Bulges</strong><br>
+        Unpaired region on one strand only (12.7% of database)
+      </div>
+      <div class="motif-type">
+        <strong>Multiway Junctions</strong><br>
+        3-way to 10-way junction structures (76.5% for 3-way)
+      </div>
+      <div class="motif-type">
+        <strong>Pseudoknots</strong><br>
+        Complex structures with crossing base pairs (1.6% of database)
+      </div>
+    </div>
+
+    <h2>How to Use ATLAS</h2>
+
+    <h3>1. Type-Based Motif Search</h3>
+    <p>Search pre-indexed RNA motifs from the ATLAS database by motif type and size:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Select <strong>Motif Type</strong> from the dropdown menu:
+        <ul>
+          <li>Hairpin - closed loops with unpaired nucleotides</li>
+          <li>Internal - unpaired nucleotides on both strands</li>
+          <li>Bulge - unpaired nucleotides on one strand</li>
+          <li>Multiway Junction - 3-way, 4-way, or 5-way junctions</li>
+          <li>Pseudoknot - H, HHH, Hlout, HLin, LL, or LR types</li>
+        </ul>
+      </li>
+      <li><strong>Step 2:</strong> Select <strong>Motif Size</strong> (number of unpaired nucleotides) or junction type.
+        <em>Note: The displayed size is the pure motif size; backend conversion handles stem nucleotides automatically.</em></li>
+      <li><strong>Step 3:</strong> Click <code>SEARCH</code> to view results</li>
+      <li><strong>Step 4:</strong> Download results:
+        <ul>
+          <li><strong>CSV file</strong> - Contains motif metadata including PDB IDs, nucleotide numbers, and graph representations</li>
+          <li><strong>ZIP file</strong> - Contains all matched PDB structures with atomic coordinates</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>2. Graph-Based Structure Search</h3>
+    <p>Draw your own RNA motif structure using an interactive graph-based interface:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Click <code>Graph-Based Structure Search</code> button on the homepage</li>
+      <li><strong>Step 2:</strong> Build your motif structure:
+        <ul>
+          <li>Click <code>Add Node</code> to add nucleotides (nodes)</li>
+          <li>Connect nodes by selecting two nodes and clicking an edge type button</li>
+          <li><strong>Edge Types:</strong>
+            <ul>
+              <li><code>Covalent Bond [0,0,1]</code> - Backbone connections between adjacent nucleotides</li>
+              <li><code>Watson-Crick [1,0,0]</code> - Standard WC base pairs (A-U, G-C)</li>
+              <li><code>Non-Watson-Crick [0,1,0]</code> - Non-canonical base pairs (wobble, Hoogsteen, etc.)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Step 3:</strong> Use <code>Load Example 1</code> to see a sample 4-node structure</li>
+      <li><strong>Step 4:</strong> Click <code>Submit Search</code> - The system uses <strong>subgraph isomorphism algorithm</strong>
+        to find matching patterns <em>(processing may take several minutes for complex structures; current timeout: 20 minutes)</em></li>
+      <li><strong>Step 5:</strong> Download matched structures as CSV and PDB ZIP files from the results page</li>
+    </ul>
+
+    <h3>3. Understanding Search Results</h3>
+    <ul>
+      <li><strong>PDB ID</strong> - Protein Data Bank identifier for the source structure</li>
+      <li><strong>NT Number</strong> - Nucleotide residue numbers in the motif (comma-separated)</li>
+      <li><strong>Motif Type</strong> - Classification of the structural motif</li>
+      <li><strong>Filecontent</strong> - 3D atomic coordinates in PDB format</li>
+      <li><strong>Graph Representation</strong> - Nucleotide-level graph with edge attributes for interaction types</li>
+    </ul>
+
+    <h2>Database Statistics</h2>
+    <p>ATLAS contains <strong>448,694 unique motif entries</strong> extracted from RNA structures in the Protein Data Bank:</p>
+    <ul>
+      <li>Internal loops: 50.1% (most common motif type)</li>
+      <li>Hairpin loops: 29.8%</li>
+      <li>Bulges: 12.7%</li>
+      <li>3-way junctions: 4.4%</li>
+      <li>Pseudoknots: 1.6% (6 subtypes classified)</li>
+    </ul>
+
+    <h2>Technical Details</h2>
+    <ul>
+      <li><strong>Graph Representation:</strong> Nucleotide-level graphs where nodes represent nucleotides and edges represent
+        interactions (covalent bonds, WC pairs, non-WC pairs) with one-hot encoding attributes</li>
+      <li><strong>Search Algorithm:</strong> Subgraph isomorphism with NetworkX GraphMatcher for exact edge attribute matching</li>
+      <li><strong>Data Source:</strong> RNA structures from PDB, processed with MC-Annotate for interaction analysis</li>
+    </ul>
+
+    <div class="back">
+      <button class="btn" onclick="window.location.href='/'">Back to Home</button>
+    </div>
+  </div>
+</body>
+</html> 

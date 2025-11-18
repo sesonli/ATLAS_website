@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motif Search</title>
+</head>
+<body>
+    <h1>Search for RNA Motifs</h1>
+
+    <form action="/search" method="POST">
+        <!-- Dropdown for Motif Type -->
+        <label for="motif-type">Select Motif Type:</label>
+        <select id="motif-type" name="motif_type">
+            <option value="hairpin">Hairpin</option>
+            <option value="internal">Internal</option>
+            <option value="bulge">Bulge</option>
+            <option value="multiway-junction">Multiway Junction</option>
+        </select>
+
+        <!-- Dropdown for Nucleotide Number -->
+        <label for="nt-number">Nucleotide Number (for Hairpin, Internal, Bulge):</label>
+        <select id="nt-number" name="nt_number">
+            <!-- Options will be dynamically populated based on motif type -->
+        </select>
+
+        <br><br>
+        <button type="submit">Search</button>
+    </form>
+
+    <script>
+        // Object storing allowed nt_number ranges for each motif type
+        const motifNtNumbers = {
+            'hairpin': [3, 4, 5, 6],
+            'internal': [4, 5, 6, 7],
+            'bulge': [3, 5, 7],
+            'multiway-junction': [3, 4, 5, 6, 7, 8]  // Just an example, adjust as needed
+        };
+
+        // Function to update the nt_number dropdown options
+        function updateNtNumberOptions(motifType) {
+            const ntNumberSelect = document.getElementById('nt-number');
+            ntNumberSelect.innerHTML = '';  // Clear previous options
+
+            const ntNumbers = motifNtNumbers[motifType] || [];
+            ntNumbers.forEach(num => {
+                const option = document.createElement('option');
+                option.value = num;
+                option.text = num;
+                ntNumberSelect.add(option);
+            });
+        }
+
+        // Listen for changes in the motif type dropdown
+        document.getElementById('motif-type').addEventListener('change', function() {
+            updateNtNumberOptions(this.value);
+        });
+
+        // Initial call to populate the nt_number dropdown on page load
+        updateNtNumberOptions(document.getElementById('motif-type').value);
+    </script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Motif Search Results</title>
+    <link rel="stylesheet" href="static/css/nicepage.css">
+    <link rel="stylesheet" href="static/css/results.css">
+    <style>
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #478ac9;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .home-button:hover {
+            background-color: #3a7ab5;
+            color: white;
+            text-decoration: none;
+        }
+        .results-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        body {
+            margin-top: 60px;
+        }
+        
+        .search-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #478ac9;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f1f3f4;
+            border-radius: 5px;
+        }
+        
+        .download-button {
+            background-color: #478ac9;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .download-button:hover {
+            background-color: #3a7ab5;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .back-button {
+            background-color: #6c757d;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .back-button:hover {
+            background-color: #545b62;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .results-table th,
+        .results-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .results-table th {
+            background-color: #478ac9;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .results-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .results-table tr:hover {
+            background-color: #e6f3ff;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: linear-gradient(135deg, #478ac9, #3a7ab5);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 150px;
+            margin: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .processing-info {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .error-info {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            gap: 10px;
+        }
+        .pagination button {
+            background-color: #478ac9;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .pagination button:hover:not(:disabled) {
+            background-color: #3a7ab5;
+        }
+        .pagination button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .pagination span {
+            color: #333;
+            font-weight: 500;
+        }
+        .page-info {
+            text-align: center;
+            margin: 15px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        /* PDB link hover effect */
+        .results-table td a:hover {
+            text-decoration: underline !important;
+        }
+
+        /* Action buttons styling - text links */
+        .action-btn {
+            background: none;
+            border: none;
+            color: #478ac9;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 0;
+            margin: 0 8px;
+        }
+        .action-btn:hover {
+            text-decoration: underline;
+            color: #3a6fa8;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="home-button">🏠 Home</a>
+    <div class="results-container">
+        <h1 style="text-align: center; color: #478ac9;">Custom Motif Search Results</h1>
+        
+        <div class="search-info">
+            <h3>Search Information:</h3>
+            <p><strong>Graph Structure:</strong> {{ graph_info.nodes }} nodes, {{ graph_info.edges }} edges</p>
+            <p><strong>Search Time:</strong> {{ processing_time }} seconds</p>
+            <p><strong>Database Searched:</strong> {{ total_structures }} RNA structures</p>
+        </div>
+
+        {% if search_results %}
+            <!-- Download buttons at the top -->
+            <div class="download-section" style="background-color: #e8f4f8; border-left: 5px solid #478ac9;">
+                <h3 style="color: #478ac9; margin-top: 0;">📥 Download Results</h3>
+                <p><strong>Found {{ search_results|length }} matches in {{ unique_pdbs|length }} unique PDB structures</strong></p>
+                <a href="/download_custom_csv" class="download-button">
+                    📄 Download CSV Results
+                </a>
+                <a href="/download_custom_pdb_zip" class="download-button">
+                    📦 Download PDB Files (ZIP)
+                </a>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">{{ search_results|length }}</span>
+                    <span class="stat-label">Matches Found</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">{{ unique_pdbs|length }}</span>
+                    <span class="stat-label">Unique PDB IDs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">{{ total_structures }}</span>
+                    <span class="stat-label">Structures Searched</span>
+                </div>
+            </div>
+
+            <h3>Search Results ({{ search_results|length }} matches found):</h3>
+
+            <div class="page-info">
+                Showing <span id="page-range-start">0</span>-<span id="page-range-end">0</span> of <span id="total-results">{{ search_results|length }}</span> results
+            </div>
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Motif Type</th>
+                        <th>PDB ID</th>
+                        <th>Nucleotide Range</th>
+                        <th>Full Nucleotide Sequence</th>
+                        <th style="width: 140px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in search_results %}
+                    <tr class="result-row">
+                        <td>{{ result[0] }}</td>
+                        <td>{{ result[1] }}</td>
+                        <td>
+                            <a href="https://www.rcsb.org/structure/{{ result[2]|upper }}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               style="color: #478ac9; text-decoration: none; font-weight: 500;">
+                                {{ result[2] }}
+                            </a>
+                        </td>
+                        <td>{{ result[3] }}</td>
+                        <td>{{ result[4] }}</td>
+                        <td style="text-align: center; padding: 5px;">
+                            <button class="action-btn download-btn"
+                                    onclick="downloadCustomPDB({{ result[0] }}, '{{ result[2] }}', '{{ result[1] }}');"
+                                    title="Download PDB file">
+                                Download PDB
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <button id="first-page" onclick="goToPage(1)">First</button>
+                <button id="prev-page" onclick="previousPage()">Previous</button>
+                <span>Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+                <button id="next-page" onclick="nextPage()">Next</button>
+                <button id="last-page" onclick="goToLastPage()">Last</button>
+            </div>
+
+            <script>
+                // Download custom search PDB file
+                function downloadCustomPDB(motifId, pdbId, motifName) {
+                    // For custom search results, we use standard type
+                    const url = `/download_single_pdb/${motifId}?type=standard&pdb_id=${pdbId}&motif_name=${encodeURIComponent(motifName)}`;
+                    window.location.href = url;
+                }
+
+                const rowsPerPage = 100;
+                let currentPage = 1;
+                const rows = document.querySelectorAll('.result-row');
+                const totalRows = rows.length;
+                const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+                function displayPage(page) {
+                    currentPage = page;
+                    const start = (page - 1) * rowsPerPage;
+                    const end = start + rowsPerPage;
+
+                    // Hide all rows
+                    rows.forEach((row, index) => {
+                        if (index >= start && index < end) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+
+                    // Update pagination info
+                    document.getElementById('current-page').textContent = page;
+                    document.getElementById('total-pages').textContent = totalPages;
+                    document.getElementById('page-range-start').textContent = start + 1;
+                    document.getElementById('page-range-end').textContent = Math.min(end, totalRows);
+
+                    // Update button states
+                    document.getElementById('first-page').disabled = (page === 1);
+                    document.getElementById('prev-page').disabled = (page === 1);
+                    document.getElementById('next-page').disabled = (page === totalPages);
+                    document.getElementById('last-page').disabled = (page === totalPages);
+
+                    // Scroll to top of results
+                    window.scrollTo({ top: 200, behavior: 'smooth' });
+                }
+
+                function nextPage() {
+                    if (currentPage < totalPages) {
+                        displayPage(currentPage + 1);
+                    }
+                }
+
+                function previousPage() {
+                    if (currentPage > 1) {
+                        displayPage(currentPage - 1);
+                    }
+                }
+
+                function goToPage(page) {
+                    if (page >= 1 && page <= totalPages) {
+                        displayPage(page);
+                    }
+                }
+
+                function goToLastPage() {
+                    displayPage(totalPages);
+                }
+
+                // Initialize pagination on page load
+                if (totalRows > 0) {
+                    displayPage(1);
+                }
+            </script>
+            
+        {% else %}
+            <div class="no-results">
+                <h2>No Matches Found</h2>
+                <p>Your custom motif structure did not match any patterns in our database.</p>
+                <p>Try modifying your motif structure or drawing a different pattern.</p>
+            </div>
+        {% endif %}
+        
+        {% if error_message %}
+            <div class="error-info">
+                <h4>Error:</h4>
+                <p>{{ error_message }}</p>
+            </div>
+        {% endif %}
+        
+        {% if processing_info %}
+            <div class="processing-info">
+                <h4>Processing Information:</h4>
+                <p>{{ processing_info }}</p>
+            </div>
+        {% endif %}
+        
+                 <div style="text-align: center; margin-top: 30px;">
+             <a href="/custom-motif-search" class="back-button">🎨 Draw Another Motif</a>
+             <a href="/" class="back-button">🏠 Back to Main Search</a>
+         </div>
+    </div>
+</body>
+</html> 

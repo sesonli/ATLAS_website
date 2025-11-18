@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph-Based Structure Search - Draw Your Motif</title>
+    <link rel="stylesheet" href="static/css/nicepage.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <style>
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #478ac9;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .home-button:hover {
+            background-color: #3a7ab5;
+            color: white;
+            text-decoration: none;
+        }
+        body {
+            margin-top: 60px;
+        }
+        .drawing-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .canvas-container {
+            border: 2px solid #478ac9;
+            border-radius: 5px;
+            margin: 20px 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        #motif-canvas {
+            cursor: crosshair;
+            background-color: #f9f9f9;
+        }
+        
+        .toolbar {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .edge-type-section {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #478ac9;
+        }
+        
+        .edge-type-section h4 {
+            margin: 0 0 10px 0;
+            color: #478ac9;
+        }
+        
+        .tool-button {
+            background-color: #478ac9;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .tool-button:hover {
+            background-color: #3a7ab5;
+        }
+        
+        .tool-button.active {
+            background-color: #e74c3c;
+        }
+        
+        .edge-type-button {
+            background-color: #6c757d;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            margin: 3px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .edge-type-button:hover {
+            background-color: #5a6268;
+        }
+        
+        .edge-type-button.active {
+            background-color: #28a745;
+        }
+        
+        .edge-type-button.covalent {
+            background-color: #dc3545;
+        }
+        
+        .edge-type-button.covalent.active {
+            background-color: #c82333;
+        }
+        
+        .edge-type-button.wc {
+            background-color: #007bff;
+        }
+        
+        .edge-type-button.wc.active {
+            background-color: #0056b3;
+        }
+        
+        .edge-type-button.non-wc {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        
+        .edge-type-button.non-wc.active {
+            background-color: #e0a800;
+        }
+        
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #478ac9;
+        }
+        
+        .form-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .search-button {
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .search-button:hover {
+            background-color: #c0392b;
+        }
+        
+        .back-button {
+            background-color: #6c757d;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .back-button:hover {
+            background-color: #545b62;
+        }
+        
+        .node-info {
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .edge-legend {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        
+        .legend-item {
+            display: inline-block;
+            margin: 5px 10px;
+        }
+        
+        .legend-line {
+            display: inline-block;
+            width: 20px;
+            height: 3px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        
+        /* Example section */
+        .examples-section {
+            margin: 10px 0 20px 0;
+            text-align: center;
+        }
+        .example-button {
+            background-color: #478ac9;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .example-button:hover {
+            background-color: #3a7ab5;
+        }
+        .example-note {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="home-button">🏠 Home</a>
+
+    <!-- Loading Spinner Overlay for Graph Search -->
+    <div id="graph-loading-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
+      <div style="text-align: center; color: white; max-width: 500px; padding: 30px;">
+        <div class="spinner" style="border: 8px solid #f3f3f3; border-top: 8px solid #e74c3c; border-radius: 50%; width: 70px; height: 70px; animation: spin 1s linear infinite; margin: 0 auto 25px;"></div>
+        <h2 style="color: white; font-size: 1.7rem; margin-bottom: 15px;">Processing Your Motif Structure...</h2>
+        <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6;">
+          Searching through RNA database using subgraph isomorphism algorithm.<br>
+          <strong>This may take up to 20 minutes for complex structures.</strong><br>
+          Please do not close this window.
+        </p>
+      </div>
+    </div>
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+
+    <div class="drawing-container">
+        <h1 style="text-align: center; color: #478ac9;">Graph-Based Structure Search</h1>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 10px;">
+            Draw your custom RNA motif structure and search for similar patterns in ATLAS database
+        </p>
+
+        <!-- Description Section -->
+        <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 5px solid #478ac9;">
+            <h3 style="color: #478ac9; margin-top: 0;">About Graph-Based Structure Search</h3>
+            <p style="line-height: 1.7; color: #333; margin-bottom: 10px;">
+                This tool uses a <strong>graph-based subgraph isomorphism algorithm</strong> to search for RNA structural patterns
+                matching your custom-drawn motif. Unlike type-based searches that use pre-defined motif types, this search allows you to:
+            </p>
+            <ul style="line-height: 1.7; color: #333; margin-left: 20px;">
+                <li>Define any arbitrary RNA structural pattern</li>
+                <li>Include <strong>non-Watson-Crick (non-WC) interactions</strong> such as wobble pairs, Hoogsteen pairs, and other non-canonical base pairs</li>
+                <li>Search across RNA structures extracted from the Protein Data Bank (PDB)</li>
+                <li>Retrieve matching 3D atomic coordinates and graph representations</li>
+            </ul>
+            <p style="line-height: 1.7; color: #333; margin-top: 10px;">
+                <strong>Note:</strong> Complex structures may take several minutes to process (current timeout: 20 minutes).
+                For very complex patterns, processing time may exceed the timeout limit. The algorithm performs exact subgraph matching with edge attribute constraints.
+            </p>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Use:</h3>
+            <ul>
+                <li><strong>Add Node:</strong> Click on the canvas to add nucleotide nodes (each node represents one nucleotide)</li>
+                <li><strong>Add Edge:</strong> Select edge type first, then click two nodes to connect them with the chosen interaction type</li>
+                <li><strong>Select:</strong> Click on nodes or edges to select and view their properties</li>
+                <li><strong>Delete:</strong> Select an element and press Delete key or click Delete button to remove it</li>
+                <li><strong>Clear All:</strong> Remove all nodes and edges from the canvas to start over</li>
+                <li><strong>Load Example:</strong> Click "Load Example 1" to see a sample 4-node hairpin loop structure</li>
+            </ul>
+        </div>
+        
+        <div class="toolbar">
+            <button id="node-tool" class="tool-button active">Add Node</button>
+            <button id="edge-tool" class="tool-button">Add Edge</button>
+            <button id="select-tool" class="tool-button">Select</button>
+            <button id="delete-tool" class="tool-button">Delete Selected</button>
+            <button id="clear-tool" class="tool-button">Clear All</button>
+        </div>
+        
+        <div class="edge-type-section">
+            <h4>Edge Types (Select before adding edges):</h4>
+            <button id="covalent-edge" class="edge-type-button covalent active">Covalent Bond</button>
+            <button id="wc-edge" class="edge-type-button wc">Watson-Crick Base Pair</button>
+            <button id="non-wc-edge" class="edge-type-button non-wc">Non-Watson-Crick Base Pair</button>
+        </div>
+        
+        <div class="edge-legend">
+            <strong>Edge Legend:</strong>
+            <div class="legend-item">
+                <span class="legend-line" style="background-color: #dc3545;"></span>
+                Covalent (Backbone)
+            </div>
+            <div class="legend-item">
+                <span class="legend-line" style="background-color: #007bff;"></span>
+                Watson-Crick Base Pair
+            </div>
+            <div class="legend-item">
+                <span class="legend-line" style="background-color: #ffc107;"></span>
+                Non-Watson-Crick Base Pair
+            </div>
+        </div>
+        
+        <!-- Examples section -->
+        <div class="examples-section">
+            <button id="example1-button" class="example-button">Example 1</button>
+            <div class="example-note">Loads 4 nucleotides (N1, N2, N3, N4) in a rectangle: N1–N2 and N3–N4 are non-WC; N1–N3 and N2–N4 are covalent.</div>
+        </div>
+        
+        <div style="text-align: center;">
+            <div class="canvas-container">
+                <canvas id="motif-canvas" width="800" height="500"></canvas>
+                <div id="node-info" class="node-info"></div>
+            </div>
+        </div>
+
+        <!-- Quick Guide Panel -->
+        <div style="max-width: 800px; margin: 30px auto 20px; padding: 25px; background-color: #f0f4f8; border-radius: 8px; border-left: 5px solid #478ac9; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="color: #478ac9; margin-top: 0; margin-bottom: 20px; text-align: center;">
+                📖 Quick Guide: How to Build Your Motif
+            </h3>
+            <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: #333; margin-bottom: 10px;">
+                        <span style="background-color: #478ac9; color: white; padding: 3px 8px; border-radius: 4px; margin-right: 8px;">1</span>
+                        Add Nodes (Nucleotides)
+                    </h4>
+                    <ul style="margin: 10px 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Click anywhere on the canvas above</li>
+                        <li>Each click adds a numbered nucleotide</li>
+                        <li>Nodes appear as blue circles with numbers</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: #333; margin-bottom: 10px;">
+                        <span style="background-color: #478ac9; color: white; padding: 3px 8px; border-radius: 4px; margin-right: 8px;">2</span>
+                        Add Edges (Connections)
+                    </h4>
+                    <ul style="margin: 10px 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Select edge type button (Covalent, Watson-Crick, etc.)</li>
+                        <li>Click first node, then second node</li>
+                        <li>Edge will appear as a colored line</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 15px; padding: 12px; background-color: #e8f4f8; border-radius: 4px; text-align: center; font-size: 14px;">
+                💡 <strong>Tip:</strong> Use "Clear All" to start over, or "Example 1" button above to see a sample motif structure.
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="motif-form" action="/process-custom-motif" method="POST">
+                <input type="hidden" id="graph-data" name="graph_data" value="">
+                <button type="submit" class="search-button">Search for Similar Motifs</button>
+                <button type="button" class="back-button" onclick="window.location.href='/'">Back to Main Search</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Canvas and drawing variables
+        const canvas = document.getElementById('motif-canvas');
+        const ctx = canvas.getContext('2d');
+        const nodeInfo = document.getElementById('node-info');
+        
+        let currentTool = 'node';
+        let currentEdgeType = 'covalent';
+        let nodes = [];
+        let edges = [];
+        let selectedNode = null;
+        let selectedEdge = null;
+        let firstSelectedNode = null;
+        let nodeCounter = 1;
+        
+        // Edge type attributes (used in find_hairpin.py)
+        const edgeAttributes = {
+            'covalent': [0, 0, 1],  // Backbone covalent bonds
+            'wc': [1, 0, 0],        // Watson-Crick base pairs  
+            'non-wc': [0, 1, 0]     // Non-Watson-Crick base pairs
+        };
+        
+        // Edge colors for visualization
+        const edgeColors = {
+            'covalent': '#dc3545',
+            'wc': '#007bff', 
+            'non-wc': '#ffc107'
+        };
+        
+        // Node and edge styling
+        const nodeRadius = 20;
+        const nodeColor = '#478ac9';
+        const selectedNodeColor = '#e74c3c';
+        const selectedEdgeColor = '#28a745';
+        
+        // Tool selection
+        document.querySelectorAll('.tool-button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tool-button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentTool = this.id.replace('-tool', '');
+                
+                // Reset selections when changing tools
+                selectedNode = null;
+                selectedEdge = null;
+                firstSelectedNode = null;
+                redraw();
+            });
+        });
+        
+        // Edge type selection
+        document.querySelectorAll('.edge-type-button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.edge-type-button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentEdgeType = this.id.replace('-edge', '');
+            });
+        });
+        
+        // Canvas event listeners
+        canvas.addEventListener('click', handleCanvasClick);
+        canvas.addEventListener('mousemove', handleMouseMove);
+        
+        // Keyboard event listener for delete
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Delete' || e.key === 'Backspace') {
+                deleteSelected();
+            }
+        });
+        
+        // Delete button
+        document.getElementById('delete-tool').addEventListener('click', deleteSelected);
+        
+        // Clear button
+        document.getElementById('clear-tool').addEventListener('click', function() {
+            if (confirm('Are you sure you want to clear all nodes and edges?')) {
+                nodes = [];
+                edges = [];
+                selectedNode = null;
+                selectedEdge = null;
+                firstSelectedNode = null;
+                nodeCounter = 1;
+                redraw();
+            }
+        });
+        
+        // Example 1 button
+        document.getElementById('example1-button').addEventListener('click', loadExample1);
+        
+        function handleCanvasClick(e) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            switch(currentTool) {
+                case 'node':
+                    addNode(x, y);
+                    break;
+                case 'edge':
+                    handleEdgeSelection(x, y);
+                    break;
+                case 'select':
+                    handleSelection(x, y);
+                    break;
+            }
+        }
+        
+        function handleMouseMove(e) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Show node info on hover
+            const hoveredNode = getNodeAt(x, y);
+            const hoveredEdge = getEdgeAt(x, y);
+            
+            if (hoveredNode) {
+                nodeInfo.style.display = 'block';
+                nodeInfo.style.left = (e.clientX + 10) + 'px';
+                nodeInfo.style.top = (e.clientY - 10) + 'px';
+                nodeInfo.textContent = `Node ${hoveredNode.id}`;
+            } else if (hoveredEdge) {
+                nodeInfo.style.display = 'block';
+                nodeInfo.style.left = (e.clientX + 10) + 'px';
+                nodeInfo.style.top = (e.clientY - 10) + 'px';
+                const edgeTypeNames = {
+                    'covalent': 'Covalent Bond',
+                    'wc': 'Watson-Crick',
+                    'non-wc': 'Non-Watson-Crick'
+                };
+                nodeInfo.textContent = `${edgeTypeNames[hoveredEdge.type]}`;
+            } else {
+                nodeInfo.style.display = 'none';
+            }
+        }
+        
+        function addNode(x, y) {
+            // Check if clicking too close to existing node
+            if (getNodeAt(x, y)) return;
+            
+            const node = {
+                id: nodeCounter++,
+                x: x,
+                y: y,
+                name: `N${nodeCounter-1}`
+            };
+            nodes.push(node);
+            redraw();
+        }
+        
+        function handleEdgeSelection(x, y) {
+            const clickedNode = getNodeAt(x, y);
+            
+            if (clickedNode) {
+                if (!firstSelectedNode) {
+                    firstSelectedNode = clickedNode;
+                    selectedNode = clickedNode;
+                } else if (firstSelectedNode !== clickedNode) {
+                    // Check if edge already exists
+                    const existingEdge = edges.find(e => 
+                        (e.from === firstSelectedNode.id && e.to === clickedNode.id) ||
+                        (e.from === clickedNode.id && e.to === firstSelectedNode.id)
+                    );
+                    
+                    if (!existingEdge) {
+                        edges.push({
+                            from: firstSelectedNode.id,
+                            to: clickedNode.id,
+                            type: currentEdgeType,
+                            attribute: edgeAttributes[currentEdgeType]
+                        });
+                    } else {
+                        alert('Edge already exists between these nodes!');
+                    }
+                    
+                    firstSelectedNode = null;
+                    selectedNode = null;
+                } else {
+                    // Clicked same node twice, cancel
+                    firstSelectedNode = null;
+                    selectedNode = null;
+                }
+                redraw();
+            }
+        }
+        
+        function handleSelection(x, y) {
+            selectedNode = getNodeAt(x, y);
+            selectedEdge = getEdgeAt(x, y);
+            redraw();
+        }
+        
+        function getNodeAt(x, y) {
+            return nodes.find(node => {
+                const dist = Math.sqrt((node.x - x) ** 2 + (node.y - y) ** 2);
+                return dist <= nodeRadius;
+            });
+        }
+        
+        function getEdgeAt(x, y) {
+            return edges.find(edge => {
+                const fromNode = nodes.find(n => n.id === edge.from);
+                const toNode = nodes.find(n => n.id === edge.to);
+                
+                if (!fromNode || !toNode) return false;
+                
+                // Check if point is close to line
+                const distToLine = distanceToLineSegment(x, y, fromNode.x, fromNode.y, toNode.x, toNode.y);
+                return distToLine <= 8;
+            });
+        }
+        
+        function distanceToLineSegment(px, py, x1, y1, x2, y2) {
+            const dx = x2 - x1;
+            const dy = y2 - y1;
+            const length = Math.sqrt(dx * dx + dy * dy);
+            
+            if (length === 0) return Math.sqrt((px - x1) ** 2 + (py - y1) ** 2);
+            
+            const t = Math.max(0, Math.min(1, ((px - x1) * dx + (py - y1) * dy) / (length * length)));
+            const projX = x1 + t * dx;
+            const projY = y1 + t * dy;
+            
+            return Math.sqrt((px - projX) ** 2 + (py - projY) ** 2);
+        }
+        
+        function deleteSelected() {
+            if (selectedNode) {
+                // Remove edges connected to this node
+                edges = edges.filter(edge => edge.from !== selectedNode.id && edge.to !== selectedNode.id);
+                // Remove the node
+                nodes = nodes.filter(node => node.id !== selectedNode.id);
+                selectedNode = null;
+            } else if (selectedEdge) {
+                edges = edges.filter(edge => edge !== selectedEdge);
+                selectedEdge = null;
+            }
+            redraw();
+        }
+        
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw edges
+            edges.forEach(edge => {
+                const fromNode = nodes.find(n => n.id === edge.from);
+                const toNode = nodes.find(n => n.id === edge.to);
+                
+                if (fromNode && toNode) {
+                    ctx.beginPath();
+                    ctx.moveTo(fromNode.x, fromNode.y);
+                    ctx.lineTo(toNode.x, toNode.y);
+                    
+                    // Use different colors for different edge types
+                    if (edge === selectedEdge) {
+                        ctx.strokeStyle = selectedEdgeColor;
+                        ctx.lineWidth = 4;
+                    } else {
+                        ctx.strokeStyle = edgeColors[edge.type];
+                        ctx.lineWidth = 3;
+                    }
+                    ctx.stroke();
+                }
+            });
+            
+            // Draw nodes
+            nodes.forEach(node => {
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, nodeRadius, 0, 2 * Math.PI);
+                
+                const isSelected = (node === selectedNode) || (node === firstSelectedNode);
+                ctx.fillStyle = isSelected ? selectedNodeColor : nodeColor;
+                ctx.fill();
+                
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Draw node label
+                ctx.fillStyle = 'white';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(node.name, node.x, node.y);
+            });
+        }
+        
+        // Example 1: preload a simple motif
+        function loadExample1() {
+            // Reset graph content
+            nodes = [];
+            edges = [];
+            selectedNode = null;
+            selectedEdge = null;
+            firstSelectedNode = null;
+            nodeCounter = 1;
+
+            // Create 4 nodes in a rectangle layout
+            nodes = [
+                { id: 1, x: 300, y: 200, name: 'N1' },
+                { id: 2, x: 500, y: 200, name: 'N2' },
+                { id: 3, x: 300, y: 350, name: 'N3' },
+                { id: 4, x: 500, y: 350, name: 'N4' }
+            ];
+
+            // Add edges with specified types
+            edges = [
+                { from: 1, to: 2, type: 'non-wc', attribute: edgeAttributes['non-wc'] },
+                { from: 3, to: 4, type: 'non-wc', attribute: edgeAttributes['non-wc'] },
+                { from: 1, to: 3, type: 'covalent', attribute: edgeAttributes['covalent'] },
+                { from: 2, to: 4, type: 'covalent', attribute: edgeAttributes['covalent'] }
+            ];
+
+            nodeCounter = 5; // Next node will be N5
+            redraw();
+        }
+        
+        // Form submission
+        document.getElementById('motif-form').addEventListener('submit', function(e) {
+            if (nodes.length === 0) {
+                e.preventDefault();
+                alert('Please draw at least one node before searching.');
+                return;
+            }
+
+            // Show loading spinner
+            document.getElementById('graph-loading-overlay').style.display = 'flex';
+            
+            // Convert graph to NetworkX-compatible format
+            const graphData = {
+                nodes: nodes.map(node => ({
+                    id: node.name,
+                    x: node.x,
+                    y: node.y
+                })),
+                edges: edges.map(edge => {
+                    const fromNode = nodes.find(n => n.id === edge.from);
+                    const toNode = nodes.find(n => n.id === edge.to);
+                    return {
+                        from: fromNode.name,
+                        to: toNode.name,
+                        type: edge.type,
+                        attribute: edge.attribute
+                    };
+                })
+            };
+            
+            document.getElementById('graph-data').value = JSON.stringify(graphData);
+        });
+        
+        // Initial draw
+        redraw();
+    </script>
+</body>
+</html> 

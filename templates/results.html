@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}"> <!-- Optionally, link your CSS here -->
+    <link rel="stylesheet" href="static/css/results.css">
+    <!-- 3Dmol.js for molecular visualization -->
+    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    <style>
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #478ac9;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .home-button:hover {
+            background-color: #3a7ab5;
+            color: white;
+            text-decoration: none;
+        }
+        .download-section {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #478ac9;
+            text-align: center;
+        }
+        .download-button {
+            background-color: #478ac9;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 8px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-button:hover {
+            background-color: #3a7ab5;
+        }
+        .result-summary {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 10px 0;
+        }
+        body {
+            margin-top: 60px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            gap: 10px;
+        }
+        .pagination button {
+            background-color: #478ac9;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .pagination button:hover:not(:disabled) {
+            background-color: #3a7ab5;
+        }
+        .pagination button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .pagination span {
+            color: #333;
+            font-weight: 500;
+        }
+        .page-info {
+            text-align: center;
+            margin: 15px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        /* PDB link hover effect */
+        td a:hover {
+            text-decoration: underline !important;
+        }
+
+        /* Incomplete record styling */
+        .incomplete-record {
+            background-color: #fff9e6 !important;
+        }
+        .incomplete-record:hover {
+            background-color: #fff3cd !important;
+        }
+        .filtered-out {
+            display: none !important;
+        }
+
+        /* Action buttons styling - text links */
+        .action-btn {
+            background: none;
+            border: none;
+            color: #478ac9;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 0;
+            margin: 0 8px;
+        }
+        .action-btn:hover {
+            text-decoration: underline;
+            color: #3a6fa8;
+        }
+
+        /* 3D Viewer Modal Styles */
+        .viewer-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .viewer-modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: 3% auto;
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .viewer-modal-header {
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #478ac9, #3a7ab5);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .viewer-modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .viewer-modal-header .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .viewer-modal-header .close-btn:hover {
+            opacity: 0.7;
+        }
+
+        .viewer-modal-body {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .viewer-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 4px solid #478ac9;
+        }
+
+        .viewer-info p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        #viewer-3d-container {
+            flex: 1;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            position: relative;
+            background-color: #000;
+        }
+
+        .viewer-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .row-clickable {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .row-clickable:hover {
+            background-color: #e6f3ff !important;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="home-button">🏠 Home</a>
+    <h1>Search Results</h1>
+
+    {% if warning %}
+    <div style="background-color: #fff3cd; border: 1px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px;">
+        <strong>⚠️ Notice:</strong> {{ warning }}
+    </div>
+    {% endif %}
+
+    {% if search_results %}
+        <!-- Download buttons at the top -->
+        <div class="download-section">
+            <p class="result-summary"><strong>Found {{ search_results|length }} results</strong></p>
+            <a href="download_csv?csv_path={{ csv_path }}" class="download-button">📥 Download CSV Results</a>
+            <a href="download_zip?motif_type={{ search_results[0][1] }}&nt_number={{ search_results[0][3].split(',') | length }}" class="download-button">📦 Download PDB Files (ZIP)</a>
+        </div>
+
+        <div class="page-info">
+            Showing <span id="page-range-start">0</span>-<span id="page-range-end">0</span> of <span id="total-results">{{ search_results|length }}</span> results
+            <span style="margin-left: 20px;">
+                <label style="cursor: pointer;">
+                    <input type="checkbox" id="show-incomplete" checked onchange="filterIncompleteRecords()">
+                    Show low quality records
+                </label>
+                <span style="margin-left: 10px; font-size: 0.9em; color: #666;">
+                    (⚠ = quality issues from PDB source)
+                </span>
+            </span>
+        </div>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Motif Type</th>
+                    <th>PDB ID</th>
+                    <th>Nucleotide Number</th>
+                    <th style="width: 60px; text-align: center;">Status</th>
+                    <th style="width: 240px; text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="results-tbody">
+                {% for result in search_results %}
+                <tr class="result-row row-clickable{% if result|length > 5 and not result[5] %} incomplete-record{% endif %}"
+                    data-motif-id="{{ result[0] }}"
+                    data-motif-type="{% if 'pseudoknot' in result[1] %}pseudoknot{% else %}standard{% endif %}"
+                    data-pdb-id="{{ result[2] }}"
+                    data-motif-name="{{ result[1] }}"
+                    data-nt-number="{{ result[3] }}"
+                    data-is-complete="{{ result[5] if result|length > 5 else 'True' }}"
+                    onclick="show3DStructure(this)"
+                    title="Click to view 3D structure">
+                    <td>{{ result[0] }}</td> <!-- ID -->
+                    <td>{{ result[1] }}</td> <!-- Motif Type -->
+                    <td>
+                        <a href="https://www.rcsb.org/structure/{{ result[2]|upper }}"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           style="color: #478ac9; text-decoration: none; font-weight: 500;"
+                           onclick="event.stopPropagation();">
+                            {{ result[2] }}
+                        </a>
+                    </td> <!-- PDB ID -->
+                    <td>{{ result[3] }}</td> <!-- NT Number -->
+                    <td style="text-align: center; font-size: 1.2em;">
+                        {% if result|length > 6 and not result[5] %}
+                        <span title="{{ result[6] }}">⚠</span>
+                        {% else %}
+                        <span title="Data quality OK">✓</span>
+                        {% endif %}
+                    </td> <!-- Status -->
+                    <td style="text-align: center; padding: 5px;">
+                        <button class="action-btn view-btn"
+                                onclick="show3DStructure(this.closest('tr')); event.stopPropagation();"
+                                title="View 3D structure in modal">
+                            3D View
+                        </button>
+                        <button class="action-btn download-btn"
+                                onclick="downloadSinglePDB({{ result[0] }}, '{% if 'pseudoknot' in result[1] %}pseudoknot{% else %}standard{% endif %}', '{{ result[2] }}', '{{ result[1] }}'); event.stopPropagation();"
+                                title="Download PDB file">
+                            Download PDB
+                        </button>
+                    </td> <!-- Actions -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button id="first-page" onclick="goToPage(1)">First</button>
+            <button id="prev-page" onclick="previousPage()">Previous</button>
+            <span>Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+            <button id="next-page" onclick="nextPage()">Next</button>
+            <button id="last-page" onclick="goToLastPage()">Last</button>
+        </div>
+
+        <script>
+            const rowsPerPage = 100;
+            let currentPage = 1;
+            const rows = document.querySelectorAll('.result-row');
+            let totalRows = rows.length;
+            let totalPages = Math.ceil(totalRows / rowsPerPage);
+            let showIncomplete = true;
+
+            // Filter incomplete records based on checkbox
+            function filterIncompleteRecords() {
+                showIncomplete = document.getElementById('show-incomplete').checked;
+
+                // Update visibility for incomplete records
+                rows.forEach(row => {
+                    const isComplete = row.getAttribute('data-is-complete') === 'True';
+                    if (!isComplete && !showIncomplete) {
+                        row.classList.add('filtered-out');
+                    } else {
+                        row.classList.remove('filtered-out');
+                    }
+                });
+
+                // Recalculate pagination for visible rows
+                const visibleRows = Array.from(rows).filter(row => !row.classList.contains('filtered-out'));
+                totalRows = visibleRows.length;
+                totalPages = Math.ceil(totalRows / rowsPerPage);
+
+                // Update total results display
+                document.getElementById('total-results').textContent = totalRows;
+
+                // Reset to first page
+                displayPage(1);
+            }
+
+            function displayPage(page) {
+                currentPage = page;
+
+                // Get only visible (non-filtered) rows
+                const visibleRows = Array.from(rows).filter(row => !row.classList.contains('filtered-out'));
+
+                const start = (page - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+
+                // Hide all rows first
+                rows.forEach(row => {
+                    row.style.display = 'none';
+                });
+
+                // Show only the rows for current page (from visible rows)
+                visibleRows.forEach((row, index) => {
+                    if (index >= start && index < end) {
+                        row.style.display = '';
+                    }
+                });
+
+                // Update pagination info
+                document.getElementById('current-page').textContent = page;
+                document.getElementById('total-pages').textContent = totalPages;
+                document.getElementById('page-range-start').textContent = start + 1;
+                document.getElementById('page-range-end').textContent = Math.min(end, visibleRows.length);
+
+                // Update button states
+                document.getElementById('first-page').disabled = (page === 1);
+                document.getElementById('prev-page').disabled = (page === 1);
+                document.getElementById('next-page').disabled = (page === totalPages);
+                document.getElementById('last-page').disabled = (page === totalPages);
+
+                // Scroll to top of results
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function nextPage() {
+                if (currentPage < totalPages) {
+                    displayPage(currentPage + 1);
+                }
+            }
+
+            function previousPage() {
+                if (currentPage > 1) {
+                    displayPage(currentPage - 1);
+                }
+            }
+
+            function goToPage(page) {
+                if (page >= 1 && page <= totalPages) {
+                    displayPage(page);
+                }
+            }
+
+            function goToLastPage() {
+                displayPage(totalPages);
+            }
+
+            // Initialize pagination on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                displayPage(1);
+            });
+        </script>
+
+    {% else %}
+        <p>No results found for your search criteria.</p>
+    {% endif %}
+    
+    <br>
+    <a href="#" onclick="history.back(); return false;">Go Back to Search</a>
+
+    <!-- 3D Viewer Modal -->
+    <div id="viewer-modal" class="viewer-modal">
+        <div class="viewer-modal-content">
+            <div class="viewer-modal-header">
+                <h2 id="viewer-title">3D Structure Viewer</h2>
+                <button class="close-btn" onclick="close3DViewer()">&times;</button>
+            </div>
+            <div class="viewer-modal-body">
+                <div class="viewer-info">
+                    <p><strong>PDB ID:</strong> <span id="viewer-pdb-id"></span></p>
+                    <p><strong>Motif Type:</strong> <span id="viewer-motif-type"></span></p>
+                    <p><strong>Nucleotides:</strong> <span id="viewer-nt-number"></span></p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">
+                        💡 <strong>Controls:</strong> Left-click and drag to rotate | Scroll to zoom | Right-click and drag to pan
+                    </p>
+                </div>
+                <div id="viewer-3d-container">
+                    <div class="viewer-loading" id="viewer-loading">Loading structure...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let viewer3D = null;
+
+        // Download single PDB file
+        function downloadSinglePDB(motifId, motifType, pdbId, motifName) {
+            // Construct download URL
+            const url = `/download_single_pdb/${motifId}?type=${motifType}&pdb_id=${pdbId}&motif_name=${encodeURIComponent(motifName)}`;
+
+            // Trigger download
+            window.location.href = url;
+        }
+
+        function show3DStructure(row) {
+            const motifId = row.dataset.motifId;
+            const motifType = row.dataset.motifType;
+            const pdbId = row.dataset.pdbId;
+            const motifName = row.dataset.motifName;
+            const ntNumber = row.dataset.ntNumber;
+
+            // Update modal info
+            document.getElementById('viewer-pdb-id').textContent = pdbId;
+            document.getElementById('viewer-motif-type').textContent = motifName;
+            document.getElementById('viewer-nt-number').textContent = ntNumber;
+            document.getElementById('viewer-title').textContent = `3D Structure: ${pdbId} - ${motifName}`;
+
+            // Show modal and loading indicator
+            document.getElementById('viewer-modal').style.display = 'block';
+            document.getElementById('viewer-loading').style.display = 'block';
+
+            // Fetch PDB data
+            fetch(`/get_pdb_content/${motifId}?type=${motifType}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Initialize 3Dmol viewer
+                        const container = document.getElementById('viewer-3d-container');
+
+                        // Clear previous viewer
+                        container.innerHTML = '<div class="viewer-loading" id="viewer-loading">Loading structure...</div>';
+
+                        // Create new viewer
+                        viewer3D = $3Dmol.createViewer(container, {
+                            backgroundColor: 'black'
+                        });
+
+                        // Add model from PDB data
+                        viewer3D.addModel(data.pdb_content, 'pdb');
+
+                        // Style: cartoon for backbone, stick for bases
+                        viewer3D.setStyle({}, {
+                            cartoon: {color: 'spectrum'},
+                            stick: {radius: 0.15}
+                        });
+
+                        // Zoom to fit
+                        viewer3D.zoomTo();
+                        viewer3D.render();
+
+                        // Hide loading indicator
+                        document.getElementById('viewer-loading').style.display = 'none';
+                    } else {
+                        alert('Error loading structure: ' + data.error);
+                        close3DViewer();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to load 3D structure. Please try again.');
+                    close3DViewer();
+                });
+        }
+
+        function close3DViewer() {
+            document.getElementById('viewer-modal').style.display = 'none';
+            if (viewer3D) {
+                viewer3D.clear();
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('viewer-modal');
+            if (event.target === modal) {
+                close3DViewer();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                close3DViewer();
+            }
+        });
+    </script>
+
+    <!-- <a href="index.html">Go Back to Search</a>  -->
+    <!-- Link to go back to the search page -->
+</body>
+</html>
