@@ -92,7 +92,7 @@
         }
         
         .edge-type-button {
-            background-color: #6c757d;
+            background-color: #478ac9;
             border: none;
             color: white;
             padding: 8px 12px;
@@ -101,38 +101,13 @@
             cursor: pointer;
             font-size: 12px;
         }
-        
+
         .edge-type-button:hover {
-            background-color: #5a6268;
+            background-color: #3a7ab5;
         }
-        
+
         .edge-type-button.active {
-            background-color: #28a745;
-        }
-        
-        .edge-type-button.covalent {
-            background-color: #dc3545;
-        }
-        
-        .edge-type-button.covalent.active {
-            background-color: #c82333;
-        }
-        
-        .edge-type-button.wc {
-            background-color: #007bff;
-        }
-        
-        .edge-type-button.wc.active {
-            background-color: #0056b3;
-        }
-        
-        .edge-type-button.non-wc {
-            background-color: #ffc107;
-            color: #212529;
-        }
-        
-        .edge-type-button.non-wc.active {
-            background-color: #e0a800;
+            background-color: #e74c3c;
         }
         
         .instructions {
@@ -288,17 +263,15 @@
             <ul>
                 <li><strong>Add Node:</strong> Click on the canvas to add nucleotide nodes (each node represents one nucleotide)</li>
                 <li><strong>Add Edge:</strong> Select edge type first, then click two nodes to connect them with the chosen interaction type</li>
-                <li><strong>Select:</strong> Click on nodes or edges to select and view their properties</li>
-                <li><strong>Delete:</strong> Select an element and press Delete key or click Delete button to remove it</li>
+                <li><strong>Delete:</strong> Click on a node or edge to select it, then press Delete key or click Delete button to remove it</li>
                 <li><strong>Clear All:</strong> Remove all nodes and edges from the canvas to start over</li>
-                <li><strong>Load Example:</strong> Click "Load Example 1" to see a sample 4-node hairpin loop structure</li>
+                <li><strong>Load Example:</strong> Click "Example 1" for a 4-node structure or "Example 2" for a 6-node hairpin loop structure</li>
             </ul>
         </div>
         
         <div class="toolbar">
             <button id="node-tool" class="tool-button active">Add Node</button>
             <button id="edge-tool" class="tool-button">Add Edge</button>
-            <button id="select-tool" class="tool-button">Select</button>
             <button id="delete-tool" class="tool-button">Delete Selected</button>
             <button id="clear-tool" class="tool-button">Clear All</button>
         </div>
@@ -328,8 +301,14 @@
         
         <!-- Examples section -->
         <div class="examples-section">
-            <button id="example1-button" class="example-button">Example 1</button>
-            <div class="example-note">Loads 4 nucleotides (N1, N2, N3, N4) in a rectangle: N1–N2 and N3–N4 are non-WC; N1–N3 and N2–N4 are covalent.</div>
+            <div style="display: inline-block; margin: 0 15px; vertical-align: top;">
+                <button id="example1-button" class="example-button">Example 1</button>
+                <div class="example-note">Load 4 nucleotides with 2 successive non-WC base pairs.</div>
+            </div>
+            <div style="display: inline-block; margin: 0 15px; vertical-align: top;">
+                <button id="example2-button" class="example-button">Example 2</button>
+                <div class="example-note">Load a hairpin loop with one non-WC base pair.</div>
+            </div>
         </div>
         
         <div style="text-align: center;">
@@ -376,8 +355,12 @@
         <div class="form-container">
             <form id="motif-form" action="/process-custom-motif" method="POST">
                 <input type="hidden" id="graph-data" name="graph_data" value="">
-                <button type="submit" class="search-button">Search for Similar Motifs</button>
-                <button type="button" class="back-button" onclick="window.location.href='/'">Back to Main Search</button>
+                <div style="margin-bottom: 15px;">
+                    <button type="submit" class="search-button">Search for Similar Motifs</button>
+                </div>
+                <div>
+                    <button type="button" class="back-button" onclick="window.location.href='/'">Back to Main Search</button>
+                </div>
             </form>
         </div>
     </div>
@@ -470,6 +453,9 @@
         
         // Example 1 button
         document.getElementById('example1-button').addEventListener('click', loadExample1);
+
+        // Example 2 button
+        document.getElementById('example2-button').addEventListener('click', loadExample2);
         
         function handleCanvasClick(e) {
             const rect = canvas.getBoundingClientRect();
@@ -483,7 +469,7 @@
                 case 'edge':
                     handleEdgeSelection(x, y);
                     break;
-                case 'select':
+                case 'delete':
                     handleSelection(x, y);
                     break;
             }
@@ -698,7 +684,47 @@
             nodeCounter = 5; // Next node will be N5
             redraw();
         }
-        
+
+        // Example 2: 6-node hairpin loop structure
+        function loadExample2() {
+            // Reset graph content
+            nodes = [];
+            edges = [];
+            selectedNode = null;
+            selectedEdge = null;
+            firstSelectedNode = null;
+            nodeCounter = 1;
+
+            // Create 6 nodes - arranged to show internal loop structure
+            // Top row: N1, N2, N3 (left to right)
+            // Bottom row: N6, N5, N4 (left to right)
+            nodes = [
+                { id: 1, x: 250, y: 150, name: 'N1' },
+                { id: 2, x: 400, y: 150, name: 'N2' },
+                { id: 3, x: 550, y: 150, name: 'N3' },
+                { id: 4, x: 550, y: 350, name: 'N4' },
+                { id: 5, x: 400, y: 350, name: 'N5' },
+                { id: 6, x: 250, y: 350, name: 'N6' }
+            ];
+
+            // Add edges with specified types
+            edges = [
+                // Covalent bonds (backbone): 1→2→3→4→5→6
+                { from: 1, to: 2, type: 'covalent', attribute: edgeAttributes['covalent'] },
+                { from: 2, to: 3, type: 'covalent', attribute: edgeAttributes['covalent'] },
+                { from: 3, to: 4, type: 'covalent', attribute: edgeAttributes['covalent'] },
+                { from: 4, to: 5, type: 'covalent', attribute: edgeAttributes['covalent'] },
+                { from: 5, to: 6, type: 'covalent', attribute: edgeAttributes['covalent'] },
+                // Watson-Crick base pair: 1-6
+                { from: 1, to: 6, type: 'wc', attribute: edgeAttributes['wc'] },
+                // Non-Watson-Crick base pair: 2-5
+                { from: 2, to: 5, type: 'non-wc', attribute: edgeAttributes['non-wc'] }
+            ];
+
+            nodeCounter = 7; // Next node will be N7
+            redraw();
+        }
+
         // Form submission
         document.getElementById('motif-form').addEventListener('submit', function(e) {
             if (nodes.length === 0) {

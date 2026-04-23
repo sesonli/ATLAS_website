@@ -254,8 +254,10 @@
         <!-- Download buttons at the top -->
         <div class="download-section">
             <p class="result-summary"><strong>Found {{ search_results|length }} results</strong></p>
-            <a href="download_csv?csv_path={{ csv_path }}" class="download-button">📥 Download CSV Results</a>
-            <a href="download_zip?motif_type={{ search_results[0][1] }}&nt_number={{ search_results[0][3].split(',') | length }}" class="download-button">📦 Download PDB Files (ZIP)</a>
+            <a href="/download_csv?session_id={{ session_id }}" class="download-button">📥 Download CSV (Current Results)</a>
+            <a href="/download_zip?session_id={{ session_id }}" class="download-button">📦 Download ZIP (Current Results)</a>
+            <a href="/download_csv_full?motif_type={{ motif_type | urlencode }}&nt_number={{ nt_number }}" class="download-button" onclick="return confirm('Downloading all results may take several minutes. Continue?')">📥 Download CSV (All Results)</a>
+            <a href="/download_zip_full?motif_type={{ motif_type | urlencode }}&nt_number={{ nt_number }}" class="download-button" onclick="return confirm('Downloading all results as ZIP may take several minutes. Continue?')">📦 Download ZIP (All Results)</a>
         </div>
 
         <div class="page-info">
@@ -278,19 +280,20 @@
                     <th>Motif Type</th>
                     <th>PDB ID</th>
                     <th>Nucleotide Number</th>
+                    <th>Sequence</th>
                     <th style="width: 60px; text-align: center;">Status</th>
                     <th style="width: 240px; text-align: center;">Actions</th>
                 </tr>
             </thead>
             <tbody id="results-tbody">
                 {% for result in search_results %}
-                <tr class="result-row row-clickable{% if result|length > 5 and not result[5] %} incomplete-record{% endif %}"
+                <tr class="result-row row-clickable{% if result|length > 6 and not result[6] %} incomplete-record{% endif %}"
                     data-motif-id="{{ result[0] }}"
                     data-motif-type="{% if 'pseudoknot' in result[1] %}pseudoknot{% else %}standard{% endif %}"
                     data-pdb-id="{{ result[2] }}"
                     data-motif-name="{{ result[1] }}"
                     data-nt-number="{{ result[3] }}"
-                    data-is-complete="{{ result[5] if result|length > 5 else 'True' }}"
+                    data-is-complete="{{ result[6] if result|length > 6 else 'True' }}"
                     onclick="show3DStructure(this)"
                     title="Click to view 3D structure">
                     <td>{{ result[0] }}</td> <!-- ID -->
@@ -305,9 +308,10 @@
                         </a>
                     </td> <!-- PDB ID -->
                     <td>{{ result[3] }}</td> <!-- NT Number -->
+                    <td style="font-family: monospace;">{{ result[5] }}</td> <!-- Sequence -->
                     <td style="text-align: center; font-size: 1.2em;">
-                        {% if result|length > 6 and not result[5] %}
-                        <span title="{{ result[6] }}">⚠</span>
+                        {% if result|length > 7 and not result[6] %}
+                        <span title="{{ result[7] }}">⚠</span>
                         {% else %}
                         <span title="Data quality OK">✓</span>
                         {% endif %}
@@ -441,7 +445,9 @@
     {% endif %}
     
     <br>
-    <a href="#" onclick="history.back(); return false;">Go Back to Search</a>
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="/" class="download-button" style="background-color: #6c757d;">← Back to Search</a>
+    </div>
 
     <!-- 3D Viewer Modal -->
     <div id="viewer-modal" class="viewer-modal">

@@ -1,12 +1,14 @@
 # ATLAS Website — Deployment Requirements (IT)
 
+**Last Updated:** November 2024
+
 ## Target URL and scope
 - Public URL: [atlas.dokhlab.org](http://atlas.dokhlab.org)
 - Scope: Deploy the ATLAS web interface as a production service. This document states requirements and must‑haves; IT may choose the exact WSGI server and reverse proxy stack.
 
 ## Environment
 - Python: 3.9–3.11 (virtual environment recommended)
-- Dependencies: install from `requirements.txt`
+- Dependencies: install from `requirements.txt` (includes Flask, pandas, networkx, numpy)
 - OS: Linux server recommended
 
 ## Resources
@@ -56,5 +58,27 @@
 - Standard search returns a results table and enables CSV/ZIP download
 - Custom search (using “Example 1”) completes and exposes CSV/ZIP within the configured timeout
 
+## Performance Optimization (Optional)
+
+### Database Indexing
+- Run `create_db_indexes.sql` on `ATLAS.db` to create performance indexes
+- This will significantly improve search query speeds
+- Example: `sqlite3 ATLAS.db < create_db_indexes.sql`
+
+### Configuration Management
+- A `config.py` file is now available for centralized configuration
+- Set environment variable `FLASK_ENV=production` for production settings
+- Set `SECRET_KEY` environment variable for production deployments
+
+### Logging
+- Application now logs to `app.log` (INFO level by default)
+- Monitor this file for application events and errors
+- Consider log rotation for long-running deployments
+
+### Cleanup Script (Optional)
+- Temporary files in `pdb_files/` and `custom_pdb_files/` can be safely deleted periodically
+- These directories are regenerated as needed from database content
+
 ## Reference
 - Website: [atlas.dokhlab.org](http://atlas.dokhlab.org)
+- Contact: Nikolay V. Dokholyan, PhD (dokh@virginia.edu)

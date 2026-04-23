@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Results Found - Custom Motif Search</title>
+    <style>
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #478ac9;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .home-button:hover { background-color: #3a7ab5; color: white; text-decoration: none; }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 40px 20px; }
+        .container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 { color: #d98a27; margin-bottom: 20px; }
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 12px 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+            text-align: left;
+        }
+        .motif-preview {
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fafafa;
+            display: inline-block;
+        }
+        canvas { display: block; }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #478ac9;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .back-btn:hover { background-color: #3a7ab5; }
+    </style>
+</head>
+<body>
+    <a href="/" class="home-button">🏠 Home</a>
+    <div class="container">
+        <h1>No Results Found</h1>
+        <p>No RNA structures matching your motif were found in the searched subset.</p>
+
+        <div class="warning-box">
+            <strong>⚠ Note:</strong> This search only covers a subset of the RNA structure database due to computational time constraints. Full database search is not available on this web server. For complete search, please deploy ATLAS locally.
+        </div>
+
+        {% if graph_data_str %}
+        <h3>Your Input Motif:</h3>
+        <div class="motif-preview">
+            <canvas id="motif-canvas" width="600" height="360"></canvas>
+        </div>
+        {% endif %}
+
+        <br>
+        <a href="/custom-motif-search" class="back-btn">Try Another Search</a>
+    </div>
+
+    {% if graph_data_str %}
+    <script>
+        const graphData = {{ graph_data_str | safe }};
+        const canvas = document.getElementById('motif-canvas');
+        const ctx = canvas.getContext('2d');
+
+        const nodes = graphData.nodes.map(n => ({...n}));
+        const edges = graphData.edges.map(e => ({...e}));
+
+        const edgeColors = { 'covalent': '#dc3545', 'wc': '#007bff', 'non-wc': '#ffc107' };
+        const nodeRadius = 20;
+        const nodeColor = '#478ac9';
+
+        // Auto-scale node positions to fit canvas
+        if (nodes.length > 0) {
+            const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
+            const minX = Math.min(...xs), maxX = Math.max(...xs);
+            const minY = Math.min(...ys), maxY = Math.max(...ys);
+            const scaleX = (canvas.width - 80) / (maxX - minX || 1);
+            const scaleY = (canvas.height - 80) / (maxY - minY || 1);
+            const scale = Math.min(scaleX, scaleY, 1);
+            nodes.forEach(n => {
+                n.x = (n.x - minX) * scale + 40;
+                n.y = (n.y - minY) * scale + 40;
+            });
+        }
+
+        // Draw edges
+        edges.forEach(edge => {
+            const from = nodes.find(n => n.id === edge.from);
+            const to = nodes.find(n => n.id === edge.to);
+            if (from && to) {
+                ctx.beginPath();
+                ctx.moveTo(from.x, from.y);
+                ctx.lineTo(to.x, to.y);
+                ctx.strokeStyle = edgeColors[edge.type] || '#999';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            }
+        });
+
+        // Draw nodes
+        nodes.forEach(node => {
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, nodeRadius, 0, 2 * Math.PI);
+            ctx.fillStyle = nodeColor;
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        });
+    </script>
+    {% endif %}
+</body>
+</html>

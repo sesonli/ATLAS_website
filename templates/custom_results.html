@@ -241,6 +241,19 @@
             <p><strong>Database Searched:</strong> {{ total_structures }} RNA structures</p>
         </div>
 
+        <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px;">
+            <strong>⚠ Note:</strong> This search only covers a subset of the RNA structure database due to computational time constraints. Full database search is not available on this web server. For complete search, please deploy ATLAS locally.
+        </div>
+
+        {% if graph_data_str %}
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h3>Your Input Motif:</h3>
+            <div style="display: inline-block; border: 1px solid #ddd; border-radius: 6px; background: #fafafa;">
+                <canvas id="motif-canvas" width="600" height="360"></canvas>
+            </div>
+        </div>
+        {% endif %}
+
         {% if search_results %}
             <!-- Download buttons at the top -->
             <div class="download-section" style="background-color: #e8f4f8; border-left: 5px solid #478ac9;">
@@ -282,7 +295,7 @@
                         <th>Motif Type</th>
                         <th>PDB ID</th>
                         <th>Nucleotide Range</th>
-                        <th>Full Nucleotide Sequence</th>
+                        <th>Full Nucleotide List</th>
                         <th style="width: 140px;">Actions</th>
                     </tr>
                 </thead>
@@ -420,5 +433,41 @@
              <a href="/" class="back-button">🏠 Back to Main Search</a>
          </div>
     </div>
+
+    {% if graph_data_str %}
+    <script>
+        const graphData = {{ graph_data_str | safe }};
+        const canvas = document.getElementById('motif-canvas');
+        const ctx = canvas.getContext('2d');
+        const nodes = graphData.nodes.map(n => ({...n}));
+        const edges = graphData.edges.map(e => ({...e}));
+        const edgeColors = { 'covalent': '#dc3545', 'wc': '#007bff', 'non-wc': '#ffc107' };
+        const nodeRadius = 20;
+        const nodeColor = '#478ac9';
+
+        if (nodes.length > 0) {
+            const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
+            const minX = Math.min(...xs), maxX = Math.max(...xs);
+            const minY = Math.min(...ys), maxY = Math.max(...ys);
+            const scale = Math.min((canvas.width - 80) / (maxX - minX || 1), (canvas.height - 80) / (maxY - minY || 1), 1);
+            nodes.forEach(n => { n.x = (n.x - minX) * scale + 40; n.y = (n.y - minY) * scale + 40; });
+        }
+
+        edges.forEach(edge => {
+            const from = nodes.find(n => n.id === edge.from);
+            const to = nodes.find(n => n.id === edge.to);
+            if (from && to) {
+                ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(to.x, to.y);
+                ctx.strokeStyle = edgeColors[edge.type] || '#999'; ctx.lineWidth = 3; ctx.stroke();
+            }
+        });
+
+        nodes.forEach(node => {
+            ctx.beginPath(); ctx.arc(node.x, node.y, nodeRadius, 0, 2 * Math.PI);
+            ctx.fillStyle = nodeColor; ctx.fill();
+            ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+        });
+    </script>
+    {% endif %}
 </body>
 </html> 

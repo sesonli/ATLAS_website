@@ -37,7 +37,7 @@
         <div style="margin-top: 20px; max-width: 800px;">
           <p class="u-align-left u-text u-text-variant" style="font-size: 1.1rem; line-height: 1.6; color: #ffffff;">
             ATLAS is a comprehensive 3D RNA motif library that enables researchers to search for RNA structural motifs in the Protein Data Bank.
-            Using graph-based algorithms, ATLAS extracts and catalogs over 400,000 RNA motif structures including hairpins, internal loops, bulges,
+            Using graph-based algorithms, ATLAS extracts and catalogs over 433,000 RNA motif structures including hairpins, internal loops, bulges,
             multiway junctions, and pseudoknots. The database provides atomic-level 3D coordinates for accurate structural analysis and RNA research.
           </p>
         </div>
@@ -109,7 +109,7 @@
           <div style="background-color: #e8f4f8; padding: 15px; border-left: 4px solid #478ac9; border-radius: 4px; margin: 20px 0;">
             <h4 style="color: #478ac9; margin-top: 0;">Database Statistics</h4>
             <p style="margin: 0; color: #333;">
-              <strong>448,694 motifs</strong> from PDB: 50% Internal loops, 30% Hairpins, 13% Bulges, 4% Junctions, 2% Pseudoknots
+              <strong>Over 433,000 motifs</strong> from PDB: 52% Internal loops, 27% Hairpins, 13% Bulges, 6% Junctions, 2% Pseudoknots
             </p>
           </div>
 
@@ -225,7 +225,7 @@
     'internal': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     'bulge': [1, 2, 3, 4, 5],
     'multiway-junction': ['3-way junction', '4-way junction', '5-way junction', '6-way junction', '7-way junction', '8-way junction', '9-way junction', '10-way junction'],
-    'pseudoknot': ['H', 'HHH', 'Hlout', 'HLin', 'LL', 'LR']
+    'pseudoknot': ['H', 'HHH', 'Hlout', 'Hlin', 'LL', 'LR']
   };
 
   // Update the second dropdown based on the selected motif type
@@ -352,7 +352,7 @@
                 <div style="text-align: center;">
                   <img src="static/images/figure_d_hairpin_size.png" alt="Size Distribution" style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
                 </div>
-                <div style="text-align: center%;">
+                <div style="text-align: center;">
                   <img src="static/images/figure_e_bulge_size.png" alt="Size Distribution" style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
                 </div>
                 <div style="text-align: center;">
@@ -379,8 +379,12 @@
 
           <div style="max-width: 500px; margin: 0 auto; padding: 25px; background-color: #e8f4f8; border-left: 4px solid #478ac9; border-radius: 4px;">
             <p style="margin: 8px 0; color: #333; font-size: 1.1rem;"><strong>Nikolay V. Dokholyan, PhD</strong></p>
-            <p style="margin: 8px 0; color: #555;">Professor, Neurology</p>
-            <p style="margin: 8px 0; color: #555;">UVA School of Medicine</p>
+            <p style="margin: 8px 0; color: #555;">Professor</p>
+            <p style="margin: 8px 0; color: #555; font-size: 0.9rem;">Department of Neurology<br>
+            Department of Neuroscience<br>
+            Department of Biomedical Engineering<br>
+            Department of Microbiology, Immunology, & Cancer Biology</p>
+            <p style="margin: 8px 0; color: #555;">University of Virginia</p>
             <div style="margin-top: 20px; display: flex; justify-content: center; gap: 25px;">
               <a href="http://dokhlab.org/" target="_blank" rel="noopener noreferrer"
                  style="display: inline-flex; align-items: center; gap: 8px; color: #478ac9; text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.3s;"

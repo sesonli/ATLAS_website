@@ -55,7 +55,7 @@
     <p style="font-size: 1.1rem; color: #555;">
       <strong>ATLAS</strong> (Advanced Template Library for Assembly and Structure) is a comprehensive 3D RNA motif library
       that enables researchers to search for RNA structural motifs from the Protein Data Bank. Using graph-based algorithms,
-      ATLAS catalogs over 400,000 RNA motif structures with atomic-level 3D coordinates.
+      ATLAS catalogs over 433,000 RNA motif structures with atomic-level 3D coordinates.
     </p>
 
     <h2>What is ATLAS?</h2>
@@ -63,7 +63,7 @@
       <p style="margin: 0;">
         ATLAS features <strong>nucleotide-level graph representations</strong> of RNA structures incorporating both
         <strong>Watson-Crick (WC)</strong> and <strong>non-Watson-Crick (non-WC) interactions</strong>.
-        The database includes five types of RNA motifs: hairpin loops, internal loops, bulges, multiway junctions (up to 8-way),
+        The database includes five types of RNA motifs: hairpin loops, internal loops, bulges, multiway junctions,
         and pseudoknots. Each motif includes 3D atomic coordinates retrieved from PDB files and graph representations
         with and without non-WC interactions.
       </p>
@@ -73,23 +73,23 @@
     <div class="motif-types">
       <div class="motif-type">
         <strong>Hairpin Loops</strong><br>
-        Single-stranded loop closed by a stem (29.8% of database)
+        Single-stranded loop closed by a stem
       </div>
       <div class="motif-type">
         <strong>Internal Loops</strong><br>
-        Unpaired regions on both strands between base pairs (50.1% of database)
+        Unpaired regions on both strands between base pairs
       </div>
       <div class="motif-type">
         <strong>Bulges</strong><br>
-        Unpaired region on one strand only (12.7% of database)
+        Unpaired region on one strand only
       </div>
       <div class="motif-type">
         <strong>Multiway Junctions</strong><br>
-        3-way to 10-way junction structures (76.5% for 3-way)
+        3-way to 10-way junction structures
       </div>
       <div class="motif-type">
         <strong>Pseudoknots</strong><br>
-        Complex structures with crossing base pairs (1.6% of database)
+        Complex structures with crossing base pairs
       </div>
     </div>
 
@@ -103,8 +103,8 @@
           <li>Hairpin - closed loops with unpaired nucleotides</li>
           <li>Internal - unpaired nucleotides on both strands</li>
           <li>Bulge - unpaired nucleotides on one strand</li>
-          <li>Multiway Junction - 3-way, 4-way, or 5-way junctions</li>
-          <li>Pseudoknot - H, HHH, Hlout, HLin, LL, or LR types</li>
+          <li>Multiway Junction - 3-way, 4-way, or higher-way junctions</li>
+          <li>Pseudoknot - H, HHH, Hlout, Hlin, LL, or LR types</li>
         </ul>
       </li>
       <li><strong>Step 2:</strong> Select <strong>Motif Size</strong> (number of unpaired nucleotides) or junction type.
@@ -151,13 +151,13 @@
     </ul>
 
     <h2>Database Statistics</h2>
-    <p>ATLAS contains <strong>448,694 unique motif entries</strong> extracted from RNA structures in the Protein Data Bank:</p>
+    <p>ATLAS contains <strong>over 433,000 unique motif entries</strong> extracted from RNA structures in the Protein Data Bank:</p>
     <ul>
-      <li>Internal loops: 50.1% (most common motif type)</li>
-      <li>Hairpin loops: 29.8%</li>
-      <li>Bulges: 12.7%</li>
-      <li>3-way junctions: 4.4%</li>
-      <li>Pseudoknots: 1.6% (6 subtypes classified)</li>
+      <li>Internal loops: 51.8% (most common motif type)</li>
+      <li>Hairpin loops: 27.4%</li>
+      <li>Bulges: 13.2%</li>
+      <li>Junctions (3-way to 10-way): 6.0%</li>
+      <li>Pseudoknots: 1.7% (6 subtypes classified)</li>
     </ul>
 
     <h2>Technical Details</h2>

@@ -270,7 +270,7 @@ with sqlite3.connect(db_path) as conn:
     print("Matching counts per target graph:", target_match_counts)
 
     file_path_3 = os.path.join(current_dir, "Matched_hairpin_test.txt")
-    with open(file_path_3, 'a') as file:
+    with open(file_path_3, 'w') as file:
         for graph_id, count in matching_counts.items():
             file.write(f'Graph ID: {graph_id}, Count: {count}\n')
         

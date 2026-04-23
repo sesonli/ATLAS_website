@@ -3,7 +3,9 @@
     "allow": [
       "Bash(python app.py:*)",
       "Bash(sqlite3:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(conda run:*)"
     ],
     "deny": [],
     "ask": []
