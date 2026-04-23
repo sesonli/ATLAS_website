@@ -13,7 +13,7 @@
         --bg: #EBEBEB;
         --bg-dark: #0D1221;
         --bg-card: #FFFFFF;
-        --accent: #DA5DA4;
+        --accent: #8B72B2;
         --text: #0D1221;
         --text-secondary: #9CA3AF;
         --text-light: #6B7280;
@@ -92,8 +92,30 @@
 
       /* ─── Hero ─── */
       .hero {
-        text-align: center;
-        padding: 100px 40px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: 100px 60px 60px 140px;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .hero-content { text-align: center; flex: 1; min-width: 0; max-width: 700px; }
+      .hero-image {
+        flex: 0 0 360px;
+        margin-left: 0;
+        animation: fadeUp 0.6s ease both 0.5s;
+      }
+      .hero-image img {
+        width: 360px;
+        height: 360px;
+        object-fit: contain;
+      }
+      @media (max-width: 768px) {
+        .hero { flex-direction: column; gap: 30px; padding: 60px 20px 40px; }
+        .hero-image { flex: 0 0 auto; }
+        .hero-image img { width: 220px; height: 220px; }
       }
       .hero-logo {
         animation: fadeUp 0.6s ease both 0.1s;
@@ -101,7 +123,7 @@
       }
       .hero-logo h1 {
         font-family: 'Geologica', sans-serif;
-        font-size: clamp(3rem, 7vw, 5rem);
+        font-size: clamp(3.5rem, 8vw, 6.5rem);
         font-weight: 700;
         letter-spacing: 0.06em;
         color: var(--text);
@@ -109,9 +131,9 @@
       }
       .hero-logo h1 span { color: var(--accent); }
       .hero-tagline {
-        font-size: 1.15rem;
+        font-size: 1.35rem;
         color: var(--text-light);
-        max-width: 700px;
+        max-width: 800px;
         margin: 0 auto;
         line-height: 1.7;
         font-weight: 400;
@@ -131,12 +153,12 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        padding: 12px 28px;
+        padding: 14px 32px;
         background: var(--bg-dark);
         color: #fff;
         text-decoration: none;
         border-radius: var(--radius-pill);
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 600;
         transition: all 0.2s;
         border: none;
@@ -554,13 +576,14 @@
 
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-logo">
-        <h1>RNA <span>ATLAS</span></h1>
-      </div>
-      <p class="hero-tagline">
-        A comprehensive 3D RNA motif library with over 433,000 structural motifs — enabling researchers to search, visualize, and download atomic-level RNA structures from the PDB.
-      </p>
-      <div class="cta-row">
+      <div class="hero-content">
+        <div class="hero-logo">
+          <h1>RNA <span>ATLAS</span></h1>
+        </div>
+        <p class="hero-tagline">
+          A comprehensive 3D RNA motif library with over 433,000 structural motifs — enabling researchers to search, visualize, and download atomic-level RNA structures from the PDB.
+        </p>
+        <div class="cta-row">
         <a href="https://bitbucket.org/dokhlab/atlas/src/master/" target="_blank" class="cta-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 22h2a2 2 0 002-2V7.5L14.5 2H6a2 2 0 00-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M4 14s1.5 2 3.5 0 3.5 0 3.5 0"/><path d="M4 19s1.5 2 3.5 0 3.5 0 3.5 0"/></svg>
           Code
@@ -573,10 +596,14 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           User Guide
         </a>
-        <a href="#" class="cta-btn" title="Coming soon">
+        <a href="https://drive.google.com/file/d/1Ht-HC_8vGsZ8L0u5s6l4o5j-jyYhEPnk/view?usp=sharing" target="_blank" class="cta-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
           Database
         </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/hero_rna.png') }}" alt="RNA 3D structure (PDB: 8K8B)">
       </div>
     </section>
 
@@ -673,28 +700,28 @@
       <div class="features-grid">
         <div class="feature-card reveal reveal-d1">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA5DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B72B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
           </div>
           <div class="feature-number" data-target="433000">0</div>
           <div class="feature-label">Motif Structures</div>
         </div>
         <div class="feature-card reveal reveal-d2">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA5DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B72B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
           <div class="feature-number" data-target="5">0</div>
           <div class="feature-label">Motif Types</div>
         </div>
         <div class="feature-card reveal reveal-d3">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA5DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B72B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           </div>
           <div class="feature-number">2</div>
           <div class="feature-label">Search Methods</div>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA5DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B72B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           </div>
           <div class="feature-number">3D</div>
           <div class="feature-label">Atomic Coordinates</div>
