@@ -9,11 +9,25 @@
     <!-- 3Dmol.js for molecular visualization -->
     <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
     <style>
+        .cell-truncate {
+            max-width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cell-truncate:hover {
+            white-space: normal;
+            word-break: break-all;
+            overflow: visible;
+            background-color: #EDF2F7;
+        }
         .home-button {
             position: fixed;
             top: 20px;
             left: 20px;
-            background-color: #478ac9;
+            background-color: #14365F;
             color: white;
             border: none;
             padding: 12px 24px;
@@ -27,20 +41,20 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .home-button:hover {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
             color: white;
             text-decoration: none;
         }
         .download-section {
-            background-color: #e8f4f8;
+            background-color: #EDF2F7;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
-            border-left: 5px solid #478ac9;
+            border-left: 5px solid #76A2B9;
             text-align: center;
         }
         .download-button {
-            background-color: #478ac9;
+            background-color: #14365F;
             color: white;
             border: none;
             padding: 12px 24px;
@@ -52,7 +66,7 @@
             display: inline-block;
         }
         .download-button:hover {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
         }
         .result-summary {
             font-size: 1.1rem;
@@ -70,7 +84,7 @@
             gap: 10px;
         }
         .pagination button {
-            background-color: #478ac9;
+            background-color: #14365F;
             color: white;
             border: none;
             padding: 8px 16px;
@@ -79,7 +93,7 @@
             font-size: 14px;
         }
         .pagination button:hover:not(:disabled) {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
         }
         .pagination button:disabled {
             background-color: #ccc;
@@ -115,7 +129,7 @@
         .action-btn {
             background: none;
             border: none;
-            color: #478ac9;
+            color: #14365F;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
@@ -125,7 +139,7 @@
         }
         .action-btn:hover {
             text-decoration: underline;
-            color: #3a6fa8;
+            color: #0F2A4A;
         }
 
         /* 3D Viewer Modal Styles */
@@ -161,7 +175,7 @@
 
         .viewer-modal-header {
             padding: 20px 30px;
-            background: linear-gradient(135deg, #478ac9, #3a7ab5);
+            background: linear-gradient(135deg, #14365F, #76A2B9);
             color: white;
             border-radius: 10px 10px 0 0;
             display: flex;
@@ -201,11 +215,11 @@
         }
 
         .viewer-info {
-            background-color: #f8f9fa;
+            background-color: #F8F2EC;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 15px;
-            border-left: 4px solid #478ac9;
+            border-left: 4px solid #14365F;
         }
 
         .viewer-info p {
@@ -236,7 +250,7 @@
         }
 
         .row-clickable:hover {
-            background-color: #e6f3ff !important;
+            background-color: #EDF2F7 !important;
         }
     </style>
 </head>
@@ -302,13 +316,13 @@
                         <a href="https://www.rcsb.org/structure/{{ result[2]|upper }}"
                            target="_blank"
                            rel="noopener noreferrer"
-                           style="color: #478ac9; text-decoration: none; font-weight: 500;"
+                           style="color: #14365F; text-decoration: none; font-weight: 500;"
                            onclick="event.stopPropagation();">
                             {{ result[2] }}
                         </a>
                     </td> <!-- PDB ID -->
-                    <td>{{ result[3] }}</td> <!-- NT Number -->
-                    <td style="font-family: monospace;">{{ result[5] }}</td> <!-- Sequence -->
+                    <td class="cell-truncate">{{ result[3] }}</td> <!-- NT Number -->
+                    <td class="cell-truncate" style="font-family: monospace;">{{ result[5] }}</td> <!-- Sequence -->
                     <td style="text-align: center; font-size: 1.2em;">
                         {% if result|length > 7 and not result[6] %}
                         <span title="{{ result[7] }}">⚠</span>
@@ -446,7 +460,7 @@
     
     <br>
     <div style="text-align: center; margin: 30px 0;">
-        <a href="/" class="download-button" style="background-color: #6c757d;">← Back to Search</a>
+        <a href="/" class="download-button" style="background-color: #76A2B9;">← Back to Search</a>
     </div>
 
     <!-- 3D Viewer Modal -->

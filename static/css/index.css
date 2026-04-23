@@ -44,82 +44,37 @@
   overflow: visible !important;
 }
 
-/*  Motif Type */
-.first-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 40px;
-  font-size: 28px;
-}
-
+/* Footer */
 .footer-text {
-  white-space: nowrap; 
-  text-align: center; 
+  white-space: nowrap;
+  text-align: center;
 }
 
 .footer-text span {
   display: inline;
-  margin-right: 5px; 
+  margin-right: 5px;
 }
 
 .footer-text span:last-child {
-  margin-right: 0; 
-}
-
-
-/* Nucleotide Number */
-.second-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 28px;
-}
-
-.dropdown {
-  padding: 5px;
-  font-size: 16px;
-  font-size: 20px;
-  margin-left: 40px;
-}
-
-.search-button {
-  display: block;
-  margin: 0 auto;
-  margin-top: 55px;
-  padding: 8px 15px;
-  border: 1px solid #e74c3c;
-  background-color: white;
-  color: black;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.search-button:hover {
-  background-color: #e74c3c;
-  color: white;
+  margin-right: 0;
 }
 
  
 .u-section-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/static/images/RNAbackgroundforweb2.png');
+  background-image: linear-gradient(135deg, #14365F 0%, #1a4a7a 50%, #14365F 100%);
   background-position: 50% 50%;
 }
 
 .u-section-1 .u-sheet-1 {
-  min-height: 800px;
+  min-height: 500px;
 }
 
 .u-section-1 .u-text-1 {
-  margin: 294px auto 0 0;
+  margin: 120px auto 0 0;
 }
 
 .u-section-1 .u-text-2 {
-  margin: 30px 312px 60px 0;
+  margin: 30px 0 60px 0;
 }
 
 @media (max-width: 1199px) {

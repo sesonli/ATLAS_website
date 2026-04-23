@@ -9,9 +9,9 @@
     <style>
         .home-button {
             position: fixed;
-            top: 20px;
+            top: 46px;
             left: 20px;
-            background-color: #478ac9;
+            background-color: #14365F;
             color: white;
             border: none;
             padding: 12px 24px;
@@ -25,12 +25,12 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .home-button:hover {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
             color: white;
             text-decoration: none;
         }
         body {
-            margin-top: 60px;
+            margin-top: 86px;
         }
         .drawing-container {
             max-width: 1200px;
@@ -42,7 +42,7 @@
         }
         
         .canvas-container {
-            border: 2px solid #478ac9;
+            border: 2px solid #14365F;
             border-radius: 5px;
             margin: 20px 0;
             position: relative;
@@ -62,18 +62,18 @@
         .edge-type-section {
             margin: 15px 0;
             padding: 15px;
-            background-color: #f8f9fa;
+            background-color: #F8F2EC;
             border-radius: 5px;
-            border-left: 4px solid #478ac9;
+            border-left: 4px solid #14365F;
         }
         
         .edge-type-section h4 {
             margin: 0 0 10px 0;
-            color: #478ac9;
+            color: #14365F;
         }
         
         .tool-button {
-            background-color: #478ac9;
+            background-color: #14365F;
             border: none;
             color: white;
             padding: 10px 15px;
@@ -84,15 +84,15 @@
         }
         
         .tool-button:hover {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
         }
         
         .tool-button.active {
-            background-color: #e74c3c;
+            background-color: #D64F4F;
         }
         
         .edge-type-button {
-            background-color: #478ac9;
+            background-color: #14365F;
             border: none;
             color: white;
             padding: 8px 12px;
@@ -103,19 +103,19 @@
         }
 
         .edge-type-button:hover {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
         }
 
         .edge-type-button.active {
-            background-color: #e74c3c;
+            background-color: #D64F4F;
         }
         
         .instructions {
-            background-color: #f8f9fa;
+            background-color: #F8F2EC;
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
-            border-left: 4px solid #478ac9;
+            border-left: 4px solid #14365F;
         }
         
         .form-container {
@@ -124,7 +124,7 @@
         }
         
         .search-button {
-            background-color: #e74c3c;
+            background-color: #D64F4F;
             border: none;
             color: white;
             padding: 15px 30px;
@@ -135,7 +135,7 @@
         }
         
         .search-button:hover {
-            background-color: #c0392b;
+            background-color: #B83E3E;
         }
         
         .back-button {
@@ -192,7 +192,7 @@
             text-align: center;
         }
         .example-button {
-            background-color: #478ac9;
+            background-color: #14365F;
             border: none;
             color: white;
             padding: 10px 15px;
@@ -202,7 +202,7 @@
             font-size: 14px;
         }
         .example-button:hover {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
         }
         .example-note {
             font-size: 12px;
@@ -212,12 +212,26 @@
     </style>
 </head>
 <body>
+    <!-- Top Bar -->
+    <div style="background-color: #14365F; padding: 6px 0; font-size: 0.8rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1001;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+        <div>
+          <a href="http://dokhlab.org/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Dokholyan Lab</a>
+          <a href="https://med.virginia.edu/neurology/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Department of Neurology</a>
+          <a href="https://med.virginia.edu/" target="_blank" style="color: #BFD9E5; text-decoration: none;">UVA School of Medicine</a>
+        </div>
+        <div>
+          <a href="/" style="color: #BFD9E5; text-decoration: none;">Home</a>
+        </div>
+      </div>
+    </div>
+
     <a href="/" class="home-button">🏠 Home</a>
 
     <!-- Loading Spinner Overlay for Graph Search -->
     <div id="graph-loading-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
       <div style="text-align: center; color: white; max-width: 500px; padding: 30px;">
-        <div class="spinner" style="border: 8px solid #f3f3f3; border-top: 8px solid #e74c3c; border-radius: 50%; width: 70px; height: 70px; animation: spin 1s linear infinite; margin: 0 auto 25px;"></div>
+        <div class="spinner" style="border: 8px solid #f3f3f3; border-top: 8px solid #D64F4F; border-radius: 50%; width: 70px; height: 70px; animation: spin 1s linear infinite; margin: 0 auto 25px;"></div>
         <h2 style="color: white; font-size: 1.7rem; margin-bottom: 15px;">Processing Your Motif Structure...</h2>
         <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6;">
           Searching through RNA database using subgraph isomorphism algorithm.<br>
@@ -234,14 +248,14 @@
     </style>
 
     <div class="drawing-container">
-        <h1 style="text-align: center; color: #478ac9;">Graph-Based Structure Search</h1>
+        <h1 style="text-align: center; color: #14365F;">Graph-Based Structure Search</h1>
         <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 10px;">
             Draw your custom RNA motif structure and search for similar patterns in ATLAS database
         </p>
 
         <!-- Description Section -->
-        <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 5px solid #478ac9;">
-            <h3 style="color: #478ac9; margin-top: 0;">About Graph-Based Structure Search</h3>
+        <div style="background-color: #EDF2F7; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 5px solid #14365F;">
+            <h3 style="color: #14365F; margin-top: 0;">About Graph-Based Structure Search</h3>
             <p style="line-height: 1.7; color: #333; margin-bottom: 10px;">
                 This tool uses a <strong>graph-based subgraph isomorphism algorithm</strong> to search for RNA structural patterns
                 matching your custom-drawn motif. Unlike type-based searches that use pre-defined motif types, this search allows you to:
@@ -319,14 +333,14 @@
         </div>
 
         <!-- Quick Guide Panel -->
-        <div style="max-width: 800px; margin: 30px auto 20px; padding: 25px; background-color: #f0f4f8; border-radius: 8px; border-left: 5px solid #478ac9; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <h3 style="color: #478ac9; margin-top: 0; margin-bottom: 20px; text-align: center;">
+        <div style="max-width: 800px; margin: 30px auto 20px; padding: 25px; background-color: #F8F2EC; border-radius: 8px; border-left: 5px solid #14365F; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="color: #14365F; margin-top: 0; margin-bottom: 20px; text-align: center;">
                 📖 Quick Guide: How to Build Your Motif
             </h3>
             <div style="display: flex; gap: 40px; flex-wrap: wrap;">
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: #333; margin-bottom: 10px;">
-                        <span style="background-color: #478ac9; color: white; padding: 3px 8px; border-radius: 4px; margin-right: 8px;">1</span>
+                        <span style="background-color: #14365F; color: white; padding: 3px 8px; border-radius: 4px; margin-right: 8px;">1</span>
                         Add Nodes (Nucleotides)
                     </h4>
                     <ul style="margin: 10px 0; padding-left: 20px; line-height: 1.8;">
@@ -337,7 +351,7 @@
                 </div>
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: #333; margin-bottom: 10px;">
-                        <span style="background-color: #478ac9; color: white; padding: 3px 8px; border-radius: 4px; margin-right: 8px;">2</span>
+                        <span style="background-color: #14365F; color: white; padding: 3px 8px; border-radius: 4px; margin-right: 8px;">2</span>
                         Add Edges (Connections)
                     </h4>
                     <ul style="margin: 10px 0; padding-left: 20px; line-height: 1.8;">
@@ -347,7 +361,7 @@
                     </ul>
                 </div>
             </div>
-            <div style="margin-top: 15px; padding: 12px; background-color: #e8f4f8; border-radius: 4px; text-align: center; font-size: 14px;">
+            <div style="margin-top: 15px; padding: 12px; background-color: #EDF2F7; border-radius: 4px; text-align: center; font-size: 14px;">
                 💡 <strong>Tip:</strong> Use "Clear All" to start over, or "Example 1" button above to see a sample motif structure.
             </div>
         </div>
@@ -396,8 +410,8 @@
         
         // Node and edge styling
         const nodeRadius = 20;
-        const nodeColor = '#478ac9';
-        const selectedNodeColor = '#e74c3c';
+        const nodeColor = '#14365F';
+        const selectedNodeColor = '#D64F4F';
         const selectedEdgeColor = '#28a745';
         
         // Tool selection

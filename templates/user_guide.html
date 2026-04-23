@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="/static/css/nicepage.css" />
   <link rel="stylesheet" href="/static/css/index.css" />
   <style>
-    body { background-color: #f5f7fa; font-family: 'Open Sans', sans-serif; margin-top: 60px; }
+    body { background-color: #F8F2EC; font-family: 'Open Sans', sans-serif; margin-top: 86px; }
     .home-button {
       position: fixed;
-      top: 20px;
+      top: 46px;
       left: 20px;
-      background-color: #478ac9;
+      background-color: #14365F;
       color: white;
       border: none;
       padding: 12px 24px;
@@ -26,29 +26,42 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     .home-button:hover {
-      background-color: #3a7ab5;
+      background-color: #0F2A4A;
       color: white;
       text-decoration: none;
     }
     .guide-container { max-width: 1100px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    h1 { color: #478ac9; font-size: 2.2rem; margin-bottom: 12px; border-bottom: 3px solid #478ac9; padding-bottom: 10px; }
-    h2 { color: #478ac9; font-size: 1.6rem; margin-top: 32px; margin-bottom: 12px; }
+    h1 { color: #14365F; font-size: 2.2rem; margin-bottom: 12px; border-bottom: 3px solid #14365F; padding-bottom: 10px; }
+    h2 { color: #14365F; font-size: 1.6rem; margin-top: 32px; margin-bottom: 12px; }
     h3 { color: #2c3e50; font-size: 1.3rem; margin-top: 20px; margin-bottom: 8px; }
     p { color: #333; line-height: 1.8; margin-bottom: 12px; }
     ul { margin-left: 24px; margin-bottom: 16px; line-height: 1.8; }
     li { margin-bottom: 8px; color: #444; }
-    .highlight-box { background-color: #e8f4f8; border-left: 4px solid #478ac9; padding: 16px; margin: 20px 0; border-radius: 4px; }
+    .highlight-box { background-color: #EDF2F7; border-left: 4px solid #14365F; padding: 16px; margin: 20px 0; border-radius: 4px; }
     .motif-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0; }
-    .motif-type { background-color: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #dee2e6; }
-    .motif-type strong { color: #478ac9; }
+    .motif-type { background-color: #F8F2EC; padding: 12px; border-radius: 6px; border: 1px solid #dee2e6; }
+    .motif-type strong { color: #14365F; }
     .citation-box { background-color: #fff9e6; border: 1px solid #ffc107; padding: 20px; margin: 24px 0; border-radius: 6px; }
     .back { margin-top: 32px; text-align: center; }
-    .btn { background-color: #478ac9; color: #fff; border: none; border-radius: 5px; padding: 12px 24px; cursor: pointer; font-size: 16px; }
-    .btn:hover { background-color: #3a7ab5; }
-    code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; color: #e74c3c; }
+    .btn { background-color: #14365F; color: #fff; border: none; border-radius: 5px; padding: 12px 24px; cursor: pointer; font-size: 16px; }
+    .btn:hover { background-color: #0F2A4A; }
+    code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; color: #D64F4F; }
   </style>
 </head>
 <body>
+    <!-- Top Bar -->
+    <div style="background-color: #14365F; padding: 6px 0; font-size: 0.8rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1001;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+        <div>
+          <a href="http://dokhlab.org/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Dokholyan Lab</a>
+          <a href="https://med.virginia.edu/neurology/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Department of Neurology</a>
+          <a href="https://med.virginia.edu/" target="_blank" style="color: #BFD9E5; text-decoration: none;">UVA School of Medicine</a>
+        </div>
+        <div>
+          <a href="/" style="color: #BFD9E5; text-decoration: none;">Home</a>
+        </div>
+      </div>
+    </div>
   <a href="/" class="home-button">🏠 Home</a>
   <div class="guide-container">
     <h1>ATLAS User Guide</h1>

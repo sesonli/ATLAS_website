@@ -9,9 +9,9 @@
     <style>
         .home-button {
             position: fixed;
-            top: 20px;
+            top: 46px;
             left: 20px;
-            background-color: #478ac9;
+            background-color: #14365F;
             color: white;
             border: none;
             padding: 12px 24px;
@@ -25,7 +25,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .home-button:hover {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
             color: white;
             text-decoration: none;
         }
@@ -38,15 +38,15 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         body {
-            margin-top: 60px;
+            margin-top: 86px;
         }
         
         .search-info {
-            background-color: #f8f9fa;
+            background-color: #F8F2EC;
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
-            border-left: 4px solid #478ac9;
+            border-left: 4px solid #14365F;
         }
         
         .download-section {
@@ -58,7 +58,7 @@
         }
         
         .download-button {
-            background-color: #478ac9;
+            background-color: #14365F;
             border: none;
             color: white;
             padding: 12px 25px;
@@ -71,13 +71,13 @@
         }
         
         .download-button:hover {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
             color: white;
             text-decoration: none;
         }
         
         .back-button {
-            background-color: #6c757d;
+            background-color: #76A2B9;
             border: none;
             color: white;
             padding: 10px 20px;
@@ -90,7 +90,7 @@
         }
         
         .back-button:hover {
-            background-color: #545b62;
+            background-color: #5D8BA0;
             color: white;
             text-decoration: none;
         }
@@ -109,7 +109,7 @@
         }
         
         .results-table th {
-            background-color: #478ac9;
+            background-color: #14365F;
             color: white;
             font-weight: bold;
         }
@@ -136,7 +136,7 @@
         }
         
         .stat-item {
-            background: linear-gradient(135deg, #478ac9, #3a7ab5);
+            background: linear-gradient(135deg, #14365F, #76A2B9);
             color: white;
             padding: 20px;
             border-radius: 10px;
@@ -181,7 +181,7 @@
             gap: 10px;
         }
         .pagination button {
-            background-color: #478ac9;
+            background-color: #14365F;
             color: white;
             border: none;
             padding: 8px 16px;
@@ -190,7 +190,7 @@
             font-size: 14px;
         }
         .pagination button:hover:not(:disabled) {
-            background-color: #3a7ab5;
+            background-color: #0F2A4A;
         }
         .pagination button:disabled {
             background-color: #ccc;
@@ -215,7 +215,7 @@
         .action-btn {
             background: none;
             border: none;
-            color: #478ac9;
+            color: #14365F;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
@@ -225,14 +225,27 @@
         }
         .action-btn:hover {
             text-decoration: underline;
-            color: #3a6fa8;
+            color: #0F2A4A;
         }
     </style>
 </head>
 <body>
+    <!-- Top Bar -->
+    <div style="background-color: #14365F; padding: 6px 0; font-size: 0.8rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1001;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+        <div>
+          <a href="http://dokhlab.org/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Dokholyan Lab</a>
+          <a href="https://med.virginia.edu/neurology/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Department of Neurology</a>
+          <a href="https://med.virginia.edu/" target="_blank" style="color: #BFD9E5; text-decoration: none;">UVA School of Medicine</a>
+        </div>
+        <div>
+          <a href="/" style="color: #BFD9E5; text-decoration: none;">Home</a>
+        </div>
+      </div>
+    </div>
     <a href="/" class="home-button">🏠 Home</a>
     <div class="results-container">
-        <h1 style="text-align: center; color: #478ac9;">Custom Motif Search Results</h1>
+        <h1 style="text-align: center; color: #14365F;">Custom Motif Search Results</h1>
         
         <div class="search-info">
             <h3>Search Information:</h3>
@@ -256,8 +269,8 @@
 
         {% if search_results %}
             <!-- Download buttons at the top -->
-            <div class="download-section" style="background-color: #e8f4f8; border-left: 5px solid #478ac9;">
-                <h3 style="color: #478ac9; margin-top: 0;">📥 Download Results</h3>
+            <div class="download-section" style="background-color: #EDF2F7; border-left: 5px solid #14365F;">
+                <h3 style="color: #14365F; margin-top: 0;">📥 Download Results</h3>
                 <p><strong>Found {{ search_results|length }} matches in {{ unique_pdbs|length }} unique PDB structures</strong></p>
                 <a href="/download_custom_csv" class="download-button">
                     📄 Download CSV Results
@@ -308,7 +321,7 @@
                             <a href="https://www.rcsb.org/structure/{{ result[2]|upper }}"
                                target="_blank"
                                rel="noopener noreferrer"
-                               style="color: #478ac9; text-decoration: none; font-weight: 500;">
+                               style="color: #14365F; text-decoration: none; font-weight: 500;">
                                 {{ result[2] }}
                             </a>
                         </td>
@@ -443,7 +456,7 @@
         const edges = graphData.edges.map(e => ({...e}));
         const edgeColors = { 'covalent': '#dc3545', 'wc': '#007bff', 'non-wc': '#ffc107' };
         const nodeRadius = 20;
-        const nodeColor = '#478ac9';
+        const nodeColor = '#14365F';
 
         if (nodes.length > 0) {
             const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
