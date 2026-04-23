@@ -1,115 +1,615 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="en"><head>
+<html lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Graph Search, 3D Motifs, Structural Search, What our customers say, Graph-Based Tool, What our customers say, Explore 3D RNA Motif Structures Online, RNA Search, faq, Graph Algorithm, Our Amazing Team, 3D Structures">
-    <meta name="description" content="">
+    <meta name="description" content="ATLAS - Advanced Template Library for Assembly and Structure of RNA 3D Motifs">
     <title>ATLAS - 3D RNA Motif Library</title>
-	<link rel="stylesheet" href="static/css/nicepage.css" media="screen">
-	<link rel="stylesheet" href="static/index.css" media="screen">
-	<script class="u-script" type="text/javascript" src="static/js/jquery.js" defer=""></script>
-	<script class="u-script" type="text/javascript" src="static/js/nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 6.17.0, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "ATLAS"
-}</script>
-    <meta name="theme-color" content="#14365F">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <meta name="theme-color" content="#0D1221">
     <meta property="og:title" content="ATLAS - 3D RNA Motif Library">
     <meta property="og:type" content="website">
-  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-home-page="Description.html" data-home-page-title="Description" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
+    <style>
+      :root {
+        --bg: #EBEBEB;
+        --bg-dark: #0D1221;
+        --bg-card: #FFFFFF;
+        --accent: #DA5DA4;
+        --text: #0D1221;
+        --text-secondary: #9CA3AF;
+        --text-light: #6B7280;
+        --border: #D1D5DB;
+        --radius-pill: 48px;
+        --radius-card: 12px;
+      }
 
-    <!-- Top Bar -->
-    <div style="background-color: #14365F; padding: 6px 0; font-size: 0.8rem;">
-      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-        <div>
-          <a href="http://dokhlab.org/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#BFD9E5'">Dokholyan Lab</a>
-          <a href="https://med.virginia.edu/neurology/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#BFD9E5'">Department of Neurology</a>
-          <a href="https://med.virginia.edu/" target="_blank" style="color: #BFD9E5; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#BFD9E5'">UVA School of Medicine</a>
-        </div>
-        <div>
-          <a href="#contact" style="color: #BFD9E5; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#BFD9E5'">Contact</a>
-        </div>
-      </div>
-    </div>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <!-- Hero Section -->
-    <section class="u-align-left u-clearfix u-image u-shading u-section-1" id="sec-a5c9" data-image-width="3840" data-image-height="2160">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-left u-text u-text-default u-title u-text-1" style="font-size: 3.2rem !important; letter-spacing: -0.5px;">RNA ATLAS: 3D RNA Motif Library</h1>
-        <p class="u-align-left u-large-text u-text u-text-variant u-text-2" style="color: #BFD9E5;">Advanced Template Library for Assembly and Structure</p>
-        <div style="margin-top: 20px; max-width: 800px;">
-          <p class="u-align-left u-text u-text-variant" style="font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85);">
-            ATLAS is a comprehensive 3D RNA motif library that enables researchers to search for RNA structural motifs in the Protein Data Bank.
-            Using graph-based algorithms, ATLAS extracts and catalogs over 433,000 RNA motif structures including hairpins, internal loops, bulges,
-            multiway junctions, and pseudoknots. The database provides atomic-level 3D coordinates for accurate structural analysis and RNA research.
-          </p>
-          <a href="/user-guide" target="_blank" style="display: inline-block; margin-top: 15px; color: #BFD9E5; text-decoration: none; font-size: 0.95rem; border: 1px solid rgba(191,217,229,0.4); padding: 8px 18px; border-radius: 5px; transition: all 0.3s;"
-             onmouseover="this.style.borderColor='#fff';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(191,217,229,0.4)';this.style.color='#BFD9E5'">Read User Guide &rarr;</a>
-        </div>
-      </div>
-    </section>
+      body {
+        font-family: 'Geologica', 'Montserrat', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.6;
+      }
 
-    <!-- Navigation Bar -->
-    <nav style="background-color: #fff; padding: 14px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-bottom: 1px solid #BFD9E5; position: sticky; top: 0; z-index: 100;">
-      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 8px;">
-        <a href="#search" style="color: #14365F; text-decoration: none; padding: 8px 18px; font-size: 1rem; font-weight: 500; border-radius: 4px; transition: all 0.3s;"
-           onmouseover="this.style.color='#D64F4F'" onmouseout="this.style.color='#14365F'">Search</a>
-        <a href="#statistics" style="color: #14365F; text-decoration: none; padding: 8px 18px; font-size: 1rem; font-weight: 500; border-radius: 4px; transition: all 0.3s;"
-           onmouseover="this.style.color='#D64F4F'" onmouseout="this.style.color='#14365F'">Statistics</a>
-        <a href="/user-guide" target="_blank" style="color: #14365F; text-decoration: none; padding: 8px 18px; font-size: 1rem; font-weight: 500; border-radius: 4px; transition: all 0.3s;"
-           onmouseover="this.style.color='#D64F4F'" onmouseout="this.style.color='#14365F'">User Guide</a>
-        <a href="#contact" style="color: #14365F; text-decoration: none; padding: 8px 18px; font-size: 1rem; font-weight: 500; border-radius: 4px; transition: all 0.3s;"
-           onmouseover="this.style.color='#D64F4F'" onmouseout="this.style.color='#14365F'">Contact</a>
+      /* Scroll Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+      .reveal-d1 { transition-delay: 0.1s; }
+      .reveal-d2 { transition-delay: 0.2s; }
+      .reveal-d3 { transition-delay: 0.3s; }
+
+      /* Hero entrance */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ─── Navigation ─── */
+      .nav {
+        background: var(--bg-dark);
+        padding: 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-brand {
+        font-family: 'Geologica', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+      .nav-brand span { color: var(--accent); }
+      .nav-links { display: flex; gap: 6px; }
+      .nav-links a {
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border-radius: var(--radius-pill);
+        transition: all 0.2s;
+      }
+      .nav-links a:hover {
+        color: #fff;
+        background: rgba(255,255,255,0.08);
+      }
+
+      /* ─── Hero ─── */
+      .hero {
+        text-align: center;
+        padding: 100px 40px 60px;
+      }
+      .hero-logo {
+        animation: fadeUp 0.6s ease both 0.1s;
+        margin-bottom: 24px;
+      }
+      .hero-logo h1 {
+        font-family: 'Geologica', sans-serif;
+        font-size: clamp(3rem, 7vw, 5rem);
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--text);
+        line-height: 1;
+      }
+      .hero-logo h1 span { color: var(--accent); }
+      .hero-tagline {
+        font-size: 1.15rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
+        font-weight: 400;
+        animation: fadeUp 0.6s ease both 0.3s;
+      }
+
+      /* ─── CTA Cards (Code / Paper / Guide / Database) ─── */
+      .cta-row {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        animation: fadeUp 0.6s ease both 0.5s;
+      }
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 28px;
+        background: var(--bg-dark);
+        color: #fff;
+        text-decoration: none;
+        border-radius: var(--radius-pill);
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+      .cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(13,18,33,0.25);
+      }
+      .cta-btn svg { opacity: 0.7; }
+
+      /* ─── Sections ─── */
+      .section {
+        padding: 80px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .section-title {
+        font-family: 'Geologica', sans-serif;
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
+      .section-subtitle {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+      .section-divider {
+        width: 48px;
+        height: 3px;
+        background: var(--accent);
+        margin: 16px auto 0;
+        border-radius: 2px;
+      }
+
+      /* ─── About ─── */
+      .about-section {
+        background: var(--bg-card);
+        border-radius: var(--radius-card);
+        padding: 56px 48px;
+        max-width: 900px;
+        margin: 0 auto 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .about-text {
+        font-size: 1.02rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .about-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        flex-wrap: wrap;
+        opacity: 0.7;
+      }
+      .about-logos img {
+        height: 36px;
+        object-fit: contain;
+        filter: grayscale(30%);
+        transition: filter 0.3s;
+      }
+      .about-logos img:hover { filter: grayscale(0%); }
+
+      /* ─── Search Cards ─── */
+      .search-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .search-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-card);
+        padding: 36px 32px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        transition: all 0.25s;
+      }
+      .search-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      }
+      .search-card h3 {
+        font-family: 'Geologica', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .search-card .card-desc {
+        color: var(--text-secondary);
+        font-size: 0.88rem;
+        margin-bottom: 24px;
+        line-height: 1.6;
+      }
+      .search-card .card-body { flex: 1; }
+      .search-card .card-footer {
+        margin-top: auto;
+        padding-top: 24px;
+      }
+
+      /* Form */
+      .form-group { margin-bottom: 18px; }
+      .form-label {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .form-select {
+        width: 100%;
+        max-width: 280px;
+        padding: 11px 14px;
+        background: var(--bg);
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        color: var(--text);
+        font-size: 0.9rem;
+        font-family: inherit;
+        cursor: pointer;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        box-sizing: border-box;
+      }
+      .form-select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(218,93,164,0.12);
+      }
+
+      .btn-search {
+        width: 100%;
+        padding: 13px 24px;
+        background: var(--bg-dark);
+        color: #fff;
+        border: none;
+        border-radius: var(--radius-pill);
+        font-size: 0.9rem;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-search:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 14px rgba(13,18,33,0.2);
+      }
+      .btn-draw {
+        width: 100%;
+        padding: 13px 24px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: var(--radius-pill);
+        font-size: 0.9rem;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-draw:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 14px rgba(218,93,164,0.3);
+      }
+
+      /* ─── Diagram ─── */
+      .diagram-box {
+        text-align: center;
+        margin: 16px 0;
+        padding: 16px;
+        background: var(--bg);
+        border-radius: 10px;
+      }
+      .edge-legend {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-top: 10px;
+      }
+
+      /* ─── Feature Cards (ATLAS Provides) ─── */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .feature-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-card);
+        padding: 32px 24px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        transition: all 0.25s;
+      }
+      .feature-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      }
+      .feature-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: rgba(218,93,164,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+      }
+      .feature-number {
+        font-family: 'Geologica', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+      .feature-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      /* ─── Statistics ─── */
+      .stats-section { background: var(--bg-card); border-radius: var(--radius-card); padding: 48px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+      .stats-card {
+        background: var(--bg);
+        border-radius: 10px;
+        padding: 16px;
+      }
+      .stats-card h4 {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .stats-card img { width: 100%; height: auto; border-radius: 6px; }
+      .stats-sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .stats-sub-card {
+        background: var(--bg);
+        border-radius: 10px;
+        padding: 12px;
+      }
+      .stats-sub-card img { width: 100%; height: auto; border-radius: 6px; }
+
+      /* ─── Resources ─── */
+      .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .resource-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-card);
+        padding: 28px 24px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        text-decoration: none;
+        color: var(--text);
+        transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .resource-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      }
+      .resource-card .res-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .resource-card:hover .res-icon { background: rgba(218,93,164,0.1); }
+      .resource-card .res-label {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      /* ─── Contact ─── */
+      .contact-card {
+        max-width: 560px;
+        margin: 0 auto;
+        background: var(--bg-card);
+        border-radius: var(--radius-card);
+        padding: 48px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .contact-card h3 { font-family: 'Geologica', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+      .contact-card .role { color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 12px; }
+      .contact-card .depts { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.7; margin-bottom: 6px; }
+      .contact-card .univ { color: var(--text-light); font-size: 0.9rem; margin-bottom: 24px; }
+      .contact-links { display: flex; justify-content: center; gap: 12px; }
+      .contact-link {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 10px 20px;
+        background: var(--bg-dark); color: #fff;
+        border-radius: var(--radius-pill);
+        text-decoration: none; font-size: 0.85rem; font-weight: 500;
+        transition: all 0.2s;
+      }
+      .contact-link:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(13,18,33,0.2); }
+
+      /* ─── Footer ─── */
+      .footer {
+        background: var(--bg-dark);
+        padding: 24px 40px;
+        text-align: center;
+        font-size: 0.8rem;
+        margin-top: 40px;
+      }
+      .footer a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+      .footer a:hover { color: #fff; }
+      .footer .sep { margin: 0 12px; color: rgba(255,255,255,0.2); }
+
+      /* ─── Loading ─── */
+      #loading-overlay {
+        display: none; position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(13,18,33,0.88);
+        backdrop-filter: blur(6px);
+        z-index: 9999;
+        justify-content: center; align-items: center;
+      }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      .spinner {
+        border: 3px solid rgba(255,255,255,0.15);
+        border-top: 3px solid var(--accent);
+        border-radius: 50%;
+        width: 44px; height: 44px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+
+      /* ─── Responsive ─── */
+      @media (max-width: 900px) {
+        .features-grid { grid-template-columns: repeat(2, 1fr); }
+        .resources-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 768px) {
+        .search-cards { grid-template-columns: 1fr; }
+        .stats-grid { grid-template-columns: 1fr; }
+        .features-grid { grid-template-columns: 1fr 1fr; }
+        .resources-grid { grid-template-columns: 1fr; }
+        .section { padding: 60px 20px; }
+        .nav-inner { padding: 0 20px; }
+        .hero { padding: 60px 20px 40px; }
+        .cta-row { gap: 10px; }
+        .about-section { padding: 36px 24px; }
+        .contact-links { flex-direction: column; align-items: center; }
+      }
+      @media (max-width: 480px) {
+        .features-grid { grid-template-columns: 1fr; }
+        .nav-links { gap: 2px; }
+        .nav-links a { padding: 6px 10px; font-size: 0.78rem; }
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">ATLAS<span>.</span></a>
+        <div class="nav-links">
+          <a href="#search">Search</a>
+          <a href="#features">About</a>
+          <a href="#statistics">Statistics</a>
+          <a href="/user-guide" target="_blank">User Guide</a>
+          <a href="#resources">Resources</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </nav>
 
-    <!-- Loading Spinner Overlay -->
-    <div id="loading-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(20,54,95,0.85); z-index: 9999; justify-content: center; align-items: center;">
-      <div style="text-align: center; color: white;">
-        <div class="spinner" style="border: 8px solid rgba(255,255,255,0.2); border-top: 8px solid #BFD9E5; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
-        <h2 style="color: white; font-size: 1.5rem;">Searching database...</h2>
-        <p style="color: #BFD9E5;">Please wait while we search for matching motifs</p>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+      <div style="text-align: center;">
+        <div class="spinner"></div>
+        <h2 style="color: #fff; font-size: 1.15rem; font-weight: 500; margin-bottom: 6px;">Searching database...</h2>
+        <p style="color: var(--text-secondary); font-size: 0.88rem;">Please wait while we find matching motifs</p>
       </div>
     </div>
-    <style>
-      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      .search-cards { display: flex; gap: 30px; max-width: 1100px; margin: 0 auto; align-items: stretch; }
-      .search-card { flex: 1; background: white; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 35px 30px; display: flex; flex-direction: column; border-top: 4px solid #76A2B9; transition: box-shadow 0.3s; }
-      .search-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
-      .search-card.accent { border-top-color: #D64F4F; }
-      .search-card h2 { margin: 0 0 8px 0; font-size: 1.4rem; color: #14365F; }
-      .search-card .subtitle { color: #76A2B9; font-size: 0.9rem; margin-bottom: 20px; }
-      .search-card .card-body { flex: 1; }
-      .search-card .card-footer { margin-top: auto; padding-top: 20px; text-align: center; }
-      .search-card select { box-sizing: border-box; }
-      @media (max-width: 768px) { .search-cards { flex-direction: column; } }
-      /* Override Nicepage residual styles for statistics section */
-      .u-section-4 .u-sheet-1 { min-height: auto !important; }
-      .u-section-4 .u-text-2 { width: auto !important; }
-    </style>
 
-    <!-- Search Section: Two Cards Side by Side -->
-    <section id="search" style="background-color: #F8F2EC; padding: 60px 20px;">
-      <div style="text-align: center; margin-bottom: 35px;">
-        <h1 style="color: #14365F; font-size: 1.8rem; margin: 0 0 8px 0;">Search RNA Motifs</h1>
-        <p style="color: #666; font-size: 1rem; margin: 0;">Choose a search method below</p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-logo">
+        <h1>RNA <span>ATLAS</span></h1>
+      </div>
+      <p class="hero-tagline">
+        A comprehensive 3D RNA motif library with over 433,000 structural motifs — enabling researchers to search, visualize, and download atomic-level RNA structures from the PDB.
+      </p>
+      <div class="cta-row">
+        <a href="https://bitbucket.org/dokhlab/atlas/src/master/" target="_blank" class="cta-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 22h2a2 2 0 002-2V7.5L14.5 2H6a2 2 0 00-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M4 14s1.5 2 3.5 0 3.5 0 3.5 0"/><path d="M4 19s1.5 2 3.5 0 3.5 0 3.5 0"/></svg>
+          Code
+        </a>
+        <a href="https://www.biorxiv.org/content/10.64898/2026.02.17.706471v1" target="_blank" class="cta-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          Paper
+        </a>
+        <a href="/user-guide" target="_blank" class="cta-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          User Guide
+        </a>
+        <a href="#" class="cta-btn" title="Coming soon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          Database
+        </a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <div class="section" id="about">
+      <div class="about-section reveal">
+        <p class="about-text">
+          ATLAS (<strong>A</strong>dvanced <strong>T</strong>emplate <strong>L</strong>ibrary for <strong>A</strong>ssembly and <strong>S</strong>tructure) is a comprehensive 3D RNA motif library that extracts and catalogs RNA structural motifs from the Protein Data Bank using graph-based algorithms. It provides researchers with tools for type-based search, custom graph-based structural search via subgraph isomorphism, and atomic-level 3D coordinate downloads for accurate RNA structural analysis.
+        </p>
+        <div class="about-logos">
+          <a href="https://med.virginia.edu/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/89/University_of_Virginia_seal.svg/150px-University_of_Virginia_seal.svg.png" alt="UVA"></a>
+          <a href="http://dokhlab.org/" target="_blank"><img src="https://dokhlab.med.psu.edu/ohm/img/about-card-img.f92e7ee4.png" alt="Dokholyan Lab" style="height: 44px;"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <section id="search" class="section">
+      <div class="section-header reveal">
+        <h2 class="section-title">Search RNA Motifs</h2>
+        <p class="section-subtitle">Choose a search method below</p>
+        <div class="section-divider"></div>
       </div>
 
       <div class="search-cards">
-
-        <!-- Card 1: Type-Based Search -->
-        <div class="search-card" id="type-based-search">
-          <h2>Type-Based Search</h2>
-          <p class="subtitle">Search by motif type and size from pre-indexed database</p>
+        <div class="search-card reveal reveal-d1">
+          <h3>Type-Based Search</h3>
+          <p class="card-desc">Search by motif type and size from pre-indexed database</p>
           <div class="card-body">
-            <form id="type-search-form" action="/search" method="POST" class="motif-form" onsubmit="showLoadingSpinner(); return convertNucleotideNumber();">
-              <div style="margin-bottom: 20px;">
-                <label for="motif-type" style="display: block; font-weight: 600; color: #14365F; margin-bottom: 6px; font-size: 0.95rem;">Motif Type</label>
-                <select id="motif-type" name="motif_type" class="dropdown" onchange="updateNucleotideDropdown()" style="width: 100%; max-width: 280px; padding: 10px 12px; border: 1px solid #BFD9E5; border-radius: 6px; font-size: 1rem; color: #333; background: #fff; cursor: pointer;">
+            <form id="type-search-form" action="/search" method="POST" onsubmit="showLoadingSpinner(); return convertNucleotideNumber();">
+              <div class="form-group">
+                <label for="motif-type" class="form-label">Motif Type</label>
+                <select id="motif-type" name="motif_type" class="form-select" onchange="updateNucleotideDropdown()">
                   <option value="hairpin">Hairpin</option>
                   <option value="internal">Internal</option>
                   <option value="bulge">Bulge</option>
@@ -117,33 +617,24 @@
                   <option value="pseudoknot">Pseudoknot</option>
                 </select>
               </div>
-              <div style="margin-bottom: 20px;">
-                <label id="nt-number-label" for="nt-number" style="display: block; font-weight: 600; color: #14365F; margin-bottom: 6px; font-size: 0.95rem;">Nucleotide Number</label>
-                <select id="nt-number" class="dropdown" style="width: 100%; max-width: 280px; padding: 10px 12px; border: 1px solid #BFD9E5; border-radius: 6px; font-size: 1rem; color: #333; background: #fff; cursor: pointer;">
-                </select>
+              <div class="form-group">
+                <label id="nt-number-label" for="nt-number" class="form-label">Nucleotide Number</label>
+                <select id="nt-number" class="form-select"></select>
                 <input type="hidden" id="nt-number-hidden" name="nt_number" value="">
               </div>
             </form>
           </div>
           <div class="card-footer">
-            <button type="submit" form="type-search-form" style="background-color: #14365F; border: none; color: white; padding: 12px 40px; font-size: 1rem; font-weight: 600; border-radius: 6px; cursor: pointer; transition: background-color 0.3s; width: 100%;"
-                    onmouseover="this.style.backgroundColor='#76A2B9'" onmouseout="this.style.backgroundColor='#14365F'">SEARCH</button>
+            <button type="submit" form="type-search-form" class="btn-search">SEARCH</button>
           </div>
         </div>
 
-        <!-- Card 2: Graph-Based Search -->
-        <div class="search-card accent" id="graph-based-search">
-          <h2 style="color: #D64F4F;">Graph-Based Structure Search</h2>
-          <p class="subtitle">Draw your own motif and find matching RNA structures</p>
+        <div class="search-card reveal reveal-d2">
+          <h3>Graph-Based Search</h3>
+          <p class="card-desc">Draw your own motif and find matching RNA structures via subgraph isomorphism</p>
           <div class="card-body">
-            <p style="line-height: 1.7; color: #444; font-size: 0.95rem; margin: 0 0 20px 0;">
-              Use an interactive canvas to draw custom RNA motif patterns. The search engine uses <strong>subgraph isomorphism</strong> to find exact structural matches across the PDB.
-            </p>
-
-            <!-- SVG Motif Diagram -->
-            <div style="text-align: center; margin: 15px 0 20px;">
-              <svg width="200" height="140" viewBox="0 0 200 140" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.1));">
-                <!-- Edges -->
+            <div class="diagram-box">
+              <svg width="200" height="140" viewBox="0 0 200 140">
                 <line x1="40" y1="40" x2="100" y2="40" stroke="#dc3545" stroke-width="2.5"/>
                 <line x1="100" y1="40" x2="160" y2="40" stroke="#dc3545" stroke-width="2.5"/>
                 <line x1="40" y1="40" x2="40" y2="110" stroke="#007bff" stroke-width="2.5" stroke-dasharray="6,3"/>
@@ -151,40 +642,182 @@
                 <line x1="40" y1="110" x2="100" y2="110" stroke="#dc3545" stroke-width="2.5"/>
                 <line x1="100" y1="110" x2="160" y2="110" stroke="#dc3545" stroke-width="2.5"/>
                 <line x1="160" y1="40" x2="160" y2="110" stroke="#007bff" stroke-width="2.5" stroke-dasharray="6,3"/>
-                <!-- Nodes -->
-                <circle cx="40" cy="40" r="14" fill="#14365F"/><text x="40" y="44" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N1</text>
-                <circle cx="100" cy="40" r="14" fill="#14365F"/><text x="100" y="44" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N2</text>
-                <circle cx="160" cy="40" r="14" fill="#14365F"/><text x="160" y="44" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N3</text>
-                <circle cx="40" cy="110" r="14" fill="#14365F"/><text x="40" y="114" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N6</text>
-                <circle cx="100" cy="110" r="14" fill="#14365F"/><text x="100" y="114" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N5</text>
-                <circle cx="160" cy="110" r="14" fill="#14365F"/><text x="160" y="114" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N4</text>
+                <circle cx="40" cy="40" r="14" fill="var(--bg-dark)"/><text x="40" y="44" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N1</text>
+                <circle cx="100" cy="40" r="14" fill="var(--bg-dark)"/><text x="100" y="44" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N2</text>
+                <circle cx="160" cy="40" r="14" fill="var(--bg-dark)"/><text x="160" y="44" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N3</text>
+                <circle cx="40" cy="110" r="14" fill="var(--bg-dark)"/><text x="40" y="114" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N6</text>
+                <circle cx="100" cy="110" r="14" fill="var(--bg-dark)"/><text x="100" y="114" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N5</text>
+                <circle cx="160" cy="110" r="14" fill="var(--bg-dark)"/><text x="160" y="114" text-anchor="middle" fill="white" font-size="10" font-weight="bold">N4</text>
               </svg>
             </div>
-
-            <!-- Edge Legend -->
-            <div style="display: flex; justify-content: center; gap: 16px; font-size: 0.8rem; color: #555; flex-wrap: wrap;">
+            <div class="edge-legend">
               <span><span style="display:inline-block; width:16px; height:3px; background:#dc3545; vertical-align:middle; margin-right:4px;"></span>Covalent</span>
-              <span><span style="display:inline-block; width:16px; height:3px; background:#007bff; vertical-align:middle; margin-right:4px; border-top: 2px dashed #007bff; height:0;"></span>Watson-Crick</span>
+              <span><span style="display:inline-block; width:16px; height:0; border-top:2px dashed #007bff; vertical-align:middle; margin-right:4px;"></span>Watson-Crick</span>
               <span><span style="display:inline-block; width:16px; height:3px; background:#ffc107; vertical-align:middle; margin-right:4px;"></span>Non-WC</span>
             </div>
           </div>
           <div class="card-footer">
-            <button onclick="window.location.href='/custom-motif-search'" style="background-color: #D64F4F; border: none; color: white; padding: 12px 40px; font-size: 1rem; font-weight: 600; border-radius: 6px; cursor: pointer; transition: background-color 0.3s; width: 100%;"
-                    onmouseover="this.style.backgroundColor='#B83E3E'" onmouseout="this.style.backgroundColor='#D64F4F'">START DRAWING</button>
+            <button onclick="window.location.href='/custom-motif-search'" class="btn-draw">START DRAWING</button>
           </div>
         </div>
-
       </div>
     </section>
 
+    <!-- ATLAS Provides -->
+    <section id="features" class="section">
+      <div class="section-header reveal">
+        <h2 class="section-title">ATLAS Provides</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-d1">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA5DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <div class="feature-number" data-target="433000">0</div>
+          <div class="feature-label">Motif Structures</div>
+        </div>
+        <div class="feature-card reveal reveal-d2">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA5DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="feature-number" data-target="5">0</div>
+          <div class="feature-label">Motif Types</div>
+        </div>
+        <div class="feature-card reveal reveal-d3">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA5DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div class="feature-number">2</div>
+          <div class="feature-label">Search Methods</div>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DA5DA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="feature-number">3D</div>
+          <div class="feature-label">Atomic Coordinates</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section id="statistics" class="section">
+      <div class="section-header reveal">
+        <h2 class="section-title">Database Statistics</h2>
+        <p class="section-subtitle">Distribution of motif types and sizes in ATLAS</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="stats-section reveal">
+        <div class="stats-grid">
+          <div class="stats-card">
+            <h4>Motif Types</h4>
+            <img src="static/images/figure_b_motif_type.png" alt="Motif Types Distribution">
+          </div>
+          <div>
+            <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; text-align: center; text-transform: uppercase; letter-spacing: 0.04em;">Size Distribution</div>
+            <div class="stats-sub-grid">
+              <div class="stats-sub-card"><img src="static/images/figure_c_internal_size.png" alt="Internal Loop"></div>
+              <div class="stats-sub-card"><img src="static/images/figure_d_hairpin_size.png" alt="Hairpin"></div>
+              <div class="stats-sub-card"><img src="static/images/figure_e_bulge_size.png" alt="Bulge"></div>
+              <div class="stats-sub-card"><img src="static/images/figure_g_pseudoknot_type.png" alt="Pseudoknot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="section">
+      <div class="section-header reveal">
+        <h2 class="section-title">Resources</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="resources-grid reveal">
+        <a href="https://bitbucket.org/dokhlab/atlas/src/master/" target="_blank" class="resource-card">
+          <div class="res-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 22h2a2 2 0 002-2V7.5L14.5 2H6a2 2 0 00-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M4 14s1.5 2 3.5 0 3.5 0 3.5 0"/><path d="M4 19s1.5 2 3.5 0 3.5 0 3.5 0"/></svg>
+          </div>
+          <span class="res-label">Code</span>
+        </a>
+        <a href="https://www.biorxiv.org/content/10.64898/2026.02.17.706471v1" target="_blank" class="resource-card">
+          <div class="res-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          </div>
+          <span class="res-label">Paper</span>
+        </a>
+        <a href="/user-guide" target="_blank" class="resource-card">
+          <div class="res-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <span class="res-label">User Guide</span>
+        </a>
+        <a href="#" class="resource-card" title="Coming soon">
+          <div class="res-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <span class="res-label">Database</span>
+        </a>
+        <a href="http://dokhlab.org/" target="_blank" class="resource-card">
+          <div class="res-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <span class="res-label">Lab Website</span>
+        </a>
+        <a href="mailto:dokh@virginia.edu" class="resource-card">
+          <div class="res-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span class="res-label">Contact</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="section-header reveal">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">For questions, support, or feedback about the ATLAS database</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-card reveal">
+        <h3>Nikolay V. Dokholyan, PhD</h3>
+        <p class="role">Professor</p>
+        <p class="depts">
+          Department of Neurology<br>
+          Department of Neuroscience<br>
+          Department of Biomedical Engineering<br>
+          Department of Microbiology, Immunology, &amp; Cancer Biology
+        </p>
+        <p class="univ">University of Virginia</p>
+        <div class="contact-links">
+          <a href="http://dokhlab.org/" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Lab Website
+          </a>
+          <a href="mailto:dokh@virginia.edu" class="contact-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="http://dokhlab.org/" target="_blank">Dokholyan Lab</a>
+      <span class="sep">|</span>
+      <a href="https://med.virginia.edu/neurology/" target="_blank">Department of Neurology</a>
+      <span class="sep">|</span>
+      <a href="https://med.virginia.edu/" target="_blank">UVA School of Medicine</a>
+    </footer>
+
 <script>
-  // Show loading spinner function
   function showLoadingSpinner() {
     document.getElementById('loading-overlay').style.display = 'flex';
-    return true; // Allow form submission to continue
+    return true;
   }
 
-  // Nucleotide options or subtypes (display values)
   const nucleotideOptions = {
     'hairpin': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     'internal': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -193,197 +826,70 @@
     'pseudoknot': ['H', 'HHH', 'Hlout', 'Hlin', 'LL', 'LR']
   };
 
-  // Update the second dropdown based on the selected motif type
   function updateNucleotideDropdown() {
     const motifType = document.getElementById('motif-type').value;
     const ntNumberDropdown = document.getElementById('nt-number');
     const ntNumberLabel = document.getElementById('nt-number-label');
-
-    // Clear existing options
     ntNumberDropdown.innerHTML = '';
-
-    // Handle pseudoknot options
     if (motifType === 'pseudoknot') {
       ntNumberLabel.textContent = 'Select Pseudoknot Type:';
-      nucleotideOptions['pseudoknot'].forEach(function(subtype) {
-        const option = document.createElement('option');
-        option.value = subtype;
-        option.textContent = subtype;
-        ntNumberDropdown.appendChild(option);
-      });
-    }
-    // Handle multiway-junction options
-    else if (motifType === 'multiway-junction') {
+      nucleotideOptions['pseudoknot'].forEach(function(s) { const o = document.createElement('option'); o.value = s; o.textContent = s; ntNumberDropdown.appendChild(o); });
+    } else if (motifType === 'multiway-junction') {
       ntNumberLabel.textContent = 'Select Ways of Junction:';
-      nucleotideOptions['multiway-junction'].forEach(function(junctionType) {
-        const option = document.createElement('option');
-        option.value = junctionType;
-        option.textContent = junctionType;
-        ntNumberDropdown.appendChild(option);
-      });
-    }
-    // Handle options for other types
-    else {
+      nucleotideOptions['multiway-junction'].forEach(function(s) { const o = document.createElement('option'); o.value = s; o.textContent = s; ntNumberDropdown.appendChild(o); });
+    } else {
       ntNumberLabel.textContent = 'Nucleotide Number:';
-      nucleotideOptions[motifType].forEach(function(num) {
-        const option = document.createElement('option');
-        option.value = num;
-        option.textContent = num;
-        ntNumberDropdown.appendChild(option);
-      });
+      nucleotideOptions[motifType].forEach(function(n) { const o = document.createElement('option'); o.value = n; o.textContent = n; ntNumberDropdown.appendChild(o); });
     }
-
-    // Update hidden field with initial converted value
     updateHiddenField();
   }
 
-  // Function to update hidden field based on current selection
   function updateHiddenField() {
     const motifType = document.getElementById('motif-type').value;
-    const ntNumberSelect = document.getElementById('nt-number');
-    const ntNumberHidden = document.getElementById('nt-number-hidden');
-    const selectedValue = ntNumberSelect.value;
-
-    // Convert and set hidden field value
-    if (motifType === 'hairpin' && !isNaN(selectedValue)) {
-      ntNumberHidden.value = parseInt(selectedValue) + 2;
-    } else if (motifType === 'internal' && !isNaN(selectedValue)) {
-      ntNumberHidden.value = parseInt(selectedValue) + 4;
-    } else if (motifType === 'bulge' && !isNaN(selectedValue)) {
-      ntNumberHidden.value = parseInt(selectedValue) + 4;
-    } else {
-      ntNumberHidden.value = selectedValue;
-    }
+    const v = document.getElementById('nt-number').value;
+    const h = document.getElementById('nt-number-hidden');
+    if ((motifType === 'hairpin') && !isNaN(v)) h.value = parseInt(v) + 2;
+    else if ((motifType === 'internal') && !isNaN(v)) h.value = parseInt(v) + 4;
+    else if ((motifType === 'bulge') && !isNaN(v)) h.value = parseInt(v) + 4;
+    else h.value = v;
   }
 
-  // Function to convert display values to database search values
-  function convertNucleotideNumber() {
-    const motifType = document.getElementById('motif-type').value;
-    const ntNumberSelect = document.getElementById('nt-number');
-    const ntNumberHidden = document.getElementById('nt-number-hidden');
-    const selectedValue = ntNumberSelect.value;
+  function convertNucleotideNumber() { updateHiddenField(); return true; }
 
-    // Convert display value to database search value and store in hidden field
-    if (motifType === 'hairpin' && !isNaN(selectedValue)) {
-      ntNumberHidden.value = parseInt(selectedValue) + 2;
-    } else if (motifType === 'internal' && !isNaN(selectedValue)) {
-      ntNumberHidden.value = parseInt(selectedValue) + 4;
-    } else if (motifType === 'bulge' && !isNaN(selectedValue)) {
-      ntNumberHidden.value = parseInt(selectedValue) + 4;
-    } else {
-      ntNumberHidden.value = selectedValue;
-    }
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
 
-    return true; // Allow form submission to proceed
+  // Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.feature-number[data-target]').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const dur = 2000, start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString() + (target > 100 ? '+' : '');
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
   }
 
-  // Initialize default options on page load
   document.addEventListener('DOMContentLoaded', function() {
     updateNucleotideDropdown();
+    document.getElementById('nt-number').addEventListener('change', updateHiddenField);
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    // Add event listener to update hidden field when dropdown selection changes
-    const ntNumberDropdown = document.getElementById('nt-number');
-    ntNumberDropdown.addEventListener('change', updateHiddenField);
+    // Counter trigger
+    const fc = document.querySelector('.features-grid');
+    if (fc) {
+      const co = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { animateCounters(); co.unobserve(e.target); } });
+      }, { threshold: 0.3 });
+      co.observe(fc);
+    }
   });
 </script>
-
-
-    <section class="u-align-center u-clearfix u-container-align-center u-section-4" id="statistics" style="padding: 60px 0; background-color: #fff;">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <h1 class="u-align-center u-text u-text-default u-text-1" style="margin-bottom: 10px; color: #14365F; font-size: 1.8rem; padding-bottom: 15px; border-bottom: 3px solid #D64F4F; max-width: 600px; margin-left: auto; margin-right: auto;">Database Statistics</h1>
-        <p class="u-align-center u-text u-text-2" style="margin-bottom: 20px;">Distribution of motif types and sizes in ATLAS</p>
-
-        <div style="max-width: 1100px; margin: 0 auto;">
-          <!-- Compact layout: Type distribution on left, Size distributions on right -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
-
-            <!-- Motif Types Distribution -->
-            <div style="text-align: center; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-              <h3 class="u-align-center u-text" style="font-size: 1.1rem; margin-bottom: 10px; color: #14365F;">Motif Types</h3>
-              <img src="static/images/figure_b_motif_type.png" alt="Motif Types Distribution" style="width: 100%; height: auto; border-radius: 4px;">
-            </div>
-
-            <!-- Size Distribution - Compact 2x2 Grid -->
-            <div>
-              <h3 class="u-align-center u-text" style="font-size: 1.1rem; margin-bottom: 10px; color: #14365F;">Size Distribution</h3>
-              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                <div style="text-align: center; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                  <img src="static/images/figure_c_internal_size.png" alt="Size Distribution" style="width: 100%; height: auto; border-radius: 4px;">
-                </div>
-                <div style="text-align: center; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                  <img src="static/images/figure_d_hairpin_size.png" alt="Size Distribution" style="width: 100%; height: auto; border-radius: 4px;">
-                </div>
-                <div style="text-align: center; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                  <img src="static/images/figure_e_bulge_size.png" alt="Size Distribution" style="width: 100%; height: auto; border-radius: 4px;">
-                </div>
-                <div style="text-align: center; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                  <img src="static/images/figure_g_pseudoknot_type.png" alt="Size Distribution" style="width: 100%; height: auto; border-radius: 4px;">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Information Section -->
-    <section class="u-clearfix u-section-contact" id="contact" style="background-color: #fff; padding: 60px 0;">
-      <div class="u-clearfix u-sheet" style="max-width: 800px; margin: 0 auto;">
-        <h2 style="text-align: center; color: #14365F; font-size: 1.8rem; margin-bottom: 30px; border-bottom: 3px solid #D64F4F; padding-bottom: 10px;">Contact Us</h2>
-
-        <!-- Contact Info Card -->
-        <div style="background-color: #F8F2EC; padding: 35px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-align: center;">
-          <h3 style="color: #14365F; font-size: 1.5rem; margin-top: 0; margin-bottom: 20px;">Get in Touch</h3>
-          <p style="line-height: 1.8; color: #333; margin-bottom: 25px; font-size: 1.05rem;">
-            For questions, support, or feedback about the ATLAS database, please contact:
-          </p>
-
-          <div style="max-width: 500px; margin: 0 auto; padding: 25px; background-color: white; border-left: 4px solid #76A2B9; border-radius: 4px;">
-            <p style="margin: 8px 0; color: #14365F; font-size: 1.1rem;"><strong>Nikolay V. Dokholyan, PhD</strong></p>
-            <p style="margin: 8px 0; color: #555;">Professor</p>
-            <p style="margin: 8px 0; color: #555; font-size: 0.9rem;">Department of Neurology<br>
-            Department of Neuroscience<br>
-            Department of Biomedical Engineering<br>
-            Department of Microbiology, Immunology, & Cancer Biology</p>
-            <p style="margin: 8px 0; color: #555;">University of Virginia</p>
-            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 25px;">
-              <a href="http://dokhlab.org/" target="_blank" rel="noopener noreferrer"
-                 style="display: inline-flex; align-items: center; gap: 8px; color: #14365F; text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.3s;"
-                 onmouseover="this.style.color='#D64F4F'" onmouseout="this.style.color='#14365F'"
-                 title="Visit Dokholyan Lab Website">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                </svg>
-                Lab Website
-              </a>
-              <a href="mailto:dokh@virginia.edu"
-                 style="display: inline-flex; align-items: center; gap: 8px; color: #14365F; text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.3s;"
-                 onmouseover="this.style.color='#D64F4F'" onmouseout="this.style.color='#14365F'"
-                 title="Send email to dokh@virginia.edu">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                Email
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-<footer class="u-align-center u-clearfix u-container-align-center u-footer" id="sec-d046" style="background-color: #14365F; padding: 20px 0;">
-  <div class="u-clearfix u-sheet u-sheet-1">
-    <p class="u-small-text u-text u-text-variant u-text-1" style="color: #BFD9E5;">
-      <span><a href="http://dokhlab.org/" target="_blank" style="color: #BFD9E5; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#BFD9E5'">Dokholyan Lab</a></span>
-      <span style="margin: 0 10px; color: #76A2B9;">|</span>
-      <span><a href="https://med.virginia.edu/neurology/" target="_blank" style="color: #BFD9E5; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#BFD9E5'">Department of Neurology</a></span>
-      <span style="margin: 0 10px; color: #76A2B9;">|</span>
-      <span><a href="https://med.virginia.edu/" target="_blank" style="color: #BFD9E5; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#BFD9E5'">UVA School of Medicine</a></span>
-    </p>
-  </div>
-</footer>
-
 
 </body></html>
