@@ -1,0 +1,585 @@
+HEADER    VIRUS                                   17-NOV-93   1CGM              
+TITLE     STRUCTURE DETERMINATION OF CUCUMBER GREEN MOTTLE MOSAIC VIRUS BY X-RAY
+TITLE    2 FIBER DIFFRACTION. SIGNIFICANCE FOR THE EVOLUTION OF TOBAMOVIRUSES   
+COMPND    MOL_ID: 1;                                                            
+COMPND   2 MOLECULE: RNA (5'-R(P*GP*AP*A)-3');                                  
+COMPND   3 CHAIN: I;                                                            
+COMPND   4 ENGINEERED: YES;                                                     
+COMPND   5 MOL_ID: 2;                                                           
+COMPND   6 MOLECULE: CUCUMBER GREEN MOTTLE MOSAIC VIRUS;                        
+COMPND   7 CHAIN: E;                                                            
+COMPND   8 ENGINEERED: YES                                                      
+SOURCE    MOL_ID: 1;                                                            
+SOURCE   2 SYNTHETIC: YES;                                                      
+SOURCE   3 MOL_ID: 2;                                                           
+SOURCE   4 ORGANISM_SCIENTIFIC: CUCUMBER GREEN MOTTLE MOSAIC VIRUS;             
+SOURCE   5 ORGANISM_TAXID: 12235;                                               
+SOURCE   6 TISSUE: WATERMELON                                                   
+REMARK   1                                                                      
+REMARK   1 REFERENCE 1                                                          
+REMARK   1  AUTH   H.WANG,G.STUBBS                                              
+REMARK   1  TITL   MOLECULAR DYNAMICS IN REFINEMENT AGAINST FIBER DIFFRACTION   
+REMARK   1  TITL 2 DATA                                                         
+REMARK   1  REF    ACTA CRYSTALLOGR.,SECT.A      V.  49   504 1993              
+REMARK   1  REFN                   ISSN 0108-7673                               
+REMARK   1 REFERENCE 2                                                          
+REMARK   1  AUTH   S.LOBERT,G.STUBBS                                            
+REMARK   1  TITL   FIBER DIFFRACTION ANALYSIS OF CUCUMBER GREEN MOTTLE MOSAIC   
+REMARK   1  TITL 2 VIRUS USING LIMITED NUMBERS OF HEAVY-ATOM DERIVATIVES        
+REMARK   1  REF    ACTA CRYSTALLOGR.,SECT.A      V.  46   993 1990              
+REMARK   1  REFN                   ISSN 0108-7673                               
+REMARK   1 REFERENCE 3                                                          
+REMARK   1  AUTH   G.STUBBS                                                     
+REMARK   1  TITL   THE PROBABILITY DISTRIBUTIONS OF X-RAY INTENSITIES IN FIBER  
+REMARK   1  TITL 2 DIFFRACTION: LARGEST LIKELY VALUES FOR FIBER DIFFRACTION R   
+REMARK   1  TITL 3 FACTORS                                                      
+REMARK   1  REF    ACTA CRYSTALLOGR.,SECT.A      V.  45   254 1989              
+REMARK   1  REFN                   ISSN 0108-7673                               
+REMARK   1 REFERENCE 4                                                          
+REMARK   1  AUTH   K.NAMBA,G.STUBBS                                             
+REMARK   1  TITL   ISOMORPHOUS REPLACEMENT IN FIBER DIFFRACTION USING LIMITED   
+REMARK   1  TITL 2 NUMBERS OF HEAVY-ATOM DERIVATIVES                            
+REMARK   1  REF    ACTA CRYSTALLOGR.,SECT.A      V.  43    64 1987              
+REMARK   1  REFN                   ISSN 0108-7673                               
+REMARK   1 REFERENCE 5                                                          
+REMARK   1  AUTH   K.NAMBA,G.STUBBS                                             
+REMARK   1  TITL   SOLVING THE PHASE PROBLEM IN FIBER DIFFRACTION. APPLICATION  
+REMARK   1  TITL 2 TO TOBACCO MOSAIC VIRUS AT 3.6 ANGSTROMS RESOLUTION          
+REMARK   1  REF    ACTA CRYSTALLOGR.,SECT.A      V.  41   252 1985              
+REMARK   1  REFN                   ISSN 0108-7673                               
+REMARK   2                                                                      
+REMARK   2 RESOLUTION.    3.40 ANGSTROMS.                                       
+REMARK   3                                                                      
+REMARK   3 REFINEMENT.                                                          
+REMARK   3   PROGRAM     : X-PLOR                                               
+REMARK   3   AUTHORS     : BRUNGER                                              
+REMARK   3                                                                      
+REMARK   3  DATA USED IN REFINEMENT.                                            
+REMARK   3   RESOLUTION RANGE HIGH (ANGSTROMS) : 3.40                           
+REMARK   3   RESOLUTION RANGE LOW  (ANGSTROMS) : NULL                           
+REMARK   3   DATA CUTOFF            (SIGMA(F)) : NULL                           
+REMARK   3   DATA CUTOFF HIGH         (ABS(F)) : NULL                           
+REMARK   3   DATA CUTOFF LOW          (ABS(F)) : NULL                           
+REMARK   3   COMPLETENESS (WORKING+TEST)   (%) : NULL                           
+REMARK   3   NUMBER OF REFLECTIONS             : NULL                           
+REMARK   3                                                                      
+REMARK   3  FIT TO DATA USED IN REFINEMENT.                                     
+REMARK   3   CROSS-VALIDATION METHOD          : NULL                            
+REMARK   3   FREE R VALUE TEST SET SELECTION  : NULL                            
+REMARK   3   R VALUE            (WORKING SET) : 0.093                           
+REMARK   3   FREE R VALUE                     : NULL                            
+REMARK   3   FREE R VALUE TEST SET SIZE   (%) : NULL                            
+REMARK   3   FREE R VALUE TEST SET COUNT      : NULL                            
+REMARK   3   ESTIMATED ERROR OF FREE R VALUE  : NULL                            
+REMARK   3                                                                      
+REMARK   3  FIT IN THE HIGHEST RESOLUTION BIN.                                  
+REMARK   3   TOTAL NUMBER OF BINS USED           : NULL                         
+REMARK   3   BIN RESOLUTION RANGE HIGH       (A) : NULL                         
+REMARK   3   BIN RESOLUTION RANGE LOW        (A) : NULL                         
+REMARK   3   BIN COMPLETENESS (WORKING+TEST) (%) : NULL                         
+REMARK   3   REFLECTIONS IN BIN    (WORKING SET) : NULL                         
+REMARK   3   BIN R VALUE           (WORKING SET) : NULL                         
+REMARK   3   BIN FREE R VALUE                    : NULL                         
+REMARK   3   BIN FREE R VALUE TEST SET SIZE  (%) : NULL                         
+REMARK   3   BIN FREE R VALUE TEST SET COUNT     : NULL                         
+REMARK   3   ESTIMATED ERROR OF BIN FREE R VALUE : NULL                         
+REMARK   3                                                                      
+REMARK   3  NUMBER OF NON-HYDROGEN ATOMS USED IN REFINEMENT.                    
+REMARK   3   PROTEIN ATOMS            : 1224                                    
+REMARK   3   NUCLEIC ACID ATOMS       : 67                                      
+REMARK   3   HETEROGEN ATOMS          : 0                                       
+REMARK   3   SOLVENT ATOMS            : 5                                       
+REMARK   3                                                                      
+REMARK   3  B VALUES.                                                           
+REMARK   3   FROM WILSON PLOT           (A**2) : NULL                           
+REMARK   3   MEAN B VALUE      (OVERALL, A**2) : NULL                           
+REMARK   3   OVERALL ANISOTROPIC B VALUE.                                       
+REMARK   3    B11 (A**2) : NULL                                                 
+REMARK   3    B22 (A**2) : NULL                                                 
+REMARK   3    B33 (A**2) : NULL                                                 
+REMARK   3    B12 (A**2) : NULL                                                 
+REMARK   3    B13 (A**2) : NULL                                                 
+REMARK   3    B23 (A**2) : NULL                                                 
+REMARK   3                                                                      
+REMARK   3  ESTIMATED COORDINATE ERROR.                                         
+REMARK   3   ESD FROM LUZZATI PLOT        (A) : NULL                            
+REMARK   3   ESD FROM SIGMAA              (A) : NULL                            
+REMARK   3   LOW RESOLUTION CUTOFF        (A) : NULL                            
+REMARK   3                                                                      
+REMARK   3  CROSS-VALIDATED ESTIMATED COORDINATE ERROR.                         
+REMARK   3   ESD FROM C-V LUZZATI PLOT    (A) : NULL                            
+REMARK   3   ESD FROM C-V SIGMAA          (A) : NULL                            
+REMARK   3                                                                      
+REMARK   3  RMS DEVIATIONS FROM IDEAL VALUES.                                   
+REMARK   3   BOND LENGTHS                 (A) : 0.016                           
+REMARK   3   BOND ANGLES            (DEGREES) : 3.700                           
+REMARK   3   DIHEDRAL ANGLES        (DEGREES) : NULL                            
+REMARK   3   IMPROPER ANGLES        (DEGREES) : NULL                            
+REMARK   3                                                                      
+REMARK   3  ISOTROPIC THERMAL MODEL : NULL                                      
+REMARK   3                                                                      
+REMARK   3  ISOTROPIC THERMAL FACTOR RESTRAINTS.    RMS    SIGMA                
+REMARK   3   MAIN-CHAIN BOND              (A**2) : NULL  ; NULL                 
+REMARK   3   MAIN-CHAIN ANGLE             (A**2) : NULL  ; NULL                 
+REMARK   3   SIDE-CHAIN BOND              (A**2) : NULL  ; NULL                 
+REMARK   3   SIDE-CHAIN ANGLE             (A**2) : NULL  ; NULL                 
+REMARK   3                                                                      
+REMARK   3  NCS MODEL : NULL                                                    
+REMARK   3                                                                      
+REMARK   3  NCS RESTRAINTS.                         RMS   SIGMA/WEIGHT          
+REMARK   3   GROUP  1  POSITIONAL            (A) : NULL  ; NULL                 
+REMARK   3   GROUP  1  B-FACTOR           (A**2) : NULL  ; NULL                 
+REMARK   3                                                                      
+REMARK   3  PARAMETER FILE  1  : NULL                                           
+REMARK   3  TOPOLOGY FILE  1   : NULL                                           
+REMARK   3                                                                      
+REMARK   3  OTHER REFINEMENT REMARKS:                                           
+REMARK   3  STRUCTURE WAS DETERMINED FROM FIBER DIFFRACTION DATA BY             
+REMARK   3  MULTI-DIMENSIONAL ISOMORPHOUS REPLACEMENT WITH THREE HEAVY          
+REMARK   3  ATOM DERIVATIVES.  CGMMV HAS 36 PERCENT SEQUENCE HOMOLOGY           
+REMARK   3  WITH TOBACCO MOSAIC VIRUS (TMV).  THE STRUCTURE INCLUDES            
+REMARK   3  ALL 160 AMINO ACIDS, 3 RNA NUCLEOTIDES (MODELED AS GAA) AND         
+REMARK   3  6 WATER MOLECULES.                                                  
+REMARK   4                                                                      
+REMARK   4 1CGM COMPLIES WITH FORMAT V. 3.30, 13-JUL-11                         
+REMARK 100                                                                      
+REMARK 100 THIS ENTRY HAS BEEN PROCESSED BY BNL.                                
+REMARK 100 THE DEPOSITION ID IS D_1000172310.                                   
+REMARK 200                                                                      
+REMARK 200 EXPERIMENTAL DETAILS                                                 
+REMARK 200  EXPERIMENT TYPE                : FIBER DIFFRACTION                  
+REMARK 200  DATE OF DATA COLLECTION        : NULL                               
+REMARK 200  TEMPERATURE           (KELVIN) : NULL                               
+REMARK 200  PH                             : NULL                               
+REMARK 200  NUMBER OF CRYSTALS USED        : NULL                               
+REMARK 200                                                                      
+REMARK 200  SYNCHROTRON              (Y/N) : NULL                               
+REMARK 200  RADIATION SOURCE               : NULL                               
+REMARK 200  BEAMLINE                       : NULL                               
+REMARK 200  X-RAY GENERATOR MODEL          : NULL                               
+REMARK 200  MONOCHROMATIC OR LAUE    (M/L) : NULL                               
+REMARK 200  WAVELENGTH OR RANGE        (A) : NULL                               
+REMARK 200  MONOCHROMATOR                  : NULL                               
+REMARK 200  OPTICS                         : NULL                               
+REMARK 200                                                                      
+REMARK 200  DETECTOR TYPE                  : NULL                               
+REMARK 200  DETECTOR MANUFACTURER          : NULL                               
+REMARK 200  INTENSITY-INTEGRATION SOFTWARE : NULL                               
+REMARK 200  DATA SCALING SOFTWARE          : NULL                               
+REMARK 200                                                                      
+REMARK 200  NUMBER OF UNIQUE REFLECTIONS   : NULL                               
+REMARK 200  RESOLUTION RANGE HIGH      (A) : NULL                               
+REMARK 200  RESOLUTION RANGE LOW       (A) : NULL                               
+REMARK 200  REJECTION CRITERIA  (SIGMA(I)) : NULL                               
+REMARK 200                                                                      
+REMARK 200 OVERALL.                                                             
+REMARK 200  COMPLETENESS FOR RANGE     (%) : NULL                               
+REMARK 200  DATA REDUNDANCY                : NULL                               
+REMARK 200  R MERGE                    (I) : NULL                               
+REMARK 200  R SYM                      (I) : NULL                               
+REMARK 200  <I/SIGMA(I)> FOR THE DATA SET  : NULL                               
+REMARK 200                                                                      
+REMARK 200 IN THE HIGHEST RESOLUTION SHELL.                                     
+REMARK 200  HIGHEST RESOLUTION SHELL, RANGE HIGH (A) : NULL                     
+REMARK 200  HIGHEST RESOLUTION SHELL, RANGE LOW  (A) : NULL                     
+REMARK 200  COMPLETENESS FOR SHELL     (%) : NULL                               
+REMARK 200  DATA REDUNDANCY IN SHELL       : NULL                               
+REMARK 200  R MERGE FOR SHELL          (I) : NULL                               
+REMARK 200  R SYM FOR SHELL            (I) : NULL                               
+REMARK 200  <I/SIGMA(I)> FOR SHELL         : NULL                               
+REMARK 200                                                                      
+REMARK 200 DIFFRACTION PROTOCOL: NULL                                           
+REMARK 200 METHOD USED TO DETERMINE THE STRUCTURE: NULL                         
+REMARK 200 SOFTWARE USED: X-PLOR                                                
+REMARK 200 STARTING MODEL: NULL                                                 
+REMARK 200                                                                      
+REMARK 200 REMARK: NULL                                                         
+REMARK 205                                                                      
+REMARK 205 FIBER DIFFRACTION                                                    
+REMARK 205 THE COORDINATES IN THIS ENTRY WERE GENERATED FROM FIBER              
+REMARK 205 DIFFRACTION DATA.  PROTEIN DATA BANK CONVENTIONS REQUIRE             
+REMARK 205 THAT CRYST1 AND SCALE RECORDS BE INCLUDED, BUT THE                   
+REMARK 205 VALUES ON THESE RECORDS ARE MEANINGLESS.                             
+REMARK 300                                                                      
+REMARK 300 BIOMOLECULE: 1                                                       
+REMARK 300 SEE REMARK 350 FOR THE AUTHOR PROVIDED AND/OR PROGRAM                
+REMARK 300 GENERATED ASSEMBLY INFORMATION FOR THE STRUCTURE IN                  
+REMARK 300 THIS ENTRY. THE REMARK MAY ALSO PROVIDE INFORMATION ON               
+REMARK 300 BURIED SURFACE AREA.                                                 
+REMARK 300 REMARK: THE FOLLOWING TRANSFORMATION REPRESENTS HELICAL SYMMETRY     
+REMARK 300 WITH THE HELIX AXIS ON THE Z AXIS.  APPLYING THIS                    
+REMARK 300 TRANSFORMATION 48 TIMES TO THE COORDINATES IN THIS ENTRY             
+REMARK 300 WILL YIELD 49 SUBUNITS IN THREE TURNS OF THE HELIX.  THE             
+REMARK 300 FULL (49 SUBUNIT) HELICAL REPEAT IS 70.8 ANGSTROMS LONG IN           
+REMARK 300 THE Z DIRECTION.                                                     
+REMARK 300 MTRIX1     0.926900 -0.375300  0.000000        0.00000               
+REMARK 300 MTRIX2     0.375300  0.926900  0.000000        0.00000               
+REMARK 300 MTRIX3     0.000000  0.000000  1.000000        1.44490               
+REMARK 300                                                                      
+REMARK 300 THE LENGTH OF THE BASIC REPEAT UNIT IS 70.8 ANGSTROMS.               
+REMARK 300 THE NUMBER OF SUBUNITS IN THE BASIC REPEAT UNIT IS 49.               
+REMARK 300 THE ASSEMBLY REPRESENTED IN THIS ENTRY HAS REGULAR                   
+REMARK 300 HELICAL SYMMETRY WITH THE FOLLOWING PARAMETERS:                      
+REMARK 300 ROTATION PER SUBUNIT (TWIST) = 1080.00/49 DEGREES                    
+REMARK 300 RISE PER SUBUNIT (HEIGHT) = 70.80/49 ANGSTROMS                       
+REMARK 350                                                                      
+REMARK 350 COORDINATES FOR A COMPLETE MULTIMER REPRESENTING THE KNOWN           
+REMARK 350 BIOLOGICALLY SIGNIFICANT OLIGOMERIZATION STATE OF THE                
+REMARK 350 MOLECULE CAN BE GENERATED BY APPLYING BIOMT TRANSFORMATIONS          
+REMARK 350 GIVEN BELOW.  BOTH NON-CRYSTALLOGRAPHIC AND                          
+REMARK 350 CRYSTALLOGRAPHIC OPERATIONS ARE GIVEN.                               
+REMARK 350                                                                      
+REMARK 350 BIOMOLECULE: 1                                                       
+REMARK 350 APPLY THE FOLLOWING TO CHAINS: I, E                                  
+REMARK 350   BIOMT1   1 -0.981559  0.191159  0.000000        0.00000            
+REMARK 350   BIOMT2   1 -0.191159 -0.981559  0.000000        0.00000            
+REMARK 350   BIOMT3   1  0.000000  0.000000  1.000000      -34.67755            
+REMARK 350   BIOMT1   2 -0.838088  0.545535  0.000000        0.00000            
+REMARK 350   BIOMT2   2 -0.545535 -0.838088  0.000000        0.00000            
+REMARK 350   BIOMT3   2  0.000000  0.000000  1.000000      -33.23265            
+REMARK 350   BIOMT1   3 -0.572117  0.820172  0.000000        0.00000            
+REMARK 350   BIOMT2   3 -0.820172 -0.572117  0.000000        0.00000            
+REMARK 350   BIOMT3   3  0.000000  0.000000  1.000000      -31.78776            
+REMARK 350   BIOMT1   4 -0.222521  0.974928  0.000000        0.00000            
+REMARK 350   BIOMT2   4 -0.974928 -0.222521  0.000000        0.00000            
+REMARK 350   BIOMT3   4  0.000000  0.000000  1.000000      -30.34286            
+REMARK 350   BIOMT1   5  0.159600  0.987182  0.000000        0.00000            
+REMARK 350   BIOMT2   5 -0.987182  0.159600  0.000000        0.00000            
+REMARK 350   BIOMT3   5  0.000000  0.000000  1.000000      -28.89796            
+REMARK 350   BIOMT1   6  0.518393  0.855143  0.000000        0.00000            
+REMARK 350   BIOMT2   6 -0.855143  0.518393  0.000000        0.00000            
+REMARK 350   BIOMT3   6  0.000000  0.000000  1.000000      -27.45306            
+REMARK 350   BIOMT1   7  0.801414  0.598111  0.000000        0.00000            
+REMARK 350   BIOMT2   7 -0.598111  0.801414  0.000000        0.00000            
+REMARK 350   BIOMT3   7  0.000000  0.000000  1.000000      -26.00816            
+REMARK 350   BIOMT1   8  0.967295  0.253655  0.000000        0.00000            
+REMARK 350   BIOMT2   8 -0.253655  0.967295  0.000000        0.00000            
+REMARK 350   BIOMT3   8  0.000000  0.000000  1.000000      -24.56327            
+REMARK 350   BIOMT1   9  0.991790 -0.127877  0.000000        0.00000            
+REMARK 350   BIOMT2   9  0.127877  0.991790  0.000000        0.00000            
+REMARK 350   BIOMT3   9  0.000000  0.000000  1.000000      -23.11837            
+REMARK 350   BIOMT1  10  0.871319 -0.490718  0.000000        0.00000            
+REMARK 350   BIOMT2  10  0.490718  0.871319  0.000000        0.00000            
+REMARK 350   BIOMT3  10  0.000000  0.000000  1.000000      -21.67347            
+REMARK 350   BIOMT1  11  0.623490 -0.781831  0.000000        0.00000            
+REMARK 350   BIOMT2  11  0.781831  0.623490  0.000000        0.00000            
+REMARK 350   BIOMT3  11  0.000000  0.000000  1.000000      -20.22857            
+REMARK 350   BIOMT1  12  0.284528 -0.958668  0.000000        0.00000            
+REMARK 350   BIOMT2  12  0.958668  0.284528  0.000000        0.00000            
+REMARK 350   BIOMT3  12  0.000000  0.000000  1.000000      -18.78367            
+REMARK 350   BIOMT1  13 -0.096023 -0.995379  0.000000        0.00000            
+REMARK 350   BIOMT2  13  0.995379 -0.096023  0.000000        0.00000            
+REMARK 350   BIOMT3  13  0.000000  0.000000  1.000000      -17.33878            
+REMARK 350   BIOMT1  14 -0.462538 -0.886599  0.000000        0.00000            
+REMARK 350   BIOMT2  14  0.886599 -0.462538  0.000000        0.00000            
+REMARK 350   BIOMT3  14  0.000000  0.000000  1.000000      -15.89388            
+REMARK 350   BIOMT1  15 -0.761446 -0.648228  0.000000        0.00000            
+REMARK 350   BIOMT2  15  0.648228 -0.761446  0.000000        0.00000            
+REMARK 350   BIOMT3  15  0.000000  0.000000  1.000000      -14.44898            
+REMARK 350   BIOMT1  16 -0.949056 -0.315108  0.000000        0.00000            
+REMARK 350   BIOMT2  16  0.315108 -0.949056  0.000000        0.00000            
+REMARK 350   BIOMT3  16  0.000000  0.000000  1.000000      -13.00408            
+REMARK 350   BIOMT1  17 -0.997945  0.064070  0.000000        0.00000            
+REMARK 350   BIOMT2  17 -0.064070 -0.997945  0.000000        0.00000            
+REMARK 350   BIOMT3  17  0.000000  0.000000  1.000000      -11.55918            
+REMARK 350   BIOMT1  18 -0.900969  0.433884  0.000000        0.00000            
+REMARK 350   BIOMT2  18 -0.433884 -0.900969  0.000000        0.00000            
+REMARK 350   BIOMT3  18  0.000000  0.000000  1.000000      -10.11429            
+REMARK 350   BIOMT1  19 -0.672301  0.740278  0.000000        0.00000            
+REMARK 350   BIOMT2  19 -0.740278 -0.672301  0.000000        0.00000            
+REMARK 350   BIOMT3  19  0.000000  0.000000  1.000000       -8.66939            
+REMARK 350   BIOMT1  20 -0.345365  0.938468  0.000000        0.00000            
+REMARK 350   BIOMT2  20 -0.938468 -0.345365  0.000000        0.00000            
+REMARK 350   BIOMT3  20  0.000000  0.000000  1.000000       -7.22449            
+REMARK 350   BIOMT1  21  0.032052  0.999486  0.000000        0.00000            
+REMARK 350   BIOMT2  21 -0.999486  0.032052  0.000000        0.00000            
+REMARK 350   BIOMT3  21  0.000000  0.000000  1.000000       -5.77959            
+REMARK 350   BIOMT1  22  0.404783  0.914413  0.000000        0.00000            
+REMARK 350   BIOMT2  22 -0.914413  0.404783  0.000000        0.00000            
+REMARK 350   BIOMT3  22  0.000000  0.000000  1.000000       -4.33469            
+REMARK 350   BIOMT1  23  0.718349  0.695683  0.000000        0.00000            
+REMARK 350   BIOMT2  23 -0.695683  0.718349  0.000000        0.00000            
+REMARK 350   BIOMT3  23  0.000000  0.000000  1.000000       -2.88980            
+REMARK 350   BIOMT1  24  0.926917  0.375267  0.000000        0.00000            
+REMARK 350   BIOMT2  24 -0.375267  0.926917  0.000000        0.00000            
+REMARK 350   BIOMT3  24  0.000000  0.000000  1.000000       -1.44490            
+REMARK 350   BIOMT1  25  1.000000  0.000000  0.000000        0.00000            
+REMARK 350   BIOMT2  25  0.000000  1.000000  0.000000        0.00000            
+REMARK 350   BIOMT3  25  0.000000  0.000000  1.000000        0.00000            
+REMARK 350   BIOMT1  26  0.926917 -0.375267  0.000000        0.00000            
+REMARK 350   BIOMT2  26  0.375267  0.926917  0.000000        0.00000            
+REMARK 350   BIOMT3  26  0.000000  0.000000  1.000000        1.44490            
+REMARK 350   BIOMT1  27  0.718349 -0.695683  0.000000        0.00000            
+REMARK 350   BIOMT2  27  0.695683  0.718349  0.000000        0.00000            
+REMARK 350   BIOMT3  27  0.000000  0.000000  1.000000        2.88980            
+REMARK 350   BIOMT1  28  0.404783 -0.914413  0.000000        0.00000            
+REMARK 350   BIOMT2  28  0.914413  0.404783  0.000000        0.00000            
+REMARK 350   BIOMT3  28  0.000000  0.000000  1.000000        4.33469            
+REMARK 350   BIOMT1  29  0.032052 -0.999486  0.000000        0.00000            
+REMARK 350   BIOMT2  29  0.999486  0.032052  0.000000        0.00000            
+REMARK 350   BIOMT3  29  0.000000  0.000000  1.000000        5.77959            
+REMARK 350   BIOMT1  30 -0.345365 -0.938468  0.000000        0.00000            
+REMARK 350   BIOMT2  30  0.938468 -0.345365  0.000000        0.00000            
+REMARK 350   BIOMT3  30  0.000000  0.000000  1.000000        7.22449            
+REMARK 350   BIOMT1  31 -0.672301 -0.740278  0.000000        0.00000            
+REMARK 350   BIOMT2  31  0.740278 -0.672301  0.000000        0.00000            
+REMARK 350   BIOMT3  31  0.000000  0.000000  1.000000        8.66939            
+REMARK 350   BIOMT1  32 -0.900969 -0.433884  0.000000        0.00000            
+REMARK 350   BIOMT2  32  0.433884 -0.900969  0.000000        0.00000            
+REMARK 350   BIOMT3  32  0.000000  0.000000  1.000000       10.11429            
+REMARK 350   BIOMT1  33 -0.997945 -0.064070  0.000000        0.00000            
+REMARK 350   BIOMT2  33  0.064070 -0.997945  0.000000        0.00000            
+REMARK 350   BIOMT3  33  0.000000  0.000000  1.000000       11.55918            
+REMARK 350   BIOMT1  34 -0.949056  0.315108  0.000000        0.00000            
+REMARK 350   BIOMT2  34 -0.315108 -0.949056  0.000000        0.00000            
+REMARK 350   BIOMT3  34  0.000000  0.000000  1.000000       13.00408            
+REMARK 350   BIOMT1  35 -0.761446  0.648228  0.000000        0.00000            
+REMARK 350   BIOMT2  35 -0.648228 -0.761446  0.000000        0.00000            
+REMARK 350   BIOMT3  35  0.000000  0.000000  1.000000       14.44898            
+REMARK 350   BIOMT1  36 -0.462538  0.886599  0.000000        0.00000            
+REMARK 350   BIOMT2  36 -0.886599 -0.462538  0.000000        0.00000            
+REMARK 350   BIOMT3  36  0.000000  0.000000  1.000000       15.89388            
+REMARK 350   BIOMT1  37 -0.096023  0.995379  0.000000        0.00000            
+REMARK 350   BIOMT2  37 -0.995379 -0.096023  0.000000        0.00000            
+REMARK 350   BIOMT3  37  0.000000  0.000000  1.000000       17.33878            
+REMARK 350   BIOMT1  38  0.284528  0.958668  0.000000        0.00000            
+REMARK 350   BIOMT2  38 -0.958668  0.284528  0.000000        0.00000            
+REMARK 350   BIOMT3  38  0.000000  0.000000  1.000000       18.78367            
+REMARK 350   BIOMT1  39  0.623490  0.781831  0.000000        0.00000            
+REMARK 350   BIOMT2  39 -0.781831  0.623490  0.000000        0.00000            
+REMARK 350   BIOMT3  39  0.000000  0.000000  1.000000       20.22857            
+REMARK 350   BIOMT1  40  0.871319  0.490718  0.000000        0.00000            
+REMARK 350   BIOMT2  40 -0.490718  0.871319  0.000000        0.00000            
+REMARK 350   BIOMT3  40  0.000000  0.000000  1.000000       21.67347            
+REMARK 350   BIOMT1  41  0.991790  0.127877  0.000000        0.00000            
+REMARK 350   BIOMT2  41 -0.127877  0.991790  0.000000        0.00000            
+REMARK 350   BIOMT3  41  0.000000  0.000000  1.000000       23.11837            
+REMARK 350   BIOMT1  42  0.967295 -0.253655  0.000000        0.00000            
+REMARK 350   BIOMT2  42  0.253655  0.967295  0.000000        0.00000            
+REMARK 350   BIOMT3  42  0.000000  0.000000  1.000000       24.56327            
+REMARK 350   BIOMT1  43  0.801414 -0.598111  0.000000        0.00000            
+REMARK 350   BIOMT2  43  0.598111  0.801414  0.000000        0.00000            
+REMARK 350   BIOMT3  43  0.000000  0.000000  1.000000       26.00816            
+REMARK 350   BIOMT1  44  0.518393 -0.855143  0.000000        0.00000            
+REMARK 350   BIOMT2  44  0.855143  0.518393  0.000000        0.00000            
+REMARK 350   BIOMT3  44  0.000000  0.000000  1.000000       27.45306            
+REMARK 350   BIOMT1  45  0.159600 -0.987182  0.000000        0.00000            
+REMARK 350   BIOMT2  45  0.987182  0.159600  0.000000        0.00000            
+REMARK 350   BIOMT3  45  0.000000  0.000000  1.000000       28.89796            
+REMARK 350   BIOMT1  46 -0.222521 -0.974928  0.000000        0.00000            
+REMARK 350   BIOMT2  46  0.974928 -0.222521  0.000000        0.00000            
+REMARK 350   BIOMT3  46  0.000000  0.000000  1.000000       30.34286            
+REMARK 350   BIOMT1  47 -0.572117 -0.820172  0.000000        0.00000            
+REMARK 350   BIOMT2  47  0.820172 -0.572117  0.000000        0.00000            
+REMARK 350   BIOMT3  47  0.000000  0.000000  1.000000       31.78776            
+REMARK 350   BIOMT1  48 -0.838088 -0.545535  0.000000        0.00000            
+REMARK 350   BIOMT2  48  0.545535 -0.838088  0.000000        0.00000            
+REMARK 350   BIOMT3  48  0.000000  0.000000  1.000000       33.23265            
+REMARK 350   BIOMT1  49 -0.981559 -0.191159  0.000000        0.00000            
+REMARK 350   BIOMT2  49  0.191159 -0.981559  0.000000        0.00000            
+REMARK 350   BIOMT3  49  0.000000  0.000000  1.000000       34.67755            
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: COVALENT BOND LENGTHS                                      
+REMARK 500                                                                      
+REMARK 500 THE STEREOCHEMICAL PARAMETERS OF THE FOLLOWING RESIDUES              
+REMARK 500 HAVE VALUES WHICH DEVIATE FROM EXPECTED VALUES BY MORE               
+REMARK 500 THAN 6*RMSD (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN               
+REMARK 500 IDENTIFIER; SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                 
+REMARK 500                                                                      
+REMARK 500 STANDARD TABLE:                                                      
+REMARK 500 FORMAT: (10X,I3,1X,2(A3,1X,A1,I4,A1,1X,A4,3X),1X,F6.3)               
+REMARK 500                                                                      
+REMARK 500 EXPECTED VALUES PROTEIN: ENGH AND HUBER, 1999                        
+REMARK 500 EXPECTED VALUES NUCLEIC ACID: CLOWNEY ET AL 1996                     
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI ATM1   RES CSSEQI ATM2   DEVIATION                     
+REMARK 500      G I   1   O3'     A I   2   P       0.088                       
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: COVALENT BOND ANGLES                                       
+REMARK 500                                                                      
+REMARK 500 THE STEREOCHEMICAL PARAMETERS OF THE FOLLOWING RESIDUES              
+REMARK 500 HAVE VALUES WHICH DEVIATE FROM EXPECTED VALUES BY MORE               
+REMARK 500 THAN 6*RMSD (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN               
+REMARK 500 IDENTIFIER; SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                 
+REMARK 500                                                                      
+REMARK 500 STANDARD TABLE:                                                      
+REMARK 500 FORMAT: (10X,I3,1X,A3,1X,A1,I4,A1,3(1X,A4,2X),12X,F5.1)              
+REMARK 500                                                                      
+REMARK 500 EXPECTED VALUES PROTEIN: ENGH AND HUBER, 1999                        
+REMARK 500 EXPECTED VALUES NUCLEIC ACID: CLOWNEY ET AL 1996                     
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI ATM1   ATM2   ATM3                                     
+REMARK 500      G I   1   O4' -  C4' -  C3' ANGL. DEV. =   5.7 DEGREES          
+REMARK 500      G I   1   C3' -  C2' -  C1' ANGL. DEV. =   8.7 DEGREES          
+REMARK 500      G I   1   O4' -  C1' -  N9  ANGL. DEV. =   7.5 DEGREES          
+REMARK 500      A I   2   C1' -  O4' -  C4' ANGL. DEV. =  -5.2 DEGREES          
+REMARK 500      A I   2   N9  -  C1' -  C2' ANGL. DEV. = -14.9 DEGREES          
+REMARK 500      A I   2   O4' -  C1' -  N9  ANGL. DEV. =   9.3 DEGREES          
+REMARK 500      A I   3   O4' -  C1' -  N9  ANGL. DEV. =   6.0 DEGREES          
+REMARK 500    THR E   6   CA  -  C   -  N   ANGL. DEV. =  18.1 DEGREES          
+REMARK 500    TYR E  17   CA  -  CB  -  CG  ANGL. DEV. =  14.7 DEGREES          
+REMARK 500    TYR E  17   CB  -  CG  -  CD2 ANGL. DEV. =  -5.5 DEGREES          
+REMARK 500    TYR E  17   CB  -  CG  -  CD1 ANGL. DEV. =   4.7 DEGREES          
+REMARK 500    VAL E  18   N   -  CA  -  C   ANGL. DEV. =  16.9 DEGREES          
+REMARK 500    GLN E  36   CA  -  C   -  N   ANGL. DEV. = -14.5 DEGREES          
+REMARK 500    THR E  37   CA  -  C   -  N   ANGL. DEV. = -13.9 DEGREES          
+REMARK 500    ASP E  57   N   -  CA  -  C   ANGL. DEV. = -18.4 DEGREES          
+REMARK 500    TYR E  68   CA  -  CB  -  CG  ANGL. DEV. =  11.8 DEGREES          
+REMARK 500    ARG E  77   NE  -  CZ  -  NH1 ANGL. DEV. =   3.2 DEGREES          
+REMARK 500    ARG E  90   N   -  CA  -  C   ANGL. DEV. =  21.0 DEGREES          
+REMARK 500    GLU E  95   N   -  CA  -  C   ANGL. DEV. =  20.5 DEGREES          
+REMARK 500    GLU E  95   CA  -  C   -  N   ANGL. DEV. = -18.1 DEGREES          
+REMARK 500    GLU E  95   O   -  C   -  N   ANGL. DEV. =   9.9 DEGREES          
+REMARK 500    ARG E 113   NE  -  CZ  -  NH2 ANGL. DEV. =  -4.5 DEGREES          
+REMARK 500    ARG E 141   NE  -  CZ  -  NH1 ANGL. DEV. =   3.0 DEGREES          
+REMARK 500    TRP E 152   CD1 -  CG  -  CD2 ANGL. DEV. =   5.5 DEGREES          
+REMARK 500    TRP E 152   CE2 -  CD2 -  CG  ANGL. DEV. =  -5.4 DEGREES          
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: TORSION ANGLES                                             
+REMARK 500                                                                      
+REMARK 500 TORSION ANGLES OUTSIDE THE EXPECTED RAMACHANDRAN REGIONS:            
+REMARK 500 (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN IDENTIFIER;               
+REMARK 500 SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                             
+REMARK 500                                                                      
+REMARK 500 STANDARD TABLE:                                                      
+REMARK 500 FORMAT:(10X,I3,1X,A3,1X,A1,I4,A1,4X,F7.2,3X,F7.2)                    
+REMARK 500                                                                      
+REMARK 500 EXPECTED VALUES: GJ KLEYWEGT AND TA JONES (1996). PHI/PSI-           
+REMARK 500 CHOLOGY: RAMACHANDRAN REVISITED. STRUCTURE 4, 1395 - 1400            
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI        PSI       PHI                                   
+REMARK 500    THR E   6      -93.06    -85.85                                   
+REMARK 500    PRO E   7     -157.71    -82.37                                   
+REMARK 500    SER E   8       74.93   -102.60                                   
+REMARK 500    LYS E   9       -9.36    -57.00                                   
+REMARK 500    ALA E  12       34.29    -90.06                                   
+REMARK 500    SER E  14      -60.74   -105.42                                   
+REMARK 500    SER E  16       -5.11   -172.24                                   
+REMARK 500    PRO E  19      -86.13    -36.56                                   
+REMARK 500    ARG E  21      -82.49    -52.00                                   
+REMARK 500    GLN E  36      -39.79    -38.80                                   
+REMARK 500    THR E  37     -177.21    -54.14                                   
+REMARK 500    GLN E  38      -67.60   -100.95                                   
+REMARK 500    GLU E  46      -79.63    -52.21                                   
+REMARK 500    SER E  47      -78.21    -52.00                                   
+REMARK 500    SER E  53       85.53    -58.82                                   
+REMARK 500    ASP E  57      -77.22   -110.42                                   
+REMARK 500    ILE E  58      -13.97   -147.98                                   
+REMARK 500    PRO E  63       84.66    -48.89                                   
+REMARK 500    PHE E  67      -53.03   -129.33                                   
+REMARK 500    ASN E  72      -75.17   -154.43                                   
+REMARK 500    PRO E  74      -70.17    -76.42                                   
+REMARK 500    PRO E  78      -78.25    -61.49                                   
+REMARK 500    ILE E  79      -77.49    -45.22                                   
+REMARK 500    VAL E  81      -69.57    -92.08                                   
+REMARK 500    ARG E  90        3.37    -37.68                                   
+REMARK 500    VAL E  96      -82.92    -60.38                                   
+REMARK 500    VAL E  97      -41.55   -155.92                                   
+REMARK 500    PRO E  99      -38.19    -32.34                                   
+REMARK 500    GLU E 106      -63.40   -124.25                                   
+REMARK 500    ARG E 122      -79.45    -38.46                                   
+REMARK 500    LYS E 134      -65.31   -120.46                                   
+REMARK 500    PHE E 136      105.91    -54.99                                   
+REMARK 500    ASP E 137      -25.52   -171.69                                   
+REMARK 500    ASP E 140     -155.91    -99.98                                   
+REMARK 500    ARG E 141      -71.09    -62.11                                   
+REMARK 500    ALA E 155      -72.82    -92.76                                   
+REMARK 500    THR E 156      -84.12    -86.79                                   
+REMARK 500    LYS E 159       34.71    -96.78                                   
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: NON-CIS, NON-TRANS                                         
+REMARK 500                                                                      
+REMARK 500 THE FOLLOWING PEPTIDE BONDS DEVIATE SIGNIFICANTLY FROM BOTH          
+REMARK 500 CIS AND TRANS CONFORMATION.  CIS BONDS, IF ANY, ARE LISTED           
+REMARK 500 ON CISPEP RECORDS.  TRANS IS DEFINED AS 180 +/- 30 AND               
+REMARK 500 CIS IS DEFINED AS 0 +/- 30 DEGREES.                                  
+REMARK 500                                 MODEL     OMEGA                      
+REMARK 500 ASN E    3     PRO E    4                  147.02                    
+REMARK 500 LEU E   51     PRO E   52                  134.86                    
+REMARK 500 ASN E  101     PRO E  102                  -60.12                    
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+ATOM      1  P     G I   1      40.436  -1.524  23.775  1.00 74.98           P  
+ATOM      2  OP1   G I   1      41.491  -2.537  23.989  1.00 75.11           O  
+ATOM      3  OP2   G I   1      40.115  -1.089  22.394  1.00 74.51           O  
+ATOM      4  O5'   G I   1      41.014  -0.183  24.460  1.00 75.05           O  
+ATOM      5  C5'   G I   1      41.238   0.040  25.835  1.00 75.05           C  
+ATOM      6  C4'   G I   1      39.896   0.223  26.466  1.00 75.46           C  
+ATOM      7  O4'   G I   1      39.590  -0.921  27.274  1.00 75.43           O  
+ATOM      8  C3'   G I   1      39.941   1.453  27.260  1.00 75.88           C  
+ATOM      9  O3'   G I   1      38.958   2.441  26.777  1.00 76.65           O  
+ATOM     10  C2'   G I   1      39.921   0.893  28.671  1.00 76.02           C  
+ATOM     11  O2'   G I   1      38.898   1.315  29.498  1.00 76.31           O  
+ATOM     12  C1'   G I   1      39.590  -0.567  28.644  1.00 75.58           C  
+ATOM     13  N9    G I   1      40.531  -1.304  29.499  1.00 75.04           N  
+ATOM     14  C8    G I   1      41.369  -2.306  29.137  1.00 74.94           C  
+ATOM     15  N7    G I   1      42.137  -2.727  30.097  1.00 74.79           N  
+ATOM     16  C5    G I   1      41.766  -1.951  31.185  1.00 74.90           C  
+ATOM     17  C6    G I   1      42.254  -1.956  32.514  1.00 74.91           C  
+ATOM     18  O6    G I   1      43.129  -2.663  33.003  1.00 74.76           O  
+ATOM     19  N1    G I   1      41.609  -1.012  33.298  1.00 74.96           N  
+ATOM     20  C2    G I   1      40.611  -0.172  32.867  1.00 74.90           C  
+ATOM     21  N2    G I   1      40.092   0.652  33.768  1.00 75.01           N  
+ATOM     22  N3    G I   1      40.148  -0.170  31.623  1.00 74.80           N  
+ATOM     23  C4    G I   1      40.771  -1.079  30.834  1.00 74.89           C  
+ATOM     24  P     A I   2      39.268   3.678  25.661  1.00 77.19           P  
+ATOM     25  OP1   A I   2      37.972   4.259  25.217  1.00 76.86           O  
+ATOM     26  OP2   A I   2      40.243   3.227  24.629  1.00 77.04           O  
+ATOM     27  O5'   A I   2      40.038   4.810  26.550  1.00 77.50           O  
+ATOM     28  C5'   A I   2      41.432   4.675  26.895  1.00 77.46           C  
+ATOM     29  C4'   A I   2      42.331   5.784  26.366  1.00 77.31           C  
+ATOM     30  O4'   A I   2      43.710   5.387  26.395  1.00 77.07           O  
+ATOM     31  C3'   A I   2      42.022   6.032  24.901  1.00 77.43           C  
+ATOM     32  O3'   A I   2      40.894   6.896  24.624  1.00 77.65           O  
+ATOM     33  C2'   A I   2      43.325   6.439  24.300  1.00 77.17           C  
+ATOM     34  O2'   A I   2      43.417   7.771  23.795  1.00 77.06           O  
+ATOM     35  C1'   A I   2      44.335   6.193  25.395  1.00 77.03           C  
+ATOM     36  N9    A I   2      45.354   5.572  24.563  1.00 77.04           N  
+ATOM     37  C8    A I   2      45.442   4.300  24.057  1.00 76.91           C  
+ATOM     38  N7    A I   2      46.465   4.139  23.269  1.00 77.03           N  
+ATOM     39  C5    A I   2      47.098   5.378  23.268  1.00 77.22           C  
+ATOM     40  C6    A I   2      48.245   5.873  22.624  1.00 77.60           C  
+ATOM     41  N6    A I   2      49.005   5.142  21.814  1.00 77.86           N  
+ATOM     42  N1    A I   2      48.585   7.151  22.851  1.00 77.78           N  
+ATOM     43  C2    A I   2      47.832   7.884  23.652  1.00 77.77           C  
+ATOM     44  N3    A I   2      46.738   7.543  24.311  1.00 77.54           N  
+ATOM     45  C4    A I   2      46.427   6.251  24.064  1.00 77.25           C  
+ATOM     46  P     A I   3      40.831   8.493  24.912  1.00 77.90           P  
+ATOM     47  OP1   A I   3      41.144   9.204  23.659  1.00 77.22           O  
+ATOM     48  OP2   A I   3      41.635   8.775  26.126  1.00 78.13           O  
+ATOM     49  O5'   A I   3      39.279   8.760  25.290  1.00 78.11           O  
+ATOM     50  C5'   A I   3      38.909   9.988  25.946  1.00 78.22           C  
+ATOM     51  C4'   A I   3      37.412  10.133  26.257  1.00 78.24           C  
+ATOM     52  O4'   A I   3      37.003   9.170  27.262  1.00 77.92           O  
+ATOM     53  C3'   A I   3      37.039  11.527  26.830  1.00 78.34           C  
+ATOM     54  O3'   A I   3      36.931  12.717  25.925  1.00 78.65           O  
+ATOM     55  C2'   A I   3      35.735  11.108  27.587  1.00 78.07           C  
+ATOM     56  O2'   A I   3      34.604  10.758  26.760  1.00 78.09           O  
+ATOM     57  C1'   A I   3      36.173   9.813  28.253  1.00 77.69           C  
+ATOM     58  N9    A I   3      36.844  10.052  29.562  1.00 77.37           N  
+ATOM     59  C8    A I   3      36.279  10.489  30.728  1.00 77.21           C  
+ATOM     60  N7    A I   3      37.110  10.640  31.718  1.00 77.07           N  
+ATOM     61  C5    A I   3      38.327  10.261  31.167  1.00 77.13           C  
+ATOM     62  C6    A I   3      39.622  10.194  31.688  1.00 77.11           C  
+ATOM     63  N6    A I   3      39.902  10.521  32.944  1.00 77.33           N  
+ATOM     64  N1    A I   3      40.609   9.789  30.879  1.00 76.90           N  
+ATOM     65  C2    A I   3      40.319   9.469  29.633  1.00 76.86           C  
+ATOM     66  N3    A I   3      39.152   9.484  29.028  1.00 76.95           N  
+ATOM     67  C4    A I   3      38.180   9.901  29.861  1.00 77.12           C  
+TER      68        A I   3                                                      
+TER    1293      ALA E 160                                                      
+CONECT   69   70   71   72                                                      
+CONECT   70   69                                                                
+CONECT   71   69                                                                
+CONECT   72   69                                                                
+END                                                                             

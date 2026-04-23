@@ -1,0 +1,880 @@
+HEADER    VIRUS/RNA                               22-MAY-95   1CWP              
+TITLE     STRUCTURES OF THE NATIVE AND SWOLLEN FORMS OF COWPEA CHLOROTIC MOTTLE 
+TITLE    2 VIRUS DETERMINED BY X-RAY CRYSTALLOGRAPHY AND CRYO-ELECTRON          
+TITLE    3 MICROSCOPY                                                           
+COMPND    MOL_ID: 1;                                                            
+COMPND   2 MOLECULE: RNA (5'-R(*AP*UP*AP*U)-3');                                
+COMPND   3 CHAIN: D, F;                                                         
+COMPND   4 ENGINEERED: YES;                                                     
+COMPND   5 MOL_ID: 2;                                                           
+COMPND   6 MOLECULE: RNA (5'-R(*AP*U)-3');                                      
+COMPND   7 CHAIN: E;                                                            
+COMPND   8 ENGINEERED: YES;                                                     
+COMPND   9 MOL_ID: 3;                                                           
+COMPND  10 MOLECULE: COAT PROTEIN;                                              
+COMPND  11 CHAIN: A, B, C;                                                      
+COMPND  12 SYNONYM: CCMV                                                        
+SOURCE    MOL_ID: 1;                                                            
+SOURCE   2 SYNTHETIC: YES;                                                      
+SOURCE   3 MOL_ID: 2;                                                           
+SOURCE   4 SYNTHETIC: YES;                                                      
+SOURCE   5 MOL_ID: 3;                                                           
+SOURCE   6 ORGANISM_SCIENTIFIC: COWPEA CHLOROTIC MOTTLE VIRUS;                  
+SOURCE   7 ORGANISM_TAXID: 12303;                                               
+SOURCE   8 VARIANT: CALIFORNIA BLACKEYE;                                        
+SOURCE   9 OTHER_DETAILS: COWPEA PLANT                                          
+REMARK   1                                                                      
+REMARK   1 REFERENCE 1                                                          
+REMARK   1  AUTH   J.A.SPEIR                                                    
+REMARK   1  TITL   THE 3.2 ANGSTROM RESOLUTION STRUCTURE OF THE POLYMORPHIC     
+REMARK   1  TITL 2 COWPEA CHLOROTIC MOTTLE VIRUS RIBONUCLEOPROTEIN PARTICLE     
+REMARK   1  REF    THESIS, PURDUE UNIVERSITY                  1994              
+REMARK   1  REFN                   ISSN 0-12-345320-8                           
+REMARK   1 REFERENCE 2                                                          
+REMARK   1  AUTH   J.A.SPEIR,S.MUNSHI,T.S.BAKER,J.E.JOHNSON                     
+REMARK   1  TITL   PRELIMINARY X-RAY DATA ANALYSIS OF CRYSTALLINE COWPEA        
+REMARK   1  TITL 2 CHLOROTIC MOTTLE VIRUS                                       
+REMARK   1  REF    VIROLOGY                      V. 193   234 1993              
+REMARK   1  REFN                   ISSN 0042-6822                               
+REMARK   1 REFERENCE 3                                                          
+REMARK   1  AUTH   J.B.BANCROFT,G.J.HILLS,R.MARKHAM                             
+REMARK   1  TITL   A STUDY OF THE SELF-ASSEMBLY PROCESS IN A SMALL SPHERICAL    
+REMARK   1  TITL 2 VIRUS: FORMATION OF ORGANIZED STRUCTURES FROM PROTEIN        
+REMARK   1  TITL 3 SUBUNITS IN VITRO                                            
+REMARK   1  REF    VIROLOGY                      V.  31   354 1967              
+REMARK   1  REFN                   ISSN 0042-6822                               
+REMARK   2                                                                      
+REMARK   2 RESOLUTION.    3.20 ANGSTROMS.                                       
+REMARK   3                                                                      
+REMARK   3 REFINEMENT.                                                          
+REMARK   3   PROGRAM     : X-PLOR 3.1                                           
+REMARK   3   AUTHORS     : BRUNGER                                              
+REMARK   3                                                                      
+REMARK   3  DATA USED IN REFINEMENT.                                            
+REMARK   3   RESOLUTION RANGE HIGH (ANGSTROMS) : 3.20                           
+REMARK   3   RESOLUTION RANGE LOW  (ANGSTROMS) : 7.00                           
+REMARK   3   DATA CUTOFF            (SIGMA(F)) : 1.000                          
+REMARK   3   DATA CUTOFF HIGH         (ABS(F)) : NULL                           
+REMARK   3   DATA CUTOFF LOW          (ABS(F)) : NULL                           
+REMARK   3   COMPLETENESS (WORKING+TEST)   (%) : 57.0                           
+REMARK   3   NUMBER OF REFLECTIONS             : 552678                         
+REMARK   3                                                                      
+REMARK   3  FIT TO DATA USED IN REFINEMENT.                                     
+REMARK   3   CROSS-VALIDATION METHOD          : NULL                            
+REMARK   3   FREE R VALUE TEST SET SELECTION  : NULL                            
+REMARK   3   R VALUE            (WORKING SET) : 0.310                           
+REMARK   3   FREE R VALUE                     : NULL                            
+REMARK   3   FREE R VALUE TEST SET SIZE   (%) : NULL                            
+REMARK   3   FREE R VALUE TEST SET COUNT      : NULL                            
+REMARK   3   ESTIMATED ERROR OF FREE R VALUE  : NULL                            
+REMARK   3                                                                      
+REMARK   3  FIT IN THE HIGHEST RESOLUTION BIN.                                  
+REMARK   3   TOTAL NUMBER OF BINS USED           : NULL                         
+REMARK   3   BIN RESOLUTION RANGE HIGH       (A) : NULL                         
+REMARK   3   BIN RESOLUTION RANGE LOW        (A) : NULL                         
+REMARK   3   BIN COMPLETENESS (WORKING+TEST) (%) : NULL                         
+REMARK   3   REFLECTIONS IN BIN    (WORKING SET) : NULL                         
+REMARK   3   BIN R VALUE           (WORKING SET) : NULL                         
+REMARK   3   BIN FREE R VALUE                    : NULL                         
+REMARK   3   BIN FREE R VALUE TEST SET SIZE  (%) : NULL                         
+REMARK   3   BIN FREE R VALUE TEST SET COUNT     : NULL                         
+REMARK   3   ESTIMATED ERROR OF BIN FREE R VALUE : NULL                         
+REMARK   3                                                                      
+REMARK   3  NUMBER OF NON-HYDROGEN ATOMS USED IN REFINEMENT.                    
+REMARK   3   PROTEIN ATOMS            : 3574                                    
+REMARK   3   NUCLEIC ACID ATOMS       : 210                                     
+REMARK   3   HETEROGEN ATOMS          : 0                                       
+REMARK   3   SOLVENT ATOMS            : 0                                       
+REMARK   3                                                                      
+REMARK   3  B VALUES.                                                           
+REMARK   3   FROM WILSON PLOT           (A**2) : NULL                           
+REMARK   3   MEAN B VALUE      (OVERALL, A**2) : 20.00                          
+REMARK   3   OVERALL ANISOTROPIC B VALUE.                                       
+REMARK   3    B11 (A**2) : NULL                                                 
+REMARK   3    B22 (A**2) : NULL                                                 
+REMARK   3    B33 (A**2) : NULL                                                 
+REMARK   3    B12 (A**2) : NULL                                                 
+REMARK   3    B13 (A**2) : NULL                                                 
+REMARK   3    B23 (A**2) : NULL                                                 
+REMARK   3                                                                      
+REMARK   3  ESTIMATED COORDINATE ERROR.                                         
+REMARK   3   ESD FROM LUZZATI PLOT        (A) : NULL                            
+REMARK   3   ESD FROM SIGMAA              (A) : NULL                            
+REMARK   3   LOW RESOLUTION CUTOFF        (A) : NULL                            
+REMARK   3                                                                      
+REMARK   3  CROSS-VALIDATED ESTIMATED COORDINATE ERROR.                         
+REMARK   3   ESD FROM C-V LUZZATI PLOT    (A) : NULL                            
+REMARK   3   ESD FROM C-V SIGMAA          (A) : NULL                            
+REMARK   3                                                                      
+REMARK   3  RMS DEVIATIONS FROM IDEAL VALUES.                                   
+REMARK   3   BOND LENGTHS                 (A) : 0.011                           
+REMARK   3   BOND ANGLES            (DEGREES) : 2.100                           
+REMARK   3   DIHEDRAL ANGLES        (DEGREES) : 27.50                           
+REMARK   3   IMPROPER ANGLES        (DEGREES) : 1.970                           
+REMARK   3                                                                      
+REMARK   3  ISOTROPIC THERMAL MODEL : NULL                                      
+REMARK   3                                                                      
+REMARK   3  ISOTROPIC THERMAL FACTOR RESTRAINTS.    RMS    SIGMA                
+REMARK   3   MAIN-CHAIN BOND              (A**2) : NULL  ; NULL                 
+REMARK   3   MAIN-CHAIN ANGLE             (A**2) : NULL  ; NULL                 
+REMARK   3   SIDE-CHAIN BOND              (A**2) : NULL  ; NULL                 
+REMARK   3   SIDE-CHAIN ANGLE             (A**2) : NULL  ; NULL                 
+REMARK   3                                                                      
+REMARK   3  NCS MODEL : NULL                                                    
+REMARK   3                                                                      
+REMARK   3  NCS RESTRAINTS.                         RMS   SIGMA/WEIGHT          
+REMARK   3   GROUP  1  POSITIONAL            (A) : NULL  ; NULL                 
+REMARK   3   GROUP  1  B-FACTOR           (A**2) : NULL  ; NULL                 
+REMARK   3                                                                      
+REMARK   3  PARAMETER FILE  1  : NULL                                           
+REMARK   3  TOPOLOGY FILE  1   : NULL                                           
+REMARK   3                                                                      
+REMARK   3  OTHER REFINEMENT REMARKS: NULL                                      
+REMARK   4                                                                      
+REMARK   4 1CWP COMPLIES WITH FORMAT V. 3.30, 13-JUL-11                         
+REMARK 100                                                                      
+REMARK 100 THIS ENTRY HAS BEEN PROCESSED BY NDB.                                
+REMARK 100 THE DEPOSITION ID IS D_1000172579.                                   
+REMARK 200                                                                      
+REMARK 200 EXPERIMENTAL DETAILS                                                 
+REMARK 200  EXPERIMENT TYPE                : X-RAY DIFFRACTION                  
+REMARK 200  DATE OF DATA COLLECTION        : NULL                               
+REMARK 200  TEMPERATURE           (KELVIN) : NULL                               
+REMARK 200  PH                             : NULL                               
+REMARK 200  NUMBER OF CRYSTALS USED        : NULL                               
+REMARK 200                                                                      
+REMARK 200  SYNCHROTRON              (Y/N) : Y                                  
+REMARK 200  RADIATION SOURCE               : CHESS                              
+REMARK 200  BEAMLINE                       : F1                                 
+REMARK 200  X-RAY GENERATOR MODEL          : NULL                               
+REMARK 200  MONOCHROMATIC OR LAUE    (M/L) : M                                  
+REMARK 200  WAVELENGTH OR RANGE        (A) : 0.910                              
+REMARK 200  MONOCHROMATOR                  : NULL                               
+REMARK 200  OPTICS                         : NULL                               
+REMARK 200                                                                      
+REMARK 200  DETECTOR TYPE                  : NULL                               
+REMARK 200  DETECTOR MANUFACTURER          : NULL                               
+REMARK 200  INTENSITY-INTEGRATION SOFTWARE : PURDUE DATA PROCESSING PACKAGE     
+REMARK 200  DATA SCALING SOFTWARE          : NULL                               
+REMARK 200                                                                      
+REMARK 200  NUMBER OF UNIQUE REFLECTIONS   : 633883                             
+REMARK 200  RESOLUTION RANGE HIGH      (A) : 3.190                              
+REMARK 200  RESOLUTION RANGE LOW       (A) : 30.000                             
+REMARK 200  REJECTION CRITERIA  (SIGMA(I)) : 2.000                              
+REMARK 200                                                                      
+REMARK 200 OVERALL.                                                             
+REMARK 200  COMPLETENESS FOR RANGE     (%) : 65.0                               
+REMARK 200  DATA REDUNDANCY                : NULL                               
+REMARK 200  R MERGE                    (I) : 0.13100                            
+REMARK 200  R SYM                      (I) : NULL                               
+REMARK 200  <I/SIGMA(I)> FOR THE DATA SET  : NULL                               
+REMARK 200                                                                      
+REMARK 200 IN THE HIGHEST RESOLUTION SHELL.                                     
+REMARK 200  HIGHEST RESOLUTION SHELL, RANGE HIGH (A) : NULL                     
+REMARK 200  HIGHEST RESOLUTION SHELL, RANGE LOW  (A) : NULL                     
+REMARK 200  COMPLETENESS FOR SHELL     (%) : NULL                               
+REMARK 200  DATA REDUNDANCY IN SHELL       : NULL                               
+REMARK 200  R MERGE FOR SHELL          (I) : NULL                               
+REMARK 200  R SYM FOR SHELL            (I) : NULL                               
+REMARK 200  <I/SIGMA(I)> FOR SHELL         : NULL                               
+REMARK 200                                                                      
+REMARK 200 DIFFRACTION PROTOCOL: SINGLE WAVELENGTH                              
+REMARK 200 METHOD USED TO DETERMINE THE STRUCTURE: NULL                         
+REMARK 200 SOFTWARE USED: NULL                                                  
+REMARK 200 STARTING MODEL: NULL                                                 
+REMARK 200                                                                      
+REMARK 200 REMARK: NULL                                                         
+REMARK 280                                                                      
+REMARK 280 CRYSTAL                                                              
+REMARK 280 SOLVENT CONTENT, VS   (%): 25.00                                     
+REMARK 280 MATTHEWS COEFFICIENT, VM (ANGSTROMS**3/DA): 3.20                     
+REMARK 280                                                                      
+REMARK 280 CRYSTALLIZATION CONDITIONS: NULL                                     
+REMARK 290                                                                      
+REMARK 290 CRYSTALLOGRAPHIC SYMMETRY                                            
+REMARK 290 SYMMETRY OPERATORS FOR SPACE GROUP: P 21 21 21                       
+REMARK 290                                                                      
+REMARK 290      SYMOP   SYMMETRY                                                
+REMARK 290     NNNMMM   OPERATOR                                                
+REMARK 290       1555   X,Y,Z                                                   
+REMARK 290       2555   -X+1/2,-Y,Z+1/2                                         
+REMARK 290       3555   -X,Y+1/2,-Z+1/2                                         
+REMARK 290       4555   X+1/2,-Y+1/2,-Z                                         
+REMARK 290                                                                      
+REMARK 290     WHERE NNN -> OPERATOR NUMBER                                     
+REMARK 290           MMM -> TRANSLATION VECTOR                                  
+REMARK 290                                                                      
+REMARK 290 CRYSTALLOGRAPHIC SYMMETRY TRANSFORMATIONS                            
+REMARK 290 THE FOLLOWING TRANSFORMATIONS OPERATE ON THE ATOM/HETATM             
+REMARK 290 RECORDS IN THIS ENTRY TO PRODUCE CRYSTALLOGRAPHICALLY                
+REMARK 290 RELATED MOLECULES.                                                   
+REMARK 290   SMTRY1   1  1.000000  0.000000  0.000000        0.00000            
+REMARK 290   SMTRY2   1  0.000000  1.000000  0.000000        0.00000            
+REMARK 290   SMTRY3   1  0.000000  0.000000  1.000000        0.00000            
+REMARK 290   SMTRY1   2 -1.000000  0.000000  0.000000      190.65000            
+REMARK 290   SMTRY2   2  0.000000 -1.000000  0.000000        0.00000            
+REMARK 290   SMTRY3   2  0.000000  0.000000  1.000000      204.30000            
+REMARK 290   SMTRY1   3 -1.000000  0.000000  0.000000        0.00000            
+REMARK 290   SMTRY2   3  0.000000  1.000000  0.000000      190.65000            
+REMARK 290   SMTRY3   3  0.000000  0.000000 -1.000000      204.30000            
+REMARK 290   SMTRY1   4  1.000000  0.000000  0.000000      190.65000            
+REMARK 290   SMTRY2   4  0.000000 -1.000000  0.000000      190.65000            
+REMARK 290   SMTRY3   4  0.000000  0.000000 -1.000000        0.00000            
+REMARK 290                                                                      
+REMARK 290 REMARK: NULL                                                         
+REMARK 300                                                                      
+REMARK 300 BIOMOLECULE: 1                                                       
+REMARK 300 SEE REMARK 350 FOR THE AUTHOR PROVIDED AND/OR PROGRAM                
+REMARK 300 GENERATED ASSEMBLY INFORMATION FOR THE STRUCTURE IN                  
+REMARK 300 THIS ENTRY. THE REMARK MAY ALSO PROVIDE INFORMATION ON               
+REMARK 300 BURIED SURFACE AREA.                                                 
+REMARK 300 REMARK: MTRIX                                                        
+REMARK 300  THE TRANSFORMATIONS PRESENTED ON MTRIX RECORDS BELOW                
+REMARK 300  WILL GENERATE THE ADDITIONAL CHAINS OF THE FULL                     
+REMARK 300  ASYMMETRIC UNIT WHEN APPLIED TO THE COORDINATES                     
+REMARK 300  PRESENTED IN THIS ENTRY.                                            
+REMARK 300 THE ASSEMBLY REPRESENTED IN THIS ENTRY HAS REGULAR                   
+REMARK 300 ICOSAHEDRAL POINT SYMMETRY (SCHOENFLIES SYMBOL = I).                 
+REMARK 350                                                                      
+REMARK 350 COORDINATES FOR A COMPLETE MULTIMER REPRESENTING THE KNOWN           
+REMARK 350 BIOLOGICALLY SIGNIFICANT OLIGOMERIZATION STATE OF THE                
+REMARK 350 MOLECULE CAN BE GENERATED BY APPLYING BIOMT TRANSFORMATIONS          
+REMARK 350 GIVEN BELOW.  BOTH NON-CRYSTALLOGRAPHIC AND                          
+REMARK 350 CRYSTALLOGRAPHIC OPERATIONS ARE GIVEN.                               
+REMARK 350                                                                      
+REMARK 350 BIOMOLECULE: 1                                                       
+REMARK 350 APPLY THE FOLLOWING TO CHAINS: D, E, F, A, B, C                      
+REMARK 350   BIOMT1   1  1.000000  0.000000  0.000000        0.00000            
+REMARK 350   BIOMT2   1  0.000000  1.000000  0.000000        0.00000            
+REMARK 350   BIOMT3   1  0.000000  0.000000  1.000000        0.00000            
+REMARK 350   BIOMT1   2  0.604293 -0.766656 -0.214767        1.03963            
+REMARK 350   BIOMT2   2  0.317154  0.480569 -0.818004        2.70600            
+REMARK 350   BIOMT3   2  0.730635  0.426829  0.533173        1.16656            
+REMARK 350   BIOMT1   3 -0.034894 -0.923385  0.382838       -0.65725            
+REMARK 350   BIOMT2   3 -0.253594 -0.361349 -0.897358        3.38189            
+REMARK 350   BIOMT3   3  0.966442 -0.127452 -0.221791        3.70313            
+REMARK 350   BIOMT1   4 -0.034226 -0.253591  0.966945       -2.74560            
+REMARK 350   BIOMT2   4 -0.923490 -0.362252 -0.128398        1.09361            
+REMARK 350   BIOMT3   4  0.381544 -0.896845 -0.221556        4.10425            
+REMARK 350   BIOMT1   5  0.605374  0.317092  0.730338       -2.33940            
+REMARK 350   BIOMT2   5 -0.766760  0.479108  0.426200       -0.99651            
+REMARK 350   BIOMT3   5 -0.215750 -0.818076  0.533552        1.81559            
+REMARK 350   BIOMT1   6  0.807969 -0.279465  0.519007       -0.09423            
+REMARK 350   BIOMT2   6 -0.280326 -0.956669 -0.080472        4.40275            
+REMARK 350   BIOMT3   6  0.517997 -0.080069 -0.851300        2.69898            
+REMARK 350   BIOMT1   7  0.778821 -0.532210  0.331799        0.59497            
+REMARK 350   BIOMT2   7 -0.531606 -0.279179  0.799858        1.42869            
+REMARK 350   BIOMT3   7 -0.334362 -0.798964 -0.499642        2.02774            
+REMARK 350   BIOMT1   8  0.544268 -0.711230  0.444991        0.35156            
+REMARK 350   BIOMT2   8  0.174616  0.614796  0.769003        1.05364            
+REMARK 350   BIOMT3   8 -0.820503 -0.340878  0.458970       -1.06474            
+REMARK 350   BIOMT1   9  0.428454 -0.569126  0.702155       -0.48808            
+REMARK 350   BIOMT2   9  0.862365  0.489814 -0.130396        3.79591            
+REMARK 350   BIOMT3   9 -0.268595  0.661130  0.699766       -2.30476            
+REMARK 350   BIOMT1  10  0.591430 -0.302281  0.747900       -0.76360            
+REMARK 350   BIOMT2  10  0.581195 -0.481405 -0.655400        5.86577            
+REMARK 350   BIOMT3  10  0.558644  0.822319 -0.110026        0.02135            
+REMARK 350   BIOMT1  11 -0.827313  0.415858 -0.377679       -5.92530            
+REMARK 350   BIOMT2  11  0.415813  0.001346 -0.909414        4.28770            
+REMARK 350   BIOMT3  11 -0.377659 -0.909463 -0.174033        2.01190            
+REMARK 350   BIOMT1  12 -0.643994  0.672909 -0.363863       -6.10067            
+REMARK 350   BIOMT2  12 -0.412750 -0.706303 -0.575278        3.66274            
+REMARK 350   BIOMT3  12 -0.643810 -0.221807  0.732263       -1.04475            
+REMARK 350   BIOMT1  13 -0.441596  0.661794 -0.606135       -5.37376            
+REMARK 350   BIOMT2  13 -0.893747 -0.268535  0.359681        0.65127            
+REMARK 350   BIOMT3  13  0.075620  0.699539  0.710131       -1.46006            
+REMARK 350   BIOMT1  14 -0.499826  0.397874 -0.769684       -4.74913            
+REMARK 350   BIOMT2  14 -0.362456  0.709670  0.603382       -0.58495            
+REMARK 350   BIOMT3  14  0.786405  0.581306 -0.209843        1.33993            
+REMARK 350   BIOMT1  15 -0.738213  0.245877 -0.628491       -5.09000            
+REMARK 350   BIOMT2  15  0.446897  0.876465 -0.180962        1.66248            
+REMARK 350   BIOMT3  15  0.506263 -0.413112 -0.756287        3.48572            
+REMARK 350   BIOMT1  16 -0.980656 -0.136393 -0.141328       -5.03576            
+REMARK 350   BIOMT2  16 -0.135487 -0.044677  0.989886        1.79995            
+REMARK 350   BIOMT3  16 -0.140339  0.989532  0.025333       -2.42636            
+REMARK 350   BIOMT1  17 -0.739120  0.625957  0.246830       -6.58923            
+REMARK 350   BIOMT2  17  0.627202  0.504914  0.593424        2.69297            
+REMARK 350   BIOMT3  17  0.247537  0.593943 -0.765794        0.13497            
+REMARK 350   BIOMT1  18 -0.067777  0.972821 -0.221694       -5.37585            
+REMARK 350   BIOMT2  18  0.972726  0.015088 -0.231326        5.40359            
+REMARK 350   BIOMT3  18 -0.221560 -0.231209 -0.947310        1.10618            
+REMARK 350   BIOMT1  19  0.105599  0.424844 -0.899416       -3.07248            
+REMARK 350   BIOMT2  19  0.423581 -0.837232 -0.344587        6.18583            
+REMARK 350   BIOMT3  19 -0.899354 -0.345591 -0.268367       -0.85491            
+REMARK 350   BIOMT1  20 -0.458591 -0.260688 -0.849747       -2.86229            
+REMARK 350   BIOMT2  20 -0.261332 -0.874169  0.410163        3.95866            
+REMARK 350   BIOMT3  20 -0.849157  0.408869  0.332760       -3.03814            
+REMARK 350   BIOMT1  21 -0.344541 -0.861427  0.373990       -1.67049            
+REMARK 350   BIOMT2  21  0.770023 -0.485918 -0.412384        6.26070            
+REMARK 350   BIOMT3  21  0.537918  0.145740  0.830459        1.20132            
+REMARK 350   BIOMT1  22 -0.208158  0.009799  0.978047       -3.92343            
+REMARK 350   BIOMT2  22  0.009906 -0.999877  0.012236        5.26527            
+REMARK 350   BIOMT3  22  0.978044  0.012103  0.208036        3.12371            
+REMARK 350   BIOMT1  23  0.591915  0.581754  0.558157       -2.97236            
+REMARK 350   BIOMT2  23 -0.302189 -0.482882  0.822299        2.58417            
+REMARK 350   BIOMT3  23  0.746862 -0.655212 -0.109033        4.41595            
+REMARK 350   BIOMT1  24  0.950005  0.064015 -0.305406       -0.13164            
+REMARK 350   BIOMT2  24  0.265042  0.350598  0.898327        1.92259            
+REMARK 350   BIOMT3  24  0.163857 -0.933999  0.317431        3.29221            
+REMARK 350   BIOMT1  25  0.371243 -0.827920 -0.419228        0.67296            
+REMARK 350   BIOMT2  25  0.927706  0.348722  0.135250        4.19481            
+REMARK 350   BIOMT3  25  0.034722 -0.438984  0.898069        1.30546            
+REMARK 350   BIOMT1  26  0.156828  0.890442 -0.427876       -4.42128            
+REMARK 350   BIOMT2  26  0.544756  0.282687  0.789813        2.93575            
+REMARK 350   BIOMT3  26  0.823942 -0.356248 -0.439515        4.03368            
+REMARK 350   BIOMT1  27  0.064556  0.125056 -0.990198       -2.34784            
+REMARK 350   BIOMT2  27  0.995913  0.055325  0.072872        5.18841            
+REMARK 350   BIOMT3  27  0.063792 -0.990480 -0.119880        3.41354            
+REMARK 350   BIOMT1  28 -0.644801 -0.412039 -0.644107       -3.09746            
+REMARK 350   BIOMT2  28  0.672612 -0.705832 -0.220291        6.45851            
+REMARK 350   BIOMT3  28 -0.363174 -0.576068  0.732598        0.65977            
+REMARK 350   BIOMT1  29 -0.990936  0.021404  0.132111       -5.63418            
+REMARK 350   BIOMT2  29  0.021645 -0.948890  0.315465        4.99081            
+REMARK 350   BIOMT3  29  0.133096  0.314283  0.939825       -0.42202            
+REMARK 350   BIOMT1  30 -0.495502  0.826382  0.265749       -6.45235            
+REMARK 350   BIOMT2  30 -0.057374 -0.337951  0.939744        2.81362            
+REMARK 350   BIOMT3  30  0.866775  0.450140  0.215419        1.66317            
+REMARK 350   BIOMT1  31 -0.214390 -0.484569  0.848433       -2.57009            
+REMARK 350   BIOMT2  31 -0.683361  0.694615  0.222847       -1.21506            
+REMARK 350   BIOMT3  31 -0.698056 -0.531378 -0.480225        0.30969            
+REMARK 350   BIOMT1  32  0.336658  0.293630  0.894784       -3.11447            
+REMARK 350   BIOMT2  32 -0.029830  0.952831 -0.302618        0.21410            
+REMARK 350   BIOMT3  32 -0.941228  0.074831  0.328545       -2.41415            
+REMARK 350   BIOMT1  33  0.950327  0.264928  0.164581       -0.92609            
+REMARK 350   BIOMT2  33  0.063064  0.351604 -0.934360        2.40842            
+REMARK 350   BIOMT3  33 -0.304997  0.897793  0.316103       -2.80692            
+REMARK 350   BIOMT1  34  0.778547 -0.531010 -0.333061        0.97079            
+REMARK 350   BIOMT2  34 -0.533055 -0.278191 -0.799332        2.33544            
+REMARK 350   BIOMT3  34  0.331387  0.800201 -0.500357       -0.32581            
+REMARK 350   BIOMT1  35  0.058713 -0.994225  0.089583       -0.04526            
+REMARK 350   BIOMT2  35 -0.994371 -0.066198 -0.084139        0.09600            
+REMARK 350   BIOMT3  35  0.088463 -0.083075 -0.992515        1.60035            
+REMARK 350   BIOMT1  36  0.402103  0.455554 -0.794547       -2.39343            
+REMARK 350   BIOMT2  36 -0.631419 -0.491384 -0.600276        2.50901            
+REMARK 350   BIOMT3  36 -0.663804  0.741886  0.089281       -3.26017            
+REMARK 350   BIOMT1  37 -0.193056 -0.428486 -0.882634       -1.66955            
+REMARK 350   BIOMT2  37 -0.975989 -0.008278  0.217511       -0.17738            
+REMARK 350   BIOMT3  37 -0.100608  0.903545 -0.416701       -1.83858            
+REMARK 350   BIOMT1  38 -0.897441 -0.434643 -0.078631       -4.05939            
+REMARK 350   BIOMT2  38 -0.433487  0.837110  0.332352       -0.96070            
+REMARK 350   BIOMT3  38 -0.078690  0.333487 -0.939669        0.01571            
+REMARK 350   BIOMT1  39 -0.737617  0.445591  0.506356       -6.26027            
+REMARK 350   BIOMT2  39  0.246367  0.876482 -0.414459        1.24156            
+REMARK 350   BIOMT3  39 -0.628340 -0.180486 -0.756899       -0.25986            
+REMARK 350   BIOMT1  40  0.065546  0.995763  0.063895       -5.23065            
+REMARK 350   BIOMT2  40  0.124039  0.055428 -0.990855        3.38596            
+REMARK 350   BIOMT3  40 -0.989960  0.071919 -0.120973       -2.28447            
+REMARK 350   BIOMT1  41 -0.343434  0.769885  0.536967       -6.03879            
+REMARK 350   BIOMT2  41 -0.861301 -0.487303  0.145898        1.43679            
+REMARK 350   BIOMT3  41  0.373607 -0.413164  0.830737        2.21282            
+REMARK 350   BIOMT1  42  0.428964  0.862472 -0.269714       -3.68612            
+REMARK 350   BIOMT2  42 -0.568430  0.488413  0.661383       -0.60709            
+REMARK 350   BIOMT3  42  0.701697 -0.130399  0.700657        2.45232            
+REMARK 350   BIOMT1  43  0.335693 -0.029513 -0.941436       -1.22094            
+REMARK 350   BIOMT2  43  0.294633  0.952804  0.075187        0.89515            
+REMARK 350   BIOMT3  43  0.894599 -0.301566  0.329537        3.64632            
+REMARK 350   BIOMT1  44 -0.494349 -0.673377 -0.549902       -2.05006            
+REMARK 350   BIOMT2  44  0.535164  0.264097 -0.802586        3.86746            
+REMARK 350   BIOMT3  44  0.685728 -0.690117  0.230252        4.14476            
+REMARK 350   BIOMT1  45 -0.914073 -0.179322  0.363801       -5.02765            
+REMARK 350   BIOMT2  45 -0.179242 -0.625937 -0.758885        4.20221            
+REMARK 350   BIOMT3  45  0.363737 -0.759088  0.540010        3.25880            
+REMARK 350   BIOMT1  46 -0.215155 -0.683541 -0.697319       -1.16756            
+REMARK 350   BIOMT2  46 -0.483727  0.695209 -0.532010       -0.23374            
+REMARK 350   BIOMT3  46  0.848003  0.224334 -0.480054        2.60069            
+REMARK 350   BIOMT1  47 -0.856290 -0.461174  0.233556       -4.05437            
+REMARK 350   BIOMT2  47 -0.460529  0.477871 -0.748448        0.52397            
+REMARK 350   BIOMT3  47  0.232846 -0.747220 -0.621581        3.52934            
+REMARK 350   BIOMT1  48 -0.493069  0.534543  0.685670       -5.92008            
+REMARK 350   BIOMT2  48 -0.673578  0.263258 -0.691046        0.46520            
+REMARK 350   BIOMT3  48 -0.550425 -0.802912  0.229811        1.02432            
+REMARK 350   BIOMT1  49  0.372549  0.927563  0.034218       -4.18633            
+REMARK 350   BIOMT2  49 -0.828448  0.347959 -0.439131       -0.32884            
+REMARK 350   BIOMT3  49 -0.419356  0.134222  0.897526       -1.45251            
+REMARK 350   BIOMT1  50  0.544309  0.174746 -0.820517       -1.24912            
+REMARK 350   BIOMT2  50 -0.711113  0.614919 -0.340841       -0.76081            
+REMARK 350   BIOMT3  50  0.444920  0.769095  0.458806       -0.47826            
+REMARK 350   BIOMT1  51  0.401465 -0.630136 -0.663886        0.37752            
+REMARK 350   BIOMT2  51  0.454839 -0.491523  0.743065        4.74438            
+REMARK 350   BIOMT3  51 -0.794623 -0.600713  0.090058       -0.10107            
+REMARK 350   BIOMT1  52 -0.442306 -0.893975  0.075266       -1.68473            
+REMARK 350   BIOMT2  52  0.661877 -0.267755  0.700565        4.75401            
+REMARK 350   BIOMT3  52 -0.604904  0.358959  0.710061       -2.44766            
+REMARK 350   BIOMT1  53 -0.495817 -0.058394  0.866397       -4.47586            
+REMARK 350   BIOMT2  53  0.826905 -0.337085  0.450398        5.53482            
+REMARK 350   BIOMT3  53  0.267101  0.939332  0.214869       -1.27686            
+REMARK 350   BIOMT1  54  0.314882  0.721862  0.616191       -4.13863            
+REMARK 350   BIOMT2  54  0.721861 -0.603702  0.338285        6.00776            
+REMARK 350   BIOMT3  54  0.616311  0.338351 -0.711179        1.79332            
+REMARK 350   BIOMT1  55  0.869433  0.368507 -0.329576       -1.13908            
+REMARK 350   BIOMT2  55  0.491912 -0.699150  0.519163        5.51924            
+REMARK 350   BIOMT3  55 -0.039871 -0.613449 -0.788316        2.52000            
+REMARK 350   BIOMT1  56  0.157124  0.543792  0.824238       -4.22646            
+REMARK 350   BIOMT2  56  0.890188  0.283617 -0.356953        4.54298            
+REMARK 350   BIOMT3  56 -0.426986  0.789542 -0.440741       -2.42792            
+REMARK 350   BIOMT1  57  0.869632  0.492678 -0.039108       -1.63008            
+REMARK 350   BIOMT2  57  0.367083 -0.698529 -0.613500        5.81950            
+REMARK 350   BIOMT3  57 -0.329639  0.518660 -0.789137       -1.24947            
+REMARK 350   BIOMT1  58  0.653193 -0.446636 -0.610632        0.56158            
+REMARK 350   BIOMT2  58 -0.447960 -0.878977  0.165461        3.59522            
+REMARK 350   BIOMT3  58 -0.611275  0.165145 -0.774217       -1.10926            
+REMARK 350   BIOMT1  59 -0.193081 -0.976049 -0.100507       -0.68028            
+REMARK 350   BIOMT2  59 -0.428578 -0.008354  0.903432        0.94402            
+REMARK 350   BIOMT3  59 -0.882682  0.217543 -0.416599       -2.20105            
+REMARK 350   BIOMT1  60 -0.499669 -0.363931  0.786292       -3.63945            
+REMARK 350   BIOMT2  60  0.398443  0.710169  0.580563        1.52976            
+REMARK 350   BIOMT3  60 -0.768786  0.603442 -0.210500       -3.01602            
+REMARK 465                                                                      
+REMARK 465 MISSING RESIDUES                                                     
+REMARK 465 THE FOLLOWING RESIDUES WERE NOT LOCATED IN THE                       
+REMARK 465 EXPERIMENT. (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN               
+REMARK 465 IDENTIFIER; SSSEQ=SEQUENCE NUMBER; I=INSERTION CODE.)                
+REMARK 465                                                                      
+REMARK 465   M RES C SSSEQI                                                     
+REMARK 465     MET A     1                                                      
+REMARK 465     SER A     2                                                      
+REMARK 465     THR A     3                                                      
+REMARK 465     VAL A     4                                                      
+REMARK 465     GLY A     5                                                      
+REMARK 465     THR A     6                                                      
+REMARK 465     GLY A     7                                                      
+REMARK 465     LYS A     8                                                      
+REMARK 465     LEU A     9                                                      
+REMARK 465     THR A    10                                                      
+REMARK 465     ARG A    11                                                      
+REMARK 465     ALA A    12                                                      
+REMARK 465     GLN A    13                                                      
+REMARK 465     ARG A    14                                                      
+REMARK 465     ARG A    15                                                      
+REMARK 465     ALA A    16                                                      
+REMARK 465     ALA A    17                                                      
+REMARK 465     ALA A    18                                                      
+REMARK 465     ARG A    19                                                      
+REMARK 465     LYS A    20                                                      
+REMARK 465     ASN A    21                                                      
+REMARK 465     LYS A    22                                                      
+REMARK 465     ARG A    23                                                      
+REMARK 465     ASN A    24                                                      
+REMARK 465     THR A    25                                                      
+REMARK 465     ARG A    26                                                      
+REMARK 465     VAL A    27                                                      
+REMARK 465     VAL A    28                                                      
+REMARK 465     GLN A    29                                                      
+REMARK 465     PRO A    30                                                      
+REMARK 465     VAL A    31                                                      
+REMARK 465     ILE A    32                                                      
+REMARK 465     VAL A    33                                                      
+REMARK 465     GLU A    34                                                      
+REMARK 465     PRO A    35                                                      
+REMARK 465     ILE A    36                                                      
+REMARK 465     ALA A    37                                                      
+REMARK 465     SER A    38                                                      
+REMARK 465     GLY A    39                                                      
+REMARK 465     GLN A    40                                                      
+REMARK 465     GLY A    41                                                      
+REMARK 465     MET B     1                                                      
+REMARK 465     SER B     2                                                      
+REMARK 465     THR B     3                                                      
+REMARK 465     VAL B     4                                                      
+REMARK 465     GLY B     5                                                      
+REMARK 465     THR B     6                                                      
+REMARK 465     GLY B     7                                                      
+REMARK 465     LYS B     8                                                      
+REMARK 465     LEU B     9                                                      
+REMARK 465     THR B    10                                                      
+REMARK 465     ARG B    11                                                      
+REMARK 465     ALA B    12                                                      
+REMARK 465     GLN B    13                                                      
+REMARK 465     ARG B    14                                                      
+REMARK 465     ARG B    15                                                      
+REMARK 465     ALA B    16                                                      
+REMARK 465     ALA B    17                                                      
+REMARK 465     ALA B    18                                                      
+REMARK 465     ARG B    19                                                      
+REMARK 465     LYS B    20                                                      
+REMARK 465     ASN B    21                                                      
+REMARK 465     LYS B    22                                                      
+REMARK 465     ARG B    23                                                      
+REMARK 465     ASN B    24                                                      
+REMARK 465     THR B    25                                                      
+REMARK 465     ARG B    26                                                      
+REMARK 465     MET C     1                                                      
+REMARK 465     SER C     2                                                      
+REMARK 465     THR C     3                                                      
+REMARK 465     VAL C     4                                                      
+REMARK 465     GLY C     5                                                      
+REMARK 465     THR C     6                                                      
+REMARK 465     GLY C     7                                                      
+REMARK 465     LYS C     8                                                      
+REMARK 465     LEU C     9                                                      
+REMARK 465     THR C    10                                                      
+REMARK 465     ARG C    11                                                      
+REMARK 465     ALA C    12                                                      
+REMARK 465     GLN C    13                                                      
+REMARK 465     ARG C    14                                                      
+REMARK 465     ARG C    15                                                      
+REMARK 465     ALA C    16                                                      
+REMARK 465     ALA C    17                                                      
+REMARK 465     ALA C    18                                                      
+REMARK 465     ARG C    19                                                      
+REMARK 465     LYS C    20                                                      
+REMARK 465     ASN C    21                                                      
+REMARK 465     LYS C    22                                                      
+REMARK 465     ARG C    23                                                      
+REMARK 465     ASN C    24                                                      
+REMARK 465     THR C    25                                                      
+REMARK 465     ARG C    26                                                      
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: CLOSE CONTACTS IN SAME ASYMMETRIC UNIT                     
+REMARK 500                                                                      
+REMARK 500 THE FOLLOWING ATOMS ARE IN CLOSE CONTACT.                            
+REMARK 500                                                                      
+REMARK 500  ATM1  RES C  SSEQI   ATM2  RES C  SSEQI           DISTANCE          
+REMARK 500   O2'    U F   202     C5'    A F   203              1.02            
+REMARK 500   O2'    U D   202     O5'    A D   203              1.28            
+REMARK 500   O2'    A F   203     O4'    U F   204              1.54            
+REMARK 500   O2'    U F   202     O5'    A F   203              1.75            
+REMARK 500   O    CYS B    59     O    GLU B   166              2.19            
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: COVALENT BOND LENGTHS                                      
+REMARK 500                                                                      
+REMARK 500 THE STEREOCHEMICAL PARAMETERS OF THE FOLLOWING RESIDUES              
+REMARK 500 HAVE VALUES WHICH DEVIATE FROM EXPECTED VALUES BY MORE               
+REMARK 500 THAN 6*RMSD (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN               
+REMARK 500 IDENTIFIER; SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                 
+REMARK 500                                                                      
+REMARK 500 STANDARD TABLE:                                                      
+REMARK 500 FORMAT: (10X,I3,1X,2(A3,1X,A1,I4,A1,1X,A4,3X),1X,F6.3)               
+REMARK 500                                                                      
+REMARK 500 EXPECTED VALUES PROTEIN: ENGH AND HUBER, 1999                        
+REMARK 500 EXPECTED VALUES NUCLEIC ACID: CLOWNEY ET AL 1996                     
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI ATM1   RES CSSEQI ATM2   DEVIATION                     
+REMARK 500      U D 202   O3'     A D 203   P      -0.289                       
+REMARK 500      A D 203   N9      A D 203   C4     -0.063                       
+REMARK 500    TRP B  94   CB    TRP B  94   CG     -0.118                       
+REMARK 500    TRP C  94   CB    TRP C  94   CG     -0.112                       
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: COVALENT BOND ANGLES                                       
+REMARK 500                                                                      
+REMARK 500 THE STEREOCHEMICAL PARAMETERS OF THE FOLLOWING RESIDUES              
+REMARK 500 HAVE VALUES WHICH DEVIATE FROM EXPECTED VALUES BY MORE               
+REMARK 500 THAN 6*RMSD (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN               
+REMARK 500 IDENTIFIER; SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                 
+REMARK 500                                                                      
+REMARK 500 STANDARD TABLE:                                                      
+REMARK 500 FORMAT: (10X,I3,1X,A3,1X,A1,I4,A1,3(1X,A4,2X),12X,F5.1)              
+REMARK 500                                                                      
+REMARK 500 EXPECTED VALUES PROTEIN: ENGH AND HUBER, 1999                        
+REMARK 500 EXPECTED VALUES NUCLEIC ACID: CLOWNEY ET AL 1996                     
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI ATM1   ATM2   ATM3                                     
+REMARK 500      A D 203   O3' -  P   -  O5' ANGL. DEV. =  24.6 DEGREES          
+REMARK 500      A D 203   O3' -  P   -  OP2 ANGL. DEV. = -49.6 DEGREES          
+REMARK 500      A D 203   O3' -  P   -  OP1 ANGL. DEV. =  12.0 DEGREES          
+REMARK 500      A D 203   C4  -  C5  -  C6  ANGL. DEV. =  -3.0 DEGREES          
+REMARK 500      A D 203   C8  -  N9  -  C4  ANGL. DEV. =   2.8 DEGREES          
+REMARK 500      A F 201   O5' -  P   -  OP1 ANGL. DEV. =  14.5 DEGREES          
+REMARK 500    PRO B  99   C   -  N   -  CA  ANGL. DEV. =   9.1 DEGREES          
+REMARK 500    GLY B 167   N   -  CA  -  C   ANGL. DEV. =  25.1 DEGREES          
+REMARK 500    THR C 115   N   -  CA  -  C   ANGL. DEV. = -23.2 DEGREES          
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: TORSION ANGLES                                             
+REMARK 500                                                                      
+REMARK 500 TORSION ANGLES OUTSIDE THE EXPECTED RAMACHANDRAN REGIONS:            
+REMARK 500 (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN IDENTIFIER;               
+REMARK 500 SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                             
+REMARK 500                                                                      
+REMARK 500 STANDARD TABLE:                                                      
+REMARK 500 FORMAT:(10X,I3,1X,A3,1X,A1,I4,A1,4X,F7.2,3X,F7.2)                    
+REMARK 500                                                                      
+REMARK 500 EXPECTED VALUES: GJ KLEYWEGT AND TA JONES (1996). PHI/PSI-           
+REMARK 500 CHOLOGY: RAMACHANDRAN REVISITED. STRUCTURE 4, 1395 - 1400            
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI        PSI       PHI                                   
+REMARK 500    ALA A  61       87.72     64.31                                   
+REMARK 500    LEU A  95      103.74   -173.59                                   
+REMARK 500    ALA A 116      -55.18    -14.09                                   
+REMARK 500    VAL A 134       42.97   -107.81                                   
+REMARK 500    TYR A 138       59.69   -111.21                                   
+REMARK 500    PRO A 139     -158.37    -57.64                                   
+REMARK 500    GLU A 140        0.28     -5.71                                   
+REMARK 500    ALA A 152      -53.73   -120.60                                   
+REMARK 500    GLN B  40       20.06    -60.77                                   
+REMARK 500    LEU B  78       44.53    -84.38                                   
+REMARK 500    SER B 102      -45.87   -144.24                                   
+REMARK 500    THR B 112      100.21    -39.67                                   
+REMARK 500    VAL B 134       60.78   -103.91                                   
+REMARK 500    GLU B 140       -1.20     48.81                                   
+REMARK 500    PHE B 142       -2.42     61.98                                   
+REMARK 500    GLU B 166      -74.69    -21.80                                   
+REMARK 500    VAL B 169       62.95     62.27                                   
+REMARK 500    ASP B 184       14.72   -140.67                                   
+REMARK 500    SER C  38      -70.60    -34.19                                   
+REMARK 500    PRO C  75     -159.97    -75.31                                   
+REMARK 500    SER C  79      -19.52   -161.41                                   
+REMARK 500    ARG C  90      113.98    148.42                                   
+REMARK 500    SER C 102      -53.69   -124.74                                   
+REMARK 500    THR C 112      102.12    -41.84                                   
+REMARK 500    ALA C 123      123.43    -39.87                                   
+REMARK 500    ALA C 141      -34.42   -160.75                                   
+REMARK 500    GLU C 166      -10.35    -44.96                                   
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: PLANAR GROUPS                                              
+REMARK 500                                                                      
+REMARK 500 PLANAR GROUPS IN THE FOLLOWING RESIDUES HAVE A TOTAL                 
+REMARK 500 RMS DISTANCE OF ALL ATOMS FROM THE BEST-FIT PLANE                    
+REMARK 500 BY MORE THAN AN EXPECTED VALUE OF 6*RMSD, WITH AN                    
+REMARK 500 RMSD 0.02 ANGSTROMS, OR AT LEAST ONE ATOM HAS                        
+REMARK 500 AN RMSD GREATER THAN THIS VALUE                                      
+REMARK 500 (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN IDENTIFIER;               
+REMARK 500 SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                             
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI        RMS     TYPE                                    
+REMARK 500    TYR C 190         0.08    SIDE CHAIN                              
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: MAIN CHAIN PLANARITY                                       
+REMARK 500                                                                      
+REMARK 500 THE FOLLOWING RESIDUES HAVE A PSEUDO PLANARITY                       
+REMARK 500 TORSION ANGLE, C(I) - CA(I) - N(I+1) - O(I), GREATER                 
+REMARK 500 10.0 DEGREES. (M=MODEL NUMBER; RES=RESIDUE NAME;                     
+REMARK 500 C=CHAIN IDENTIFIER; SSEQ=SEQUENCE NUMBER;                            
+REMARK 500 I=INSERTION CODE).                                                   
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI        ANGLE                                           
+REMARK 500    PRO A 139        -14.47                                           
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+ATOM      1  P     A D 201      70.160 -39.498  47.516  1.00 15.00           P  
+ATOM      2  OP1   A D 201      70.331 -39.672  46.057  1.00 15.00           O  
+ATOM      3  OP2   A D 201      68.951 -38.737  47.903  1.00 15.00           O  
+ATOM      4  O5'   A D 201      71.455 -38.885  48.233  1.00 15.00           O  
+ATOM      5  C5'   A D 201      71.801 -39.386  49.542  1.00 15.00           C  
+ATOM      6  C4'   A D 201      72.973 -38.600  50.186  1.00 15.00           C  
+ATOM      7  O4'   A D 201      74.251 -39.246  49.840  1.00 15.00           O  
+ATOM      8  C3'   A D 201      73.189 -37.160  49.748  1.00 15.00           C  
+ATOM      9  O3'   A D 201      72.410 -36.232  50.442  1.00 15.00           O  
+ATOM     10  C2'   A D 201      74.618 -36.864  50.064  1.00 15.00           C  
+ATOM     11  O2'   A D 201      74.745 -36.417  51.402  1.00 15.00           O  
+ATOM     12  C1'   A D 201      75.263 -38.203  49.762  1.00 15.00           C  
+ATOM     13  N9    A D 201      75.943 -38.180  48.432  1.00 15.00           N  
+ATOM     14  C8    A D 201      77.181 -37.687  48.156  1.00 15.00           C  
+ATOM     15  N7    A D 201      77.544 -37.803  46.917  1.00 15.00           N  
+ATOM     16  C5    A D 201      76.472 -38.418  46.317  1.00 15.00           C  
+ATOM     17  C6    A D 201      76.225 -38.829  44.994  1.00 15.00           C  
+ATOM     18  N6    A D 201      77.118 -38.660  43.995  1.00 15.00           N  
+ATOM     19  N1    A D 201      75.049 -39.411  44.731  1.00 15.00           N  
+ATOM     20  C2    A D 201      74.171 -39.572  45.731  1.00 15.00           C  
+ATOM     21  N3    A D 201      74.284 -39.232  47.007  1.00 15.00           N  
+ATOM     22  C4    A D 201      75.476 -38.656  47.224  1.00 15.00           C  
+ATOM     23  P     U D 202      72.234 -34.819  49.785  1.00 15.00           P  
+ATOM     24  OP1   U D 202      71.438 -33.978  50.693  1.00 15.00           O  
+ATOM     25  OP2   U D 202      71.683 -35.046  48.435  1.00 15.00           O  
+ATOM     26  O5'   U D 202      73.751 -34.219  49.604  1.00 15.00           O  
+ATOM     27  C5'   U D 202      74.477 -33.626  50.728  1.00 15.00           C  
+ATOM     28  C4'   U D 202      75.714 -32.768  50.261  1.00 15.00           C  
+ATOM     29  O4'   U D 202      76.695 -33.620  49.566  1.00 15.00           O  
+ATOM     30  C3'   U D 202      75.441 -31.655  49.248  1.00 15.00           C  
+ATOM     31  O3'   U D 202      74.967 -30.469  49.876  1.00 15.00           O  
+ATOM     32  C2'   U D 202      76.799 -31.457  48.573  1.00 15.00           C  
+ATOM     33  O2'   U D 202      77.615 -30.556  49.303  1.00 15.00           O  
+ATOM     34  C1'   U D 202      77.348 -32.884  48.513  1.00 15.00           C  
+ATOM     35  N1    U D 202      77.117 -33.578  47.212  1.00 15.00           N  
+ATOM     36  C2    U D 202      78.230 -33.877  46.462  1.00 15.00           C  
+ATOM     37  O2    U D 202      79.361 -33.603  46.825  1.00 15.00           O  
+ATOM     38  N3    U D 202      78.005 -34.521  45.261  1.00 15.00           N  
+ATOM     39  C4    U D 202      76.766 -34.886  44.750  1.00 15.00           C  
+ATOM     40  O4    U D 202      76.694 -35.456  43.659  1.00 15.00           O  
+ATOM     41  C5    U D 202      75.654 -34.537  45.600  1.00 15.00           C  
+ATOM     42  C6    U D 202      75.846 -33.910  46.776  1.00 15.00           C  
+ATOM     43  P     A D 203      75.841 -29.553  50.244  1.00 15.00           P  
+ATOM     44  OP1   A D 203      75.535 -28.527  51.268  1.00 15.00           O  
+ATOM     45  OP2   A D 203      75.016 -29.474  49.023  1.00 15.00           O  
+ATOM     46  O5'   A D 203      77.384 -29.418  49.830  1.00 15.00           O  
+ATOM     47  C5'   A D 203      77.906 -28.081  49.618  1.00 15.00           C  
+ATOM     48  C4'   A D 203      79.154 -28.156  48.746  1.00 15.00           C  
+ATOM     49  O4'   A D 203      79.306 -29.557  48.422  1.00 15.00           O  
+ATOM     50  C3'   A D 203      79.069 -27.475  47.377  1.00 15.00           C  
+ATOM     51  O3'   A D 203      79.303 -26.088  47.385  1.00 15.00           O  
+ATOM     52  C2'   A D 203      80.086 -28.216  46.571  1.00 15.00           C  
+ATOM     53  O2'   A D 203      81.392 -27.698  46.800  1.00 15.00           O  
+ATOM     54  C1'   A D 203      79.820 -29.602  47.111  1.00 15.00           C  
+ATOM     55  N9    A D 203      78.868 -30.195  46.225  1.00 15.00           N  
+ATOM     56  C8    A D 203      77.554 -30.522  46.435  1.00 15.00           C  
+ATOM     57  N7    A D 203      76.983 -30.988  45.360  1.00 15.00           N  
+ATOM     58  C5    A D 203      78.011 -30.951  44.430  1.00 15.00           C  
+ATOM     59  C6    A D 203      78.117 -31.272  43.062  1.00 15.00           C  
+ATOM     60  N6    A D 203      77.077 -31.688  42.316  1.00 15.00           N  
+ATOM     61  N1    A D 203      79.320 -31.147  42.476  1.00 15.00           N  
+ATOM     62  C2    A D 203      80.358 -30.724  43.200  1.00 15.00           C  
+ATOM     63  N3    A D 203      80.390 -30.376  44.456  1.00 15.00           N  
+ATOM     64  C4    A D 203      79.180 -30.495  44.988  1.00 15.00           C  
+ATOM     65  P     U D 204      80.065 -24.762  48.599  1.00 15.00           P  
+ATOM     66  OP1   U D 204      78.607 -24.784  48.331  1.00 15.00           O  
+ATOM     67  OP2   U D 204      80.592 -23.458  49.046  1.00 15.00           O  
+ATOM     68  O5'   U D 204      80.845 -25.254  47.274  1.00 15.00           O  
+ATOM     69  C5'   U D 204      82.277 -25.428  47.347  1.00 15.00           C  
+ATOM     70  C4'   U D 204      82.947 -25.196  45.973  1.00 15.00           C  
+ATOM     71  O4'   U D 204      82.801 -26.408  45.167  1.00 15.00           O  
+ATOM     72  C3'   U D 204      82.368 -24.086  45.106  1.00 15.00           C  
+ATOM     73  O3'   U D 204      82.900 -22.815  45.476  1.00 15.00           O  
+ATOM     74  C2'   U D 204      82.770 -24.537  43.703  1.00 15.00           C  
+ATOM     75  O2'   U D 204      84.079 -24.097  43.381  1.00 15.00           O  
+ATOM     76  C1'   U D 204      82.628 -26.065  43.786  1.00 15.00           C  
+ATOM     77  N1    U D 204      81.320 -26.628  43.336  1.00 15.00           N  
+ATOM     78  C2    U D 204      81.194 -26.952  42.005  1.00 15.00           C  
+ATOM     79  O2    U D 204      82.088 -26.777  41.194  1.00 15.00           O  
+ATOM     80  N3    U D 204      79.983 -27.495  41.620  1.00 15.00           N  
+ATOM     81  C4    U D 204      78.893 -27.731  42.447  1.00 15.00           C  
+ATOM     82  O4    U D 204      77.864 -28.225  41.985  1.00 15.00           O  
+ATOM     83  C5    U D 204      79.110 -27.354  43.822  1.00 15.00           C  
+ATOM     84  C6    U D 204      80.280 -26.829  44.224  1.00 15.00           C  
+TER      85        U D 204                                                      
+ATOM     86  P     A E 201      82.575  -7.602  46.315  1.00 15.00           P  
+ATOM     87  OP1   A E 201      81.471  -8.517  46.683  1.00 15.00           O  
+ATOM     88  OP2   A E 201      82.162  -6.449  45.483  1.00 15.00           O  
+ATOM     89  O5'   A E 201      83.817  -8.356  45.643  1.00 15.00           O  
+ATOM     90  C5'   A E 201      85.145  -7.897  45.975  1.00 15.00           C  
+ATOM     91  C4'   A E 201      86.244  -8.600  45.138  1.00 15.00           C  
+ATOM     92  O4'   A E 201      86.717  -9.799  45.850  1.00 15.00           O  
+ATOM     93  C3'   A E 201      85.857  -9.146  43.773  1.00 15.00           C  
+ATOM     94  O3'   A E 201      85.918  -8.205  42.745  1.00 15.00           O  
+ATOM     95  C2'   A E 201      86.870 -10.200  43.470  1.00 15.00           C  
+ATOM     96  O2'   A E 201      88.010  -9.626  42.853  1.00 15.00           O  
+ATOM     97  C1'   A E 201      87.103 -10.782  44.851  1.00 15.00           C  
+ATOM     98  N9    A E 201      86.365 -12.070  45.018  1.00 15.00           N  
+ATOM     99  C8    A E 201      86.763 -13.300  44.592  1.00 15.00           C  
+ATOM    100  N7    A E 201      85.943 -14.261  44.878  1.00 15.00           N  
+ATOM    101  C5    A E 201      84.918 -13.632  45.542  1.00 15.00           C  
+ATOM    102  C6    A E 201      83.722 -14.103  46.119  1.00 15.00           C  
+ATOM    103  N6    A E 201      83.363 -15.404  46.102  1.00 15.00           N  
+ATOM    104  N1    A E 201      82.919 -13.207  46.703  1.00 15.00           N  
+ATOM    105  C2    A E 201      83.287 -11.917  46.712  1.00 15.00           C  
+ATOM    106  N3    A E 201      84.376 -11.355  46.211  1.00 15.00           N  
+ATOM    107  C4    A E 201      85.153 -12.287  45.637  1.00 15.00           C  
+ATOM    108  P     U E 202      85.135  -8.538  41.427  1.00 15.00           P  
+ATOM    109  OP1   U E 202      85.374  -7.457  40.456  1.00 15.00           O  
+ATOM    110  OP2   U E 202      83.735  -8.784  41.816  1.00 15.00           O  
+ATOM    111  O5'   U E 202      85.754  -9.960  40.889  1.00 15.00           O  
+ATOM    112  C5'   U E 202      87.029 -10.016  40.170  1.00 15.00           C  
+ATOM    113  C4'   U E 202      87.232 -11.381  39.407  1.00 15.00           C  
+ATOM    114  O4'   U E 202      87.273 -12.500  40.367  1.00 15.00           O  
+ATOM    115  C3'   U E 202      86.130 -11.798  38.432  1.00 15.00           C  
+ATOM    116  O3'   U E 202      86.278 -11.170  37.164  1.00 15.00           O  
+ATOM    117  C2'   U E 202      86.292 -13.318  38.355  1.00 15.00           C  
+ATOM    118  O2'   U E 202      87.255 -13.688  37.384  1.00 15.00           O  
+ATOM    119  C1'   U E 202      86.680 -13.681  39.789  1.00 15.00           C  
+ATOM    120  N1    U E 202      85.540 -14.126  40.643  1.00 15.00           N  
+ATOM    121  C2    U E 202      85.554 -15.435  41.063  1.00 15.00           C  
+ATOM    122  O2    U E 202      86.446 -16.212  40.768  1.00 15.00           O  
+ATOM    123  N3    U E 202      84.494 -15.836  41.853  1.00 15.00           N  
+ATOM    124  C4    U E 202      83.428 -15.042  42.255  1.00 15.00           C  
+ATOM    125  O4    U E 202      82.537 -15.519  42.962  1.00 15.00           O  
+ATOM    126  C5    U E 202      83.494 -13.684  41.772  1.00 15.00           C  
+ATOM    127  C6    U E 202      84.516 -13.267  41.000  1.00 15.00           C  
+TER     128        U E 202                                                      
+ATOM    129  P     A F 201      88.489 -29.976  20.552  1.00 15.00           P  
+ATOM    130  OP1   A F 201      88.245 -28.529  20.362  1.00 15.00           O  
+ATOM    131  OP2   A F 201      88.032 -30.833  19.435  1.00 15.00           O  
+ATOM    132  O5'   A F 201      88.489 -30.735  21.960  1.00 15.00           O  
+ATOM    133  C5'   A F 201      89.720 -31.340  22.398  1.00 15.00           C  
+ATOM    134  C4'   A F 201      89.515 -32.088  23.721  1.00 15.00           C  
+ATOM    135  O4'   A F 201      90.150 -31.296  24.788  1.00 15.00           O  
+ATOM    136  C3'   A F 201      88.079 -32.254  24.184  1.00 15.00           C  
+ATOM    137  O3'   A F 201      87.430 -33.355  23.566  1.00 15.00           O  
+ATOM    138  C2'   A F 201      88.216 -32.428  25.679  1.00 15.00           C  
+ATOM    139  O2'   A F 201      88.480 -33.784  26.012  1.00 15.00           O  
+ATOM    140  C1'   A F 201      89.362 -31.467  25.986  1.00 15.00           C  
+ATOM    141  N9    A F 201      88.860 -30.152  26.480  1.00 15.00           N  
+ATOM    142  C8    A F 201      88.484 -29.836  27.750  1.00 15.00           C  
+ATOM    143  N7    A F 201      88.083 -28.611  27.899  1.00 15.00           N  
+ATOM    144  C5    A F 201      88.199 -28.070  26.640  1.00 15.00           C  
+ATOM    145  C6    A F 201      87.931 -26.789  26.120  1.00 15.00           C  
+ATOM    146  N6    A F 201      87.463 -25.773  26.877  1.00 15.00           N  
+ATOM    147  N1    A F 201      88.159 -26.585  24.818  1.00 15.00           N  
+ATOM    148  C2    A F 201      88.625 -27.599  24.075  1.00 15.00           C  
+ATOM    149  N3    A F 201      88.914 -28.838  24.443  1.00 15.00           N  
+ATOM    150  C4    A F 201      88.673 -28.998  25.752  1.00 15.00           C  
+ATOM    151  P     U F 202      85.850 -33.481  23.703  1.00 15.00           P  
+ATOM    152  OP1   U F 202      85.425 -34.868  23.416  1.00 15.00           O  
+ATOM    153  OP2   U F 202      85.188 -32.450  22.872  1.00 15.00           O  
+ATOM    154  O5'   U F 202      85.623 -33.139  25.251  1.00 15.00           O  
+ATOM    155  C5'   U F 202      86.026 -34.118  26.231  1.00 15.00           C  
+ATOM    156  C4'   U F 202      85.125 -34.023  27.464  1.00 15.00           C  
+ATOM    157  O4'   U F 202      85.582 -32.893  28.269  1.00 15.00           O  
+ATOM    158  C3'   U F 202      83.658 -33.731  27.194  1.00 15.00           C  
+ATOM    159  O3'   U F 202      82.942 -34.915  26.853  1.00 15.00           O  
+ATOM    160  C2'   U F 202      83.227 -33.078  28.503  1.00 15.00           C  
+ATOM    161  O2'   U F 202      82.880 -34.055  29.471  1.00 15.00           O  
+ATOM    162  C1'   U F 202      84.461 -32.242  28.871  1.00 15.00           C  
+ATOM    163  N1    U F 202      84.442 -30.834  28.386  1.00 15.00           N  
+ATOM    164  C2    U F 202      84.538 -29.840  29.329  1.00 15.00           C  
+ATOM    165  O2    U F 202      84.629 -30.066  30.524  1.00 15.00           O  
+ATOM    166  N3    U F 202      84.524 -28.545  28.849  1.00 15.00           N  
+ATOM    167  C4    U F 202      84.423 -28.168  27.517  1.00 15.00           C  
+ATOM    168  O4    U F 202      84.423 -26.974  27.212  1.00 15.00           O  
+ATOM    169  C5    U F 202      84.326 -29.276  26.601  1.00 15.00           C  
+ATOM    170  C6    U F 202      84.338 -30.544  27.040  1.00 15.00           C  
+ATOM    171  P     A F 203      81.463 -35.120  27.402  1.00 15.00           P  
+ATOM    172  OP1   A F 203      81.318 -36.471  27.984  1.00 15.00           O  
+ATOM    173  OP2   A F 203      80.478 -34.785  26.352  1.00 15.00           O  
+ATOM    174  O5'   A F 203      81.393 -34.028  28.547  1.00 15.00           O  
+ATOM    175  C5'   A F 203      81.971 -34.358  29.810  1.00 15.00           C  
+ATOM    176  C4'   A F 203      81.673 -33.239  30.774  1.00 15.00           C  
+ATOM    177  O4'   A F 203      82.473 -32.099  30.340  1.00 15.00           O  
+ATOM    178  C3'   A F 203      80.243 -32.779  30.771  1.00 15.00           C  
+ATOM    179  O3'   A F 203      79.490 -33.670  31.580  1.00 15.00           O  
+ATOM    180  C2'   A F 203      80.378 -31.338  31.249  1.00 15.00           C  
+ATOM    181  O2'   A F 203      80.394 -31.263  32.665  1.00 15.00           O  
+ATOM    182  C1'   A F 203      81.696 -30.922  30.579  1.00 15.00           C  
+ATOM    183  N9    A F 203      81.487 -30.225  29.292  1.00 15.00           N  
+ATOM    184  C8    A F 203      81.420 -30.752  28.036  1.00 15.00           C  
+ATOM    185  N7    A F 203      81.199 -29.866  27.106  1.00 15.00           N  
+ATOM    186  C5    A F 203      81.121 -28.676  27.803  1.00 15.00           C  
+ATOM    187  C6    A F 203      80.884 -27.340  27.420  1.00 15.00           C  
+ATOM    188  N6    A F 203      80.640 -26.971  26.144  1.00 15.00           N  
+ATOM    189  N1    A F 203      80.895 -26.401  28.376  1.00 15.00           N  
+ATOM    190  C2    A F 203      81.132 -26.768  29.641  1.00 15.00           C  
+ATOM    191  N3    A F 203      81.357 -27.973  30.127  1.00 15.00           N  
+ATOM    192  C4    A F 203      81.321 -28.880  29.143  1.00 15.00           C  
+ATOM    193  P     U F 204      77.914 -33.581  31.658  1.00 15.00           P  
+ATOM    194  OP1   U F 204      77.344 -34.950  31.719  1.00 15.00           O  
+ATOM    195  OP2   U F 204      77.394 -32.754  30.550  1.00 15.00           O  
+ATOM    196  O5'   U F 204      77.800 -32.836  33.040  1.00 15.00           O  
+ATOM    197  C5'   U F 204      79.049 -32.637  33.720  1.00 15.00           C  
+ATOM    198  C4'   U F 204      79.026 -31.337  34.491  1.00 15.00           C  
+ATOM    199  O4'   U F 204      79.853 -30.356  33.784  1.00 15.00           O  
+ATOM    200  C3'   U F 204      77.672 -30.674  34.593  1.00 15.00           C  
+ATOM    201  O3'   U F 204      76.887 -31.243  35.630  1.00 15.00           O  
+ATOM    202  C2'   U F 204      78.054 -29.229  34.846  1.00 15.00           C  
+ATOM    203  O2'   U F 204      78.315 -29.013  36.226  1.00 15.00           O  
+ATOM    204  C1'   U F 204      79.281 -29.056  33.949  1.00 15.00           C  
+ATOM    205  N1    U F 204      78.958 -28.481  32.620  1.00 15.00           N  
+ATOM    206  C2    U F 204      78.792 -27.122  32.566  1.00 15.00           C  
+ATOM    207  O2    U F 204      78.898 -26.403  33.546  1.00 15.00           O  
+ATOM    208  N3    U F 204      78.492 -26.594  31.327  1.00 15.00           N  
+ATOM    209  C4    U F 204      78.346 -27.312  30.146  1.00 15.00           C  
+ATOM    210  O4    U F 204      78.078 -26.724  29.099  1.00 15.00           O  
+ATOM    211  C5    U F 204      78.537 -28.735  30.298  1.00 15.00           C  
+ATOM    212  C6    U F 204      78.830 -29.273  31.495  1.00 15.00           C  
+TER     213        U F 204                                                      
+TER    1336      TYR A 190                                                      
+TER    2563      TYR B 190                                                      
+TER    3790      TYR C 190                                                      
+END                                                                             

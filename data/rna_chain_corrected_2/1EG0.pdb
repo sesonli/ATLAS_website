@@ -1,0 +1,504 @@
+HEADER    RIBOSOME                                11-FEB-00   1EG0              
+TITLE     FITTING OF COMPONENTS WITH KNOWN STRUCTURE INTO AN 11.5 A CRYO-EM MAP 
+TITLE    2 OF THE E.COLI 70S RIBOSOME                                           
+COMPND    MOL_ID: 1;                                                            
+COMPND   2 MOLECULE: FRAGMENT OF 16S RRNA HELIX 23;                             
+COMPND   3 CHAIN: I;                                                            
+COMPND   4 FRAGMENT: RESIDUES 673-713;                                          
+COMPND   5 OTHER_DETAILS: MODELED AS ANALOGOUS FRAGMENT OF T. THERMOPHILUS TAKEN
+COMPND   6 FROM PDB ENTRY 1QD7;                                                 
+COMPND   7 MOL_ID: 2;                                                           
+COMPND   8 MOLECULE: FRAGMENT OF 23S RRNA;                                      
+COMPND   9 CHAIN: L;                                                            
+COMPND  10 FRAGMENT: RESIDUES 1051-1108;                                        
+COMPND  11 OTHER_DETAILS: T. MARITIMA RNA SEQUENCE AND MODEL TAKEN FROM PDB     
+COMPND  12 ENTRY 1MMS;                                                          
+COMPND  13 MOL_ID: 3;                                                           
+COMPND  14 MOLECULE: HELIX 95 OF 23S RRNA;                                      
+COMPND  15 CHAIN: M;                                                            
+COMPND  16 OTHER_DETAILS: E.COLI RNA SEQUENCE AND MODEL TAKEN FROM PDB ENTRY    
+COMPND  17 480D;                                                                
+COMPND  18 MOL_ID: 4;                                                           
+COMPND  19 MOLECULE: FORMYL-METHIONYL-TRNA;                                     
+COMPND  20 CHAIN: O;                                                            
+COMPND  21 SYNONYM: FMET-TRNA;                                                  
+COMPND  22 OTHER_DETAILS: E.COLI FMET-TRNA SEQUENCE AND MODEL TAKEN FROM PDB    
+COMPND  23 ENTRY 2FMT;                                                          
+COMPND  24 MOL_ID: 5;                                                           
+COMPND  25 MOLECULE: PROTEIN (S4 RIBOSOMAL PROTEIN);                            
+COMPND  26 CHAIN: A;                                                            
+COMPND  27 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF B. STEAROTHERMOPHILUS 
+COMPND  28 TAKEN FROM PDB ENTRY 1C06;                                           
+COMPND  29 MOL_ID: 6;                                                           
+COMPND  30 MOLECULE: PROTEIN (S5 RIBOSOMAL PROTEIN);                            
+COMPND  31 CHAIN: B;                                                            
+COMPND  32 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF B. STEAROTHERMOPHILUS 
+COMPND  33 TAKEN FROM PDB ENTRY 1PKP;                                           
+COMPND  34 MOL_ID: 7;                                                           
+COMPND  35 MOLECULE: PROTEIN (S6 RIBOSOMAL PROTEIN);                            
+COMPND  36 CHAIN: C;                                                            
+COMPND  37 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF T.THERMOPHILUS TAKEN  
+COMPND  38 FROM PDB ENTRY 1RIS;                                                 
+COMPND  39 MOL_ID: 8;                                                           
+COMPND  40 MOLECULE: PROTEIN (S7 RIBOSOMAL PROTEIN);                            
+COMPND  41 CHAIN: D;                                                            
+COMPND  42 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF T. THERMOPHILUS TAKEN 
+COMPND  43 FROM PDB ENTRY 1RSS;                                                 
+COMPND  44 MOL_ID: 9;                                                           
+COMPND  45 MOLECULE: PROTEIN (S8 RIBOSOMAL PROTEIN);                            
+COMPND  46 CHAIN: E;                                                            
+COMPND  47 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF T. THERMOPHILUS TAKEN 
+COMPND  48 FROM PDB ENTRY 1AN7;                                                 
+COMPND  49 MOL_ID: 10;                                                          
+COMPND  50 MOLECULE: PROTEIN (S15 RIBOSOMAL PROTEIN);                           
+COMPND  51 CHAIN: F;                                                            
+COMPND  52 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF B. STEAROTHERMOPHILUS 
+COMPND  53 TAKEN FROM PDB ENTRY 1A32;                                           
+COMPND  54 MOL_ID: 11;                                                          
+COMPND  55 MOLECULE: PROTEIN (S17 RIBOSOMAL PROTEIN);                           
+COMPND  56 CHAIN: G;                                                            
+COMPND  57 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF B. STEAROTHERMOPHILUS 
+COMPND  58 TAKEN FROM PDB ENTRIES 1RIP AND 1QD7;                                
+COMPND  59 MOL_ID: 12;                                                          
+COMPND  60 MOLECULE: PROTEIN (S20 RIBOSOMAL PROTEIN);                           
+COMPND  61 CHAIN: H;                                                            
+COMPND  62 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF T. THERMOPHILUS TAKEN 
+COMPND  63 FROM PDB ENTRY 1QD7;                                                 
+COMPND  64 MOL_ID: 13;                                                          
+COMPND  65 MOLECULE: PROTEIN (RIBOSOMAL PROTEIN L1);                            
+COMPND  66 CHAIN: N;                                                            
+COMPND  67 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF T. THERMOPHILUS TAKEN 
+COMPND  68 FROM PDB ENTRY 1AD2;                                                 
+COMPND  69 MOL_ID: 14;                                                          
+COMPND  70 MOLECULE: PROTEIN (RIBOSOMAL PROTEIN L6);                            
+COMPND  71 CHAIN: J;                                                            
+COMPND  72 MUTATION: YES;                                                       
+COMPND  73 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF T. STEAROTHERMOPHILUS 
+COMPND  74 TAKEN FROM PDB ENTRY 1RL6;                                           
+COMPND  75 MOL_ID: 15;                                                          
+COMPND  76 MOLECULE: PROTEIN (RIBOSOMAL PROTEIN L11);                           
+COMPND  77 CHAIN: K;                                                            
+COMPND  78 OTHER_DETAILS: MODELED BY ANALOGOUS PROTEIN OF T. MARITIMA TAKEN FROM
+COMPND  79 PDB ENTRY 1MMS                                                       
+SOURCE    MOL_ID: 1;                                                            
+SOURCE   2 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE   3 ORGANISM_TAXID: 562;                                                 
+SOURCE   4 MOL_ID: 2;                                                           
+SOURCE   5 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE   6 ORGANISM_TAXID: 562;                                                 
+SOURCE   7 MOL_ID: 3;                                                           
+SOURCE   8 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE   9 ORGANISM_TAXID: 562;                                                 
+SOURCE  10 MOL_ID: 4;                                                           
+SOURCE  11 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  12 ORGANISM_TAXID: 562;                                                 
+SOURCE  13 MOL_ID: 5;                                                           
+SOURCE  14 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  15 ORGANISM_TAXID: 562;                                                 
+SOURCE  16 MOL_ID: 6;                                                           
+SOURCE  17 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  18 ORGANISM_TAXID: 562;                                                 
+SOURCE  19 MOL_ID: 7;                                                           
+SOURCE  20 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  21 ORGANISM_TAXID: 562;                                                 
+SOURCE  22 MOL_ID: 8;                                                           
+SOURCE  23 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  24 ORGANISM_TAXID: 562;                                                 
+SOURCE  25 MOL_ID: 9;                                                           
+SOURCE  26 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  27 ORGANISM_TAXID: 562;                                                 
+SOURCE  28 MOL_ID: 10;                                                          
+SOURCE  29 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  30 ORGANISM_TAXID: 562;                                                 
+SOURCE  31 MOL_ID: 11;                                                          
+SOURCE  32 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  33 ORGANISM_TAXID: 562;                                                 
+SOURCE  34 MOL_ID: 12;                                                          
+SOURCE  35 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  36 ORGANISM_TAXID: 562;                                                 
+SOURCE  37 MOL_ID: 13;                                                          
+SOURCE  38 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  39 ORGANISM_TAXID: 562;                                                 
+SOURCE  40 MOL_ID: 14;                                                          
+SOURCE  41 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  42 ORGANISM_TAXID: 562;                                                 
+SOURCE  43 MOL_ID: 15;                                                          
+SOURCE  44 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE  45 ORGANISM_TAXID: 562                                                  
+REMARK   1                                                                      
+REMARK   1 REFERENCE 1                                                          
+REMARK   1  AUTH   C.DAVIES,R.B.GERSTNER,D.E.DRAPER,V.RAMAKRISHNAN,S.W.WHITE    
+REMARK   1  TITL   THE CRYSTAL STRUCTURE OF RIBOSOMAL PROTEIN S4 REVEALS A      
+REMARK   1  TITL 2 TWO-DOMAIN MOLECULE WITH AN EXTENSIVE RNA-BINDING SURFACE:   
+REMARK   1  TITL 3 ONE DOMAIN SHOWS STRUCTURAL HOMOLOGY TO THE ETS DNA-BINDING  
+REMARK   1  TITL 4 MOTIF                                                        
+REMARK   1  REF    EMBO J.                       V.  17  4545 1998              
+REMARK   1  REFN                   ISSN 0261-4189                               
+REMARK   1  DOI    10.1093/EMBOJ/17.16.4545                                     
+REMARK   1 REFERENCE 2                                                          
+REMARK   1  AUTH   V.RAMAKRISHNAN,S.W.WHITE                                     
+REMARK   1  TITL   THE STRUCTURE OF RIBOSOMAL PROTEIN S5 REVEALS SITES OF       
+REMARK   1  TITL 2 INTERACTION WITH 16S RRNA                                    
+REMARK   1  REF    NATURE                        V. 358   768 1992              
+REMARK   1  REFN                   ISSN 0028-0836                               
+REMARK   1  DOI    10.1038/358768A0                                             
+REMARK   1 REFERENCE 3                                                          
+REMARK   1  AUTH   M.LINDAHL,L.A.SVENSSON,A.LILJAS,I.A.SEDELNIKOVA,             
+REMARK   1  AUTH 2 I.A.ELISEIKINA,N.P.FOMENKOVA,N.NEVSKAYA,S.V.NIKONOV,         
+REMARK   1  AUTH 3 M.B.GARBER,T.A.MURANOVA,A.I.RYKONOVA,R.AMONS                 
+REMARK   1  TITL   CRYSTAL STRUCTURE OF THE RIBOSOMAL PROTEIN S6 FROM THERMUS   
+REMARK   1  TITL 2 THERMOPHILUS                                                 
+REMARK   1  REF    EMBO J.                       V.  13  1249 1994              
+REMARK   1  REFN                   ISSN 0261-4189                               
+REMARK   1 REFERENCE 4                                                          
+REMARK   1  AUTH   B.T.WIMBERLY,S.W.WHITE,V.RAMAKRISHNAN                        
+REMARK   1  TITL   THE STRUCTURE OF RIBOSOMAL PROTEIN S7 AT 1.9 A RESOLUTION    
+REMARK   1  TITL 2 REVEALS A BETA- HAIRPIN MOTIF THAT BINDS DOUBLE-STRANDED     
+REMARK   1  TITL 3 NUCLEIC ACIDS                                                
+REMARK   1  REF    STRUCTURE                     V.   5  1187 1997              
+REMARK   1  REFN                   ISSN 0969-2126                               
+REMARK   1  DOI    10.1016/S0969-2126(97)00269-4                                
+REMARK   1 REFERENCE 5                                                          
+REMARK   1  AUTH   N.NEVSKAYA,S.TISCHENKO,A.NIKULIN,S.AL-KARADAGHI,A.LILJAS,    
+REMARK   1  AUTH 2 B.EHRESMANN,C.EHRESMANN,M.GARBER,S.NIKONOV                   
+REMARK   1  TITL   CRYSTAL STRUCTURE OF RIBOSOMAL PROTEIN S8 FROM THERMUS       
+REMARK   1  TITL 2 THERMOPHILUS REVEALS A HIGH DEGREE OF STRUCTURAL             
+REMARK   1  TITL 3 CONSERVATION OF A SPECIFIC RNA BINDING SITE                  
+REMARK   1  REF    J.MOL.BIOL.                   V. 279   233 1998              
+REMARK   1  REFN                   ISSN 0022-2836                               
+REMARK   1  DOI    10.1006/JMBI.1998.1758                                       
+REMARK   1 REFERENCE 6                                                          
+REMARK   1  AUTH   W.M.CLEMONS JR.,C.R.DAVIES,S.W.WHITE,V.RAMAKRISHNAN          
+REMARK   1  TITL   CONFORMATIONAL VARIABILITY OF THE N-TERMINAL HELIX IN THE    
+REMARK   1  TITL 2 STRUCTURE OF RIBOSOMAL PROTEIN S15                           
+REMARK   1  REF    STRUCTURE                     V.   6   429 1998              
+REMARK   1  REFN                   ISSN 0969-2126                               
+REMARK   1 REFERENCE 7                                                          
+REMARK   1  AUTH   T.JAISHREE,V.RAMAKRISHNAN,S.W.WHITE                          
+REMARK   1  TITL   SOLUTION STRUCTURE OF PROKARYOTIC RIBOSOMAL PROTEIN S17 BY   
+REMARK   1  TITL 2 HIGH-RESOLUTION NMR SPECTROSCOPY                             
+REMARK   1  REF    BIOCHEMISTRY                  V.  35  2845 1996              
+REMARK   1  REFN                   ISSN 0006-2960                               
+REMARK   1  DOI    10.1021/BI951062I                                            
+REMARK   1 REFERENCE 8                                                          
+REMARK   1  AUTH   W.M.CLEMONS JR.,J.L.C.MAY,B.T.WIMBERLY,J.P.MCCUTCHEON,       
+REMARK   1  AUTH 2 M.S.CAPEL,V.RAMAKRISHNAN                                     
+REMARK   1  TITL   STRUCTURE OF A BACTERIAL 30S RIBOSOMAL SUBUNIT AT 5.5 A      
+REMARK   1  TITL 2 RESOLUTION                                                   
+REMARK   1  REF    NATURE                        V. 400   833 1999              
+REMARK   1  REFN                   ISSN 0028-0836                               
+REMARK   1 REFERENCE 9                                                          
+REMARK   1  AUTH   B.L.GOLDEN,C.DAVIES,V.RAMAKRISHNAN,S.W.WHITE                 
+REMARK   1  TITL   RIBOSOMAL PROTEIN L6: STRUCTURAL EVIDENCE OF GENE            
+REMARK   1  TITL 2 DUPLICATION FROM A PRIMITIVE RNA-BINDING PROTEIN             
+REMARK   1  REF    EMBO J.                       V.  12  4901 1993              
+REMARK   1  REFN                   ISSN 0261-4189                               
+REMARK   1 REFERENCE 10                                                         
+REMARK   1  AUTH   B.T.WIMBERLY,R.GUYMON,J.P.MCCUTCHEON,S.W.RAMAKRISHNAN,       
+REMARK   1  AUTH 2 V.WHITE                                                      
+REMARK   1  TITL   A DETAILED VIEW OF A RIBOSOMAL ACTIVE SITE: THE STRUCTURE OF 
+REMARK   1  TITL 2 THE L11-RNA COMPLEX                                          
+REMARK   1  REF    CELL(CAMBRIDGE,MASS.)         V.  97   491 1999              
+REMARK   1  REFN                   ISSN 0092-8674                               
+REMARK   1  DOI    10.1016/S0092-8674(00)80759-X                                
+REMARK   1 REFERENCE 11                                                         
+REMARK   1  AUTH   C.C.CORRELL,I.G.WOOL,A.MUNISHKIN                             
+REMARK   1  TITL   THE TWO FACES OF THE ESCHERICHIA COLI 23 S RRNA SARCIN/RICIN 
+REMARK   1  TITL 2 DOMAIN: THE STRUCTURE AT 1.11 A RESOLUTION                   
+REMARK   1  REF    J.MOL.BIOL.                   V. 292   275 1999              
+REMARK   1  REFN                   ISSN 0022-2836                               
+REMARK   1  DOI    10.1006/JMBI.1999.3072                                       
+REMARK   1 REFERENCE 12                                                         
+REMARK   1  AUTH   S.NIKONOV,N.NEVSKAYA,I.ELISEIKINA,C.BRIAND,S.AL-KARADAGHI,   
+REMARK   1  AUTH 2 A.SVENSSON,A.LILJAS,A.AEBARSON                               
+REMARK   1  TITL   CRYSTAL STRUCTURE OF THE RNA BINDING RIBOSOMAL PROT L1 FROM  
+REMARK   1  TITL 2 THERMUS THERMOPHILUS                                         
+REMARK   1  REF    EMBO J.                       V.  15  1350 1996              
+REMARK   1  REFN                   ISSN 0261-4189                               
+REMARK   1 REFERENCE 13                                                         
+REMARK   1  AUTH   E.SCHMITT,M.PANVERT,S.BLANQUET,Y.MECHULAM                    
+REMARK   1  TITL   CRYSTAL STRUCTURE OF METHIONYL-TRNAFMET TRANSFORMYLASE       
+REMARK   1  TITL 2 COMPLEXED WITH THE INITIATOR FORMYL-METHIONYL-TRNAFMET       
+REMARK   1  REF    EMBO J.                       V.  17  6819 1998              
+REMARK   1  REFN                   ISSN 0261-4189                               
+REMARK   1  DOI    10.1093/EMBOJ/17.23.6819                                     
+REMARK   2                                                                      
+REMARK   2 RESOLUTION.   11.50 ANGSTROMS.                                       
+REMARK   3                                                                      
+REMARK   3 REFINEMENT.                                                          
+REMARK   3   SOFTWARE PACKAGES      : NULL                                      
+REMARK   3   RECONSTRUCTION SCHEMA  : NULL                                      
+REMARK   3                                                                      
+REMARK   3 EM MAP-MODEL FITTING AND REFINEMENT                                  
+REMARK   3   PDB ENTRY                    : NULL                                
+REMARK   3   REFINEMENT SPACE             : RECIPROCAL                          
+REMARK   3   REFINEMENT PROTOCOL          : RIGID BODY FIT                      
+REMARK   3   REFINEMENT TARGET            : VECTOR R-FACTOR                     
+REMARK   3   OVERALL ANISOTROPIC B VALUE  : NULL                                
+REMARK   3                                                                      
+REMARK   3 FITTING PROCEDURE : REFINEMENT PROTOCOL--RIGID BODY REFINEMENT       
+REMARK   3  DETAILS--ALL COMPONENTS WERE FIT INTO MAP AS RIGID BODIES USING     
+REMARK   3  COORDINATES FROM THE REFERRED SOURCES EXCEPT FOR L1, FOR WHICH      
+REMARK   3  ABOUT 15-DEGREE ROTATION WAS INTRODUCED BETWEEN THE TWO DOMAINS;    
+REMARK   3  FITTING OF PROTEIN S17 IS RELATIVELY UNCERTAIN; CONFORMATIONAL      
+REMARK   3  CHANGES OF ANTICODON AND ACCEPTOR REGIONS OF TRNAFMET UPON          
+REMARK   3  BINDING TO THE RIBOSOME WERE NOT MODELED.                           
+REMARK   3                                                                      
+REMARK   3 EM IMAGE RECONSTRUCTION STATISTICS                                   
+REMARK   3   NOMINAL PIXEL SIZE (ANGSTROMS)    : NULL                           
+REMARK   3   ACTUAL PIXEL SIZE  (ANGSTROMS)    : NULL                           
+REMARK   3   EFFECTIVE RESOLUTION (ANGSTROMS)  : 11.50                          
+REMARK   3   NUMBER OF PARTICLES               : 73523                          
+REMARK   3   CTF CORRECTION METHOD             : NULL                           
+REMARK   3                                                                      
+REMARK   3 EM RECONSTRUCTION MAGNIFICATION CALIBRATION: NULL                    
+REMARK   3                                                                      
+REMARK   3 OTHER DETAILS: NULL                                                  
+REMARK   4                                                                      
+REMARK   4 1EG0 COMPLIES WITH FORMAT V. 3.30, 13-JUL-11                         
+REMARK 100                                                                      
+REMARK 100 THIS ENTRY HAS BEEN PROCESSED BY RCSB ON 21-FEB-00.                  
+REMARK 100 THE DEPOSITION ID IS D_1000010538.                                   
+REMARK 245                                                                      
+REMARK 245 EXPERIMENTAL DETAILS                                                 
+REMARK 245   RECONSTRUCTION METHOD          : SINGLE PARTICLE                   
+REMARK 245   SPECIMEN TYPE                  : VITREOUS ICE (CRYO EM)            
+REMARK 245                                                                      
+REMARK 245 ELECTRON MICROSCOPE SAMPLE                                           
+REMARK 245   SAMPLE TYPE                    : PARTICLE                          
+REMARK 245   PARTICLE TYPE                  : POINT                             
+REMARK 245   NAME OF SAMPLE                 : E.COLI 70S RIBOSOME               
+REMARK 245   SAMPLE CONCENTRATION (MG ML-1) : NULL                              
+REMARK 245   SAMPLE SUPPORT DETAILS         : NULL                              
+REMARK 245   SAMPLE VITRIFICATION DETAILS   : NULL                              
+REMARK 245   SAMPLE BUFFER                  : NULL                              
+REMARK 245   PH                             : 7.60                              
+REMARK 245   SAMPLE DETAILS                 : NULL                              
+REMARK 245                                                                      
+REMARK 245 DATA ACQUISITION                                                     
+REMARK 245   DATE OF EXPERIMENT                : 01-JAN-97                      
+REMARK 245   NUMBER OF MICROGRAPHS-IMAGES      : NULL                           
+REMARK 245   TEMPERATURE (KELVIN)              : NULL                           
+REMARK 245   MICROSCOPE MODEL                  : FEI/PHILIPS CM200FEG/ST        
+REMARK 245   DETECTOR TYPE                     : KODAK SO-163 FILM              
+REMARK 245   MINIMUM DEFOCUS (NM)              : 730.00                         
+REMARK 245   MAXIMUM DEFOCUS (NM)              : 4340.00                        
+REMARK 245   MINIMUM TILT ANGLE (DEGREES)      : NULL                           
+REMARK 245   MAXIMUM TILT ANGLE (DEGREES)      : NULL                           
+REMARK 245   NOMINAL CS                        : NULL                           
+REMARK 245   IMAGING MODE                      : BRIGHT FIELD                   
+REMARK 245   ELECTRON DOSE (ELECTRONS NM**-2)  : 1000.00                        
+REMARK 245   ILLUMINATION MODE                 : FLOOD BEAM                     
+REMARK 245   NOMINAL MAGNIFICATION             : 50000                          
+REMARK 245   CALIBRATED MAGNIFICATION          : NULL                           
+REMARK 245   SOURCE                            : FIELD EMISSION GUN             
+REMARK 245   ACCELERATION VOLTAGE (KV)         : 200                            
+REMARK 245   IMAGING DETAILS                   : NULL                           
+REMARK 247                                                                      
+REMARK 247 ELECTRON MICROSCOPY                                                  
+REMARK 247  THE COORDINATES IN THIS ENTRY WERE GENERATED FROM ELECTRON          
+REMARK 247  MICROSCOPY DATA. PROTEIN DATA BANK CONVENTIONS REQUIRE              
+REMARK 247  THAT CRYST1 AND SCALE RECORDS BE INCLUDED, BUT THE VALUES           
+REMARK 247  ON THESE RECORDS ARE MEANINGLESS EXCEPT FOR THE CALCULATION         
+REMARK 247  OF THE STRUCTURE FACTORS.                                           
+REMARK 300                                                                      
+REMARK 300 BIOMOLECULE: 1                                                       
+REMARK 300 SEE REMARK 350 FOR THE AUTHOR PROVIDED AND/OR PROGRAM                
+REMARK 300 GENERATED ASSEMBLY INFORMATION FOR THE STRUCTURE IN                  
+REMARK 300 THIS ENTRY. THE REMARK MAY ALSO PROVIDE INFORMATION ON               
+REMARK 300 BURIED SURFACE AREA.                                                 
+REMARK 350                                                                      
+REMARK 350 COORDINATES FOR A COMPLETE MULTIMER REPRESENTING THE KNOWN           
+REMARK 350 BIOLOGICALLY SIGNIFICANT OLIGOMERIZATION STATE OF THE                
+REMARK 350 MOLECULE CAN BE GENERATED BY APPLYING BIOMT TRANSFORMATIONS          
+REMARK 350 GIVEN BELOW.  BOTH NON-CRYSTALLOGRAPHIC AND                          
+REMARK 350 CRYSTALLOGRAPHIC OPERATIONS ARE GIVEN.                               
+REMARK 350                                                                      
+REMARK 350 BIOMOLECULE: 1                                                       
+REMARK 350 AUTHOR DETERMINED BIOLOGICAL UNIT: PENTADECAMERIC                    
+REMARK 350 APPLY THE FOLLOWING TO CHAINS: I, L, M, O, A, B, C, D, E, F,         
+REMARK 350                    AND CHAINS: G, H, N, J, K                         
+REMARK 350   BIOMT1   1  1.000000  0.000000  0.000000        0.00000            
+REMARK 350   BIOMT2   1  0.000000  1.000000  0.000000        0.00000            
+REMARK 350   BIOMT3   1  0.000000  0.000000  1.000000        0.00000            
+REMARK 900                                                                      
+REMARK 900 RELATED ENTRIES                                                      
+REMARK 900 RELATED ID: EMD-1003   RELATED DB: EMDB                              
+REMARK 999                                                                      
+REMARK 999 SEQUENCE                                                             
+REMARK 999 ONLY COORDINATES OF PHOSPHATE AND CA-ATOMS ARE DEPOSITED             
+TER      34        N I  33                                                      
+ATOM     35  P     C L   1     -13.421  -0.342 -90.198  1.00 50.79           P  
+ATOM     36  P     U L   2     -14.873   3.809 -93.342  1.00 53.77           P  
+ATOM     37  P     G L   3     -19.206   6.748 -96.116  1.00 62.77           P  
+ATOM     38  P     G L   4     -25.301   7.020 -96.693  1.00 66.88           P  
+ATOM     39  P     G L   5     -30.905   5.377 -95.065  1.00 49.25           P  
+ATOM     40  P     A L   6     -33.757   4.099 -90.335  1.00 36.51           P  
+ATOM     41  P     U L   7     -38.367   6.945 -92.120  1.00 33.80           P  
+ATOM     42  P     G L   8     -43.699   7.749 -90.831  1.00 30.00           P  
+ATOM     43  P     U L   9     -48.466   8.027 -87.721  1.00 31.42           P  
+ATOM     44  P     U L  10     -42.340   9.816 -85.926  1.00 28.90           P  
+ATOM     45  P     G L  11     -43.013   6.189 -80.508  1.00 27.54           P  
+ATOM     46  P     G L  12     -48.666   6.394 -79.268  1.00 32.90           P  
+ATOM     47  P     C L  13     -51.914   6.606 -74.864  1.00 32.63           P  
+ATOM     48  P     U L  14     -51.996   7.648 -69.106  1.00 31.56           P  
+ATOM     49  P     U L  15     -49.253  10.180 -64.808  1.00 38.85           P  
+ATOM     50  P     A L  16     -46.149  15.086 -63.920  1.00 46.85           P  
+ATOM     51  P     G L  17     -46.136  15.905 -69.559  1.00 39.02           P  
+ATOM     52  P     A L  18     -44.023  13.507 -73.882  1.00 35.85           P  
+ATOM     53  P     A L  19     -41.897   7.578 -75.144  1.00 33.11           P  
+ATOM     54  P     G L  20     -37.750   7.338 -81.200  1.00 29.75           P  
+ATOM     55  P     C L  21     -37.862   4.890 -76.154  1.00 27.21           P  
+ATOM     56  P     A L  22     -35.378   5.848 -71.616  1.00 33.99           P  
+ATOM     57  P     G L  23     -35.430   1.726 -67.752  1.00 37.49           P  
+ATOM     58  P     C L  24     -39.747  -1.794 -66.390  1.00 35.74           P  
+ATOM     59  P     C L  25     -44.072  -5.124 -67.881  1.00 42.91           P  
+ATOM     60  P     A L  26     -46.748  -7.623 -72.101  1.00 34.53           P  
+ATOM     61  P     U L  27     -46.856  -9.061 -77.868  1.00 29.17           P  
+ATOM     62  P     C L  28     -44.491  -9.949 -82.298  1.00 28.61           P  
+ATOM     63  P     A L  29     -46.585  -9.263 -88.231  1.00 32.18           P  
+ATOM     64  P     U L  30     -46.793  -6.994 -93.725  1.00 29.01           P  
+ATOM     65  P     U L  31     -46.071  -3.795 -98.696  1.00 43.16           P  
+ATOM     66  P     U L  32     -41.699  -3.132-102.243  1.00 44.11           P  
+ATOM     67  P     A L  33     -35.750  -5.585-102.853  1.00 46.22           P  
+ATOM     68  P     A L  34     -34.692  -8.215 -98.196  1.00 32.91           P  
+ATOM     69  P     A L  35     -34.825  -7.107 -92.520  1.00 38.44           P  
+ATOM     70  P     G L  36     -36.761  -4.046 -88.414  1.00 30.97           P  
+ATOM     71  P     A L  37     -39.970  -5.434 -84.344  1.00 23.48           P  
+ATOM     72  P     G L  38     -38.463  -0.808 -79.057  1.00 26.48           P  
+ATOM     73  P     U L  39     -32.510  -3.784 -77.897  1.00 43.14           P  
+ATOM     74  P     G L  40     -28.807  -1.899 -73.920  1.00 58.06           P  
+ATOM     75  P     C L  41     -25.557   3.192 -71.693  1.00 78.16           P  
+ATOM     76  P     G L  42     -23.905   8.539 -71.196  1.00 59.69           P  
+ATOM     77  P     U L  43     -25.837  14.057 -71.886  1.00 48.86           P  
+ATOM     78  P     A L  44     -29.423  17.363 -70.577  1.00 56.22           P  
+ATOM     79  P     A L  45     -33.598  13.617 -71.095  1.00 33.71           P  
+ATOM     80  P     C L  46     -36.548  11.541 -75.683  1.00 34.58           P  
+ATOM     81  P     A L  47     -34.564  12.113 -81.871  1.00 38.47           P  
+ATOM     82  P     G L  48     -30.626  13.347 -85.935  1.00 52.26           P  
+ATOM     83  P     C L  49     -25.417  11.148 -86.617  1.00 62.31           P  
+ATOM     84  P     U L  50     -21.797   6.680 -86.246  1.00 60.70           P  
+ATOM     85  P     C L  51     -21.210   0.960 -85.540  1.00 56.93           P  
+ATOM     86  P     A L  52     -23.235  -4.398 -86.041  1.00 46.37           P  
+ATOM     87  P     C L  53     -26.012  -8.922 -87.311  1.00 47.34           P  
+ATOM     88  P     C L  54     -27.576  -9.705 -92.718  1.00 45.15           P  
+ATOM     89  P     A L  55     -26.532  -8.918 -98.437  1.00 49.11           P  
+ATOM     90  P     G L  56     -23.556  -7.377-103.066  1.00 58.93           P  
+ATOM     91  P     C L  57     -18.524  -6.216-105.705  1.00 71.15           P  
+TER      92        C L  57                                                      
+ATOM     93  P     G M   1       9.238  25.448 -51.489  1.00 37.06           P  
+ATOM     94  P     C M   2       6.461  29.922 -48.253  1.00 26.64           P  
+ATOM     95  P     U M   3       4.559  35.297 -48.732  1.00 25.79           P  
+ATOM     96  P     C M   4       3.227  39.316 -53.749  1.00 17.14           P  
+ATOM     97  P     C M   5       2.686  41.749 -59.136  1.00 14.14           P  
+ATOM     98  P     U M   6       1.390  41.691 -64.617  1.00 12.73           P  
+ATOM     99  P     A M   7      -1.596  38.384 -68.428  1.00 18.05           P  
+ATOM    100  P     G M   8      -4.290  42.736 -64.092  1.00 18.98           P  
+ATOM    101  P     U M   9      -9.794  38.823 -64.729  1.00 18.51           P  
+ATOM    102  P     A M  10      -9.767  35.305 -69.266  1.00 20.29           P  
+ATOM    103  P     C M  11     -11.291  30.095 -70.006  1.00 19.44           P  
+ATOM    104  P     G M  12     -15.035  26.847 -67.224  1.00 14.62           P  
+ATOM    105  P     A M  13     -19.731  27.247 -64.722  1.00 17.82           P  
+ATOM    106  P     G M  14     -19.838  32.984 -63.450  1.00 18.62           P  
+ATOM    107  P     A M  15     -18.850  36.080 -57.746  1.00 13.47           P  
+ATOM    108  P     G M  16     -16.394  35.932 -52.883  1.00 17.08           P  
+ATOM    109  P     G M  17     -10.177  33.604 -53.165  1.00 15.58           P  
+ATOM    110  P     A M  18      -5.160  32.788 -56.499  1.00 14.72           P  
+ATOM    111  P     C M  19      -0.084  29.887 -59.459  1.00 14.62           P  
+ATOM    112  P     C M  20       3.556  25.672 -61.042  1.00 19.62           P  
+ATOM    113  P     G M  21       7.629  25.281 -64.940  1.00 21.00           P  
+ATOM    114  P     G M  22      11.495  29.125 -66.752  1.00 23.52           P  
+ATOM    115  P     A M  23      14.478  34.235 -65.719  1.00 22.22           P  
+ATOM    116  P     G M  24      16.831  37.991 -61.893  1.00 27.25           P  
+ATOM    117  P     U M  25      18.615  39.721 -56.306  1.00 23.03           P  
+ATOM    118  P     G M  26      19.795  37.950 -50.851  1.00 25.76           P  
+TER     119        G M  26                                                      
+ATOM    120  P     C O   1       0.814 -14.769  -5.175  1.00 99.99           P  
+ATOM    121  P     G O   2      -4.606 -10.211  -6.493  1.00 99.99           P  
+ATOM    122  P     C O   3      -6.840 -14.552  -2.758  1.00 86.68           P  
+ATOM    123  P     G O   4     -10.374 -17.325   0.285  1.00 81.98           P  
+ATOM    124  P     G O   5     -16.639 -17.978   1.021  1.00 84.08           P  
+ATOM    125  P     G O   6     -22.549 -18.115   0.714  1.00 66.87           P  
+ATOM    126  P     G O   7     -27.612 -17.131  -2.905  1.00 67.27           P  
+HETATM  127  P   4SU O   8     -32.155 -14.615  -6.030  1.00 70.02           P  
+ATOM    128  P     G O   9     -37.115 -15.334  -7.105  1.00 72.69           P  
+ATOM    129  P     G O  10     -41.491 -12.580  -8.786  1.00 53.44           P  
+ATOM    130  P     A O  11     -38.205  -9.219  -5.636  1.00 55.67           P  
+ATOM    131  P     G O  12     -34.677  -8.801  -1.430  1.00 40.15           P  
+ATOM    132  P     C O  13     -31.135 -11.304   2.368  1.00 51.22           P  
+ATOM    133  P     A O  14     -29.721 -17.885   3.944  1.00 59.51           P  
+ATOM    134  P     G O  15     -29.463 -23.849   4.230  1.00 71.09           P  
+ATOM    135  P     C O  16     -29.681 -29.071   2.197  1.00 82.12           P  
+ATOM    136  P     C O  17     -26.164 -32.116  -2.119  1.00 99.99           P  
+ATOM    137  P     G O  18     -26.955 -37.011  -2.728  1.00 96.94           P  
+ATOM    138  P     G O  19     -32.906 -34.077  -3.827  1.00 82.17           P  
+HETATM  139  P   H2U O  20     -38.556 -32.860  -7.338  1.00 99.99           P  
+ATOM    140  P     A O  21     -42.337 -30.016  -2.565  1.00 96.84           P  
+ATOM    141  P     G O  22     -43.869 -24.571  -0.357  1.00 76.80           P  
+ATOM    142  P     C O  23     -44.080 -22.715   5.142  1.00 73.70           P  
+ATOM    143  P     U O  24     -43.641 -18.925   9.096  1.00 62.38           P  
+ATOM    144  P     C O  25     -44.610 -13.233  10.197  1.00 55.37           P  
+ATOM    145  P     G O  26     -47.255  -8.205   6.284  1.00 58.93           P  
+ATOM    146  P     U O  27     -49.692  -5.169   2.219  1.00 58.10           P  
+ATOM    147  P     C O  28     -53.774  -5.015  -1.408  1.00 65.49           P  
+ATOM    148  P     G O  29     -59.148  -6.830  -1.912  1.00 69.56           P  
+ATOM    149  P     G O  30     -63.755  -9.204  -0.019  1.00 78.13           P  
+ATOM    150  P     G O  31     -66.695 -11.862   4.615  1.00 76.50           P  
+HETATM  151  P   OMC O  32     -67.865 -12.804   9.662  1.00 69.47           P  
+ATOM    152  P     U O  33     -67.446 -11.336  15.658  1.00 66.66           P  
+ATOM    153  P     C O  34     -67.617  -6.046  18.882  1.00 59.48           P  
+ATOM    154  P     A O  35     -66.072  -3.408  14.096  1.00 58.27           P  
+ATOM    155  P     U O  36     -60.938  -2.374  11.279  1.00 60.36           P  
+ATOM    156  P     A O  37     -55.381  -2.842   9.642  1.00 99.99           P  
+ATOM    157  P     A O  38     -50.476  -6.007  11.643  1.00 98.20           P  
+ATOM    158  P     C O  39     -50.633 -10.726  13.472  1.00 69.93           P  
+ATOM    159  P     C O  40     -52.341 -15.989  13.245  1.00 57.95           P  
+ATOM    160  P     C O  41     -54.558 -19.964  10.056  1.00 57.93           P  
+ATOM    161  P     G O  42     -55.713 -22.209   4.941  1.00 56.43           P  
+ATOM    162  P     A O  43     -55.435 -22.215  -0.979  1.00 59.38           P  
+ATOM    163  P     A O  44     -53.636 -20.535  -6.334  1.00 61.18           P  
+ATOM    164  P     G O  45     -50.866 -18.415 -10.734  1.00 71.24           P  
+ATOM    165  P     A O  46     -45.217 -17.738 -11.679  1.00 88.84           P  
+ATOM    166  P     U O  47     -39.686 -18.422 -13.414  1.00 99.74           P  
+ATOM    167  P     C O  48     -35.861 -23.037 -12.568  1.00 97.51           P  
+ATOM    168  P     G O  49     -30.492 -18.939  -9.887  1.00 75.53           P  
+ATOM    169  P     U O  50     -31.620 -17.963 -15.177  1.00 84.04           P  
+ATOM    170  P     C O  51     -30.228 -19.317 -20.484  1.00 93.37           P  
+ATOM    171  P     G O  52     -28.399 -23.568 -23.502  1.00 99.45           P  
+ATOM    172  P     G O  53     -26.022 -29.541 -23.682  1.00 99.99           P  
+HETATM  173  P   5MU O  54     -24.710 -34.936 -21.720  1.00 99.99           P  
+HETATM  174  P   PSU O  55     -25.332 -39.570 -19.230  1.00 99.99           P  
+ATOM    175  P     C O  56     -29.794 -42.121 -17.415  1.00 99.99           P  
+ATOM    176  P     A O  57     -32.880 -37.764 -18.220  1.00 99.99           P  
+ATOM    177  P     A O  58     -33.494 -32.791 -15.179  1.00 97.62           P  
+ATOM    178  P     A O  59     -34.039 -28.140 -10.838  1.00 86.61           P  
+ATOM    179  P     U O  60     -28.626 -27.134  -9.789  1.00 72.30           P  
+ATOM    180  P     C O  61     -24.120 -28.711  -4.975  1.00 91.23           P  
+ATOM    181  P     C O  62     -19.529 -29.745  -7.720  1.00 99.99           P  
+ATOM    182  P     G O  63     -16.123 -27.512 -11.297  1.00 99.99           P  
+ATOM    183  P     G O  64     -14.545 -23.037 -14.948  1.00 99.52           P  
+ATOM    184  P     C O  65     -14.878 -17.977 -16.835  1.00 99.99           P  
+ATOM    185  P     C O  66     -17.355 -12.673 -17.462  1.00 94.40           P  
+ATOM    186  P     C O  67     -20.136  -8.003 -15.282  1.00 89.41           P  
+ATOM    187  P     C O  68     -22.485  -5.076 -10.712  1.00 61.36           P  
+ATOM    188  P     C O  69     -22.170  -3.577  -5.392  1.00 55.48           P  
+ATOM    189  P     G O  70     -19.673  -3.437   0.353  1.00 49.18           P  
+ATOM    190  P     C O  71     -16.516  -3.473   4.591  1.00 52.79           P  
+ATOM    191  P     A O  72     -11.334  -3.615   7.389  1.00 51.39           P  
+ATOM    192  P     A O  73      -5.757  -2.232   5.382  1.00 54.07           P  
+ATOM    193  P     C O  74      -3.342   1.555   1.800  1.00 52.95           P  
+ATOM    194  P     C O  75      -3.899   6.720  -1.388  1.00 58.02           P  
+ATOM    195  P     A O  76      -5.133  12.165  -0.872  1.00 48.25           P  
+TER     196        A O  76                                                      
+TER     356      ARG A 159                                                      
+TER     502      LYS B 145                                                      
+TER     600      PHE C  97                                                      
+TER     736      GLU D 135                                                      
+TER     873      TRP E 136                                                      
+TER     962      GLY F  88                                                      
+TER    1052      ALA G  89                                                      
+TER    1153      UNK H 100                                                      
+TER    1374      SER N 220                                                      
+TER    1539      LEU J 164                                                      
+TER    1673      VAL K 133                                                      
+END                                                                             
