@@ -4,11 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}"> <!-- Optionally, link your CSS here -->
-    <link rel="stylesheet" href="static/css/results.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap">
     <!-- 3Dmol.js for molecular visualization -->
     <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
+            background-color: #EBEBEB;
+            color: #0D1221;
+        }
+        .nav {
+            background-color: #0D1221;
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+        .nav-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .nav-brand span {
+            color: #DA5DA4;
+        }
+        .nav-links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            font-size: 1.8rem;
+        }
         .cell-truncate {
             max-width: 250px;
             white-space: nowrap;
@@ -21,60 +67,41 @@
             white-space: normal;
             word-break: break-all;
             overflow: visible;
-            background-color: #EDF2F7;
-        }
-        .home-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #14365F;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .home-button:hover {
-            background-color: #0F2A4A;
-            color: white;
-            text-decoration: none;
+            background-color: #EBEBEB;
         }
         .download-section {
-            background-color: #EDF2F7;
+            background-color: #fff;
             padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border-left: 5px solid #76A2B9;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 12px;
+            border-left: 5px solid #DA5DA4;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         .download-button {
-            background-color: #14365F;
+            background-color: #0D1221;
             color: white;
             border: none;
             padding: 12px 24px;
             margin: 8px;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 48px;
+            font-size: 15px;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
         }
         .download-button:hover {
-            background-color: #0F2A4A;
+            background-color: #6B7280;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .result-summary {
             font-size: 1.1rem;
             color: #333;
             margin: 10px 0;
-        }
-        body {
-            margin-top: 60px;
         }
         .pagination {
             display: flex;
@@ -84,19 +111,22 @@
             gap: 10px;
         }
         .pagination button {
-            background-color: #14365F;
+            background-color: #0D1221;
             color: white;
             border: none;
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: 48px;
             cursor: pointer;
             font-size: 14px;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
+            transition: background-color 0.2s;
         }
         .pagination button:hover:not(:disabled) {
-            background-color: #0F2A4A;
+            background-color: #6B7280;
         }
         .pagination button:disabled {
-            background-color: #ccc;
+            background-color: #D1D5DB;
+            color: #9CA3AF;
             cursor: not-allowed;
         }
         .pagination span {
@@ -105,9 +135,40 @@
         }
         .page-info {
             text-align: center;
-            margin: 15px 0;
-            color: #666;
+            margin: 15px auto;
+            max-width: 1200px;
+            color: #9CA3AF;
             font-size: 14px;
+        }
+        /* Table styles */
+        table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        table, td, th {
+            border: none;
+        }
+        thead tr {
+            background-color: #0D1221;
+        }
+        th {
+            color: #fff;
+            padding: 14px 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: left;
+            letter-spacing: 0.3px;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #D1D5DB;
+            font-size: 0.9rem;
         }
         /* PDB link hover effect */
         td a:hover {
@@ -129,17 +190,18 @@
         .action-btn {
             background: none;
             border: none;
-            color: #14365F;
+            color: #0D1221;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
             text-decoration: none;
             padding: 0;
             margin: 0 8px;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
         }
         .action-btn:hover {
             text-decoration: underline;
-            color: #0F2A4A;
+            color: #DA5DA4;
         }
 
         /* 3D Viewer Modal Styles */
@@ -167,7 +229,7 @@
             width: 90%;
             max-width: 1200px;
             height: 85vh;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
@@ -175,9 +237,9 @@
 
         .viewer-modal-header {
             padding: 20px 30px;
-            background: linear-gradient(135deg, #14365F, #76A2B9);
+            background: linear-gradient(135deg, #0D1221, #1a1a2e);
             color: white;
-            border-radius: 10px 10px 0 0;
+            border-radius: 12px 12px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -215,11 +277,11 @@
         }
 
         .viewer-info {
-            background-color: #F8F2EC;
+            background-color: #EBEBEB;
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 8px;
             margin-bottom: 15px;
-            border-left: 4px solid #14365F;
+            border-left: 4px solid #0D1221;
         }
 
         .viewer-info p {
@@ -229,8 +291,8 @@
 
         #viewer-3d-container {
             flex: 1;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+            border: 2px solid #D1D5DB;
+            border-radius: 8px;
             position: relative;
             background-color: #000;
         }
@@ -250,12 +312,17 @@
         }
 
         .row-clickable:hover {
-            background-color: #EDF2F7 !important;
+            background-color: #f0f0f0 !important;
         }
     </style>
 </head>
 <body>
-    <a href="/" class="home-button">🏠 Home</a>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">ATLAS<span>.</span></a>
+        <div class="nav-links"><a href="/">Home</a></div>
+      </div>
+    </nav>
     <h1>Search Results</h1>
 
     {% if warning %}
@@ -316,7 +383,7 @@
                         <a href="https://www.rcsb.org/structure/{{ result[2]|upper }}"
                            target="_blank"
                            rel="noopener noreferrer"
-                           style="color: #14365F; text-decoration: none; font-weight: 500;"
+                           style="color: #0D1221; text-decoration: none; font-weight: 500;"
                            onclick="event.stopPropagation();">
                             {{ result[2] }}
                         </a>
@@ -460,7 +527,7 @@
     
     <br>
     <div style="text-align: center; margin: 30px 0;">
-        <a href="/" class="download-button" style="background-color: #76A2B9;">← Back to Search</a>
+        <a href="/" class="download-button" style="background-color: #DA5DA4;">Back to Search</a>
     </div>
 
     <!-- 3D Viewer Modal -->

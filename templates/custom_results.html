@@ -4,51 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Motif Search Results</title>
-    <link rel="stylesheet" href="static/css/nicepage.css">
-    <link rel="stylesheet" href="static/css/results.css">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .home-button {
-            position: fixed;
-            top: 46px;
-            left: 20px;
-            background-color: #14365F;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .home-button:hover {
-            background-color: #0F2A4A;
-            color: white;
-            text-decoration: none;
+        body {
+            background: #EBEBEB;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
+            margin-top: 0;
         }
         .results-container {
             max-width: 1200px;
-            margin: 50px auto;
+            margin: 40px auto;
             padding: 20px;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-        body {
-            margin-top: 86px;
-        }
-        
+
         .search-info {
-            background-color: #F8F2EC;
+            background-color: #f5f5f5;
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
-            border-left: 4px solid #14365F;
+            border-left: 4px solid #DA5DA4;
         }
-        
+
         .download-section {
             text-align: center;
             margin: 30px 0;
@@ -56,87 +35,89 @@
             background-color: #f1f3f4;
             border-radius: 5px;
         }
-        
+
         .download-button {
-            background-color: #14365F;
+            background-color: #0D1221;
             border: none;
             color: white;
             padding: 12px 25px;
             margin: 10px;
-            border-radius: 5px;
+            border-radius: 48px;
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
             display: inline-block;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
         }
-        
+
         .download-button:hover {
-            background-color: #0F2A4A;
+            background-color: #1a1a2e;
             color: white;
             text-decoration: none;
         }
-        
+
         .back-button {
-            background-color: #76A2B9;
+            background-color: #DA5DA4;
             border: none;
             color: white;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 48px;
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
             display: inline-block;
             margin: 10px;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
         }
-        
+
         .back-button:hover {
-            background-color: #5D8BA0;
+            background-color: #c44d91;
             color: white;
             text-decoration: none;
         }
-        
+
         .results-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        
+
         .results-table th,
         .results-table td {
             border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
         }
-        
+
         .results-table th {
-            background-color: #14365F;
+            background-color: #0D1221;
             color: white;
             font-weight: bold;
         }
-        
+
         .results-table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        
+
         .results-table tr:hover {
             background-color: #e6f3ff;
         }
-        
+
         .no-results {
             text-align: center;
             padding: 50px;
             color: #666;
         }
-        
+
         .stats {
             display: flex;
             justify-content: space-around;
             margin: 20px 0;
             flex-wrap: wrap;
         }
-        
+
         .stat-item {
-            background: linear-gradient(135deg, #14365F, #76A2B9);
+            background: linear-gradient(135deg, #0D1221, #1a1a2e);
             color: white;
             padding: 20px;
             border-radius: 10px;
@@ -144,18 +125,18 @@
             min-width: 150px;
             margin: 10px;
         }
-        
+
         .stat-number {
             font-size: 2em;
             font-weight: bold;
             display: block;
         }
-        
+
         .stat-label {
             font-size: 0.9em;
             opacity: 0.9;
         }
-        
+
         .processing-info {
             background-color: #d4edda;
             border: 1px solid #c3e6cb;
@@ -164,7 +145,7 @@
             border-radius: 5px;
             margin: 20px 0;
         }
-        
+
         .error-info {
             background-color: #f8d7da;
             border: 1px solid #f5c6cb;
@@ -181,16 +162,17 @@
             gap: 10px;
         }
         .pagination button {
-            background-color: #14365F;
+            background-color: #0D1221;
             color: white;
             border: none;
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: 48px;
             cursor: pointer;
             font-size: 14px;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
         }
         .pagination button:hover:not(:disabled) {
-            background-color: #0F2A4A;
+            background-color: #1a1a2e;
         }
         .pagination button:disabled {
             background-color: #ccc;
@@ -215,38 +197,36 @@
         .action-btn {
             background: none;
             border: none;
-            color: #14365F;
+            color: #0D1221;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
             text-decoration: none;
             padding: 0;
             margin: 0 8px;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
         }
         .action-btn:hover {
             text-decoration: underline;
-            color: #0F2A4A;
+            color: #DA5DA4;
         }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div style="background-color: #14365F; padding: 6px 0; font-size: 0.8rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1001;">
-      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+    <!-- PLINDER Nav -->
+    <nav style="background:#0D1221;padding:16px 0;">
+      <div style="max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;">
+        <a href="/" style="font-family:'Geologica',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:0.04em;">ATLAS<span style="color:#DA5DA4;">.</span></a>
         <div>
-          <a href="http://dokhlab.org/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Dokholyan Lab</a>
-          <a href="https://med.virginia.edu/neurology/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Department of Neurology</a>
-          <a href="https://med.virginia.edu/" target="_blank" style="color: #BFD9E5; text-decoration: none;">UVA School of Medicine</a>
-        </div>
-        <div>
-          <a href="/" style="color: #BFD9E5; text-decoration: none;">Home</a>
+          <a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;font-size:0.85rem;">Home</a>
+          <a href="/custom-motif-search" style="color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;font-size:0.85rem;">Draw Motif</a>
         </div>
       </div>
-    </div>
-    <a href="/" class="home-button">🏠 Home</a>
+    </nav>
+
     <div class="results-container">
-        <h1 style="text-align: center; color: #14365F;">Custom Motif Search Results</h1>
-        
+        <h1 style="text-align: center; color: #0D1221;">Custom Motif Search Results</h1>
+
         <div class="search-info">
             <h3>Search Information:</h3>
             <p><strong>Graph Structure:</strong> {{ graph_info.nodes }} nodes, {{ graph_info.edges }} edges</p>
@@ -269,8 +249,8 @@
 
         {% if search_results %}
             <!-- Download buttons at the top -->
-            <div class="download-section" style="background-color: #EDF2F7; border-left: 5px solid #14365F;">
-                <h3 style="color: #14365F; margin-top: 0;">📥 Download Results</h3>
+            <div class="download-section" style="background-color: #f5f5f5; border-left: 5px solid #0D1221;">
+                <h3 style="color: #0D1221; margin-top: 0;">📥 Download Results</h3>
                 <p><strong>Found {{ search_results|length }} matches in {{ unique_pdbs|length }} unique PDB structures</strong></p>
                 <a href="/download_custom_csv" class="download-button">
                     📄 Download CSV Results
@@ -321,7 +301,7 @@
                             <a href="https://www.rcsb.org/structure/{{ result[2]|upper }}"
                                target="_blank"
                                rel="noopener noreferrer"
-                               style="color: #14365F; text-decoration: none; font-weight: 500;">
+                               style="color: #0D1221; text-decoration: none; font-weight: 500;">
                                 {{ result[2] }}
                             </a>
                         </td>
@@ -418,7 +398,7 @@
                     displayPage(1);
                 }
             </script>
-            
+
         {% else %}
             <div class="no-results">
                 <h2>No Matches Found</h2>
@@ -426,21 +406,21 @@
                 <p>Try modifying your motif structure or drawing a different pattern.</p>
             </div>
         {% endif %}
-        
+
         {% if error_message %}
             <div class="error-info">
                 <h4>Error:</h4>
                 <p>{{ error_message }}</p>
             </div>
         {% endif %}
-        
+
         {% if processing_info %}
             <div class="processing-info">
                 <h4>Processing Information:</h4>
                 <p>{{ processing_info }}</p>
             </div>
         {% endif %}
-        
+
                  <div style="text-align: center; margin-top: 30px;">
              <a href="/custom-motif-search" class="back-button">🎨 Draw Another Motif</a>
              <a href="/" class="back-button">🏠 Back to Main Search</a>
@@ -456,7 +436,7 @@
         const edges = graphData.edges.map(e => ({...e}));
         const edgeColors = { 'covalent': '#dc3545', 'wc': '#007bff', 'non-wc': '#ffc107' };
         const nodeRadius = 20;
-        const nodeColor = '#14365F';
+        const nodeColor = '#0D1221';
 
         if (nodes.length > 0) {
             const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
@@ -483,4 +463,4 @@
     </script>
     {% endif %}
 </body>
-</html> 
+</html>

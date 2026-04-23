@@ -4,92 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No Results Found</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap">
     <style>
-        .home-button {
-            position: fixed;
-            top: 46px;
-            left: 20px;
-            background-color: #14365F;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .home-button:hover {
-            background-color: #0F2A4A;
-            color: white;
-            text-decoration: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #F8F2EC;
-            margin: 0;
-            padding: 0;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
+            background: #EBEBEB;
+            color: #0D1221;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .nav {
+            background: #0D1221;
+            padding: 16px 0;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Geologica', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+        }
+        .nav-brand span { color: #DA5DA4; }
+        .nav-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 48px;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+        .content {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding: 60px 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 48px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             text-align: center;
+            max-width: 520px;
+            width: 100%;
         }
-
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .card h1 {
+            font-family: 'Geologica', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
-
-        h1 {
-            color: #14365F;
-            margin-bottom: 20px;
+        .card p {
+            color: #6B7280;
+            line-height: 1.7;
+            margin-bottom: 28px;
         }
-
-        p {
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        a {
+        .btn {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #14365F;
-            color: white;
+            padding: 12px 28px;
+            background: #0D1221;
+            color: #fff;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 48px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
         }
-
-        a:hover {
-            background-color: #D64F4F;
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(13,18,33,0.2);
         }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div style="background-color: #14365F; padding: 6px 0; font-size: 0.8rem;">
-      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-        <div>
-          <a href="http://dokhlab.org/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Dokholyan Lab</a>
-          <a href="https://med.virginia.edu/neurology/" target="_blank" style="color: #BFD9E5; text-decoration: none; margin-right: 20px;">Department of Neurology</a>
-          <a href="https://med.virginia.edu/" target="_blank" style="color: #BFD9E5; text-decoration: none;">UVA School of Medicine</a>
-        </div>
-        <div>
-          <a href="/" style="color: #BFD9E5; text-decoration: none;">Home</a>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">ATLAS<span>.</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
         </div>
       </div>
-    </div>
-    <a href="/" class="home-button">🏠 Home</a>
-    <div class="container">
+    </nav>
+    <div class="content">
+      <div class="card">
         <h1>No Results Found</h1>
         <p>Sorry, we couldn't find any results matching your search criteria for the RNA motif.</p>
-        <a href="/">Go Back to Search</a>
+        <a href="/" class="btn">Go Back to Search</a>
+      </div>
     </div>
 </body>
 </html>
