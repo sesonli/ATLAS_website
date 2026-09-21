@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graph-Based Structure Search - Draw Your Motif</title>
+    <title>Graph-Based Structure Search - RNAdex</title>
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -26,11 +26,14 @@
             margin: 20px 0;
             position: relative;
             display: inline-block;
+            max-width: 100%;
+            overflow-x: auto;
         }
         
         #motif-canvas {
             cursor: crosshair;
             background-color: #f9f9f9;
+            display: block;
         }
         
         .toolbar {
@@ -167,33 +170,134 @@
         
         /* Example section */
         .examples-section {
-            margin: 10px 0 20px 0;
+            margin: 24px 0;
             text-align: center;
+        }
+        .examples-section h3 {
+            color: #0D1221;
+            margin-bottom: 6px;
+        }
+        .examples-intro {
+            color: #4B5563;
+            line-height: 1.55;
+            margin: 0 auto 16px;
+            max-width: 760px;
+        }
+        .example-grid {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            text-align: left;
+        }
+        .example-card {
+            align-items: flex-start;
+            background: #F7F5FA;
+            border: 1px solid #DDD6E8;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
         }
         .example-button {
             background-color: #0D1221;
             border: none;
             color: white;
             padding: 10px 15px;
-            margin: 5px;
+            margin: 0;
             border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
+            font-weight: 600;
+            width: 100%;
         }
         .example-button:hover {
             background-color: #0a0e1a;
         }
+        .example-button:focus-visible {
+            outline: 3px solid #C89A28;
+            outline-offset: 2px;
+        }
         .example-note {
             font-size: 12px;
-            color: #666;
-            margin-top: 5px;
+            color: #4B5563;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+        .example-status {
+            color: #315C45;
+            font-size: 13px;
+            font-weight: 600;
+            min-height: 20px;
+            padding-top: 12px;
+        }
+        .worked-example-panel {
+            background-color: #FFF9E6;
+            border-left: 5px solid #C89A28;
+            border-radius: 8px;
+            margin: 22px 0;
+            padding: 18px 20px;
+        }
+        .worked-example-panel h3 {
+            color: #0D1221;
+            margin: 0 0 10px 0;
+        }
+        .worked-example-panel p {
+            color: #3F3212;
+            line-height: 1.65;
+            margin: 8px 0;
+        }
+        .worked-example-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .worked-example-button {
+            background-color: #0D1221;
+            border: none;
+            border-radius: 48px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            padding: 10px 16px;
+            text-decoration: none;
+        }
+        .worked-example-button.secondary {
+            background-color: #725399;
+        }
+        .worked-example-button:hover {
+            background-color: #1a1a2e;
+            color: #fff;
+            text-decoration: none;
+        }
+        @media (max-width: 700px) {
+            .drawing-container {
+                margin: 24px 12px;
+                padding: 14px;
+            }
+            .worked-example-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .worked-example-button {
+                box-sizing: border-box;
+                line-height: 1.35;
+                max-width: 100%;
+                text-align: center;
+                white-space: normal;
+                width: 100%;
+            }
+            .canvas-container {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
     <nav style="background:#0D1221;padding:16px 0;">
       <div style="max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;">
-        <a href="/" style="font-family:'Geologica',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:0.04em;">ATLAS<span style="color:#8B72B2;">.</span></a>
+        <a href="/" style="font-family:'Geologica',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:0.04em;">RNA<span style="color:#8B72B2;">dex</span></a>
         <div><a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;font-size:0.85rem;">Home</a></div>
       </div>
     </nav>
@@ -220,7 +324,7 @@
     <div class="drawing-container">
         <h1 style="text-align: center; color: #0D1221;">Graph-Based Structure Search</h1>
         <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 10px;">
-            Draw your custom RNA motif structure and search for similar patterns in ATLAS database
+            Draw your custom RNA motif structure and search for similar patterns in the RNAdex database
         </p>
 
         <!-- Description Section -->
@@ -249,7 +353,7 @@
                 <li><strong>Add Edge:</strong> Select edge type first, then click two nodes to connect them with the chosen interaction type</li>
                 <li><strong>Delete:</strong> Click on a node or edge to select it, then press Delete key or click Delete button to remove it</li>
                 <li><strong>Clear All:</strong> Remove all nodes and edges from the canvas to start over</li>
-                <li><strong>Load Example:</strong> Click "Example 1" for a 4-node structure or "Example 2" for a 6-node hairpin loop structure</li>
+                <li><strong>Load Example:</strong> Choose a simple pattern or a database-backed bulge or internal-loop query below</li>
             </ul>
         </div>
         
@@ -284,16 +388,34 @@
         </div>
         
         <!-- Examples section -->
-        <div class="examples-section">
-            <div style="display: inline-block; margin: 0 15px; vertical-align: top;">
-                <button id="example1-button" class="example-button">Example 1</button>
-                <div class="example-note">Load 4 nucleotides with 2 successive non-WC base pairs.</div>
+        <section class="examples-section" aria-labelledby="query-examples-heading">
+            <h3 id="query-examples-heading">Load a query example</h3>
+            <p class="examples-intro">
+                Choose a ready-to-edit topology. Search results are topology candidates.
+            </p>
+            <div class="example-grid">
+            <div class="example-card">
+                <button id="example1-button" class="example-button">Adjacent non-WC pairs</button>
+                <div class="example-note">4 nt · 4 edges</div>
             </div>
-            <div style="display: inline-block; margin: 0 15px; vertical-align: top;">
-                <button id="example2-button" class="example-button">Example 2</button>
-                <div class="example-note">Load a hairpin loop with one non-WC base pair.</div>
+            <div class="example-card">
+                <button id="example2-button" class="example-button">Hairpin with non-WC pair</button>
+                <div class="example-note">6 nt · 7 edges</div>
             </div>
-        </div>
+            {% for example in custom_motif_examples %}
+            <div class="example-card">
+                <button
+                    id="{{ example.key }}-button"
+                    class="example-button database-example-button"
+                    type="button"
+                    data-example-key="{{ example.key }}"
+                >{{ example.title }}</button>
+                <div class="example-note">{{ example.nodes | length }} nt · {{ example.edges | length }} edges</div>
+            </div>
+            {% endfor %}
+            </div>
+            <div id="example-status" class="example-status" role="status" aria-live="polite"></div>
+        </section>
         
         <div style="text-align: center;">
             <div class="canvas-container">
@@ -332,7 +454,7 @@
                 </div>
             </div>
             <div style="margin-top: 15px; padding: 12px; background-color: #EDF2F7; border-radius: 4px; text-align: center; font-size: 14px;">
-                💡 <strong>Tip:</strong> Use "Clear All" to start over, or "Example 1" button above to see a sample motif structure.
+                💡 <strong>Tip:</strong> Load any example above, edit its nodes or edges, and then submit the graph to search for matching topology candidates.
             </div>
         </div>
 
@@ -354,6 +476,8 @@
         const canvas = document.getElementById('motif-canvas');
         const ctx = canvas.getContext('2d');
         const nodeInfo = document.getElementById('node-info');
+        const exampleStatus = document.getElementById('example-status');
+        const customMotifExamples = {{ custom_motif_examples | tojson }};
         
         let currentTool = 'node';
         let currentEdgeType = 'covalent';
@@ -440,7 +564,13 @@
 
         // Example 2 button
         document.getElementById('example2-button').addEventListener('click', loadExample2);
-        
+
+        document.querySelectorAll('.database-example-button').forEach(button => {
+            button.addEventListener('click', function() {
+                loadDatabaseExample(this.dataset.exampleKey);
+            });
+        });
+
         function handleCanvasClick(e) {
             const rect = canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -638,6 +768,28 @@
                 ctx.fillText(node.name, node.x, node.y);
             });
         }
+
+        function resetGraph() {
+            nodes = [];
+            edges = [];
+            selectedNode = null;
+            selectedEdge = null;
+            firstSelectedNode = null;
+            nodeCounter = 1;
+        }
+
+        function loadDatabaseExample(exampleKey) {
+            const example = customMotifExamples.find(item => item.key === exampleKey);
+            if (!example) return;
+
+            resetGraph();
+            nodes = example.nodes.map(node => ({ ...node }));
+            edges = example.edges.map(edge => ({ ...edge, attribute: [...edge.attribute] }));
+            nodeCounter = Math.max(...nodes.map(node => node.id)) + 1;
+            exampleStatus.textContent = `${example.title} loaded: ${nodes.length} nodes and ${edges.length} edges.`;
+            redraw();
+            canvas.focus({ preventScroll: true });
+        }
         
         // Example 1: preload a simple motif
         function loadExample1() {
@@ -666,6 +818,7 @@
             ];
 
             nodeCounter = 5; // Next node will be N5
+            exampleStatus.textContent = 'Adjacent non-WC pairs loaded: 4 nodes and 4 edges.';
             redraw();
         }
 
@@ -706,6 +859,7 @@
             ];
 
             nodeCounter = 7; // Next node will be N7
+            exampleStatus.textContent = 'Hairpin with non-WC pair loaded: 6 nodes and 7 edges.';
             redraw();
         }
 
@@ -746,4 +900,4 @@
         redraw();
     </script>
 </body>
-</html> 
+</html>

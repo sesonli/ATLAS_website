@@ -1,0 +1,97 @@
+{
+  "method": "Stage 2 geometric confirmation from MC-Annotate Leontis-Westhof/Saenger annotation (sheared G.A = trans Sugar/Hoogsteen, Saenger XI) + loop asymmetry (kink-turn bulge). The graph supplies candidates; this motif-specific annotation supplies the geometry the graph does not encode.",
+  "representatives_confirmed": 4,
+  "anchor_2GIS_confirmed": true,
+  "details": [
+    {
+      "pdb": "2GIS",
+      "sheared_GA_pairs_SaengerXI": [
+        "A18-A37",
+        "A19-A36",
+        "A20-A35"
+      ],
+      "n_sheared_GA": 3,
+      "tandem_sheared": true,
+      "loop_strand_sizes": [
+        5,
+        8
+      ],
+      "asymmetric_bulge": true,
+      "confirmed_kink_turn": true
+    },
+    {
+      "pdb": "1E7K",
+      "sheared_GA_pairs_SaengerXI": [
+        "D32-D44",
+        "D33-D43"
+      ],
+      "n_sheared_GA": 2,
+      "tandem_sheared": true,
+      "loop_strand_sizes": [
+        4,
+        7
+      ],
+      "asymmetric_bulge": true,
+      "confirmed_kink_turn": true
+    },
+    {
+      "pdb": "4C4W",
+      "sheared_GA_pairs_SaengerXI": [
+        "H6-H30"
+      ],
+      "n_sheared_GA": 1,
+      "tandem_sheared": false,
+      "loop_strand_sizes": [
+        6,
+        9
+      ],
+      "asymmetric_bulge": true,
+      "confirmed_kink_turn": false
+    },
+    {
+      "pdb": "4BW0",
+      "sheared_GA_pairs_SaengerXI": [
+        "A4-A22",
+        "A5-A21",
+        "A6-A20"
+      ],
+      "n_sheared_GA": 3,
+      "tandem_sheared": true,
+      "loop_strand_sizes": [
+        5,
+        8
+      ],
+      "asymmetric_bulge": true,
+      "confirmed_kink_turn": true
+    },
+    {
+      "pdb": "2OZB",
+      "sheared_GA_pairs_SaengerXI": [
+        "F32-F44",
+        "F33-F43"
+      ],
+      "n_sheared_GA": 2,
+      "tandem_sheared": true,
+      "loop_strand_sizes": [
+        4,
+        7
+      ],
+      "asymmetric_bulge": true,
+      "confirmed_kink_turn": true
+    },
+    {
+      "pdb": "4LCK",
+      "sheared_GA_pairs_SaengerXI": [
+        "F10-F96"
+      ],
+      "n_sheared_GA": 1,
+      "tandem_sheared": false,
+      "loop_strand_sizes": [
+        5,
+        8
+      ],
+      "asymmetric_bulge": true,
+      "confirmed_kink_turn": false
+    }
+  ]
+}

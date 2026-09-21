@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kink-turn Worked Example - RNAdex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #EBEBEB;
+            color: #252A34;
+            font-family: 'Geologica', 'Montserrat', sans-serif;
+            margin: 0;
+        }
+
+        .page-shell {
+            max-width: 1180px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-panel {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 34px;
+        }
+
+        h1, h2, h3 {
+            color: #0D1221;
+            letter-spacing: 0;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            margin: 0 0 12px;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            margin: 34px 0 14px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            margin: 0 0 8px;
+        }
+
+        p {
+            color: #374151;
+            line-height: 1.7;
+            margin: 0 0 14px;
+        }
+
+        .lede {
+            max-width: 900px;
+            font-size: 1.05rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0 8px;
+        }
+
+        .button {
+            background: #0D1221;
+            border-radius: 48px;
+            color: #fff;
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 12px 20px;
+            text-decoration: none;
+        }
+
+        .button.secondary {
+            background: #725399;
+        }
+
+        .button:hover {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin: 22px 0 8px;
+        }
+
+        .summary-item {
+            background: #F7F7FA;
+            border-left: 4px solid #8B72B2;
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        .summary-number {
+            color: #0D1221;
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .summary-label {
+            color: #0D1221;
+            display: block;
+            font-size: 0.92rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .summary-text {
+            color: #4B5563;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .note {
+            background: #FFF9E6;
+            border-left: 5px solid #C89A28;
+            border-radius: 6px;
+            color: #3F3212;
+            line-height: 1.65;
+            margin: 22px 0;
+            padding: 16px 18px;
+        }
+
+        .workflow-split {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: 28px;
+            align-items: start;
+            margin-top: 18px;
+        }
+
+        .figure-wrap img {
+            background: #fff;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            display: block;
+            max-width: 100%;
+        }
+
+        .figure-caption {
+            color: #6B7280;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            margin-top: 10px;
+        }
+
+        .step-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .step {
+            background: #F7F7FA;
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        .step-label {
+            color: #5E437F;
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 14px;
+            min-width: 620px;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #E5E7EB;
+            color: #374151;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            padding: 11px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #0D1221;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) td {
+            background: #F9FAFB;
+        }
+
+        .download-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .download-card {
+            background: #F7F7FA;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .download-card a {
+            color: #0D1221;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .download-card a:hover {
+            color: #8B72B2;
+            text-decoration: underline;
+        }
+
+        .download-card p {
+            font-size: 0.88rem;
+            margin: 8px 0 0;
+        }
+
+        .error {
+            background: #FDECEC;
+            border-left: 5px solid #B42318;
+            border-radius: 6px;
+            color: #7A271A;
+            padding: 16px 18px;
+        }
+
+        @media (max-width: 900px) {
+            .summary-grid,
+            .workflow-split,
+            .download-list {
+                grid-template-columns: 1fr;
+            }
+
+            .page-panel {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 1.85rem;
+            }
+
+            th, td {
+                font-size: 0.84rem;
+            }
+        }
+
+        /* The nav is laid out with inline styles, so its 40px gutter has to be
+           relaxed here or the bar alone is wider than a phone viewport. */
+        @media (max-width: 600px) {
+            .nav-inner {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 0 16px !important;
+            }
+
+            .nav-inner a {
+                padding: 6px 10px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav style="background:#0D1221;padding:16px 0;">
+      <div class="nav-inner" style="max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;">
+        <a href="/" style="font-family:'Geologica',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:0.04em;">RNA<span style="color:#8B72B2;">dex</span></a>
+        <div>
+          <a href="/" style="color:rgba(255,255,255,0.68);text-decoration:none;padding:8px 16px;font-size:0.85rem;">Home</a>
+          <a href="/custom-motif-search" style="color:rgba(255,255,255,0.68);text-decoration:none;padding:8px 16px;font-size:0.85rem;">Draw Motif</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page-shell">
+        <section class="page-panel">
+            {% if error_message %}
+                <div class="error">{{ error_message }}</div>
+            {% elif workflow %}
+                <h1>Kink-turn Worked Example</h1>
+                <p class="lede">
+                    Stage 1 retrieves candidates by tandem non-Watson-Crick topology; Stage 2 applies the
+                    motif-specific sheared G.A geometry criteria. Graph matches are candidates, not confirmed kink-turns.
+                </p>
+
+                <div class="actions">
+                    <a class="button" href="{{ url_for('static', filename='data/kturn_workflow/confirmed_kink_turn_structures.zip') }}">Download found motif structures (ZIP)</a>
+                    <a class="button secondary" href="{{ url_for('static', filename='data/kturn_workflow/caseC_kturn_hits.csv') }}">Download candidate CSV</a>
+                </div>
+
+                <section class="summary-grid" aria-label="Kink-turn workflow funnel counts">
+                    {% for stage in workflow.stage_counts %}
+                    <article class="summary-item">
+                        <span class="summary-number">{{ "{:,}".format(stage.count) if stage.count is not none else "N/A" }}</span>
+                        <span class="summary-label">{{ stage.label }}</span>
+                    </article>
+                    {% endfor %}
+                </section>
+
+                <div class="figure-wrap" style="margin:22px 0;">
+                    <img src="{{ url_for('static', filename='data/kturn_workflow/caseC_kturn_figure.png') }}" alt="Kink-turn two-stage workflow funnel">
+                </div>
+
+                <h2>Geometry-confirmed Representatives</h2>
+                <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PDB</th>
+                            <th>Context</th>
+                            <th>Sheared G.A pairs</th>
+                            <th>Loop nucleotides</th>
+                            <th>Structure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rep in workflow.confirmed_representatives %}
+                        <tr>
+                            <td><a href="https://www.rcsb.org/structure/{{ rep.pdb }}" target="_blank" rel="noopener">{{ rep.pdb }}</a></td>
+                            <td>{{ rep.description }}</td>
+                            <td>{{ rep.sheared_pairs|join(', ') }}</td>
+                            <td>{{ rep.loop }}</td>
+                            <td>{% if rep.structure %}<a href="{{ url_for('static', filename='data/kturn_workflow/' + rep.structure) }}">PDB</a>{% endif %}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+
+                <h2>Downloads</h2>
+                <div class="download-list">
+                    {% for item in workflow.downloads %}
+                    <div class="download-card">
+                        <a href="{{ url_for('static', filename='data/kturn_workflow/' + item.filename) }}">{{ item.label }}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

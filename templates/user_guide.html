@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ATLAS User Guide</title>
+  <title>RNAdex User Guide</title>
   <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body { background-color: #EBEBEB; font-family: 'Geologica', 'Montserrat', sans-serif; margin-top: 0; }
@@ -23,27 +23,43 @@
     .btn { background-color: #0D1221; color: #fff; border: none; border-radius: 48px; padding: 12px 24px; cursor: pointer; font-size: 16px; }
     .btn:hover { background-color: #1a2233; }
     code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; color: #8B72B2; }
+    @media (max-width: 600px) {
+      /* Each nesting level costs 24px of margin on top of the browser's default
+         40px list padding, so four levels alone exceed a phone viewport. */
+      .guide-container { margin: 20px 12px; padding: 24px 18px; }
+      ul { margin-left: 0; padding-left: 22px; }
+      li { overflow-wrap: break-word; }
+      h1 { font-size: 1.7rem; }
+      h2 { font-size: 1.35rem; }
+      h3 { font-size: 1.1rem; }
+      .nav-inner { flex-wrap: wrap; gap: 8px; padding: 0 16px !important; }
+      .nav-inner a { padding: 6px 10px !important; }
+    }
   </style>
 </head>
 <body>
   <nav style="background:#0D1221;padding:16px 0;">
-    <div style="max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;">
-      <a href="/" style="font-family:'Geologica',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:0.04em;">ATLAS<span style="color:#8B72B2;">.</span></a>
-      <div><a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;font-size:0.85rem;font-weight:500;border-radius:48px;">Home</a></div>
+    <div class="nav-inner" style="max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;">
+      <a href="/" style="font-family:'Geologica',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:0.04em;">RNA<span style="color:#8B72B2;">dex</span></a>
+      <div>
+        <a href="/examples" style="color:rgba(255,255,255,0.8);text-decoration:none;padding:8px 16px;font-size:0.85rem;font-weight:500;border-radius:48px;">Examples</a>
+        <a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;font-size:0.85rem;font-weight:500;border-radius:48px;">Home</a>
+      </div>
     </div>
   </nav>
   <div class="guide-container">
-    <h1>ATLAS User Guide</h1>
+    <h1>RNAdex User Guide</h1>
     <p style="font-size: 1.1rem; color: #555;">
-      <strong>ATLAS</strong> (Advanced Template Library for Assembly and Structure) is a comprehensive 3D RNA motif library
+      <strong>RNAdex</strong> is a comprehensive 3D RNA motif library
       that enables researchers to search for RNA structural motifs from the Protein Data Bank. Using graph-based algorithms,
-      ATLAS catalogs over 433,000 RNA motif structures with atomic-level 3D coordinates.
+      RNAdex catalogs 462,755 RNA motif entries from 5,846 PDB structures
+      with atomic-level 3D coordinates.
     </p>
 
-    <h2>What is ATLAS?</h2>
+    <h2>What is RNAdex?</h2>
     <div class="highlight-box">
       <p style="margin: 0;">
-        ATLAS features <strong>nucleotide-level graph representations</strong> of RNA structures incorporating both
+        RNAdex features <strong>nucleotide-level graph representations</strong> of RNA structures incorporating both
         <strong>Watson-Crick (WC)</strong> and <strong>non-Watson-Crick (non-WC) interactions</strong>.
         The database includes five types of RNA motifs: hairpin loops, internal loops, bulges, multiway junctions,
         and pseudoknots. Each motif includes 3D atomic coordinates retrieved from PDB files and graph representations
@@ -51,7 +67,7 @@
       </p>
     </div>
 
-    <h2>Motif Types in ATLAS</h2>
+    <h2>Motif Types in RNAdex</h2>
     <div class="motif-types">
       <div class="motif-type">
         <strong>Hairpin Loops</strong><br>
@@ -75,10 +91,10 @@
       </div>
     </div>
 
-    <h2>How to Use ATLAS</h2>
+    <h2>How to Use RNAdex</h2>
 
     <h3>1. Type-Based Motif Search</h3>
-    <p>Search pre-indexed RNA motifs from the ATLAS database by motif type and size:</p>
+    <p>Search pre-indexed RNA motifs from the RNAdex database by motif type and size:</p>
     <ul>
       <li><strong>Step 1:</strong> Select <strong>Motif Type</strong> from the dropdown menu:
         <ul>
@@ -117,11 +133,22 @@
           </li>
         </ul>
       </li>
-      <li><strong>Step 3:</strong> Use <code>Load Example 1</code> to see a sample 4-node structure</li>
+      <li><strong>Step 3:</strong> Use <code>Load Example 1</code> to see a sample 4-node structure, or open the
+        <a href="/examples">worked examples</a> to follow candidate retrieval and coordinate-validation workflows</li>
       <li><strong>Step 4:</strong> Click <code>Submit Search</code> - The system uses <strong>subgraph isomorphism algorithm</strong>
         to find matching patterns <em>(processing may take several minutes for complex structures; current timeout: 20 minutes)</em></li>
       <li><strong>Step 5:</strong> Download matched structures as CSV and PDB ZIP files from the results page</li>
     </ul>
+
+    <div class="highlight-box">
+      <p style="margin: 0;">
+        <strong>Named-motif worked examples:</strong> RNAdex provides case studies for kink-turn,
+        sarcin-ricin, and GNRA motifs. Each page separates graph or sequence candidates from
+        validated representatives. The sarcin-ricin and GNRA pages reannotate atomic coordinates
+        with official FR3D, apply literature-derived interaction and discrepancy criteria, and
+        publish a fixed-seed candidate audit.
+      </p>
+    </div>
 
     <h3>3. Understanding Search Results</h3>
     <ul>
@@ -133,14 +160,18 @@
     </ul>
 
     <h2>Database Statistics</h2>
-    <p>ATLAS contains <strong>over 433,000 unique motif entries</strong> extracted from RNA structures in the Protein Data Bank:</p>
+    <p>RNAdex contains <strong>462,755 motif entries</strong> extracted
+      from 5,846 RNA-containing PDB structures:</p>
     <ul>
-      <li>Internal loops: 51.8% (most common motif type)</li>
-      <li>Hairpin loops: 27.4%</li>
-      <li>Bulges: 13.2%</li>
-      <li>Junctions (3-way to 10-way): 6.0%</li>
-      <li>Pseudoknots: 1.7% (6 subtypes classified)</li>
+      <li>Internal loops: 231,753 (50.1%; most common motif type)</li>
+      <li>Hairpin loops: 137,575 (29.7%)</li>
+      <li>Bulges: 59,111 (12.8%)</li>
+      <li>Junctions (3-way to 10-way): 26,825 (5.8%)</li>
+      <li>Pseudoknots: 7,491 (1.6%; 6 output categories)</li>
     </ul>
+    <p>
+      <a href="/download-database">Download RNAdex.db</a>.
+    </p>
 
     <h2>Technical Details</h2>
     <ul>
@@ -148,7 +179,17 @@
         interactions (covalent bonds, WC pairs, non-WC pairs) with one-hot encoding attributes</li>
       <li><strong>Search Algorithm:</strong> Subgraph isomorphism with NetworkX GraphMatcher for exact edge attribute matching</li>
       <li><strong>Data Source:</strong> RNA structures from PDB, processed with MC-Annotate for interaction analysis</li>
+      <li><strong>RNAdex.db:</strong>
+        SHA-256 <code>3d2356b6f82016d3d5a927a0d141a5803cb1ec45266c1d26e2607d075aecc9ed</code></li>
     </ul>
+
+    <h2 id="licenses">Licenses</h2>
+    <p>
+      The RNAdex source code is available under the
+      <a href="https://opensource.org/license/mit">MIT License</a>.
+      RNAdex database contents and downloads are available under
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    </p>
 
     <div class="back">
       <button class="btn" onclick="window.location.href='/'">Back to Home</button>

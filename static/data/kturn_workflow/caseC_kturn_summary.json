@@ -1,0 +1,102 @@
+{
+  "all_representatives_distinct_structures": true,
+  "anchor": "2GIS SAM-I riboswitch kink-turn; tandem G.A pairs G18.A37 + G19.A36 (sheared, Saenger XI, confirmed in Stage 2)",
+  "anchor_2GIS_in_representatives": true,
+  "boundary_note": "The graph identifies the non-WC interaction topology and supplies candidates; it does NOT encode base-pair geometry, so the motif-specific geometry is evaluated separately with MC-Annotate in Stage 2.",
+  "claim": "The kink-turn is an asymmetric internal loop that, by Watson-Crick structure, is an ordinary loop. RNAdex encodes non-WC interactions as graph edges, so a non-WC subgraph query (Stage 1, anchored on the SAM-I riboswitch 2GIS) retrieves loops carrying the tandem non-WC G.A topology of the kink-turn core, a class invisible to a Watson-Crick search. Stage 2 then evaluates the sheared G.A geometry (trans Sugar/Hoogsteen, Saenger XI) with MC-Annotate. Graph topology supplies candidates; this motif-specific check identifies the displayed representatives.",
+  "funnel": {
+    "distinct_pdb_structures_with_GA_composition": 1796,
+    "search_pool_internal_bulge_loops": 290864,
+    "stage1_graph_tandem_nonWC_topology": 70701,
+    "with_GA_base_composition": 11240
+  },
+  "n_representatives": 6,
+  "query": "tandem non-WC G.A: two non-WC edges cross-linking two backbone-adjacent pairs",
+  "release_provenance": {
+    "database": "RNAdex.db",
+    "database_sha256": "3d2356b6f82016d3d5a927a0d141a5803cb1ec45266c1d26e2607d075aecc9ed",
+    "geometry_annotation_inputs": {
+      "1E7K": {
+        "path": "1E7K_annotation.txt",
+        "sha256": "1635de2bc42f676b655258de595e03113ec1b6f4cbaa5a4eb08d5e021f3d2e97"
+      },
+      "2GIS": {
+        "path": "2GIS_annotation.txt",
+        "sha256": "ee70ef00f3ca398ec0012c66a833ed7d2d7639556d3846f24b51e33eaa0e3459"
+      },
+      "2OZB": {
+        "path": "2OZB_annotation.txt",
+        "sha256": "b33945bf07acd4423035f26151b566f1468df31e71081a717d9d0f6ca471b557"
+      },
+      "4BW0": {
+        "path": "4BW0_annotation.txt",
+        "sha256": "444c4386b01a961f5641f354576a6bae32937f2cae1e130920ad3a6872cea2c6"
+      },
+      "4C4W": {
+        "path": "4C4W_annotation.txt",
+        "sha256": "8c6cfdb609ff3118ef0b7d72614d012c8d6befd22d7a2fafd76ac54d961accfd"
+      },
+      "4LCK": {
+        "path": "4LCK_annotation.txt",
+        "sha256": "71cf4cd74e40be0af0fa6e7d5f4dd01ff17c96d05231cf4e0c8b1bc8cf8b88bb"
+      }
+    },
+    "release": "RNAdex"
+  },
+  "representatives": [
+    {
+      "description": "SAM-I riboswitch kink-turn (anchor; Montange & Batey 2006)",
+      "loop": "A17,A38,A18,A19,A20,A21,A31,A32,A33,A34,A35,A36,A37",
+      "pdb": "2GIS",
+      "tandem_GA_pairs": [
+        "A19G.A36A",
+        "A35G.A20A"
+      ]
+    },
+    {
+      "description": "U4 snRNA kink-turn bound to 15.5K protein (Vidovic et al. 2000)",
+      "loop": "D34,D42,D28,D29,D30,D31,D32,D33,D43,D44,D45",
+      "pdb": "1E7K",
+      "tandem_GA_pairs": [
+        "D44A.D32G",
+        "D45G.D33A"
+      ]
+    },
+    {
+      "description": "rare non-standard Kt-23 k-turn outside the standard tandem G.A confirmation set",
+      "loop": "H3,H33,H4,H5,H6,H7,H8,H25,H26,H27,H28,H29,H30,H31,H32",
+      "pdb": "4C4W",
+      "tandem_GA_pairs": [
+        "H6A.H30G",
+        "H7G.H31A"
+      ]
+    },
+    {
+      "description": "HMKt-7 kink-turn bound by L7Ae protein (Huang & Lilley 2013)",
+      "loop": "A3,A23,A16,A17,A18,A19,A20,A21,A22,A4,A5,A6,A7",
+      "pdb": "4BW0",
+      "tandem_GA_pairs": [
+        "A22A.A4G",
+        "A21A.A5G"
+      ]
+    },
+    {
+      "description": "U4 snRNA kink-turn within the human Prp31-15.5K-U4 snRNA complex (Liu et al. 2007)",
+      "loop": "F34,F42,F28,F29,F30,F31,F32,F33,F43,F44,F45",
+      "pdb": "2OZB",
+      "tandem_GA_pairs": [
+        "F43G.F33A",
+        "F44A.F32G"
+      ]
+    },
+    {
+      "description": "T-box riboswitch/tRNA G.A-topology candidate rejected by the standard geometry rule",
+      "loop": "F6,F97,F7,F8,F9,F10,F11,F12,F13,F93,F94,F95,F96",
+      "pdb": "4LCK",
+      "tandem_GA_pairs": [
+        "F96A.F10G",
+        "F95G.F11A"
+      ]
+    }
+  ]
+}

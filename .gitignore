@@ -11,3 +11,10 @@ search_test_results.txt
 .serena/
 .vscode/
 ATLAS.db:Zone.Identifier
+
+# runtime artefacts, never part of a deployment
+search_sessions/
+custom_pdb_files/
+custom_search_results.csv
+temp_target_graphs.pickle
+Matched_hairpin_test.txt

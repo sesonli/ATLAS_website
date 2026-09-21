@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RNAdex {{ workflow.title if workflow else 'named motif' }} worked example with FR3D validation evidence.">
+  <title>{{ workflow.title if workflow else 'Worked Example' }} - RNAdex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/worked_examples.css') }}">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="/">RNA<span>dex</span></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/examples" aria-current="page">Examples</a>
+        <a href="/user-guide">User Guide</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell">
+    {% if error_message %}
+      <div class="error" role="alert">{{ error_message }}</div>
+    {% else %}
+    <header class="hero">
+      <span class="eyebrow">Named motif workflow</span>
+      <span class="status">FR3D validation passed</span>
+      <h1>{{ workflow.title }}</h1>
+      <p class="lede">{{ workflow.subtitle }}</p>
+      <div class="actions">
+        <a class="button" href="#representatives">View validated structures</a>
+        <a class="button secondary" href="/examples">All examples</a>
+      </div>
+    </header>
+
+    <section class="section-card" aria-labelledby="definition-heading">
+      <h2 id="definition-heading">Definition and RNAdex query</h2>
+      <div class="two-column">
+        <div class="definition-box">
+          <h3>Literature definition</h3>
+          <p>{{ workflow.definition }}</p>
+        </div>
+        <div class="query-box">
+          <h3>Candidate query</h3>
+          <p>{{ workflow.query }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="funnel-heading">
+      <h2 id="funnel-heading">Retrieval funnel</h2>
+      <div class="funnel">
+        {% for stage in workflow.stage_counts %}
+        <div class="funnel-step">
+          <span class="funnel-number">{{ "{:,}".format(stage.count) }}</span>
+          <span class="funnel-label">{{ stage.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      <aside class="boundary-note" aria-label="Interpretation boundary">
+        <h3>Candidate boundary</h3>
+        <p>{{ workflow.boundary_note }}</p>
+      </aside>
+    </section>
+
+    <section class="section-card" aria-labelledby="workflow-heading">
+      <h2 id="workflow-heading">Reproducible workflow</h2>
+      <div class="workflow">
+        {% for step in workflow.workflow_steps %}
+        <article class="workflow-step">
+          <h3>{{ step.label }}</h3>
+          <p>{{ step.text }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="acceptance-heading">
+      <h2 id="acceptance-heading">Acceptance mechanism</h2>
+      <div class="acceptance-layout">
+        <div>
+          <ul class="checklist">
+            {% for criterion in workflow.validation.acceptance_criteria %}
+            <li>{{ criterion }}</li>
+            {% endfor %}
+          </ul>
+          <p style="font-size:.84rem;color:var(--muted);margin:14px 0 0;">
+            Reference: {{ workflow.validation.reference.description }}
+            ({{ workflow.validation.reference.pdb }});
+            official FR3D Python commit
+            <code>{{ workflow.validation.fr3d_python_commit[:10] }}</code>.
+          </p>
+        </div>
+        <aside class="audit-box" aria-label="Candidate audit result">
+          <h3>Fixed-seed candidate audit</h3>
+          <p class="audit-number">
+            {{ workflow.validation.candidate_audit.passing_all_criteria }}/{{ workflow.validation.candidate_audit.sample_size }}
+            passed
+          </p>
+          <p class="audit-caption">
+            {{ workflow.validation.candidate_audit.sampling }}
+            This sample is an audit, not an estimate of the full candidate set.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-card" id="representatives" aria-labelledby="representatives-heading">
+      <h2 id="representatives-heading">High-confidence canonical representatives</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Structure</th>
+              <th scope="col">Context</th>
+              <th scope="col">RNAdex residues</th>
+              <th scope="col">FR3D evidence</th>
+              <th scope="col">Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for representative in workflow.confirmed_representatives %}
+            <tr>
+              <td>
+                <span class="pdb-id">{{ representative.pdb }}</span><br>
+                {% if representative.core_sequence %}
+                  {{ representative.core_sequence }}
+                {% else %}
+                  {{ representative.sequence }}
+                {% endif %}
+              </td>
+              <td>{{ representative.description }}</td>
+              <td>
+                {% if representative.core_nodes %}
+                  {{ representative.core_nodes | join(", ") }}
+                {% else %}
+                  {{ representative.loop_nodes | join(", ") }}
+                {% endif %}
+              </td>
+              <td>
+                <span class="pass-pill">All interaction checks passed</span><br>
+                discrepancy {{ "%.3f"|format(representative.fr3d_discrepancy) }}
+                ≤ {{ representative.fr3d_cutoff }}
+                <div class="interaction-list" aria-label="Required interactions">
+                  {% for label, passed in representative.fr3d_interaction_checks.items() %}
+                    {% if passed %}<span>{{ label }}</span>{% endif %}
+                  {% endfor %}
+                </div>
+              </td>
+              <td>
+                <a href="{{ url_for('static', filename=representative.structure_path) }}" download>
+                  PDB file
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="downloads-heading">
+      <h2 id="downloads-heading">Data and validation evidence</h2>
+      <div class="download-grid">
+        {% for download in workflow.downloads %}
+        <div class="download-card">
+          <a href="{{ url_for('static', filename=download.path) }}" download>
+            {{ download.label }}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Primary sources</h2>
+      <div class="source-grid">
+        {% for source in workflow.sources %}
+        <article class="source-card">
+          <a href="{{ source.url }}" target="_blank" rel="noopener noreferrer">
+            {{ source.title }}
+          </a>
+          <p>{{ source.role }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+  </main>
+</body>
+</html>

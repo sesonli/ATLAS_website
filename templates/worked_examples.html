@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reproducible RNAdex worked examples for kink-turn, sarcin-ricin, and GNRA RNA motifs.">
+  <title>Worked Examples - RNAdex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/worked_examples.css') }}">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="/">RNA<span>dex</span></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/examples" aria-current="page">Examples</a>
+        <a href="/user-guide">User Guide</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell">
+    {% if error_message %}
+    <div class="error" role="alert">{{ error_message }}</div>
+    {% else %}
+    <header class="hero">
+      <span class="eyebrow">Reproducible case studies</span>
+      <h1>From graph candidates to validated RNA motifs</h1>
+      <p class="lede">
+        These examples show what users can retrieve with RNAdex and where
+        atomic-coordinate validation is still required. Candidate counts are
+        always kept separate from confirmed representatives.
+      </p>
+      <div class="actions">
+        <a class="button" href="/custom-motif-search">Open graph search</a>
+        <a class="button secondary" href="/user-guide">Read the user guide</a>
+      </div>
+    </header>
+
+    <section class="section-card" aria-labelledby="case-study-heading">
+      <h2 id="case-study-heading">Three motif workflows</h2>
+      <div class="example-grid">
+        {% for example in examples %}
+        <article class="example-card">
+          <span class="eyebrow">{{ example.eyebrow }}</span>
+          <h3 style="font-size:1.35rem;margin-top:18px;">{{ example.title }}</h3>
+          <p>{{ example.summary }}</p>
+          <div class="card-metric">{{ example.metric }}</div>
+          <a class="card-link" href="/examples/{{ example.slug }}">
+            View workflow <span aria-hidden="true">→</span>
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="interpretation-heading">
+      <h2 id="interpretation-heading">How to read these examples</h2>
+      <div class="two-column">
+        <div class="query-box">
+          <h3>Candidate retrieval</h3>
+          <p>
+            RNAdex stores nucleotide graphs with backbone, Watson-Crick, and
+            generic non-Watson-Crick edges. These features efficiently narrow
+            the structural search space.
+          </p>
+        </div>
+        <div class="definition-box">
+          <h3>Coordinate validation</h3>
+          <p>
+            A generic graph edge does not preserve every interaction family or
+            geometric detail. Each named-motif page therefore states its
+            separate acceptance rule and validation evidence.
+          </p>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+  </main>
+</body>
+</html>

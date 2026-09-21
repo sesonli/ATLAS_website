@@ -1,63 +1,63 @@
 # CLAUDE.md
 
-Guidance for Claude Code when working with this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-ATLAS is a Flask web app for searching 3D RNA structural motifs in the PDB. Two search modes: standard (type-based) and custom (user-drawn graph).
+ATLAS is a Flask web app for searching 3D RNA structural motifs extracted from the PDB, and the frontend for the database described in the companion paper. It offers two search modes plus precomputed kink-turn, sarcin-ricin, and GNRA worked examples. It is a single deployable unit; the 8.9 GB `ATLAS.db` is downloaded separately (gitignored) and placed in the project root.
 
 ## Commands
 
 ```bash
-python app.py                  # Development
-pip install -r requirements.txt
+pip install -r requirements.txt      # Flask 2.3.3, pandas, networkx 3.1, numpy
+pip install -r requirements-dev.txt  # pytest and browser-test dependencies
+python app.py                        # dev server on http://localhost:5000
+sqlite3 ATLAS.db < create_db_indexes.sql   # one-time: index ATLAS.db for search speed
+
+pytest test/                         # run all tests
+pytest test/test_kturn_workflow.py   # run one test file
+pytest test/test_kturn_workflow.py::test_kturn_workflow_data_counts   # single test
 ```
 
-Production: use gunicorn/uwsgi with timeouts ≥ 3700 seconds (see IT-Deployment-Notes.md).
+Tests `import app` directly and call route helpers; there is no pytest config file, so default discovery applies and tests must be run from the project root. Some tests read `ATLAS.db`, so they need the database present.
+
+Production: gunicorn/uwsgi with worker timeouts **>= 3700 s** (a custom search can run for the better part of an hour). See `IT-Deployment-Notes.md`.
 
 ## Architecture
 
-**app.py** — Flask server, two routes:
-- `/search` [POST]: queries ATLAS.db, returns motif matches
-- `/process-custom-motif` [POST]: accepts NetworkX graph JSON, runs `find_hairpin.py` via subprocess
+The whole app is `app.py` (one file, ~1200 lines). Two independent search paths and one static worked example:
 
-**find_hairpin.py** — subgraph isomorphism engine using NetworkX GraphMatcher; reads `batch_0000_graphs.pickle`, writes matches to `hairpin.db`
+**1. Standard search** (`/search` POST) — SQL query against the read-only `ATLAS.db`. Streams rows with cursor iteration (never `fetchall()`) and caps at `MAX_SEARCH_RESULTS` (5000) to survive on 4 GB RAM; results paginate at 100/page. Downloads via `/download_csv[_full]`, `/download_zip[_full]`.
 
-### Database Schema
+**2. Custom search** (`/process-custom-motif` POST) — the user draws a NetworkX graph in the browser (`/custom-motif-search` -> `custom_motif_draw.html`); the JSON graph is written to `temp_target_graphs.pickle` and matched by **subgraph isomorphism** in `find_hairpin.py` (NetworkX `GraphMatcher` over `batch_0000_graphs.pickle`), writing matches to a runtime `hairpin.db`. This is NP-complete, thread-locked to one search at a time, and memory-heavy (recommend 8 GB). Downloads via `/download_custom_csv`, `/download_custom_pdb_zip`.
 
-**ATLAS.db** (8.3 GB, read-only):
-- `data` table: `id, motif_type, pdbid, nt_number, filecontent`
-- `PK` table: `id, motif_type, pdbid, nt_number, file_content` ← note underscore (inconsistency)
+**3. Kink-turn worked example** (`/examples/kink-turn` GET) — answers the reviewers' request for a worked example of retrieving a complex motif. It serves **precomputed** results from `static/data/kturn_workflow/` (no live computation) via `load_kturn_workflow_data()`, rendered by `templates/kink_turn_workflow.html`. The reported funnel is fixed: 290,864 search-pool loops -> 70,701 graph-topology candidates -> 11,240 G.A-composition candidates -> 4 geometry-confirmed representatives (2GIS, 1E7K, 4BW0, 2OZB). These numbers are produced upstream in the pipeline repo (`build_RNA_motif_library/comparison/C_use_cases/`); this app only displays them, and `test/test_kturn_workflow.py` pins the counts and PDB IDs.
 
-**hairpin.db** (runtime-generated):
-- `files` table: `id, motif_type, pdbid, paired_nt_number, nt_number, filecontent, created_at`
+**4. Named-motif worked examples** (`/examples/sarcin-ricin` and `/examples/gnra`) — serve precomputed ATLAS candidate funnels and coordinate validation from `static/data/named_motifs/`. The sarcin-ricin representatives require the formal seven-nucleotide interaction signature and a published FR3D cutoff. The canonical GNRA representatives use the published FR3D five-position reference and cutoff with stricter cWW and tSH requirements. `test/test_named_motif_workflows.py` checks evidence consistency and downloads; `test/test_named_motif_responsive.py` checks 1440, 390, and 320 px layouts in Chromium.
 
-### Key Routes
+`find_hairpin.py` here is the web copy of the motif-search engine; keep it in sync with the pipeline repo's version if the graph format changes.
 
-- `/` — index.html
-- `/user-guide` — user_guide.html
-- `/custom-motif-search` [GET] — custom_motif_draw.html
-- `/download_csv`, `/download_zip` — standard search downloads
-- `/download_custom_csv`, `/download_custom_pdb_zip` — custom search downloads
-- `/download-database` — full ATLAS.db download
+### Database schema
 
-### Important Constraints
+`ATLAS.db` (8.9 GB, read-only) has two tables with an intentional column-name inconsistency that query code must respect:
+- `data`: `id, motif_type, pdbid, nt_number, filecontent`
+- `PK`: `id, motif_type, pdbid, nt_number, file_content`  <- underscore differs from `data.filecontent`
 
-- **Do not rename/move files**: all paths are relative to deployment root
-- **DB column inconsistency**: `data.filecontent` vs `PK.file_content`
-- **Graph pickle format**: must be `{graph_id: networkx.Graph}` with edge `attribute` keys
-- **PDB filename convention**: `{pdbid}.pdb` in `data/rna_chain_corrected_2/`
-- **Max results**: 5000 per standard search (memory guard)
-- **Custom search**: thread-locked, only one at a time; can take up to 60 min
+`hairpin.db` (runtime-generated by custom search): `files(id, motif_type, pdbid, paired_nt_number, nt_number, filecontent, created_at)`.
 
-### Node ID Formats
+### Configuration
 
-Handles: `A1`, `A-1`, `'0'1`, `'0'-1` (chain + residue, including negative numbering and quoted chain IDs).
+`config.py` centralizes paths and tunables (env-overridable): `SECRET_KEY`, `DEBUG`, `ATLAS_DB_PATH`, `MAX_SEARCH_RESULTS`, `CUSTOM_SEARCH_TIMEOUT`, C4' distance thresholds (`C4_MIN/MAX_DISTANCE`, the coordinate quality check), and logging. Note the timeout tension: `config.py` sets `CUSTOM_SEARCH_TIMEOUT=300`, but real custom searches and the production server timeout are much higher (>=3700 s) — reconcile before relying on it.
 
-### Runtime Write Permissions Required
+## Constraints (things that break if ignored)
 
-`hairpin.db`, `custom_pdb_files/`, `pdb_files/`, `*.csv`, `temp_target_graphs.pickle`
+- **Do not rename or move files/dirs**: paths are resolved relative to the project root via `BASE_DIR`; the deployment depends on the exact layout.
+- **Node ID formats** across chains must all be handled: `A1`, `A-1` (negative residue), `'0'1`, `'0'-1` (quoted/numeric chain ID).
+- **Graph pickle format**: `{graph_id: networkx.Graph}` with an `attribute` key on each edge (the interaction-class vector); custom search fails silently if this shape is wrong.
+- **PDB source files**: `data/rna_chain_corrected_2/{pdbid}.pdb`.
+- **Runtime write targets** (must be writable; gitignored): `hairpin.db`, `custom_pdb_files/`, `pdb_files/`, `temp_target_graphs.pickle`, `custom_search.lock`, generated CSVs, `app.log`.
+- **Memory discipline**: standard search uses cursor iteration; ZIPs are built from temp files, not BytesIO. Preserve this when editing search/download code.
 
-### Memory Notes
+## Frontend
 
-Standard search uses cursor iteration (not `fetchall()`) to avoid loading all records into RAM. ZIP generation uses temp files, not BytesIO. Custom search is still memory-intensive (NP-complete subgraph isomorphism) — recommend 8 GB RAM.
+Jinja templates in `templates/`: `index.html`, `results.html`/`no_results.html`, `custom_motif_draw.html`/`custom_results.html`/`custom_no_results.html`, `worked_examples.html`, `kink_turn_workflow.html`, `named_motif_workflow.html`, and `user_guide.html`. The visual design originated in Nicepage (source/backups in `Nicepage/`), but the served pages are the hand-maintained Flask templates — edit `templates/` and `static/`, not the `Nicepage/` exports. 3D structures render client-side with 3Dmol.js.

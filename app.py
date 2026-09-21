@@ -4,7 +4,7 @@ Created on Nov 25 11:40:07 2024
 @author: JingyiLi
 """
 
-from flask import Flask, render_template, request, send_file, jsonify, Response
+from flask import Flask, render_template, request, send_file, jsonify, Response, abort
 import sqlite3
 import csv
 import warnings
@@ -29,6 +29,7 @@ import tempfile
 import logging
 from logging.handlers import RotatingFileHandler
 from datetime import datetime, timedelta
+from collections import Counter
 
 # Configure logging with rotation (10MB max, 3 backups)
 log_handler = RotatingFileHandler(
@@ -44,6 +45,92 @@ logger.setLevel(logging.INFO)
 logger.addHandler(log_handler)
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+KTURN_WORKFLOW_DATA_DIR = os.path.join(BASE_DIR, 'static', 'data', 'kturn_workflow')
+NAMED_MOTIF_WORKFLOW_DIRS = {
+    'sarcin-ricin': os.path.join(
+        BASE_DIR, 'static', 'data', 'named_motifs', 'sarcin_ricin'
+    ),
+    'gnra': os.path.join(
+        BASE_DIR, 'static', 'data', 'named_motifs', 'gnra'
+    ),
+}
+ATLAS_DB_PATH = os.environ.get('ATLAS_DB_PATH', os.path.join(BASE_DIR, 'ATLAS.db'))
+
+# Database-backed examples for the custom graph drawing interface. Each graph
+# is an attributed topology taken from a motif record whose source structure is
+# present in the 100-structure custom-search sample (batch_0000_graphs.pickle).
+CUSTOM_MOTIF_EXAMPLES = [
+    {
+        'key': 'bulge-1x0',
+        'title': 'Bulge: 1 × 0 loop',
+        'source_pdb': '1AQ3',
+        'nodes': [
+            {'id': 1, 'x': 250, 'y': 160, 'name': 'N1'},
+            {'id': 2, 'x': 400, 'y': 160, 'name': 'N2'},
+            {'id': 3, 'x': 550, 'y': 160, 'name': 'N3'},
+            {'id': 4, 'x': 550, 'y': 340, 'name': 'N4'},
+            {'id': 5, 'x': 250, 'y': 340, 'name': 'N5'},
+        ],
+        'edges': [
+            {'from': 1, 'to': 2, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 2, 'to': 3, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 4, 'to': 5, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 1, 'to': 5, 'type': 'wc', 'attribute': [1, 0, 0]},
+            {'from': 3, 'to': 4, 'type': 'wc', 'attribute': [1, 0, 0]},
+        ],
+    },
+    {
+        'key': 'internal-loop-1x1',
+        'title': 'Internal loop: 1 × 1',
+        'source_pdb': '17RA',
+        'nodes': [
+            {'id': 1, 'x': 250, 'y': 150, 'name': 'N1'},
+            {'id': 2, 'x': 400, 'y': 150, 'name': 'N2'},
+            {'id': 3, 'x': 550, 'y': 150, 'name': 'N3'},
+            {'id': 4, 'x': 550, 'y': 350, 'name': 'N4'},
+            {'id': 5, 'x': 400, 'y': 350, 'name': 'N5'},
+            {'id': 6, 'x': 250, 'y': 350, 'name': 'N6'},
+        ],
+        'edges': [
+            {'from': 1, 'to': 2, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 2, 'to': 3, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 4, 'to': 5, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 5, 'to': 6, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 1, 'to': 6, 'type': 'wc', 'attribute': [1, 0, 0]},
+            {'from': 3, 'to': 4, 'type': 'wc', 'attribute': [1, 0, 0]},
+            {'from': 2, 'to': 5, 'type': 'non-wc', 'attribute': [0, 1, 0]},
+        ],
+    },
+    {
+        'key': 'internal-loop-2x2',
+        'title': 'Internal loop: 2 × 2',
+        'source_pdb': '1A4D',
+        'nodes': [
+            {'id': 1, 'x': 200, 'y': 155, 'name': 'N1'},
+            {'id': 2, 'x': 335, 'y': 155, 'name': 'N2'},
+            {'id': 3, 'x': 465, 'y': 155, 'name': 'N3'},
+            {'id': 4, 'x': 600, 'y': 155, 'name': 'N4'},
+            {'id': 5, 'x': 200, 'y': 345, 'name': 'N5'},
+            {'id': 6, 'x': 335, 'y': 345, 'name': 'N6'},
+            {'id': 7, 'x': 465, 'y': 345, 'name': 'N7'},
+            {'id': 8, 'x': 600, 'y': 345, 'name': 'N8'},
+        ],
+        'edges': [
+            {'from': 1, 'to': 2, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 2, 'to': 3, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 3, 'to': 4, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 5, 'to': 6, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 6, 'to': 7, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 7, 'to': 8, 'type': 'covalent', 'attribute': [0, 0, 1]},
+            {'from': 1, 'to': 5, 'type': 'wc', 'attribute': [1, 0, 0]},
+            {'from': 4, 'to': 8, 'type': 'wc', 'attribute': [1, 0, 0]},
+            {'from': 2, 'to': 6, 'type': 'non-wc', 'attribute': [0, 1, 0]},
+            {'from': 3, 'to': 7, 'type': 'non-wc', 'attribute': [0, 1, 0]},
+        ],
+    },
+]
 
 # Create lock for custom search to prevent concurrent executions (avoid memory issues on 4GB systems)
 custom_search_lock = Lock()
@@ -119,14 +206,14 @@ def cleanup_on_startup():
 
     logger.info("Startup cleanup completed")
 
-# Run cleanup on startup
-cleanup_on_startup()
+# Run cleanup on startup unless an isolated staging/test process requests a
+# side-effect-free import.
+if os.environ.get('ATLAS_SKIP_STARTUP_CLEANUP') != '1':
+    cleanup_on_startup()
 
 # Connect to SQLite database
 def get_db_connection():
-    base_dir = os.path.dirname(__file__)
-    db_path = os.path.join(base_dir, 'ATLAS.db')
-    conn = sqlite3.connect(db_path)
+    conn = sqlite3.connect(ATLAS_DB_PATH)
     return conn
 
 # Extract nucleotide sequence from PDB filecontent using Biopython PDBParser
@@ -188,21 +275,17 @@ def is_residue_data_complete(filecontent, nt_list, min_atoms_per_residue=10):
     Returns:
         True if all residues have sufficient atoms, False otherwise
     """
-    lines = filecontent.strip().split('\n')
+    # Tally every residue in one pass. Scanning the file once per nucleotide
+    # instead costs O(residues x lines), which dominates the search on the long
+    # pseudoknots: a 252-nucleotide LR motif re-reads ~5,600 ATOM lines 252 times.
+    atom_counts = Counter()
+    for line in filecontent.strip().split('\n'):
+        if line.startswith('ATOM') and len(line) >= 27:
+            atom_counts[f'{line[21]}{line[22:27].strip()}'] += 1
 
-    for nt in nt_list:
-        # Count atoms for this residue
-        atom_count = sum(
-            1 for line in lines
-            if line.startswith('ATOM') and len(line) >= 27 and f'{line[21]}{line[22:27].strip()}' == nt
-        )
-
-        # Standard RNA nucleotides should have 15-23 atoms
-        # Use conservative threshold of 10 to avoid false positives
-        if atom_count < min_atoms_per_residue:
-            return False
-
-    return True
+    # Standard RNA nucleotides should have 15-23 atoms
+    # Use conservative threshold of 10 to avoid false positives
+    return all(atom_counts[nt] >= min_atoms_per_residue for nt in nt_list)
 
 # Check C4' atom distances for coordinate quality
 def check_c4_distances(filecontent, nt_list, min_dist=4.0, max_dist=8.0):
@@ -326,6 +409,38 @@ def check_c4_distances(filecontent, nt_list, min_dist=4.0, max_dist=8.0):
         # On any error, assume normal to avoid false positives
         return (True, "Normal")
 
+def has_usable_coordinates(filecontent):
+    """Whether a row carries coordinates the app can serve.
+
+    This is the same predicate the "All Results" CSV/ZIP downloads apply, so
+    search counts and download counts stay in agreement.
+    """
+    return bool(filecontent) and 'No matching nodes found' not in filecontent
+
+
+def count_remaining_matches(cursor, nt_number=None):
+    """Finish counting matches on a cursor that result collection stopped early.
+
+    Collection breaks at max_results, so anything past that point was never
+    counted. Draining the rest here keeps the truncation notice honest; it costs
+    well under a second because no coordinates are parsed.
+
+    Returns:
+        tuple: (matches_found, rows_scanned)
+    """
+    matched = 0
+    scanned = 0
+    for row in cursor:
+        scanned += 1
+        if not row[3]:
+            continue
+        if nt_number is not None and len(row[3].split(',')) != nt_number:
+            continue
+        if has_usable_coordinates(row[4]):
+            matched += 1
+    return matched, scanned
+
+
 # Search RNA motifs based on motif_type and nt_number or subtype
 def search_motif(motif_type, nt_number=None, max_results=10000):
     """
@@ -334,11 +449,13 @@ def search_motif(motif_type, nt_number=None, max_results=10000):
     Args:
         motif_type: Type of motif to search for
         nt_number: Number of nucleotides (for hairpin/internal/bulge)
-        max_results: Maximum number of results to return (default 5000)
+        max_results: Maximum number of rows returned for display (the full set
+            stays available through the "All Results" downloads)
 
     Returns:
         tuple: (filtered_rows, metadata)
-        metadata includes 'truncated' flag and 'total_scanned'
+        metadata includes 'truncated' flag and 'total_scanned'. 'total_matched'
+        counts every matching row in the database, including those past the cap.
     """
     conn = None
     try:
@@ -364,8 +481,8 @@ def search_motif(motif_type, nt_number=None, max_results=10000):
                 if not row[3]:
                     continue
                 if len(row[3].split(',')) == int(nt_number):
-                    total_matched += 1
-                    if row[4] and 'No matching nodes found' not in row[4]:
+                    if has_usable_coordinates(row[4]):
+                        total_matched += 1
                         is_atom_complete = is_residue_data_complete(row[4], row[3].split(','))
                         is_coord_normal, coord_reason = check_c4_distances(row[4], row[3].split(','))
                         is_quality_ok = is_atom_complete and is_coord_normal
@@ -383,6 +500,11 @@ def search_motif(motif_type, nt_number=None, max_results=10000):
                             was_truncated = True
                             break
 
+            if was_truncated:
+                extra_matched, extra_scanned = count_remaining_matches(cursor, int(nt_number))
+                total_matched += extra_matched
+                total_scanned += extra_scanned
+
         elif 'junction' in motif_type:
             # Query for multiway junctions
             motif_type_db = motif_type.replace("-way", "").replace(" ", "_")
@@ -394,7 +516,7 @@ def search_motif(motif_type, nt_number=None, max_results=10000):
                 total_scanned += 1
                 if not row[3]:
                     continue
-                if row[4] and 'No matching nodes found' not in row[4]:
+                if has_usable_coordinates(row[4]):
                     total_matched += 1
                     is_atom_complete = is_residue_data_complete(row[4], row[3].split(','))
                     is_coord_normal, coord_reason = check_c4_distances(row[4], row[3].split(','))
@@ -412,6 +534,11 @@ def search_motif(motif_type, nt_number=None, max_results=10000):
                     if len(filtered_rows) >= max_results:
                         was_truncated = True
                         break
+
+            if was_truncated:
+                extra_matched, extra_scanned = count_remaining_matches(cursor)
+                total_matched += extra_matched
+                total_scanned += extra_scanned
 
         elif 'pseudoknot' in motif_type:
             # Query for pseudoknot subtypes from "PK" table
@@ -425,7 +552,7 @@ def search_motif(motif_type, nt_number=None, max_results=10000):
                 total_scanned += 1
                 if not row[3]:
                     continue
-                if row[4] and 'No matching nodes found' not in row[4]:
+                if has_usable_coordinates(row[4]):
                     total_matched += 1
                     is_atom_complete = is_residue_data_complete(row[4], row[3].split(','))
                     is_coord_normal, coord_reason = check_c4_distances(row[4], row[3].split(','))
@@ -443,6 +570,11 @@ def search_motif(motif_type, nt_number=None, max_results=10000):
                     if len(filtered_rows) >= max_results:
                         was_truncated = True
                         break
+
+            if was_truncated:
+                extra_matched, extra_scanned = count_remaining_matches(cursor)
+                total_matched += extra_matched
+                total_scanned += extra_scanned
 
         else:
             # If motif_type is unknown
@@ -495,6 +627,15 @@ def search_motif(motif_type, nt_number=None, max_results=10000):
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# Browsers request /favicon.ico on every page; without this each view logs a 404
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(BASE_DIR, 'static', 'images'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon',
+    )
 
 # User Guide page
 @app.route('/user-guide', methods=['GET'])
@@ -732,28 +873,233 @@ def download_zip_full():
 # Route to download the complete database
 @app.route('/download-database', methods=['GET'])
 def download_database():
-    """Download the entire ATLAS database file"""
+    """Download the entire RNAdex database file."""
     try:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        db_path = os.path.join(base_dir, 'ATLAS.db')
-        
-        if not os.path.exists(db_path):
+        if not os.path.exists(ATLAS_DB_PATH):
             return "Database file not found.", 404
         
         return send_file(
-            db_path,
+            ATLAS_DB_PATH,
             as_attachment=True,
-            download_name='ATLAS.db',
+            download_name='RNAdex.db',
             mimetype='application/x-sqlite3'
         )
     except Exception as e:
         return f"An error occurred during database download: {str(e)}", 500
 
+
 # Route to custom motif search drawing page
 @app.route('/custom-motif-search', methods=['GET'])
 def custom_motif_search():
     """Render the custom motif drawing interface"""
-    return render_template('custom_motif_draw.html')
+    return render_template(
+        'custom_motif_draw.html',
+        custom_motif_examples=CUSTOM_MOTIF_EXAMPLES,
+    )
+
+def load_kturn_workflow_data():
+    """Load the precomputed kink-turn worked example results."""
+    summary_path = os.path.join(KTURN_WORKFLOW_DATA_DIR, 'caseC_kturn_summary.json')
+    confirmed_path = os.path.join(KTURN_WORKFLOW_DATA_DIR, 'caseC_geometry_confirmed.json')
+
+    with open(summary_path, 'r', encoding='utf-8') as f:
+        summary = json.load(f)
+    with open(confirmed_path, 'r', encoding='utf-8') as f:
+        confirmed = json.load(f)
+
+    representative_notes = {
+        item.get('pdb'): item
+        for item in summary.get('representatives', [])
+    }
+    confirmed_representatives = []
+    for detail in confirmed.get('details', []):
+        if not detail.get('confirmed_kink_turn'):
+            continue
+        note = representative_notes.get(detail.get('pdb'), {})
+        confirmed_representatives.append({
+            'pdb': detail.get('pdb'),
+            'description': note.get('description', 'Confirmed kink-turn representative'),
+            'sheared_pairs': detail.get('sheared_GA_pairs_SaengerXI', []),
+            'n_sheared_ga': detail.get('n_sheared_GA'),
+            'loop_strand_sizes': detail.get('loop_strand_sizes', []),
+            'loop': note.get('loop', ''),
+            'structure': f"motifs/{detail.get('pdb')}_kink_turn.pdb"
+        })
+
+    funnel = summary.get('funnel', {})
+    stage_counts = [
+        {
+            'label': 'Search pool',
+            'count': funnel.get('search_pool_internal_bulge_loops'),
+            'description': 'All RNAdex internal and bulge loops considered for this example.'
+        },
+        {
+            'label': 'Stage 1 graph-topology candidates',
+            'count': funnel.get('stage1_graph_tandem_nonWC_topology'),
+            'description': 'Loops carrying the tandem non-WC cross topology. These are candidates, not confirmed kink-turns.'
+        },
+        {
+            'label': 'Candidates with G·A pairs',
+            'count': funnel.get('with_GA_base_composition'),
+            'description': 'Stage 1 candidates in which both non-WC pairs are G·A. Still candidates, not confirmed kink-turns.'
+        },
+        {
+            'label': 'Representatives shown (of many candidates)',
+            'count': confirmed.get('representatives_confirmed'),
+            'description': (
+                'Illustrative kink-turns confirmed by geometry on selected '
+                'representatives; Stage 2 was not run exhaustively over all '
+                f"{funnel.get('with_GA_base_composition', 0):,} composition "
+                'candidates.'
+            )
+        }
+    ]
+
+    downloads = [
+        {
+            'label': 'Confirmed kink-turn structures (ZIP)',
+            'filename': 'confirmed_kink_turn_structures.zip',
+            'description': 'PDB coordinate files of the four geometry-confirmed kink-turn motifs.'
+        },
+        {
+            'label': 'Stage 1 summary JSON',
+            'filename': 'caseC_kturn_summary.json',
+            'description': 'Query definition, funnel counts, representatives before geometry confirmation.'
+        },
+        {
+            'label': 'Stage 2 confirmation JSON',
+            'filename': 'caseC_geometry_confirmed.json',
+            'description': 'MC-Annotate geometry checks for the representative structures.'
+        },
+        {
+            'label': 'G.A-filtered candidate CSV',
+            'filename': 'caseC_kturn_hits.csv',
+            'description': 'Candidate rows after the G.A composition filter.'
+        },
+        {
+            'label': 'Workflow figure PNG',
+            'filename': 'caseC_kturn_figure.png',
+            'description': 'Funnel figure used to explain the two-stage workflow.'
+        },
+        {
+            'label': 'Workflow figure PDF',
+            'filename': 'caseC_kturn_figure.pdf',
+            'description': 'Publication-ready version of the workflow figure.'
+        }
+    ]
+
+    return {
+        'claim': summary.get('claim', ''),
+        'query': summary.get('query', ''),
+        'anchor': summary.get('anchor', ''),
+        'boundary_note': summary.get('boundary_note', ''),
+        'method': confirmed.get('method', ''),
+        'stage_counts': stage_counts,
+        'confirmed_representatives': confirmed_representatives,
+        'downloads': downloads
+    }
+
+@app.route('/examples/kink-turn', methods=['GET'])
+def kink_turn_workflow():
+    """Render a worked example showing the two-stage kink-turn workflow."""
+    try:
+        workflow = load_kturn_workflow_data()
+    except Exception as e:
+        logger.error(f"Failed to load kink-turn workflow data: {e}")
+        return render_template(
+            'kink_turn_workflow.html',
+            workflow=None,
+            error_message='Kink-turn workflow data could not be loaded.'
+        ), 500
+    return render_template('kink_turn_workflow.html', workflow=workflow)
+
+
+def load_named_motif_workflow(slug):
+    """Load a precomputed named-motif worked example."""
+    data_dir = NAMED_MOTIF_WORKFLOW_DIRS.get(slug)
+    if not data_dir:
+        raise KeyError(f"Unknown named-motif workflow: {slug}")
+
+    summary_path = os.path.join(data_dir, 'summary.json')
+    with open(summary_path, 'r', encoding='utf-8') as handle:
+        workflow = json.load(handle)
+
+    static_prefix = (
+        f"data/named_motifs/{os.path.basename(data_dir)}"
+    )
+    for representative in workflow.get('confirmed_representatives', []):
+        representative['structure_path'] = (
+            f"{static_prefix}/motifs/{representative['structure']}"
+        )
+    for download in workflow.get('downloads', []):
+        download['path'] = f"{static_prefix}/{download['filename']}"
+    return workflow
+
+
+@app.route('/examples', methods=['GET'])
+def worked_examples():
+    """Render the index of reviewer-requested named-motif examples."""
+    examples = [
+        {
+            'slug': 'kink-turn',
+            'title': 'Kink-turn',
+            'eyebrow': 'Internal loop',
+            'summary': (
+                'Tandem non-WC G.A topology proposes candidates; stored '
+                'geometry confirms selected kink-turns.'
+            ),
+            'metric': '4 confirmed representatives',
+        }
+    ]
+    for slug in ('sarcin-ricin', 'gnra'):
+        try:
+            workflow = load_named_motif_workflow(slug)
+        except Exception as exc:
+            logger.error(f"Failed to load {slug} workflow data: {exc}")
+            return render_template(
+                'worked_examples.html',
+                examples=[],
+                error_message='Worked-example data could not be loaded.'
+            ), 500
+        final_stage = workflow['stage_counts'][-1]
+        examples.append({
+            'slug': slug,
+            'title': workflow['title'],
+            'eyebrow': (
+                'Internal-loop graph'
+                if slug == 'sarcin-ricin'
+                else 'Four-nucleotide hairpin'
+            ),
+            'summary': workflow['subtitle'],
+            'metric': (
+                f"{final_stage['count']} FR3D-validated representatives"
+            ),
+        })
+    return render_template(
+        'worked_examples.html', examples=examples, error_message=None
+    )
+
+
+@app.route('/examples/<slug>', methods=['GET'])
+def named_motif_workflow(slug):
+    """Render a sarcin-ricin or GNRA worked example."""
+    if slug not in NAMED_MOTIF_WORKFLOW_DIRS:
+        abort(404)
+    try:
+        workflow = load_named_motif_workflow(slug)
+    except Exception as exc:
+        logger.error(f"Failed to load {slug} workflow data: {exc}")
+        return render_template(
+            'named_motif_workflow.html',
+            workflow=None,
+            error_message='Worked-example data could not be loaded.'
+        ), 500
+    return render_template(
+        'named_motif_workflow.html',
+        workflow=workflow,
+        error_message=None,
+    )
+
 
 # Route to process custom motif search
 @app.route('/process-custom-motif', methods=['POST'])

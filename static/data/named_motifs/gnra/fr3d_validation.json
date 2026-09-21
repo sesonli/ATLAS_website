@@ -1,0 +1,1034 @@
+{
+  "motif": "GNRA",
+  "official_fr3d_python_commit": "ed850c00df01616e58c643b0f84bdc69662b5d55",
+  "reference": {
+    "pdb": "1JJ2",
+    "description": "C(GAAA)G hairpin used as the local geometric reference; the published FR3D query used the corresponding motif in 1S72",
+    "nodes": [
+      "00804",
+      "00805",
+      "00807",
+      "00808",
+      "00809"
+    ],
+    "display_nodes": [
+      "0:804",
+      "0:805",
+      "0:807",
+      "0:808",
+      "0:809"
+    ]
+  },
+  "acceptance": {
+    "required_interactions": [
+      "closing pair cWW",
+      "loop G-A tSH",
+      "closing5-loop1 s35",
+      "loop3-loop4 s35"
+    ],
+    "fr3d_discrepancy_cutoff": 0.8
+  },
+  "representatives": [
+    {
+      "record_id": 6234,
+      "pdb": "2JYJ",
+      "all_nodes": [
+        "A19",
+        "A20",
+        "A21",
+        "A22",
+        "A23",
+        "A24"
+      ],
+      "loop_nodes": [
+        "A20",
+        "A21",
+        "A22",
+        "A23"
+      ],
+      "sequence": "GAAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": true,
+      "fr3d_diagnostic_nodes": [
+        "A19",
+        "A20",
+        "A22",
+        "A23",
+        "A24"
+      ],
+      "fr3d_discrepancy": 0.38746,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true,
+      "validation_error": null
+    },
+    {
+      "record_id": 87024,
+      "pdb": "5X8R",
+      "all_nodes": [
+        "a350",
+        "a351",
+        "a352",
+        "a353",
+        "a354",
+        "a355"
+      ],
+      "loop_nodes": [
+        "a351",
+        "a352",
+        "a353",
+        "a354"
+      ],
+      "sequence": "GAAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": true,
+      "fr3d_diagnostic_nodes": [
+        "a350",
+        "a351",
+        "a353",
+        "a354",
+        "a355"
+      ],
+      "fr3d_discrepancy": 0.163832,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true,
+      "validation_error": null
+    },
+    {
+      "record_id": 296057,
+      "pdb": "8FLD",
+      "all_nodes": [
+        "D4603",
+        "D4604",
+        "D4605",
+        "D4606",
+        "D4607",
+        "D4608"
+      ],
+      "loop_nodes": [
+        "D4604",
+        "D4605",
+        "D4606",
+        "D4607"
+      ],
+      "sequence": "GAGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": true,
+      "fr3d_diagnostic_nodes": [
+        "D4603",
+        "D4604",
+        "D4606",
+        "D4607",
+        "D4608"
+      ],
+      "fr3d_discrepancy": 0.178893,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true,
+      "validation_error": null
+    }
+  ],
+  "candidate_audit": [
+    {
+      "record_id": 378638,
+      "pdb": "8YUO",
+      "all_nodes": [
+        "V2856",
+        "V2857",
+        "V2858",
+        "V2859",
+        "V2860",
+        "V2861"
+      ],
+      "loop_nodes": [
+        "V2857",
+        "V2858",
+        "V2859",
+        "V2860"
+      ],
+      "sequence": "GCGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "V2856",
+        "V2857",
+        "V2859",
+        "V2860",
+        "V2861"
+      ],
+      "fr3d_discrepancy": 0.288983,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 157271,
+      "pdb": "6ZU5",
+      "all_nodes": [
+        "A395",
+        "A396",
+        "A397",
+        "A398",
+        "A399",
+        "A400"
+      ],
+      "loop_nodes": [
+        "A396",
+        "A397",
+        "A398",
+        "A399"
+      ],
+      "sequence": "GCGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A395",
+        "A396",
+        "A398",
+        "A399",
+        "A400"
+      ],
+      "fr3d_discrepancy": 0.48254,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 296491,
+      "pdb": "8FON",
+      "all_nodes": [
+        "A1247",
+        "A1248",
+        "A1249",
+        "A1250",
+        "A1251",
+        "A1252"
+      ],
+      "loop_nodes": [
+        "A1248",
+        "A1249",
+        "A1250",
+        "A1251"
+      ],
+      "sequence": "GCAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": false
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A1247",
+        "A1248",
+        "A1250",
+        "A1251",
+        "A1252"
+      ],
+      "fr3d_discrepancy": 0.425371,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 215202,
+      "pdb": "7N8B",
+      "all_nodes": [
+        "A2723",
+        "A2724",
+        "A2725",
+        "A2726",
+        "A2727",
+        "A2728"
+      ],
+      "loop_nodes": [
+        "A2724",
+        "A2725",
+        "A2726",
+        "A2727"
+      ],
+      "sequence": "GUGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A2723",
+        "A2724",
+        "A2726",
+        "A2727",
+        "A2728"
+      ],
+      "fr3d_discrepancy": 0.362749,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 149640,
+      "pdb": "6VZ7",
+      "all_nodes": [
+        "R158",
+        "R159",
+        "R160",
+        "R161",
+        "R162",
+        "R163"
+      ],
+      "loop_nodes": [
+        "R159",
+        "R160",
+        "R161",
+        "R162"
+      ],
+      "sequence": "GAAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "R158",
+        "R159",
+        "R161",
+        "R162",
+        "R163"
+      ],
+      "fr3d_discrepancy": 0.249189,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 299335,
+      "pdb": "8HKV",
+      "all_nodes": [
+        "A1365",
+        "A1366",
+        "A1367",
+        "A1368",
+        "A1369",
+        "A1370"
+      ],
+      "loop_nodes": [
+        "A1366",
+        "A1367",
+        "A1368",
+        "A1369"
+      ],
+      "sequence": "GUGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A1365",
+        "A1366",
+        "A1368",
+        "A1369",
+        "A1370"
+      ],
+      "fr3d_discrepancy": 0.48087,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 376371,
+      "pdb": "8WQ4",
+      "all_nodes": [
+        "A867",
+        "A868",
+        "A869",
+        "A870",
+        "A871",
+        "A872"
+      ],
+      "loop_nodes": [
+        "A868",
+        "A869",
+        "A870",
+        "A871"
+      ],
+      "sequence": "GCAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": true,
+      "fr3d_diagnostic_nodes": [
+        "A867",
+        "A868",
+        "A870",
+        "A871",
+        "A872"
+      ],
+      "fr3d_discrepancy": 0.276646,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true,
+      "validation_error": null
+    },
+    {
+      "record_id": 82167,
+      "pdb": "5NDK",
+      "all_nodes": [
+        "A1059",
+        "A1060",
+        "A1061",
+        "A1062",
+        "A1063",
+        "A1064"
+      ],
+      "loop_nodes": [
+        "A1060",
+        "A1061",
+        "A1062",
+        "A1063"
+      ],
+      "sequence": "GUGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A1059",
+        "A1060",
+        "A1062",
+        "A1063",
+        "A1064"
+      ],
+      "fr3d_discrepancy": 0.436065,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 94601,
+      "pdb": "6HHQ",
+      "all_nodes": [
+        "B88",
+        "B89",
+        "B90",
+        "B91",
+        "B92",
+        "B93"
+      ],
+      "loop_nodes": [
+        "B89",
+        "B90",
+        "B91",
+        "B92"
+      ],
+      "sequence": "GUGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "B88",
+        "B89",
+        "B91",
+        "B92",
+        "B93"
+      ],
+      "fr3d_discrepancy": 0.203056,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 382534,
+      "pdb": "9BUN",
+      "all_nodes": [
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12"
+      ],
+      "loop_nodes": [
+        "A8",
+        "A9",
+        "A10",
+        "A11"
+      ],
+      "sequence": "GAAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": false
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A7",
+        "A8",
+        "A10",
+        "A11",
+        "A12"
+      ],
+      "fr3d_discrepancy": 0.881831,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 87403,
+      "pdb": "5XYU",
+      "all_nodes": [
+        "A995",
+        "A996",
+        "A997",
+        "A998",
+        "A999",
+        "A1000"
+      ],
+      "loop_nodes": [
+        "A996",
+        "A997",
+        "A998",
+        "A999"
+      ],
+      "sequence": "GAGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A995",
+        "A996",
+        "A998",
+        "A999",
+        "A1000"
+      ],
+      "fr3d_discrepancy": 0.376674,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 46439,
+      "pdb": "5JU8",
+      "all_nodes": [
+        "Y2658",
+        "Y2659",
+        "Y2660",
+        "Y2661",
+        "Y2662",
+        "Y2663"
+      ],
+      "loop_nodes": [
+        "Y2659",
+        "Y2660",
+        "Y2661",
+        "Y2662"
+      ],
+      "sequence": "GAGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": true,
+      "fr3d_diagnostic_nodes": [
+        "Y2658",
+        "Y2659",
+        "Y2661",
+        "Y2662",
+        "Y2663"
+      ],
+      "fr3d_discrepancy": 0.271024,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true,
+      "validation_error": null
+    },
+    {
+      "record_id": 80250,
+      "pdb": "5LZB",
+      "all_nodes": [
+        "Z2374",
+        "Z2375",
+        "Z2376",
+        "Z2377",
+        "Z2378",
+        "Z2379"
+      ],
+      "loop_nodes": [
+        "Z2375",
+        "Z2376",
+        "Z2377",
+        "Z2378"
+      ],
+      "sequence": "GAAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "Z2374",
+        "Z2375",
+        "Z2377",
+        "Z2378",
+        "Z2379"
+      ],
+      "fr3d_discrepancy": 0.2462,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 85721,
+      "pdb": "5VP2",
+      "all_nodes": [
+        "A2865",
+        "A2866",
+        "A2867",
+        "A2868",
+        "A2869",
+        "A2870"
+      ],
+      "loop_nodes": [
+        "A2866",
+        "A2867",
+        "A2868",
+        "A2869"
+      ],
+      "sequence": "GCGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A2865",
+        "A2866",
+        "A2868",
+        "A2869",
+        "A2870"
+      ],
+      "fr3d_discrepancy": 0.482231,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 93367,
+      "pdb": "6GZ3",
+      "all_nodes": [
+        "E1045",
+        "E1046",
+        "E1047",
+        "E1048",
+        "E1049",
+        "E1050"
+      ],
+      "loop_nodes": [
+        "E1046",
+        "E1047",
+        "E1048",
+        "E1049"
+      ],
+      "sequence": "GCAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "E1045",
+        "E1046",
+        "E1048",
+        "E1049",
+        "E1050"
+      ],
+      "fr3d_discrepancy": 0.245238,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 310662,
+      "pdb": "8S1U",
+      "all_nodes": [
+        "A534",
+        "A535",
+        "A536",
+        "A537",
+        "A538",
+        "A539"
+      ],
+      "loop_nodes": [
+        "A535",
+        "A536",
+        "A537",
+        "A538"
+      ],
+      "sequence": "GGAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": true,
+      "fr3d_diagnostic_nodes": [
+        "A534",
+        "A535",
+        "A537",
+        "A538",
+        "A539"
+      ],
+      "fr3d_discrepancy": 0.238336,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true,
+      "validation_error": null
+    },
+    {
+      "record_id": 220668,
+      "pdb": "7P7Q",
+      "all_nodes": [
+        "J501",
+        "J502",
+        "J503",
+        "J504",
+        "J505",
+        "J506"
+      ],
+      "loop_nodes": [
+        "J502",
+        "J503",
+        "J504",
+        "J505"
+      ],
+      "sequence": "GUGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "J501",
+        "J502",
+        "J504",
+        "J505",
+        "J506"
+      ],
+      "fr3d_discrepancy": 0.356158,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 41670,
+      "pdb": "4V70",
+      "all_nodes": [
+        "U378",
+        "U379",
+        "U380",
+        "U381",
+        "U382",
+        "U383"
+      ],
+      "loop_nodes": [
+        "U379",
+        "U380",
+        "U381",
+        "U382"
+      ],
+      "sequence": "GCAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "U378",
+        "U379",
+        "U381",
+        "U382",
+        "U383"
+      ],
+      "fr3d_discrepancy": 0.867361,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 376287,
+      "pdb": "8WKP",
+      "all_nodes": [
+        "A692",
+        "A693",
+        "A694",
+        "A695",
+        "A696",
+        "A697"
+      ],
+      "loop_nodes": [
+        "A693",
+        "A694",
+        "A695",
+        "A696"
+      ],
+      "sequence": "GGAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": false,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A692",
+        "A693",
+        "A695",
+        "A696",
+        "A697"
+      ],
+      "fr3d_discrepancy": 0.791411,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 382115,
+      "pdb": "9BDP",
+      "all_nodes": [
+        "A994",
+        "A995",
+        "A996",
+        "A997",
+        "A998",
+        "A999"
+      ],
+      "loop_nodes": [
+        "A995",
+        "A996",
+        "A997",
+        "A998"
+      ],
+      "sequence": "GAAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A994",
+        "A995",
+        "A997",
+        "A998",
+        "A999"
+      ],
+      "fr3d_discrepancy": 0.431607,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 213092,
+      "pdb": "7LS1",
+      "all_nodes": [
+        "I4195",
+        "I4196",
+        "I4197",
+        "I4198",
+        "I4199",
+        "I4200"
+      ],
+      "loop_nodes": [
+        "I4196",
+        "I4197",
+        "I4198",
+        "I4199"
+      ],
+      "sequence": "GUGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": false
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "I4195",
+        "I4196",
+        "I4198",
+        "I4199",
+        "I4200"
+      ],
+      "fr3d_discrepancy": 0.448525,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 140651,
+      "pdb": "6O9J",
+      "all_nodes": [
+        "B1344",
+        "B1345",
+        "B1346",
+        "B1347",
+        "B1348",
+        "B1349"
+      ],
+      "loop_nodes": [
+        "B1345",
+        "B1346",
+        "B1347",
+        "B1348"
+      ],
+      "sequence": "GAAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "B1344",
+        "B1345",
+        "B1347",
+        "B1348",
+        "B1349"
+      ],
+      "fr3d_discrepancy": 0.581943,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 230112,
+      "pdb": "7UNW",
+      "all_nodes": [
+        "Y1855",
+        "Y1856",
+        "Y1857",
+        "Y1858",
+        "Y1859",
+        "Y1860"
+      ],
+      "loop_nodes": [
+        "Y1856",
+        "Y1857",
+        "Y1858",
+        "Y1859"
+      ],
+      "sequence": "GCAA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "Y1855",
+        "Y1856",
+        "Y1858",
+        "Y1859",
+        "Y1860"
+      ],
+      "fr3d_discrepancy": 0.149463,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    },
+    {
+      "record_id": 141289,
+      "pdb": "6OLI",
+      "all_nodes": [
+        "A1224",
+        "A1225",
+        "A1226",
+        "A1227",
+        "A1228",
+        "A1229"
+      ],
+      "loop_nodes": [
+        "A1225",
+        "A1226",
+        "A1227",
+        "A1228"
+      ],
+      "sequence": "GCGA",
+      "interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": false,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "all_required_interactions": false,
+      "fr3d_diagnostic_nodes": [
+        "A1224",
+        "A1225",
+        "A1227",
+        "A1228",
+        "A1229"
+      ],
+      "fr3d_discrepancy": 0.371659,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": false,
+      "validation_error": null
+    }
+  ]
+}

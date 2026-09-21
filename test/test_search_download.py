@@ -4,6 +4,8 @@ Run from project root: pytest test/test_search_download.py -v
 """
 import sys
 import os
+import csv
+import io
 import pytest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -91,7 +93,8 @@ def test_download_csv_full_hairpin(client):
     assert resp.content_type == 'text/csv; charset=utf-8'
     # Should have header row
     data = b''.join(resp.response)
-    assert b'ID,Motif Type,PDB ID,NT Number' in data
+    header = next(csv.reader(io.StringIO(data.decode('utf-8'))))
+    assert header[:4] == ['ID', 'Motif Type', 'PDB ID', 'NT Number']
 
 
 def test_download_csv_full_junction(client):

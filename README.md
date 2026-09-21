@@ -1,9 +1,10 @@
-# ATLAS: 3D RNA Motif Library Website
+# RNAdex: 3D RNA Motif Library Website
 
 A comprehensive web-based database for searching and visualizing RNA structural motifs from the Protein Data Bank.
 
-**Last Updated:** November 2024
-**Version:** 1.2.0
+**Last Updated:** July 2026
+
+**Website:** [rnadex.dokhlab.org](https://rnadex.dokhlab.org)
 
 ## Features
 
@@ -17,6 +18,11 @@ A comprehensive web-based database for searching and visualizing RNA structural 
   - Subgraph isomorphism matching
   - Networkx-powered pattern recognition
 
+- **Reproducible Worked Examples**
+  - Kink-turn candidate retrieval and geometry confirmation
+  - Sarcin-ricin and canonical GNRA workflows with pinned FR3D validation
+  - Downloadable candidates, audit samples, validation JSON, and structures
+
 - **3D Structure Visualization**
   - Interactive 3Dmol.js viewer
   - PDB file downloads (single and batch)
@@ -29,10 +35,12 @@ A comprehensive web-based database for searching and visualizing RNA structural 
 
 ## Database
 
-**ATLAS.db** (8.30 GB, not included in repository)
-- 433,996 RNA motif records with quality-checked coordinates
+**Public download:** `RNAdex.db` (8.6 GB, not included in repository)
+- 462,755 RNA motif entries from 5,846 PDB structures
+- SHA-256: `3d2356b6f82016d3d5a927a0d141a5803cb1ec45266c1d26e2607d075aecc9ed`
 - Pseudoknot classification: LR, HHH, H, Hlout, LL, Hlin
-- Must be downloaded separately and placed in project root
+- Download it separately and place it in the project root as `ATLAS.db`; this
+  deployment filename is retained for internal compatibility.
 
 ## Installation
 
@@ -44,13 +52,19 @@ cd ATLAS_website
 # Install dependencies
 pip install -r requirements.txt
 
-# Download ATLAS.db (8.3 GB) - contact maintainer for access
+# Development and browser-level responsive tests
+pip install -r requirements-dev.txt
+
+# Download RNAdex.db from https://rnadex.dokhlab.org/download-database
 
 # Run application
 python app.py
 ```
 
 Visit http://localhost:5000
+
+The worked-example index is available at
+http://localhost:5000/examples.
 
 ## Requirements
 
@@ -70,7 +84,7 @@ Visit http://localhost:5000
 ├── generate_distribution_figures.py  # Data visualization
 ├── config.py                   # Configuration management
 ├── create_db_indexes.sql       # Database optimization script
-├── ATLAS.db                    # Main database (download separately)
+├── ATLAS.db                    # Internal deployment name for RNAdex.db
 ├── data/rna_chain_corrected_2/ # Source PDB files
 ├── templates/                  # HTML templates
 ├── static/                     # CSS/JS/images
@@ -105,6 +119,7 @@ The application can be configured via `config.py`:
 - Configure `SECRET_KEY` environment variable for security
 - Adjust `MAX_SEARCH_RESULTS` for result limits
 - Modify timeout settings for custom searches
+- Set `ATLAS_DB_PATH` to stage a release database without replacing `ATLAS.db`.
 
 ## Database Optimization
 
@@ -133,7 +148,10 @@ Email: dokh@virginia.edu
 
 ## License
 
-Copyright (c) 2024. All rights reserved.
+RNAdex source code is available under the
+[MIT License](https://opensource.org/license/mit). RNAdex database contents
+and downloads are available under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ---
 

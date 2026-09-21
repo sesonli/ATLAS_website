@@ -1,0 +1,194 @@
+{
+  "slug": "gnra",
+  "title": "GNRA tetraloop",
+  "subtitle": "A four-nucleotide hairpin sequence search followed by graph and official FR3D interaction and geometric validation.",
+  "definition": "GNRA denotes a four-nucleotide hairpin loop in which G is the first base, N is any canonical base, R is A or G, and A is the fourth base. The characteristic fold contains a first-to-fourth G-A trans Sugar-Hoogsteen interaction.",
+  "query": "Use the RNAdex type search for a hairpin with four unpaired nucleotides, filter the extracted sequence by G[ACGU][AG]A, and retain records with a generic non-WC edge between loop positions one and four.",
+  "boundary_note": "RNAdex topology and sequence filters generate candidates, not motif assignments. The displayed representatives and fixed-seed audit sample were reannotated from atomic coordinates with FR3D and required to pass every interaction check and the literature-derived discrepancy cutoff. Only the displayed representatives are presented as high-confidence canonical examples; the broader candidate counts must not be interpreted as confirmed motif counts.",
+  "stage_counts": [
+    {
+      "label": "Four-nucleotide RNAdex hairpins",
+      "count": 35177
+    },
+    {
+      "label": "GNRA sequence candidates",
+      "count": 16948
+    },
+    {
+      "label": "Candidates with first-to-fourth non-WC edge",
+      "count": 15331
+    },
+    {
+      "label": "High-confidence canonical GNRA representatives",
+      "count": 3
+    }
+  ],
+  "workflow_steps": [
+    {
+      "label": "Type search",
+      "text": "Select Hairpin and four unpaired nucleotides. RNAdex internally includes the closing pair in the stored row."
+    },
+    {
+      "label": "Sequence filter",
+      "text": "Retain loop sequences matching G[ACGU][AG]A."
+    },
+    {
+      "label": "Graph filter",
+      "text": "Require a generic non-WC edge between the first G and fourth A."
+    },
+    {
+      "label": "Validate",
+      "text": "Atomic coordinates were reannotated with official FR3D Python. A local five-position reference in PDB 1JJ2 was used with the published FR3D stacking constraints and discrepancy cutoff; stricter cWW and tSH requirements were added for high-confidence canonical assignment."
+    }
+  ],
+  "confirmed_representatives": [
+    {
+      "record_id": 6234,
+      "pdb": "2JYJ",
+      "nt_number": "A19,A20,A21,A22,A23,A24",
+      "loop_nodes": [
+        "A20",
+        "A21",
+        "A22",
+        "A23"
+      ],
+      "sequence": "GAAA",
+      "description": "GAAA tetraloop in an NMR-refined tetraloop-receptor complex",
+      "structure": "2JYJ_gnra.pdb",
+      "fr3d_interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "fr3d_all_required_interactions": true,
+      "fr3d_discrepancy": 0.38746,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true
+    },
+    {
+      "record_id": 87024,
+      "pdb": "5X8R",
+      "nt_number": "a350,a351,a352,a353,a354,a355",
+      "loop_nodes": [
+        "a351",
+        "a352",
+        "a353",
+        "a354"
+      ],
+      "sequence": "GAAA",
+      "description": "GAAA tetraloop in the spinach chloroplast 30S subunit",
+      "structure": "5X8R_gnra.pdb",
+      "fr3d_interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "fr3d_all_required_interactions": true,
+      "fr3d_discrepancy": 0.163832,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true
+    },
+    {
+      "record_id": 296057,
+      "pdb": "8FLD",
+      "nt_number": "D4603,D4604,D4605,D4606,D4607,D4608",
+      "loop_nodes": [
+        "D4604",
+        "D4605",
+        "D4606",
+        "D4607"
+      ],
+      "sequence": "GAGA",
+      "description": "GAGA tetraloop in the human nuclear pre-60S subunit",
+      "structure": "8FLD_gnra.pdb",
+      "fr3d_interaction_checks": {
+        "closing pair cWW": true,
+        "loop G-A tSH": true,
+        "closing5-loop1 s35": true,
+        "loop3-loop4 s35": true
+      },
+      "fr3d_all_required_interactions": true,
+      "fr3d_discrepancy": 0.178893,
+      "fr3d_cutoff": 0.8,
+      "high_confidence_canonical_gnra": true
+    }
+  ],
+  "sources": [
+    {
+      "title": "Identification and characterization of new RNA tetraloop sequence families",
+      "url": "https://doi.org/10.1021/acs.biochem.9b00535",
+      "role": "Operational four-nucleotide hairpin and GNRA definition."
+    },
+    {
+      "title": "Exploring GNRA tetraloop-like motifs in nucleic acid 3D structures",
+      "url": "https://doi.org/10.1038/s41598-025-21072-9",
+      "role": "Characteristic trans Sugar-Hoogsteen interaction."
+    },
+    {
+      "title": "FR3D: finding local and composite recurrent structural motifs in RNA 3D structures",
+      "url": "https://doi.org/10.1007/s00285-007-0110-x",
+      "role": "Official interaction annotation, geometric discrepancy, and published motif-specific cutoff."
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Graph-filtered candidates (CSV)",
+      "filename": "candidates.csv"
+    },
+    {
+      "label": "Confirmed structures (ZIP)",
+      "filename": "confirmed_structures.zip"
+    },
+    {
+      "label": "Workflow summary (JSON)",
+      "filename": "summary.json"
+    },
+    {
+      "label": "FR3D validation evidence (JSON)",
+      "filename": "fr3d_validation.json"
+    },
+    {
+      "label": "Deterministic candidate audit (CSV)",
+      "filename": "candidate_audit.csv"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "method": "Atomic coordinates were reannotated with official FR3D Python. A local five-position reference in PDB 1JJ2 was used with the published FR3D stacking constraints and discrepancy cutoff; stricter cWW and tSH requirements were added for high-confidence canonical assignment.",
+    "fr3d_python_commit": "ed850c00df01616e58c643b0f84bdc69662b5d55",
+    "reference": {
+      "pdb": "1JJ2",
+      "description": "C(GAAA)G hairpin used as the local geometric reference; the published FR3D query used the corresponding motif in 1S72",
+      "nodes": [
+        "00804",
+        "00805",
+        "00807",
+        "00808",
+        "00809"
+      ],
+      "display_nodes": [
+        "0:804",
+        "0:805",
+        "0:807",
+        "0:808",
+        "0:809"
+      ]
+    },
+    "acceptance_criteria": [
+      "Four-nucleotide hairpin with GNRA sequence.",
+      "Strict closing cWW pair and first-to-fourth G-A tSH pair detected by FR3D. These canonical requirements are stricter than the published broad FR3D GNRA search, which allowed a bifurcated closing pair and omitted the tSH constraint.",
+      "Both stacking constraints from the published FR3D query detected.",
+      "Five-nucleotide FR3D discrepancy to the 1JJ2 GNRA is at most 0.8."
+    ],
+    "representatives_tested": 3,
+    "representatives_passing": 3,
+    "candidate_audit": {
+      "sampling": "Deterministic simple random sample, seed 20260729; curated representatives excluded.",
+      "sample_size": 24,
+      "passing_all_criteria": 3,
+      "file": "candidate_audit.csv"
+    }
+  }
+}

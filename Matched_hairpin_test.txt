@@ -99,4 +99,4 @@ Graph ID: 1EG0_annotation.txt, Count: 0
 Graph ID: 1EGK_annotation.txt, Count: 0
 Graph ID: 1EHT_annotation.txt, Count: 0
 Target Graph ID: custom_motif_1, Total Matches: 0
-Total time is: 0.6301183700561523 seconds
+Total time is: 22.4367413520813 seconds

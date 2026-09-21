@@ -2,11 +2,13 @@
 <html lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="description" content="ATLAS - Advanced Template Library for Assembly and Structure of RNA 3D Motifs">
-    <title>ATLAS - 3D RNA Motif Library</title>
+    <meta name="description" content="RNAdex is a searchable library of RNA 3D motifs extracted from Protein Data Bank structures.">
+    <title>RNAdex - 3D RNA Motif Library</title>
+    <link rel="canonical" href="https://rnadex.dokhlab.org/">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap">
     <meta name="theme-color" content="#0D1221">
-    <meta property="og:title" content="ATLAS - 3D RNA Motif Library">
+    <meta property="og:title" content="RNAdex - 3D RNA Motif Library">
+    <meta property="og:url" content="https://rnadex.dokhlab.org/">
     <meta property="og:type" content="website">
     <style>
       :root {
@@ -338,6 +340,13 @@
         transform: translateY(-1px);
         box-shadow: 0 4px 14px rgba(218,93,164,0.3);
       }
+      .btn-draw.example {
+        background: var(--bg-dark);
+        margin-top: 10px;
+      }
+      .btn-draw.example:hover {
+        box-shadow: 0 4px 14px rgba(13,18,33,0.2);
+      }
 
       /* ─── Diagram ─── */
       .diagram-box {
@@ -356,7 +365,7 @@
         margin-top: 10px;
       }
 
-      /* ─── Feature Cards (ATLAS Provides) ─── */
+      /* ─── Feature Cards (RNAdex Provides) ─── */
       .features-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -504,6 +513,10 @@
       .footer a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
       .footer a:hover { color: #fff; }
       .footer .sep { margin: 0 12px; color: rgba(255,255,255,0.2); }
+      .footer .license-line {
+        color: rgba(255,255,255,0.5);
+        margin-top: 10px;
+      }
 
       /* ─── Loading ─── */
       #loading-overlay {
@@ -541,6 +554,12 @@
         .about-section { padding: 36px 24px; }
         .contact-links { flex-direction: column; align-items: center; }
       }
+      @media (max-width: 768px) {
+        /* Seven links in a nowrap flex row need ~600px; let them stack instead
+           of pushing the whole page wider than the viewport. */
+        .nav-inner { flex-wrap: wrap; gap: 8px; }
+        .nav-links { flex-wrap: wrap; justify-content: flex-start; }
+      }
       @media (max-width: 480px) {
         .features-grid { grid-template-columns: 1fr; }
         .nav-links { gap: 2px; }
@@ -553,11 +572,12 @@
     <!-- Navigation -->
     <nav class="nav">
       <div class="nav-inner">
-        <a href="/" class="nav-brand">ATLAS<span>.</span></a>
+        <a href="/" class="nav-brand">RNA<span>dex</span></a>
         <div class="nav-links">
           <a href="#search">Search</a>
           <a href="#features">About</a>
           <a href="#statistics">Statistics</a>
+          <a href="/examples">Examples</a>
           <a href="/user-guide" target="_blank">User Guide</a>
           <a href="#resources">Resources</a>
           <a href="#contact">Contact</a>
@@ -578,13 +598,13 @@
     <section class="hero">
       <div class="hero-content">
         <div class="hero-logo">
-          <h1>RNA <span>ATLAS</span></h1>
+          <h1>RNA<span>dex</span></h1>
         </div>
         <p class="hero-tagline">
-          A comprehensive 3D RNA motif library with over 433,000 structural motifs — enabling researchers to search, visualize, and download atomic-level RNA structures from the PDB.
+          RNAdex contains 462,755 structural motif entries from 5,846 PDB structures — enabling researchers to search, visualize, and download atomic-level RNA structures.
         </p>
         <div class="cta-row">
-        <a href="https://bitbucket.org/dokhlab/atlas/src/master/" target="_blank" class="cta-btn">
+        <a href="https://github.com/sesonli/ATLAS" target="_blank" class="cta-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 22h2a2 2 0 002-2V7.5L14.5 2H6a2 2 0 00-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M4 14s1.5 2 3.5 0 3.5 0 3.5 0"/><path d="M4 19s1.5 2 3.5 0 3.5 0 3.5 0"/></svg>
           Code
         </a>
@@ -596,7 +616,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           User Guide
         </a>
-        <a href="https://drive.google.com/file/d/1Ht-HC_8vGsZ8L0u5s6l4o5j-jyYhEPnk/view?usp=sharing" target="_blank" class="cta-btn">
+        <a href="/download-database" class="cta-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
           Database
         </a>
@@ -611,7 +631,7 @@
     <div class="section" id="about">
       <div class="about-section reveal">
         <p class="about-text">
-          ATLAS (<strong>A</strong>dvanced <strong>T</strong>emplate <strong>L</strong>ibrary for <strong>A</strong>ssembly and <strong>S</strong>tructure) is a comprehensive 3D RNA motif library that extracts and catalogs RNA structural motifs from the Protein Data Bank using graph-based algorithms. It provides researchers with tools for type-based search, custom graph-based structural search via subgraph isomorphism, and atomic-level 3D coordinate downloads for accurate RNA structural analysis.
+          RNAdex is a comprehensive 3D RNA motif library that extracts and catalogs RNA structural motifs from the Protein Data Bank using graph-based algorithms. It provides researchers with tools for type-based search, custom graph-based structural search via subgraph isomorphism, and atomic-level 3D coordinate downloads for accurate RNA structural analysis.
         </p>
         <div class="about-logos" style="gap: 24px;">
           <a href="https://med.virginia.edu/" target="_blank" style="color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.9rem; opacity: 0.7; transition: opacity 0.2s;">University of Virginia</a>
@@ -659,7 +679,7 @@
 
         <div class="search-card reveal reveal-d2">
           <h3>Graph-Based Search</h3>
-          <p class="card-desc">Draw your own motif and find matching RNA structures via subgraph isomorphism</p>
+          <p class="card-desc">Draw your own motif and find matching RNA structures via subgraph isomorphism; three worked examples show how candidates are retrieved and structurally validated</p>
           <div class="card-body">
             <div class="diagram-box">
               <svg width="200" height="140" viewBox="0 0 200 140">
@@ -686,15 +706,16 @@
           </div>
           <div class="card-footer">
             <button onclick="window.location.href='/custom-motif-search'" class="btn-draw">START DRAWING</button>
+            <button onclick="window.location.href='/examples'" class="btn-draw example">VIEW WORKED EXAMPLES</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ATLAS Provides -->
+    <!-- RNAdex Provides -->
     <section id="features" class="section">
       <div class="section-header reveal">
-        <h2 class="section-title">ATLAS Provides</h2>
+        <h2 class="section-title">RNAdex Provides</h2>
         <div class="section-divider"></div>
       </div>
       <div class="features-grid">
@@ -702,7 +723,7 @@
           <div class="feature-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B72B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
           </div>
-          <div class="feature-number" data-target="433000">0</div>
+          <div class="feature-number" data-target="462755">0</div>
           <div class="feature-label">Motif Structures</div>
         </div>
         <div class="feature-card reveal reveal-d2">
@@ -733,7 +754,7 @@
     <section id="statistics" class="section">
       <div class="section-header reveal">
         <h2 class="section-title">Database Statistics</h2>
-        <p class="section-subtitle">Distribution of motif types and sizes in ATLAS</p>
+        <p class="section-subtitle">Distribution of motif types and sizes in RNAdex</p>
         <div class="section-divider"></div>
       </div>
       <div class="stats-section reveal">
@@ -762,7 +783,7 @@
         <div class="section-divider"></div>
       </div>
       <div class="resources-grid reveal">
-        <a href="https://bitbucket.org/dokhlab/atlas/src/master/" target="_blank" class="resource-card">
+        <a href="https://github.com/sesonli/ATLAS" target="_blank" class="resource-card">
           <div class="res-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 22h2a2 2 0 002-2V7.5L14.5 2H6a2 2 0 00-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M4 14s1.5 2 3.5 0 3.5 0 3.5 0"/><path d="M4 19s1.5 2 3.5 0 3.5 0 3.5 0"/></svg>
           </div>
@@ -780,7 +801,7 @@
           </div>
           <span class="res-label">User Guide</span>
         </a>
-        <a href="#" class="resource-card" title="Coming soon">
+        <a href="/download-database" class="resource-card" title="Download RNAdex.db">
           <div class="res-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
           </div>
@@ -805,7 +826,7 @@
     <section id="contact" class="section">
       <div class="section-header reveal">
         <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">For questions, support, or feedback about the ATLAS database</p>
+        <p class="section-subtitle">For questions, support, or feedback about the RNAdex database</p>
         <div class="section-divider"></div>
       </div>
       <div class="contact-card reveal">
@@ -838,6 +859,12 @@
       <a href="https://med.virginia.edu/neurology/" target="_blank">Department of Neurology</a>
       <span class="sep">|</span>
       <a href="https://med.virginia.edu/" target="_blank">UVA School of Medicine</a>
+      <div class="license-line">
+        RNAdex code:
+        <a href="https://opensource.org/license/mit" target="_blank" rel="noopener noreferrer">MIT License</a>;
+        database contents and downloads:
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+      </div>
     </footer>
 
 <script>

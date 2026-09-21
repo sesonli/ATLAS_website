@@ -222,3 +222,21 @@ class TestMetadata:
         html = r.data.decode()
         if 'Showing' in html:
             assert 'matching results' in html
+
+    def test_total_matched_does_not_depend_on_the_display_cap(self):
+        """The truncation notice quotes total_matched as the size of the whole
+        result set, so it must describe the database, not however many rows
+        happened to be seen before collection stopped at the cap."""
+        _, small = flask_app.search_motif('bulge', 7, max_results=50)
+        _, large = flask_app.search_motif('bulge', 7, max_results=500)
+        assert small['truncated'] and large['truncated']
+        assert small['total_matched'] == large['total_matched']
+
+    def test_total_matched_equals_the_full_download_row_count(self, client):
+        """'Download CSV/ZIP (All Results) for complete data' promises exactly
+        total_matched rows; the two counts have to agree."""
+        _, metadata = flask_app.search_motif('bulge', 7, max_results=50)
+        assert metadata['truncated']
+        response = client.get('/download_csv_full?motif_type=bulge&nt_number=7')
+        rows = response.get_data(as_text=True).strip().splitlines()[1:]
+        assert metadata['total_matched'] == len(rows)

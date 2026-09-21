@@ -1,10 +1,10 @@
-# ATLAS Website — Deployment Requirements (IT)
+# RNAdex Website — Deployment Requirements (IT)
 
-**Last Updated:** November 2024
+**Last Updated:** July 2026
 
 ## Target URL and scope
-- Public URL: [atlas.dokhlab.org](http://atlas.dokhlab.org)
-- Scope: Deploy the ATLAS web interface as a production service. This document states requirements and must‑haves; IT may choose the exact WSGI server and reverse proxy stack.
+- Public URL: [rnadex.dokhlab.org](https://rnadex.dokhlab.org)
+- Scope: Deploy the RNAdex web interface as a production service. This document states requirements and must‑haves; IT may choose the exact WSGI server and reverse proxy stack.
 
 ## Environment
 - Python: 3.9–3.11 (virtual environment recommended)
@@ -14,7 +14,7 @@
 ## Resources
 - RAM: minimum 4 GB; recommended 8 GB (or more)
 - CPU: ≥ 2 vCPU
-- Disk: `ATLAS.db` is ~8.3 GB. Provide ≥ 20 GB free space for DB + outputs/logs
+- Disk: the RNAdex database, stored internally as `ATLAS.db`, is ~8.3 GB. Provide ≥ 20 GB free space for DB + outputs/logs
 
 ## Deployment package
 - Deploy the entire folder as‑is (do not delete, move, or rename any files or subfolders). The application uses relative paths and expects the full layout intact.
@@ -32,7 +32,7 @@
   - `search_results.csv`, `custom_search_results.csv`
 
 ## Networking and TLS
-- Expose the service at `atlas.dokhlab.org` with HTTPS (TLS certificate)
+- Expose the service at `rnadex.dokhlab.org` with HTTPS (TLS certificate)
 - Place behind a reverse proxy (Nginx/Apache). IT may choose the app server (e.g., gunicorn/uwsgi)
 
 ## Timeouts and long jobs
@@ -54,6 +54,7 @@
 
 ## Basic verification (post‑deploy)
 - `GET /` serves the homepage (“3D RNA Motif Library”)
+- `GET /download-database` downloads the database as `RNAdex.db`
 - `GET /custom-motif-search` loads the drawing canvas (includes “Example 1”)
 - Standard search returns a results table and enables CSV/ZIP download
 - Custom search (using “Example 1”) completes and exposes CSV/ZIP within the configured timeout
@@ -80,5 +81,5 @@
 - These directories are regenerated as needed from database content
 
 ## Reference
-- Website: [atlas.dokhlab.org](http://atlas.dokhlab.org)
+- Website: [rnadex.dokhlab.org](https://rnadex.dokhlab.org)
 - Contact: Nikolay V. Dokholyan, PhD (dokh@virginia.edu)

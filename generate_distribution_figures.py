@@ -21,10 +21,11 @@ from collections import Counter
 
 # Database path
 base_dir = os.path.dirname(__file__)
-db_path = os.path.join(base_dir, 'ATLAS.db')
+db_path = os.environ.get('ATLAS_DB_PATH', os.path.join(base_dir, 'ATLAS.db'))
+output_dir = os.environ.get('ATLAS_FIGURE_OUTPUT_DIR', base_dir)
 
 # Global style settings
-plt.rcParams['font.family'] = 'Arial'
+plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['font.size'] = 10
 plt.rcParams['axes.linewidth'] = 1.5
 
@@ -57,12 +58,19 @@ def annotate_bars(ax, bars, fontsize=9):
                    f'{int(height):,}',
                    ha='center', va='bottom', fontsize=fontsize, fontweight='bold')
 
-def plot_figure_b(df):
+def output_path(filename):
+    os.makedirs(output_dir, exist_ok=True)
+    return os.path.join(output_dir, filename)
+
+
+def plot_figure_b(df, df_pk):
     """(b) Motif Type Distribution - Categorical Bar Chart"""
     fig, ax = plt.subplots(figsize=(10, 6))
 
     # Count motif types
     motif_counts = df['motif_type'].value_counts().sort_values(ascending=False)
+    motif_counts.loc['PK'] = len(df_pk)
+    motif_counts = motif_counts.sort_values(ascending=False)
 
     # Custom gradient colors (Dark Teal -> Teal -> Orange/Yellow)
     colors = ['#264653', '#2A9D8F', '#2A9D8F', '#E76F51', '#F4A261',
@@ -90,7 +98,7 @@ def plot_figure_b(df):
 
     # No title
     plt.tight_layout()
-    plt.savefig('figure_b_motif_type.png', dpi=300, bbox_inches='tight')
+    plt.savefig(output_path('figure_b_motif_type.png'), dpi=300, bbox_inches='tight')
     print("Figure (b) saved: figure_b_motif_type.png")
     plt.close()
 
@@ -129,7 +137,7 @@ def plot_figure_c(df):
 
     # No title
     plt.tight_layout()
-    plt.savefig('figure_c_internal_size.png', dpi=300, bbox_inches='tight')
+    plt.savefig(output_path('figure_c_internal_size.png'), dpi=300, bbox_inches='tight')
     print("Figure (c) saved: figure_c_internal_size.png")
     plt.close()
 
@@ -156,7 +164,7 @@ def plot_figure_d(df):
 
     # Set axes
     ax.set_xlim(-0.5, 20.5)
-    ax.set_ylim(0, 35000)
+    ax.set_ylim(0, max(counts) * 1.15 if max(counts) > 0 else 1000)
     ax.set_xlabel('Hairpin Loop Size', fontsize=24, fontweight='bold')
     ax.set_xticks(range(0, 21, 2))
     ax.set_yticks(np.arange(0, 35001, 5000))
@@ -168,7 +176,7 @@ def plot_figure_d(df):
 
     # No title
     plt.tight_layout()
-    plt.savefig('figure_d_hairpin_size.png', dpi=300, bbox_inches='tight')
+    plt.savefig(output_path('figure_d_hairpin_size.png'), dpi=300, bbox_inches='tight')
     print("Figure (d) saved: figure_d_hairpin_size.png")
     plt.close()
 
@@ -206,7 +214,7 @@ def plot_figure_e(df):
 
     # No title
     plt.tight_layout()
-    plt.savefig('figure_e_bulge_size.png', dpi=300, bbox_inches='tight')
+    plt.savefig(output_path('figure_e_bulge_size.png'), dpi=300, bbox_inches='tight')
     print("Figure (e) saved: figure_e_bulge_size.png")
     plt.close()
 
@@ -244,7 +252,7 @@ def plot_figure_f(df):
 
     # No title
     plt.tight_layout()
-    plt.savefig('figure_f_3way_size.png', dpi=300, bbox_inches='tight')
+    plt.savefig(output_path('figure_f_3way_size.png'), dpi=300, bbox_inches='tight')
     print("Figure (f) saved: figure_f_3way_size.png")
     plt.close()
 
@@ -283,7 +291,7 @@ def plot_figure_g(df_pk):
 
     # No title
     plt.tight_layout()
-    plt.savefig('figure_g_pseudoknot_type.png', dpi=300, bbox_inches='tight')
+    plt.savefig(output_path('figure_g_pseudoknot_type.png'), dpi=300, bbox_inches='tight')
     print("Figure (g) saved: figure_g_pseudoknot_type.png")
     plt.close()
 
@@ -294,8 +302,8 @@ def main():
     print("=" * 70)
 
     # Connect to database
-    print("\nConnecting to ATLAS.db...")
-    conn = sqlite3.connect(db_path)
+    print(f"\nConnecting read-only to {db_path}...")
+    conn = sqlite3.connect(f"file:{os.path.abspath(db_path)}?mode=ro", uri=True)
 
     # Load data table
     print("Loading data from 'data' table...")
@@ -314,7 +322,7 @@ def main():
     print("=" * 70 + "\n")
 
     # Generate all figures
-    plot_figure_b(df)
+    plot_figure_b(df, df_pk)
     plot_figure_c(df)
     plot_figure_d(df)
     plot_figure_e(df)

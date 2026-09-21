@@ -1,0 +1,260 @@
+{
+  "slug": "sarcin-ricin",
+  "title": "Sarcin-ricin motif",
+  "subtitle": "A formal seven-nucleotide interaction graph projected into RNAdex, then validated from atomic coordinates with official FR3D interaction and geometric criteria.",
+  "definition": "The formal core has two strands, X1-X4 and Y1-Y3, with five backbone links, four specified non-Watson-Crick base pairs, and four specified stacking interactions.",
+  "query": "RNAdex Stage 1 retains the five backbone links and four generic non-WC edges. A composition filter then requires the published core sequence space (A/G)GUA/(A/G)AA.",
+  "boundary_note": "RNAdex topology and sequence filters generate candidates, not motif assignments. The displayed representatives and fixed-seed audit sample were reannotated from atomic coordinates with FR3D and required to pass every interaction check and the literature-derived discrepancy cutoff. Only the displayed representatives are presented as high-confidence canonical examples; the broader candidate counts must not be interpreted as confirmed motif counts.",
+  "stage_counts": [
+    {
+      "label": "WC-bounded RNAdex internal-loop search pool",
+      "count": 224796
+    },
+    {
+      "label": "Seven-node projected-graph candidates",
+      "count": 3399
+    },
+    {
+      "label": "Candidates in the formal core sequence space",
+      "count": 2750
+    },
+    {
+      "label": "High-confidence canonical SRM representatives",
+      "count": 3
+    }
+  ],
+  "workflow_steps": [
+    {
+      "label": "Define",
+      "text": "Use the published seven-node graph rather than a motif name or a short sequence alone."
+    },
+    {
+      "label": "Retrieve",
+      "text": "Search RNAdex internal loops for the projected backbone and generic non-WC topology."
+    },
+    {
+      "label": "Filter",
+      "text": "Retain candidates compatible with the published (A/G)GUA/(A/G)AA core sequence space."
+    },
+    {
+      "label": "Validate",
+      "text": "Atomic coordinates were reannotated with official FR3D Python. The complete St-Onge seven-nucleotide interaction signature and the published FR3D five-nucleotide geometric cutoff were both required."
+    }
+  ],
+  "confirmed_representatives": [
+    {
+      "record_id": 6636,
+      "pdb": "1F84",
+      "nt_number": "A4,A26,A21,A22,A23,A24,A25,A10,A5,A6,A7,A8,A9",
+      "core_nodes": [
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A22",
+        "A23",
+        "A24"
+      ],
+      "core_sequence": "AGUA/GAA",
+      "description": "HCV IRES domain IIId solution structure",
+      "base_pairs": [
+        "A6-A24 : A-A Hh/Hh pairing parallel trans II",
+        "A7-A8 : G-U Sw/Hw adjacent_5p pairing parallel cis one_hbond 89",
+        "A8-A23 : U-A Ww/Hh pairing antiparallel trans XXIV",
+        "A9-A22 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI"
+      ],
+      "stackings": [
+        "A6-A8 : outward",
+        "A7-A22 : inward",
+        "A9-A23 : outward",
+        "A23-A24 : adjacent_5p upward"
+      ],
+      "all_four_base_pairs_confirmed": true,
+      "all_four_stackings_confirmed": true,
+      "formal_core_confirmed": true,
+      "structure": "1F84_sarcin_ricin.pdb",
+      "fr3d_interaction_checks": {
+        "X1-Y3 tHH": true,
+        "X2-X3 cSH": true,
+        "X3-Y2 tWH": true,
+        "X4-Y1 tHS": true,
+        "X1-X3 s55": true,
+        "X2-Y1 s33": true,
+        "X4-Y2 s55": true,
+        "Y2-Y3 s35": true
+      },
+      "fr3d_all_required_interactions": true,
+      "fr3d_discrepancy": 0.436798,
+      "fr3d_cutoff": 0.5,
+      "high_confidence_canonical_srm": true
+    },
+    {
+      "record_id": 8329,
+      "pdb": "1JBR",
+      "nt_number": "C6,F24,F18,F19,F20,F21,F22,F23,C7,C8,C9,C10,C11,C12,C13",
+      "core_nodes": [
+        "C9",
+        "C10",
+        "C11",
+        "C12",
+        "F19",
+        "F20",
+        "F21"
+      ],
+      "core_sequence": "AGUA/GAA",
+      "description": "Restrictocin-bound sarcin-ricin domain RNA",
+      "base_pairs": [
+        "C9-F21 : A-A Hh/Hh Bh/O2P pairing parallel trans II",
+        "C10-C11 : G-U Sw/Hw adjacent_5p pairing parallel cis one_hbond 89",
+        "C11-F20 : U-A Ww/Hh pairing antiparallel trans XXIV",
+        "C12-F19 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI"
+      ],
+      "stackings": [
+        "C9-C11 : outward",
+        "C10-F19 : inward",
+        "C12-F20 : outward",
+        "F20-F21 : adjacent_5p upward"
+      ],
+      "all_four_base_pairs_confirmed": true,
+      "all_four_stackings_confirmed": true,
+      "formal_core_confirmed": true,
+      "structure": "1JBR_sarcin_ricin.pdb",
+      "fr3d_interaction_checks": {
+        "X1-Y3 tHH": true,
+        "X2-X3 cSH": true,
+        "X3-Y2 tWH": true,
+        "X4-Y1 tHS": true,
+        "X1-X3 s55": true,
+        "X2-Y1 s33": true,
+        "X4-Y2 s55": true,
+        "Y2-Y3 s35": true
+      },
+      "fr3d_all_required_interactions": true,
+      "fr3d_discrepancy": 0.157787,
+      "fr3d_cutoff": 0.5,
+      "high_confidence_canonical_srm": true
+    },
+    {
+      "record_id": 9018,
+      "pdb": "1K73",
+      "nt_number": "A216,A224,A209,A210,A211,A212,A213,A214,A215,A230,A225,A226,A227,A228,A229",
+      "core_nodes": [
+        "A212",
+        "A213",
+        "A214",
+        "A215",
+        "A225",
+        "A226",
+        "A227"
+      ],
+      "core_sequence": "AGUA/GAA",
+      "description": "23S rRNA occurrence matching the published formal core",
+      "base_pairs": [
+        "A212-A227 : A-A Hh/Hh Bh/O2P pairing parallel trans II",
+        "A213-A214 : G-U Sw/Hw adjacent_5p pairing parallel cis one_hbond 89",
+        "A214-A226 : U-A Ww/Hh pairing antiparallel trans XXIV",
+        "A215-A225 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI"
+      ],
+      "stackings": [
+        "A212-A214 : outward",
+        "A213-A225 : inward pairing",
+        "A215-A226 : outward",
+        "A226-A227 : adjacent_5p upward"
+      ],
+      "all_four_base_pairs_confirmed": true,
+      "all_four_stackings_confirmed": true,
+      "formal_core_confirmed": true,
+      "structure": "1K73_sarcin_ricin.pdb",
+      "fr3d_interaction_checks": {
+        "X1-Y3 tHH": true,
+        "X2-X3 cSH": true,
+        "X3-Y2 tWH": true,
+        "X4-Y1 tHS": true,
+        "X1-X3 s55": true,
+        "X2-Y1 s33": true,
+        "X4-Y2 s55": true,
+        "Y2-Y3 s35": true
+      },
+      "fr3d_all_required_interactions": true,
+      "fr3d_discrepancy": 0.228136,
+      "fr3d_cutoff": 0.5,
+      "high_confidence_canonical_srm": true
+    }
+  ],
+  "sources": [
+    {
+      "title": "Modeling RNA tertiary structure motifs by graph-grammars",
+      "url": "https://doi.org/10.1093/nar/gkm069",
+      "role": "Formal seven-nucleotide graph and sequence space."
+    },
+    {
+      "title": "Automated classification of RNA 3D motifs and the RNA 3D Motif Atlas",
+      "url": "https://doi.org/10.1261/rna.039438.113",
+      "role": "Independent recognition of sarcin-ricin motif groups."
+    },
+    {
+      "title": "FR3D: finding local and composite recurrent structural motifs in RNA 3D structures",
+      "url": "https://doi.org/10.1007/s00285-007-0110-x",
+      "role": "Official interaction annotation, geometric discrepancy, and published motif-specific cutoff."
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Candidate records (CSV)",
+      "filename": "candidates.csv"
+    },
+    {
+      "label": "Confirmed structures (ZIP)",
+      "filename": "confirmed_structures.zip"
+    },
+    {
+      "label": "Workflow summary (JSON)",
+      "filename": "summary.json"
+    },
+    {
+      "label": "FR3D validation evidence (JSON)",
+      "filename": "fr3d_validation.json"
+    },
+    {
+      "label": "Deterministic candidate audit (CSV)",
+      "filename": "candidate_audit.csv"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "method": "Atomic coordinates were reannotated with official FR3D Python. The complete St-Onge seven-nucleotide interaction signature and the published FR3D five-nucleotide geometric cutoff were both required.",
+    "fr3d_python_commit": "ed850c00df01616e58c643b0f84bdc69662b5d55",
+    "reference": {
+      "pdb": "1JJ2",
+      "description": "Classical H. marismortui sarcin-ricin loop diagnostic core",
+      "nodes": [
+        "02692",
+        "02693",
+        "02694",
+        "02701",
+        "02702"
+      ],
+      "display_nodes": [
+        "0:2692",
+        "0:2693",
+        "0:2694",
+        "0:2701",
+        "0:2702"
+      ]
+    },
+    "acceptance_criteria": [
+      "RNAdex internal loop bounded by two canonical WC pairs.",
+      "All four formal Leontis-Westhof base pairs detected by FR3D.",
+      "All four formal stacking interactions detected by FR3D.",
+      "Five-nucleotide FR3D discrepancy to 1JJ2 is at most 0.5."
+    ],
+    "representatives_tested": 3,
+    "representatives_passing": 3,
+    "candidate_audit": {
+      "sampling": "Deterministic simple random sample, seed 20260729; curated representatives excluded.",
+      "sample_size": 24,
+      "passing_all_criteria": 24,
+      "file": "candidate_audit.csv"
+    }
+  }
+}

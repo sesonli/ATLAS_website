@@ -176,7 +176,10 @@ def is_subgraph_isomorphic(graph, target_graph):
     return None, None
 
 def sort_key(node):
-    node = node.replace('-', '') 
+    # Library node ids are strings ('A1', 'A-1', "'0'1"), but a browser-drawn
+    # target graph numbers its nodes with plain ints, and those ints reach here
+    # through the mapping sort below. Coerce so both node id kinds are accepted.
+    node = str(node).replace('-', '')
     match = re.match(r"([A-Za-z]+)(\d+)", node)
     if not match:
         match = re.match(r"'(\d+)'(\d+)", node)  
@@ -234,49 +237,62 @@ def find_matching_subgraphs(graphs, target_graphs, conn):
 # Setup directories
 current_dir = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(current_dir, 'hairpin.db')
-with sqlite3.connect(db_path) as conn:
-    cursor = conn.cursor()
-    cursor.execute('DROP TABLE IF EXISTS files')
-    cursor.execute('''
-    CREATE TABLE IF NOT EXISTS files (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        motif_type TEXT,
-        pdbid TEXT,
-        paired_nt_number TEXT, 
-        nt_number TEXT,
-        filecontent TEXT,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-    ''')
-    # Use batch_0000_graphs.pickle as database
-    file_path = "./batch_0000_graphs.pickle"
-    with open(file_path, 'rb') as f:
-        graphs = pickle.load(f)
 
-    # Load target graphs from temporary file created by web interface
-    try:
-        with open("temp_target_graphs.pickle", 'rb') as f:
-            target_graphs = pickle.load(f)
-        print(f"Loaded {len(target_graphs)} target graphs from temp file")
-    except FileNotFoundError:
-        target_graphs = {}  # fallback if no temp file exists
-        print("No temp target graphs file found, using empty target graphs")
-    print(f"Total number of graphs: {len(graphs)}")
-    time1 = time.time()
-    matching_counts, matches_info, target_match_counts, problematic_graphs = find_matching_subgraphs(graphs, target_graphs, conn)
-    time2 = time.time()
 
-    print("Matching counts per graph:", matching_counts)
-    print("Matching counts per target graph:", target_match_counts)
+def main():
+    """Run a custom motif search. app.py invokes this file as a subprocess.
 
-    file_path_3 = os.path.join(current_dir, "Matched_hairpin_test.txt")
-    with open(file_path_3, 'w') as file:
-        for graph_id, count in matching_counts.items():
-            file.write(f'Graph ID: {graph_id}, Count: {count}\n')
-        
-        for target_graph_id, match_count in target_match_counts.items():
-            file.write(f"Target Graph ID: {target_graph_id}, Total Matches: {match_count}\n")
-        
-        file.write(f"Total time is: {time2 - time1} seconds\n")
-        for match_info in matches_info:
-            file.write(match_info)
+    Kept behind a __main__ guard so the helpers above can be imported by tests
+    without dropping the results table and launching a full search on import.
+    """
+    with sqlite3.connect(db_path) as conn:
+        cursor = conn.cursor()
+        cursor.execute('DROP TABLE IF EXISTS files')
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS files (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            motif_type TEXT,
+            pdbid TEXT,
+            paired_nt_number TEXT,
+            nt_number TEXT,
+            filecontent TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        ''')
+        # Use batch_0000_graphs.pickle as database. Resolve inputs against the
+        # script directory so the search does not depend on the caller's cwd.
+        file_path = os.path.join(current_dir, "batch_0000_graphs.pickle")
+        with open(file_path, 'rb') as f:
+            graphs = pickle.load(f)
+
+        # Load target graphs from temporary file created by web interface
+        try:
+            with open(os.path.join(current_dir, "temp_target_graphs.pickle"), 'rb') as f:
+                target_graphs = pickle.load(f)
+            print(f"Loaded {len(target_graphs)} target graphs from temp file")
+        except FileNotFoundError:
+            target_graphs = {}  # fallback if no temp file exists
+            print("No temp target graphs file found, using empty target graphs")
+        print(f"Total number of graphs: {len(graphs)}")
+        time1 = time.time()
+        matching_counts, matches_info, target_match_counts, problematic_graphs = find_matching_subgraphs(graphs, target_graphs, conn)
+        time2 = time.time()
+
+        print("Matching counts per graph:", matching_counts)
+        print("Matching counts per target graph:", target_match_counts)
+
+        file_path_3 = os.path.join(current_dir, "Matched_hairpin_test.txt")
+        with open(file_path_3, 'w') as file:
+            for graph_id, count in matching_counts.items():
+                file.write(f'Graph ID: {graph_id}, Count: {count}\n')
+
+            for target_graph_id, match_count in target_match_counts.items():
+                file.write(f"Target Graph ID: {target_graph_id}, Total Matches: {match_count}\n")
+
+            file.write(f"Total time is: {time2 - time1} seconds\n")
+            for match_info in matches_info:
+                file.write(match_info)
+
+
+if __name__ == '__main__':
+    main()
