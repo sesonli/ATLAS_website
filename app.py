@@ -368,14 +368,20 @@ def check_c4_distances(filecontent, nt_list, min_dist=4.0, max_dist=8.0):
             # Sort by residue number
             nts_sorted = sorted(nts, key=lambda x: x['res_num'])
 
-            # Identify continuous segments (gap ≤ 2)
+            # Identify continuous segments (gap of exactly 1).
+            # A gap of 2 was allowed here before. It measured the C4' distance
+            # across a residue that is present in the deposited structure but
+            # absent from the motif record, so the two residues were not
+            # covalently adjacent and the distance was flagged even when the
+            # geometry was sound.
             segments = []
             current_segment = [nts_sorted[0]]
 
             for i in range(1, len(nts_sorted)):
                 gap = nts_sorted[i]['res_num'] - nts_sorted[i-1]['res_num']
-                if gap <= 2:
-                    # Continuous or small insertion
+                if gap <= 1:
+                    # Covalently adjacent, or the same residue number with an
+                    # insertion code
                     current_segment.append(nts_sorted[i])
                 else:
                     # Large gap, start new segment
